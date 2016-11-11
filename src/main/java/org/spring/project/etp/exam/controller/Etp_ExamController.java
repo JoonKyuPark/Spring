@@ -1,4 +1,4 @@
-package org.spring.project.exam.controller.Etp;
+package org.spring.project.etp.exam.controller;
 
 import org.springframework.stereotype.Controller;
 

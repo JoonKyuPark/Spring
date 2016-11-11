@@ -1,4 +1,4 @@
-package org.spring.project.recruit.controller.Etp;
+package org.spring.project.etp.recruit.controller;
 
 import org.springframework.stereotype.Controller;
 
