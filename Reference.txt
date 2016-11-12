@@ -1,0 +1,8 @@
+Method Name : mem_Service_Create(){}, etp_Service_Create(){}
+
+입력 : Create
+상세 : Read
+수정 : Update
+삭제 : Delete
+
+JSP Name : etp_Exam_Update_Form.jsp, etp_Exam_Update.jsp, mem_Resume_Create_Form.jsp, mem_Resume_Create.jsp
