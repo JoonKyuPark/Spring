@@ -1,4 +1,4 @@
-package com.jobis.mem.recurit.persistance;
+package com.jobis.mem.recruit.persistance;
 
 public class Mem_RecuritDAOImpl implements Mem_RecuritDAO {
 
