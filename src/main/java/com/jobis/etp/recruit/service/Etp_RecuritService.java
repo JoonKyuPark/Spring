@@ -1,4 +1,4 @@
-package com.jobis.etp.recurit.service;
+package com.jobis.etp.recruit.service;
 
 public interface Etp_RecuritService {
 

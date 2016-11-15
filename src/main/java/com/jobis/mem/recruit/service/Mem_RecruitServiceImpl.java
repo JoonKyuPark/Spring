@@ -1,4 +1,4 @@
-package com.jobis.mem.recurit.service;
+package com.jobis.mem.recruit.service;
 
 public class Mem_RecruitServiceImpl implements Mem_RecuritService {
 

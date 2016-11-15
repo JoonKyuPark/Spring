@@ -1,4 +1,4 @@
-package com.jobis.mem.recurit.service;
+package com.jobis.mem.recruit.service;
 
 public interface Mem_RecuritService {
 
