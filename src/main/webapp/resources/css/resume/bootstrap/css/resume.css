@@ -1,0 +1,47 @@
+@CHARSET "UTF-8";
+@icon-font-path:          "images/folder_png.png";
+@icon-font-name:          "glyphicons-folderImg";
+
+html{
+	
+}
+
+
+#box>div{
+	float:left;
+	margin:1%;
+}
+.resume_h3 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.left_aside {
+	float: left;
+}
+
+.aside_ul {
+	margin-top: 20px;
+}
+
+#career_radio {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.career-border {
+	border-top: grey 2px solid;
+}
+
+.resume_open_btn{
+	margin:0px;
+}
+
+
+#resume_work_income_input{
+	text-align: right;
+}
+
+
+#resume_work_income_input:focus {text-align : left !important}
+
