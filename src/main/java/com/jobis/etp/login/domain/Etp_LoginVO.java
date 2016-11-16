@@ -1,5 +1,7 @@
 package com.jobis.etp.login.domain;
 
-public class Etp_LoginVO {
+import java.io.Serializable;
+
+public class Etp_LoginVO implements Serializable {
 
 }

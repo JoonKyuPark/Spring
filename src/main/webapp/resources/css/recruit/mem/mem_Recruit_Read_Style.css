@@ -1,0 +1,30 @@
+#titleImg {
+  max-width: 100px;
+  height: auto;
+}
+#logoImg {
+  max-width: 200px;
+  height: auto;
+}
+ table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+.table td {
+    border: 1px solid #bcbcbc;
+    padding: 5px 10px;
+}
+  
+  
+h2 {
+	margin: 20px 0
+}
+
+.tab-content {
+	padding: 10px 0;
+}
+
+hr {
+	width: 100%;
+	text-align: center
+}

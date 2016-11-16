@@ -21,7 +21,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="org.spring.project" />
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="controller" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<!-- <context:component-scan base-package="com.jobis.etp.join.controller" /> -->
 	
 	
 	
