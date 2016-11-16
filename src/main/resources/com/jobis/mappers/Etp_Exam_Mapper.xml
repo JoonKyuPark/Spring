@@ -3,8 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="org.spring.project.mappers.Etp_Exam_Mapper">
-
+<mapper namespace="com.jobis.mappers.Etp_Exam_Mapper">
+	<insert id="etp_Exam_Create"  parameterType="Etp_ExamVO">
+		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no)
+			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no})
+	</insert>
+	<select id="etp_Exam_List" resultType="Etp_ExamVO" parameterType="int">
+		select * from exam_infor where etp_no=#{etp_no}
+	</select>
 </mapper>  
 
  
