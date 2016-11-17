@@ -67,7 +67,7 @@
 		<div class="col-md-2">
 			<ul class="nav nav-pills">
 				<li><a href="etp_Exam_Main">시험메인</a></li>
-				<li><a href="Etp_Exam_List.jsp">시험목록</a></li>
+				<li><a href="etp_Exam_List">시험목록</a></li>
 				<li><a href="etp_Exam_Create">시험등록</a></li>
 				<li><a href="Etp_Question_Reg.jsp">시험문제등록</a></li>
 				<li><a href="Etp_Question_List.jsp">시험문제목록</a>

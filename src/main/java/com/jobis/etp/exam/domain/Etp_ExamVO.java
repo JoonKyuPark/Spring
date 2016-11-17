@@ -1,9 +1,11 @@
 package com.jobis.etp.exam.domain;
 
+import java.util.Date;
+
 public class Etp_ExamVO {
 	private Integer exam_no;
-	private String exam_sdate;
-	private String exam_ddate;
+	private Date exam_sdate;
+	private Date exam_ddate;
 	private int exam_number;
 	private int etp_no;
 	
@@ -12,7 +14,7 @@ public class Etp_ExamVO {
 	
 	public Etp_ExamVO(){}
 
-	public Etp_ExamVO(Integer exam_no, String exam_sdate, String exam_ddate, int exam_number, int etp_no, String exam_name,
+	public Etp_ExamVO(Integer exam_no, Date exam_sdate, Date exam_ddate, int exam_number, int etp_no, String exam_name,
 			String exam_field) {
 		super();
 		this.exam_no = exam_no;
@@ -32,19 +34,19 @@ public class Etp_ExamVO {
 		this.exam_no = exam_no;
 	}
 
-	public String getExam_sdate() {
+	public Date getExam_sdate() {
 		return exam_sdate;
 	}
 
-	public void setExam_sdate(String exam_sdate) {
+	public void setExam_sdate(Date exam_sdate) {
 		this.exam_sdate = exam_sdate;
 	}
 
-	public String getExam_ddate() {
+	public Date getExam_ddate() {
 		return exam_ddate;
 	}
 
-	public void setExam_ddate(String exam_ddate) {
+	public void setExam_ddate(Date exam_ddate) {
 		this.exam_ddate = exam_ddate;
 	}
 

@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("utf-8");
 	SimpleDateFormat format = new SimpleDateFormat("yyyy");
 	Date date = new Date();
 	String strYear = format.format(date);
@@ -19,6 +20,8 @@
 	href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
+<script src="../../../../resources/js/exam/bootstrap-select.js"></script>
+<script src="../../../../resources/js/exam/bootstrap-select.js"></script>
 <script src="../../../../resources/js/exam/moment.js"></script>
 <link rel="stylesheet"
 	href="../../../../resources/css/exam/bootstrap-theme.min.css"
@@ -31,29 +34,88 @@
 	href="../../../../resources/css/exam/bootstrap-datetimepicker.css">
 <link rel="stylesheet"
 	href="../../../../resources/css/exam/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet"
+	href="../../../../resources/css/exam/bootstrap-select.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="../../../../resources/css/exam/bootstrap-select.min.css"
+	rel="stylesheet" type="text/css" />
 <script
 	src="../../../../resources/js/exam/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
+	function showKeyCode(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105)
+				|| keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39) {
+			return;
+		} else {
+			return false;
+		}
+	}
+
 	function cal() {
 		$('.datetimepicker').datetimepicker({
 			format : 'YYYY/MM/DD'
 		});
 	};
-	
-	function date_check(){
-			var sdate = $('#exam_sdate').val().split('/');
-			var ddate = $('#exam_ddate').val().split('/');
-			var sdateCompare = new Date(sdate[0], sdate[1], sdate[2]);
-			var ddateCompare = new Date(ddate[0], ddate[1], ddate[2]);
-			
-		if(sdateCompare.getTime() > ddateCompare.getTime()){
+
+	function date_check() {
+		var sdate = $('#exam_sdate').val().split('/');
+		var ddate = $('#exam_ddate').val().split('/');
+		var sdateCompare = new Date(sdate[0], sdate[1], sdate[2]);
+		var ddateCompare = new Date(ddate[0], ddate[1], ddate[2]);
+
+		if (sdateCompare.getTime() > ddateCompare.getTime()) {
 			alert('종료일이 시작일보다 빠릅니다.');
 			return;
-		};
+		}
+		;
+
+		var name = $('#exam_name').val();
+		var sdate_1 = $('#exam_sdate').val();
+		var ddate_1 = $('#exam_ddate').val();
+		var field = $('#exam_field').val();
+		var number = $('#exam_number').val();
+		if (name == "") {
+			alert('시험 이름을 입력해주세요.');
+			return;
+		} else if (sdate_1 == "") {
+			alert('시험 시작일을 입력해주세요.');
+			return;
+		} else if (ddate_1 == "") {
+			alert('시험 종료일을 입력해주세요.');
+			return;
+		} else if (field == "선택") {
+			alert('시험 과목을 입력해주세요.');
+			return;
+		} else if (number == "") {
+			alert('시험 인원을 입력해주세요.');
+			return;
+		}
+		;
 		$('#exam_registForm').submit();
 	};
+	window.onload = function() {
+		$('.btn-info').hover(function() {
+			$(this).css('background', '#6695BE');
+		});
+		$('.btn-info').mouseout(function() {
+			$(this).css('background', '#3679B5');
+		});
+	}
 </script>
+<style type="text/css">
+.btn-info {
+	background: #3679B5;
+}
+
+.examNumberForm {
+	float: left;
+	width: 20%;
+}
+</style>
 <head>
 <meta charset="UTF-8">
 <title>Registration Exam</title>
@@ -77,78 +139,79 @@
 			<br>
 			<div class="col-md-2"></div>
 			<div class="inputExamForm col-md-8">
-				<form role="form" action="etp_Exam_Create" id="exam_registForm" method="post">
+				<form role="form" action="etp_Exam_Create" id="exam_registForm"
+					method="post">
 					<input type="hidden" name="etp_no" value="1">
 					<!-- 기업번호 꼭 넣기!! -->
 					<div class="form-group col-md-12">
-						<label for="inputExamName" class="label col-md-12"><i
-							class="xi-align-justify"></i>시험 이름</label>
+						<label><i class="xi-align-justify"></i>시험 이름</label>
 						<div class="col-md-12">
-							<input type="text" class="form-control col-md-12"
+							<input type="text" id="exam_name" class="form-control col-md-12"
 								name="exam_name" placeholder="내용을 입력하세요.">
 						</div>
 						<br> <br> <br>
+
 					</div>
 
 
-					<div class="form-group col-md-12">
-						<label for="inputExamName" class="label col-md-12"><i
-							class="xi-align-justify"></i>시험 기간</label>
+					<div class="form-group col-md-6">
+						<label><i class="xi-align-justify"></i>시험 기간</label> <br> <label
+							for="inputSDate" class="examTerm col-md-12"><i
+							class="xi-clock-o"></i> 시작일</label>
 						<div class="col-md-12">
-							<label for="inputSDate" class="examTerm col-md-12"><i
-								class="xi-clock-o"></i> 시작일</label>
 							<div class="form-group">
 								<div class='input-group date datetimepicker'>
-									<input type='text' class="form-control"  name = "exam_sdate" id = "exam_sdate"/> <span
-										class="input-group-addon" onclick="cal()"><i class="xi-calendar"></i>
-									</span>
+									<input type='text' class="form-control" name="exam_sdate"
+										id="exam_sdate" /> <span class="input-group-addon"
+										onclick="cal()"><i class="xi-calendar"></i> </span>
 								</div>
 							</div>
 						</div>
-						<br> <br> <br>
+						<div class="col-md-6"></div>
 
+
+
+						<label for="inputSDate" class="examTerm col-md-12"><i
+							class="xi-clock"></i> 종료일</label>
 						<div class="col-md-12">
-							<label for="inputSDate" class="examTerm col-md-12"><i
-								class="xi-clock"></i> 종료일</label>
 							<div class="form-group">
 								<div class='input-group date datetimepicker'>
-									<input type='text' class="form-control" name  = "exam_ddate" id  = "exam_ddate"/> <span
-										class="input-group-addon" onclick="cal()"><i class="xi-calendar"></i>
-									</span>
+									<input type='text' class="form-control" name="exam_ddate"
+										id="exam_ddate" /> <span class="input-group-addon"
+										onclick="cal()"><i class="xi-calendar"></i> </span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="form-group col-md-12">
-						<label for="examNumberForm" class="label col-md-12"><i
-							class="xi-align-justify"></i>응시인원</label><br>
+
+						<label><i class="xi-align-justify"></i>응시인원</label><br>
 						<div class="col-md-12">
-							<input type="number" class="examNumberForm form-control col-md-3"
-								name="exam_number" style="padding-right: 0;"> <label
-								class="examNumberFormText col-md-9">명</label>
+							<input type="text" class="examNumberForm form-control col-md-3"
+								name="exam_number" id="exam_number"
+								onkeydown="return showKeyCode(event)"><label
+								class="col-md-9" style="margin-top: 1%">명</label>
 						</div>
 						<br> <br>
 					</div>
 
 					<div class="form-group col-md-12">
-						<label for="examFieldForm" class="label col-md-12"><i
-							class="xi-align-justify"></i>시험과목</label><br>
-						<div class="col-md-12">
-							<select name="exam_field" class="selectpicker col-md-4">
-								<option>선택</option>
-								<option value="Korean">문학</option>
-								<option value="English">영어</option>
-								<option value="Math">수학</option>
-								<option value="Physics">물리</option>
-								<option value="History">역사</option>
-								<option value="IT">IT</option>
-							</select>
-						</div>
+						<label><i class="xi-align-justify"></i>시험과목</label><br> <select
+							name="exam_field" id="exam_field" class="selectpicker col-md-4">
+							<option>선택</option>
+							<option value="Korean">문학</option>
+							<option value="English">영어</option>
+							<option value="Math">수학</option>
+							<option value="Physics">물리</option>
+							<option value="History">역사</option>
+							<option value="IT">IT</option>
+						</select>
 					</div>
 					<div class="form-group col-md-12">
 						<div class="col-md-4"></div>
 						<div class="col-md-2">
-							<input type="button" class="btn btn-info" value="등 록"  onclick="date_check()">
+							<input type="button" class="btn btn-info" value="등 록"
+								onclick="date_check()">
 						</div>
 						<div class="col-md-2">
 							<a href="etp_Exam_Main"><input type="button"
