@@ -1,5 +1,7 @@
 package com.jobis.mem.receive.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,11 @@ public class Mem_ReceiveServiceImpl implements Mem_ReceiveService {
 	@Override
 	public void mem_Receive_Create(Mem_ReceivceVO mem_receive) throws Exception {
 		dao.mem_Receive_Create(mem_receive);
+	}
+
+	@Override
+	public List<Mem_ReceivceVO> mem_Receive_List(int member_no) throws Exception {
+		return dao.mem_Receive_List(member_no);
 	}
 
 }

@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="recruit_Read" resultType="Mem_RecruitVO" >
-		select * from recruit_infor where recruit_no=#{id1}
+		select * from recruit_infor where recruit_no=#{rno}
 	</select>
 	
 	<select id="etp_read" resultType="Etp_JoinVO" parameterType="int">

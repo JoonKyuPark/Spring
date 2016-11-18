@@ -8,6 +8,7 @@
     <package name="com.jobis.mem.recruit.domain"/> 
     <package name="com.jobis.etp.join.domain"/> 
     <package name="com.jobis.mem.receive.domain"/> 
+    <package name="com.jobis.mem.clip.domain"/> 
   </typeAliases>
 
 

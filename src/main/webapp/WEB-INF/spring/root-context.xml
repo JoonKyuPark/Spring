@@ -28,6 +28,8 @@
 	<context:component-scan base-package="com.jobis.mem.recruit.service" />
 	<context:component-scan base-package="com.jobis.mem.receive.persistance" />
 	<context:component-scan base-package="com.jobis.mem.receive.service" />
+	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
+	<context:component-scan base-package="com.jobis.mem.clip.service" />
 <!-- 	<context:component-scan base-package="com.jobis.etp.join.persistance" />
 	<context:component-scan base-package="com.jobis.etp.join.service" /> -->
 
