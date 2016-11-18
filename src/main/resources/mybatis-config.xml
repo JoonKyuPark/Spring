@@ -5,7 +5,11 @@
 <configuration>
 
   <typeAliases>
-    <package name="org.spring.project"/> 
+<package name="com.jobis.etp.login.domain"/>
+    <package name="com.jobis.etp.join.domain"/> 
+    <package name="com.jobis.mem.join.domain"/> 
+    <package name="com.jobis.mem.login.domain"/> 
+    
   </typeAliases>
 
 

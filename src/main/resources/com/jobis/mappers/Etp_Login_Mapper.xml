@@ -5,6 +5,14 @@
   
 <mapper namespace="org.spring.project.mappers.Etp_Login_Mapper">
 
+<select id="etp_login_select" resultType="Etp_LoginVO"  parameterType="Etp_LoginVO">
+select * from ETP_INFOR where etp_id=#{etp_id} and etp_pass=#{etp_pass}
+
+</select>
+
+
+
+
 </mapper>  
 
  

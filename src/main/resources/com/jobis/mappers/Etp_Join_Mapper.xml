@@ -5,6 +5,18 @@
   
 <mapper namespace="org.spring.project.mappers.Etp_Join_Mapper">
 
+
+
+<insert id="etp_create">
+INSERT INTO etp_infor(
+		etp_no, delegator_name, etp_id, etp_pass, etp_email, etp_kind,etp_tel,etp_registration_num, etp_name
+		)
+		values(
+		ETP_INFOR_NO.nextval,#{delegator_name},#{etp_id},#{etp_pass},#{etp_email},#{etp_kind},#{etp_tel},#{etp_registration_num},#{etp_name}
+		)
+
+</insert>
+
 </mapper>  
 
  

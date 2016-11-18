@@ -1,5 +1,9 @@
 package com.jobis.etp.join.service;
 
-public interface Etp_JoinService {
+import com.jobis.etp.join.domain.Etp_JoinVO;
 
+public interface Etp_JoinService {
+	
+	public void Etp_joinService_create(Etp_JoinVO joinVO);
+	
 }
