@@ -24,7 +24,13 @@ public class Etp_ExamController {
 
 	// 메인 페이지
 	@RequestMapping("etp_Exam_Main")
-	public void Etp_Exam_Main() {
+	public void Etp_Exam_Main(Model model) {
+		try {
+			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService();
+			model.addAttribute("list",list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 시험 일정 등록 페이지

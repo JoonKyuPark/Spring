@@ -3,13 +3,6 @@
 <%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("utf-8");
-	SimpleDateFormat format = new SimpleDateFormat("yyyy");
-	Date date = new Date();
-	String strYear = format.format(date);
-	int year = Integer.parseInt(strYear);
-%>
 
 <!DOCTYPE html>
 <html>
@@ -127,11 +120,11 @@
 		<div class="col-md-2">Empty</div>
 		<div class="col-md-2">
 			<ul class="nav nav-pills">
-				<li><a href="Etp_Exam_Main.jsp">시험메인</a></li>
-				<li><a href="Etp_Exam_List.jsp">시험목록</a></li>
-				<li><a href="Etp_Exam_Reg.jsp">시험등록</a></li>
-				<li><a href="Etp_Question_Reg.jsp">시험문제등록</a></li>
-				<li><a href="Etp_Question_List.jsp">시험문제목록</a>
+				<li><a href="etp_Exam_Main">시험메인</a></li>
+				<li><a href="etp_Exam_List">시험목록</a></li>
+				<li><a href="etp_Exam_Create">시험등록</a></li>
+				<li><a href="Etp_Question_Reg">시험문제등록</a></li>
+				<li><a href="Etp_Question_List">시험문제목록</a>
 			</ul>
 		</div>
 		<div class="col-md-8">
