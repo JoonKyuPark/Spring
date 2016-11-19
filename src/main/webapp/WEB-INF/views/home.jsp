@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>Home</title>
+	<script type="text/javascript">alert("바보니 멍청아 김민정");</script>
 </head>
 <body>
 <h1>

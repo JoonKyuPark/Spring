@@ -1,5 +1,12 @@
 package com.jobis.etp.recruit.persistance;
 
-public interface Etp_RecuritDAO {
+import java.util.List;
 
+import com.jobis.etp.recruit.domain.Etp_RecruitVO;
+
+public interface Etp_RecuritDAO {
+	
+	public void etp_recruit_insert(Etp_RecruitVO vo)throws Exception;
+	
+	public List<Etp_RecruitVO> etp_recruit_list()throws Exception;
 }

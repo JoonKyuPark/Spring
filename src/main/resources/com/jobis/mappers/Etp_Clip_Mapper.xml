@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.spring.project.mappers.Etp_Clip_Mapper">
+
+	<select id="etp_mem_clip_list" resultType="Etp_Mem_ClipVO">
+		select recruit_no,member_no,mem_clip_title,mem_clip_date
+		from mem_clip 
+	</select>
+</mapper>  
+
+ 
