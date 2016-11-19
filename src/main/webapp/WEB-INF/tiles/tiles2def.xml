@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  tiles-definitions PUBLIC
+	"-//Aapche Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name = "base_layout" template = "/WEB-INF/views/module/template.jsp">
+     <put-attribute name = "header" value = "/WEB-INF/views/module/header.jsp"/>
+     <put-attribute name = "footer" value = "/WEB-INF/views/module/footer.jsp"/>
+</definition>
+
+<definition name = "base" template = "/WEB-INF/views/module/template.jsp">
+     <put-attribute name = "header" value = "/WEB-INF/views/join/main/include/NewFile.jsp"/>
+</definition>
+
+<definition name="login"  extends = "base_layout">
+     <put-attribute name = "body" value = "/WEB-INF/views/join/main/login.jsp"/>
+</definition>
+
+
+	<definition name="mem_login"  extends = "base_layout">
+     <put-attribute name = "body" value = "/WEB-INF/views/join/mem/mem_login.jsp"/>
+</definition>
+
+
+	<definition name="fail"  extends = "base_layout">
+     <put-attribute name = "body" value = "/WEB-INF/views/join/main/fail.jsp"/>
+</definition>
+
+<definition name="join"  extends = "base_layout">
+     <put-attribute name = "body" value = "/WEB-INF/views/join/main/join.jsp"/>
+</definition> 
+
+	<definition name="etp_login"  extends = "base_layout">
+     <put-attribute name = "body" value = "/WEB-INF/views/join/etp/etp_login.jsp"/>
+</definition>
+
+
+
+
+	
+</tiles-definitions>
+
+
+
+
+
+
