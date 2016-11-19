@@ -6,4 +6,5 @@ public interface Mem_LoginService {
 	
 	public Mem_LoginVO Mem_LoginService_selelct(Mem_LoginVO loginvo);
 
+
 }

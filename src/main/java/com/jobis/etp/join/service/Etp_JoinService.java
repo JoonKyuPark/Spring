@@ -6,4 +6,6 @@ public interface Etp_JoinService {
 	
 	public void Etp_joinService_create(Etp_JoinVO joinVO);
 	
+	public String etp_idcheck(String etp_id);
+	
 }

@@ -25,21 +25,21 @@ public class Etp_LoginController {
 	
 	
 	@RequestMapping(value = "/etp_login", method = RequestMethod.POST)
-	public String  login(@RequestParam("logid") String logid, @RequestParam("logpwd") String logpwd, Model model) {
+	public String  login(Etp_LoginVO loginVO/*,@RequestParam("autologin") String autologin*/ ,Model model) {
 	
-		Etp_LoginVO loginVO = new Etp_LoginVO();
-		loginVO.setEtp_id(logid);
-		loginVO.setEtp_pass(logpwd);
-		
+		/*loginVO.setEtp_id(logid);
+		loginVO.setEtp_pass(logpwd);*/
+		System.out.println("#333333333");
 		
 	try {
 if(loginservice.loginservice(loginVO)==null){
 			
-			return "/join/main/fail";
+			return "fail";
 			}
 			else{
 			model.addAttribute("etp_infor",loginservice.loginservice(loginVO) );
-			return "/join/etp/etp_login";
+			/*model.addAttribute("autologin",autologin);*/
+			return "etp_login";
 		}
 		
 	} catch (Exception e) {
@@ -47,7 +47,7 @@ if(loginservice.loginservice(loginVO)==null){
 	}
 		
 
-	return "/join/etp/etp_login";
+	return "etp_login";
 			
 		
 	}

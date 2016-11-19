@@ -23,4 +23,6 @@ public class Etp_LoginDAOImpl implements Etp_LoginDAO {
 		return vo;
 	}
 
+
+
 }

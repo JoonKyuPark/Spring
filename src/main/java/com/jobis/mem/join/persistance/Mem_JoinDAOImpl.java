@@ -25,5 +25,11 @@ public class Mem_JoinDAOImpl implements Mem_JoinDAO {
 
 		sqlsession.insert(namespace+".mem_create", joinvo);
 	}
+	
+	@Override
+	public String mem_idcheck(String mem_id) {
+		
+		return sqlsession.selectOne(namespace+".mem_idcheck",mem_id );
+	}
 
 }

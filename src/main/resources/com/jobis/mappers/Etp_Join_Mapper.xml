@@ -7,15 +7,19 @@
 
 
 
-<insert id="etp_create">
+<insert id="etp_create" parameterType="Etp_JoinVO">
 INSERT INTO etp_infor(
 		etp_no, delegator_name, etp_id, etp_pass, etp_email, etp_kind,etp_tel,etp_registration_num, etp_name
 		)
 		values(
 		ETP_INFOR_NO.nextval,#{delegator_name},#{etp_id},#{etp_pass},#{etp_email},#{etp_kind},#{etp_tel},#{etp_registration_num},#{etp_name}
 		)
-
 </insert>
+
+	<select id="etp_idcheck" resultType="String">
+	select COUNT(etp_id) from etp_infor where etp_id=#{etp_id}
+	
+	</select>
 
 </mapper>  
 

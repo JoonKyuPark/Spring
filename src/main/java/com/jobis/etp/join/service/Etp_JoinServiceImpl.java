@@ -22,4 +22,10 @@ public class Etp_JoinServiceImpl  implements Etp_JoinService {
 		
 	}
 
+	@Override
+	public String etp_idcheck(String etp_id) {
+		
+		return joinDao.etp_idcheck(etp_id);
+	}
+
 }

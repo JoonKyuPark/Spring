@@ -22,6 +22,13 @@ public class Mem_JoinServiceImpl implements Mem_JoinService {
 		mem_joindao.mem_create(joinvo);
 		
 	}
+
+
+	@Override
+	public String mem_idcheck(String mem_id) {
+
+		return mem_joindao.mem_idcheck(mem_id);
+	}
 	
 	
 

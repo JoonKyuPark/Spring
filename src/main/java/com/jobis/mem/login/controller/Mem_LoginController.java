@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jobis.mem.join.domain.Mem_JoinVO;
 import com.jobis.mem.join.service.Mem_JoinService;
@@ -22,10 +22,8 @@ public class Mem_LoginController {
 	private Mem_LoginService loginservice;
 	
 	@RequestMapping(value = "/mem_login", method = RequestMethod.POST)
-	public String Mem_LoginController_login(Mem_LoginVO loginvo, Model model) {
+	public String Mem_LoginController_login(Mem_LoginVO loginvo/*, @RequestParam("autologin") String autologin*/,Model model) {
 	
-		
-		
 		loginservice.Mem_LoginService_selelct(loginvo);
 		if(loginservice.Mem_LoginService_selelct(loginvo)==null){
 		
@@ -33,6 +31,7 @@ public class Mem_LoginController {
 		return "/main/fail";
 		}else{
 			model.addAttribute("member_infor", loginservice.Mem_LoginService_selelct(loginvo));
+/*			model.addAttribute("autologin", autologin);*/
 			return "mem_login";
 		}
 	}
@@ -47,7 +46,8 @@ public class Mem_LoginController {
 
 			
 			request.getSession().invalidate();
-			return "/join/main/main";
+			
+			return "login";
 		}
 
 	

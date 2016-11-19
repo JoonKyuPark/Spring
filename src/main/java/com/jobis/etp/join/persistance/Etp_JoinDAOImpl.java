@@ -29,5 +29,13 @@ public class Etp_JoinDAOImpl implements Etp_JoinDAO{
 		
 	}
 	
+	
+	@Override
+	public String etp_idcheck(String etp_id) {
+		
+		return sqlsession.selectOne(namespace+".etp_idcheck",etp_id);
+	}
+
+	
 
 }

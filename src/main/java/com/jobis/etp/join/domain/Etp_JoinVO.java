@@ -1,16 +1,28 @@
 package com.jobis.etp.join.domain;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Etp_JoinVO {
 	
+	
+	
+	
+	public Etp_JoinVO() {
+		super();
+	}
 	private int etp_no;
 	private String etp_name;    //가입자명
 	private String etp_id;
 	private String etp_pass;
 	private String etp_tel;
 	private String etp_email;
+
 	private String etp_kind;
 	private String etp_registration_num;
 	private String delegator_name;
@@ -20,9 +32,7 @@ public class Etp_JoinVO {
 	private int etp_capital;
 	private int etp_sales;
 	private int clip_number;
-	public Etp_JoinVO() {
-		super();
-	}
+
 	public Etp_JoinVO(int etp_no, String etp_name, String etp_id, String etp_pass, String etp_tel, String etp_email,
 			String etp_kind, String etp_registration_num, String delegator_name, String etp_field, int employee_number,
 			String[] etp_location, int etp_capital, int etp_sales, int clip_number) {

@@ -12,6 +12,11 @@
 		VALUES(MEM_INFOR_NO.nextval,#{member_name},#{member_id},#{member_pwd},#{member_email},#{member_telephone})
 	</insert>
 	
+	<select id="mem_idcheck" resultType="String">
+	select COUNT(member_id) from member_infor where member_id=#{mem_id}
+	
+	</select>
+	
 
 </mapper>  
 

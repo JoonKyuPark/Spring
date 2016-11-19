@@ -16,9 +16,16 @@ public class Mem_LoginDAOImpl implements Mem_LoginDAO {
 
 	@Override
 	public Mem_LoginVO Mem_LoginDAO_select(Mem_LoginVO loginvo) {
-
+        System.out.println(loginvo.getMember_id());    
+        System.out.println(loginvo.getMember_pwd());    
+		
+		
+		
 		return sqlsession.selectOne(namespace+".mem_login_select", loginvo);
 	}
+
+
+
 	
 	
 	

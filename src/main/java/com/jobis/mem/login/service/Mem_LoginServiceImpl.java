@@ -20,4 +20,5 @@ public class Mem_LoginServiceImpl implements Mem_LoginService{
 		return mem_logindao.Mem_LoginDAO_select(loginvo);
 	}
 
+
 }
