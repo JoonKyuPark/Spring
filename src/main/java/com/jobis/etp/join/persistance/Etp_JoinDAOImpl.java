@@ -35,6 +35,16 @@ public class Etp_JoinDAOImpl implements Etp_JoinDAO{
 		
 		return sqlsession.selectOne(namespace+".etp_idcheck",etp_id);
 	}
+	@Override
+	public Etp_JoinVO etp_info_read(Integer etp_no) throws Exception {
+		System.out.println(etp_no);
+		return sqlsession.selectOne(namespace+".etp_info_read", etp_no);
+	}
+
+	@Override
+	public void etp_info_update(Etp_JoinVO vo) throws Exception {
+		sqlsession.update(namespace+".etp_info_update", vo);
+	}
 
 	
 

@@ -29,7 +29,7 @@ public class Etp_LoginController {
 	
 		/*loginVO.setEtp_id(logid);
 		loginVO.setEtp_pass(logpwd);*/
-		System.out.println("#333333333");
+	
 		
 	try {
 if(loginservice.loginservice(loginVO)==null){
@@ -39,6 +39,7 @@ if(loginservice.loginservice(loginVO)==null){
 			else{
 			model.addAttribute("etp_infor",loginservice.loginservice(loginVO) );
 			/*model.addAttribute("autologin",autologin);*/
+			System.out.println("#333333333");
 			return "etp_login";
 		}
 		

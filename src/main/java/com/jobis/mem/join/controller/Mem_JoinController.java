@@ -26,7 +26,7 @@ public class Mem_JoinController {
 		joinservice.Mem_JoinService_create(joinvo);
 
 		
-		return "/main/main";
+		return "join/main/main";
 	}
 	
 

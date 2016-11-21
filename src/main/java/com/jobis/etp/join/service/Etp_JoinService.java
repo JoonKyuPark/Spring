@@ -8,4 +8,8 @@ public interface Etp_JoinService {
 	
 	public String etp_idcheck(String etp_id);
 	
+public Etp_JoinVO etp_info_read(Integer etp_no)throws Exception;
+	
+	public void etp_info_update(Etp_JoinVO vo)throws Exception;
+	
 }

@@ -27,7 +27,7 @@ public class HomeController {
 	public String home12() {
 	
 		
-		return "main/main";
+		return "join/main/main";
 	}
 	
 	

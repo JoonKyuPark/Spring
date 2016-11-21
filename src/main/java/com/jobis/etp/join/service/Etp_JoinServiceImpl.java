@@ -28,4 +28,15 @@ public class Etp_JoinServiceImpl  implements Etp_JoinService {
 		return joinDao.etp_idcheck(etp_id);
 	}
 
+	
+	@Override
+	public Etp_JoinVO etp_info_read(Integer etp_no) throws Exception {
+		return joinDao.etp_info_read(etp_no);
+	}
+
+	@Override
+	public void etp_info_update(Etp_JoinVO vo) throws Exception {
+		joinDao.etp_info_update(vo);
+	}
+	
 }

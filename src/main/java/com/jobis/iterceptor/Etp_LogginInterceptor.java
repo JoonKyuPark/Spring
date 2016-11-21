@@ -18,12 +18,13 @@ public class Etp_LogginInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 
 		Object model = modelAndView.getModelMap().get("etp_infor");
-		String autologin = (String) modelAndView.getModelMap().get("autologin");
+		//String autologin = (String) modelAndView.getModelMap().get("autologin");
 
 		if (model != null) {
 
 			Etp_LoginVO vo = (Etp_LoginVO) model;
 			request.getSession().setAttribute("etp_infor", vo);
+			System.out.println(vo.getEtp_id());
 		/*	if (autologin == null) {
 				if (request.getCookies() == null) {
 					Cookie[] cookies = request.getCookies();

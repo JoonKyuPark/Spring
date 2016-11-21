@@ -32,12 +32,12 @@
 		
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/join/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		<beans:property name="order" value="2" />
 	</beans:bean>
 
-	<context:component-scan base-package="org.spring.project" />
+
 
 
 	<resources mapping="/resources/**" location="/resources/" />
@@ -50,7 +50,7 @@
 	<beans:bean id="Etp_LogginInterceptor" class="com.jobis.iterceptor.Etp_LogginInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
-			<mapping path="/Etp_login" />
+			<mapping path="/etp_login" />
 			<beans:ref bean="Etp_LogginInterceptor" />
 		</interceptor>
 	</interceptors>
@@ -60,6 +60,17 @@
 		<interceptor>
 			<mapping path="/mem_login" />
 			<beans:ref bean="Mem_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	
+		<beans:bean id="authInterceptor"
+		class="com.jobis.iterceptor.AuthInterceptor">
+	</beans:bean>
+
+	<interceptors>
+		<interceptor>
+			<mapping path="/receive/mem_Join_Receive_Create" />
+			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>
 	
@@ -104,14 +115,34 @@
 		base-package="com.jobis.mem.join.service" /> <context:component-scan base-package="com.jobis.mem.join.persistance" 
 		/> -->
 
-
-
+<!--  -->
+	<!-- 이미지업로드 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+   <beans:bean id="uploadPath" class="java.lang.String">
+      <beans:constructor-arg value="C:\upload"/>
+   </beans:bean>
+<!--  -->
+	<context:component-scan base-package="org.spring.project" />
 	<context:component-scan base-package="com.jobis.etp.join.domain" />
 	<context:component-scan base-package="com.jobis.etp.login.**" />
 	<context:component-scan base-package="com.jobis.etp.join.**" />
 	<context:component-scan base-package="com.jobis.mem.join.**" />
 	<context:component-scan base-package="com.jobis.mem.login.**" />
 	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
+	
+	
+		<context:component-scan base-package="com.jobis.mem.recruit.persistance" />
+	<context:component-scan base-package="com.jobis.mem.recruit.service" />
+	<context:component-scan base-package="com.jobis.mem.receive.persistance" />
+	<context:component-scan base-package="com.jobis.mem.receive.service" />
+	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
+	<context:component-scan base-package="com.jobis.mem.clip.service" />
+		<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="controller" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<context:component-scan base-package="com.jobis.mem.clip.controller" />
 
 
 
