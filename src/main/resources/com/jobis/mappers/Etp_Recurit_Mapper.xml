@@ -5,6 +5,54 @@
   
 <mapper namespace="org.spring.project.mappers.Etp_Recurit_Mapper">
 
+	  <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
+      INSERT INTO recruit_infor
+            (recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
+            <if test="career_period != null">
+               career_period
+            </if>
+            ,ac_ability_no,receive_sdate,receive_ddate,receive_way,
+            <if test="ads != null">
+               ads
+            </if>
+            ,etp_no,recruit_field,recruit_position,recruit_addr,recruit_day)
+      VALUES(seq_recruit_infor.NEXTVAL,#{recruit_title},
+            <foreach collection="hire_type" open="'" separator="/" close="'" item="item">
+               ${item}
+            </foreach>
+            ,#{recruit_number},#{income_qualification},#{max_pay},#{min_pay},
+            <foreach collection="career_check" open="'" separator="/" close="'" item="item">
+               ${item}
+            </foreach>
+            ,
+            <if test="career_period != null">
+               #{career_period}
+            </if>
+            ,#{ac_ability_no},#{receive_sdate},#{receive_ddate},
+            <foreach collection="receive_way" open="'" separator="/" 
+               close="'" item="item">
+               ${item}
+            </foreach>
+            ,
+            <if test="ads != null">
+               #{ads}
+            </if>
+            ,0,#{recruit_field},
+            <foreach collection="recruit_position" open="'" separator="/"
+               close="'" item="item">
+               ${item}
+            </foreach>
+            ,
+            <foreach collection="recruit_addr" open="'" separator="/" close="'" item="item">${item}</foreach>
+            ,#{recruit_day})
+   </insert>
+    
+    <select id="etp_recruit_list" resultType="Etp_RecruitVO">
+       select recruit_no, recruit_title, recruit_number,recruit_field 
+       from recruit_infor 
+    </select>
+	
+	
 </mapper>  
 
  

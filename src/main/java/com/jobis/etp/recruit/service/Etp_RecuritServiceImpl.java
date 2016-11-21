@@ -19,10 +19,10 @@ public class Etp_RecuritServiceImpl implements Etp_RecuritService {
 	public void etp_recruit_create(Etp_RecruitVO vo) throws Exception {
 		dao.etp_recruit_insert(vo);
 	}
-
+/*
 	@Override
 	public List<Etp_RecruitVO> etp_recruit_list() throws Exception {
 		return dao.etp_recruit_list();
 	}
-
+*/
 }
