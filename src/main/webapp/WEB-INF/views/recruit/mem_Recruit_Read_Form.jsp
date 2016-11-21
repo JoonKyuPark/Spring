@@ -50,8 +50,9 @@
 			 swal({   title: " ",   text: "잡이즈 기본 이력서로 온라인 지원 됩니다. ",   type: "warning",
 		 			showCancelButton: true,   confirmButtonText: "지원하기",   closeOnConfirm: false }, 
 		 				 function(){  
-		 				location.href="/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}";
-		 				
+		 				//location.href="/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}";
+		 				//location.href="window.open('/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}')";
+		 				 window.open('/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=400,height=400');
 		 				swal("지원 성공!", "잡이즈 이력서로 온라인 지원 성공 했습니다.", "success"); 
 		 			});
 		 }

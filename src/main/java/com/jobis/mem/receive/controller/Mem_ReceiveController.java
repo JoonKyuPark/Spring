@@ -26,16 +26,22 @@ public class Mem_ReceiveController {
 	public Mem_ReceiveService service;
 	@Inject
 	public Mem_RecruitService recruit_Service;
+	
 
 	@RequestMapping(value = "/mem_Join_Receive_Create", method = RequestMethod.GET)
-	public String mem_Receive_Create(@RequestParam("rno") int rno) throws Exception {
+	public void mem_Receive_CreateGET(@RequestParam("rno") int rno) throws Exception {
+		System.out.println("ok");
+	}
+	
+/*	@RequestMapping(value = "/mem_Join_Receive_Create", method = RequestMethod.POST)
+	public String mem_Receive_CreatePOST(@RequestParam("rno") int rno) throws Exception {
 		Mem_ReceivceVO mem_receive = new Mem_ReceivceVO();
-		mem_receive.setMember_no(1);
+		mem_receive.setResume_no(1);
 		mem_receive.setRecruit_no(rno);
 		service.mem_Receive_Create(mem_receive);
 		return "redirect:/recruit/mem_Recruit_List_Form";
 
-	}
+	}*/
 
 	@RequestMapping(value = "/mem_Join_Receive_List_Form", method = RequestMethod.GET)
 	public void mem_Receive_List(Model model, HttpSession session) throws Exception {

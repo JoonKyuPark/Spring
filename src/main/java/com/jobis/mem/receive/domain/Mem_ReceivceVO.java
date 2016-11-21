@@ -8,21 +8,21 @@ public class Mem_ReceivceVO implements Serializable{
 	String receive_date ;
 	String reading ;
 	String first_interview ;
-	int member_no ;
+	int resume_no  ;
 	
 	public Mem_ReceivceVO(){
 		
 	}
 	
 	public Mem_ReceivceVO(int join_receive_no, int recruit_no, String receive_date, String reading,
-			String first_interview, int member_no) {
+			String first_interview, int resume_no ) {
 	
 		this.join_receive_no = join_receive_no;
 		this.recruit_no = recruit_no;
 		this.receive_date = receive_date;
 		this.reading = reading;
 		this.first_interview = first_interview;
-		this.member_no = member_no;
+		this.resume_no  = resume_no ;
 	}
 	public int getJoin_receive_no() {
 		return join_receive_no;
@@ -54,14 +54,17 @@ public class Mem_ReceivceVO implements Serializable{
 	public void setFirst_interview(String first_interview) {
 		this.first_interview = first_interview;
 	}
-	public int getMember_no() {
-		return member_no;
+
+	public int getResume_no() {
+		return resume_no;
 	}
-	public void setMember_no(int member_no) {
-		this.member_no = member_no;
+
+	public void setResume_no(int resume_no) {
+		this.resume_no = resume_no;
 	}
 	
 	
+
 	
 }
 

@@ -7,10 +7,10 @@
 
 	<insert id="mem_receive_create" parameterType="Mem_ReceivceVO">
 		insert into join_receive(
-		join_receive_no, recruit_no, receive_date, reading, first_interview, member_no
+		join_receive_no, recruit_no, receive_date, reading, first_interview, resume_no 
 		)
 		values(
-		join_receive_seq.nextval, #{recruit_no}, '2016/11/15','y','y',#{member_no}
+		join_receive_seq.nextval, #{recruit_no}, '2016/11/15','y','y',#{resume_no}
 		)
 	</insert>
 
