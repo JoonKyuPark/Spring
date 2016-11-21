@@ -5,6 +5,13 @@
   
 <mapper namespace="org.spring.project.mappers.Mem_Login_Mapper">
 
+
+<select id="mem_login_select" resultType="Mem_LoginVO"  parameterType="Mem_LoginVO">
+select * from member_infor where member_id=#{member_id} and member_pwd=#{member_pwd}
+
+</select>
+
+
 </mapper>  
 
  

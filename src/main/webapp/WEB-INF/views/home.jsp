@@ -1,9 +1,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <html>
+<script type="text/javascript">
+
+</script>
+
+
 <head>
 	<title>Home</title>
+<<<<<<< HEAD
 	<script type="text/javascript">alert("바보니 멍청아 김민정");</script>
+=======
+	
+>>>>>>> refs/remotes/KimMinJeong/HanMuYoung
 </head>
 <body>
 <h1>

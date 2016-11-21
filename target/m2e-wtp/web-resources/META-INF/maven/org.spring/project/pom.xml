@@ -83,7 +83,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- @Inject -->
+		<!-- @Inject -->  
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -241,3 +241,5 @@
 		</plugins>
 	</build>
 </project>
+
+
