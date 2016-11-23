@@ -1,5 +1,5 @@
 	$(document).ready(function() {
-		calendar(2016, 10, 18);
+		calendar(0, 0, 0);
 
 	});
 
@@ -222,20 +222,19 @@
 				docu += '<td class="today">';
 				docu += '<div class="td_Div">';
 				docu += i;
-				console.log(exam_length);
 				for (var index = 0; index < exam_length; index++) {
 					if (compareDate == compareSdate[index]
-							.getAttribute('value')) {
-						docu += '<br>'+'<a class = "calender_Exam">'
-								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;시작일'+'</a>';
+							.getAttribute('value').substring(0,10)) {
+						docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+								+ '<font color="white">' + compareSdate[index].getAttribute('name')
+								+ '&nbsp;시작일'+'</font></a>';
 					}
 					;
 					if (compareDate == compareDdate[index]
 							.getAttribute('value')) {
-						docu += '<br>'+'<a class = "calender_Exam">'
-								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;종료일'+'</a>';
+						docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+								+compareSdate[index].getAttribute('name')
+								+ '&nbsp;종료일' + '</a>';
 					}
 				}
 				docu += '</div>';
@@ -266,14 +265,14 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+ compareSdate[index].getAttribute('name')
 									+ '&nbsp;시작일'+'</a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+compareSdate[index].getAttribute('name')
 									+ '&nbsp;종료일' + '</a>';
 						}
@@ -301,14 +300,14 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>'+'<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>'+'<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+ compareSdate[index].getAttribute('name')
 									+ '&nbsp;시작일'+'</a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+ compareSdate[index].getAttribute('name')
 									+ '&nbsp;종료일' + '</a>';
 						}
@@ -335,14 +334,14 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+ compareSdate[index].getAttribute('name')
 									+ '&nbsp;시작일' + '</a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Exam_Update?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
 									+ compareSdate[index].getAttribute('name')
 									+ '&nbsp;종료일' + '</a>';
 						}

@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+.btn-info{
+	background : #3679B5;
+}
+#question_content{
+	width : 100%;
+	resize : vertical;
+	border : 1px solid #D2D2D2;
+	border-radius : 5px;
+}
+#question_answer{
+	width : 100%;
+	resize : vertical;
+
+}
+#question_second{
+	width : 30%;
+	border : 1px solid #D2D2D2;
+	border-radius : 5px;
+	float : left;
+}
+.bootstrap-select{
+	padding : 0;
+	margin : 0;
+}

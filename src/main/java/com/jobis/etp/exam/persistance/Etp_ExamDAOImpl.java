@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jobis.etp.exam.domain.Etp_ExamVO;
+import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.SearchCriteria;
 
 @Repository
@@ -57,9 +58,24 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	@Override
 	public void etp_Exam_Delete(int exam_no) throws Exception {
 		sqlSession.delete(namespace + ".etp_Exam_Delete", exam_no);
-		
-	}
-	
-	
 
+	}
+
+	@Override
+	public void etp_Question_Create(Etp_QuestionVO etp_QuestionVO) throws Exception {
+
+		if (sqlSession.selectOne(namespace + ".exam_Question_No", etp_QuestionVO.getExam_no()) == null) {
+			etp_QuestionVO.setExam_question_no(1);
+			sqlSession.insert(namespace + ".etp_Question_Create", etp_QuestionVO);
+		} else {
+			int exam_Question_No = sqlSession.selectOne(namespace + ".exam_Question_No", etp_QuestionVO);
+			etp_QuestionVO.setExam_question_no(exam_Question_No + 1);
+			sqlSession.insert(namespace + ".etp_Question_Create", etp_QuestionVO);
+		}
+	}
+
+	@Override
+	public List<Etp_QuestionVO> etp_Question_List(int exam_no) throws Exception {
+		return sqlSession.selectList(namespace + ".etp_Question_List", exam_no);
+	}
 }

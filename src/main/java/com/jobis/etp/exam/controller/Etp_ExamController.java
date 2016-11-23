@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
+import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.PageMaker;
 import com.jobis.etp.exam.domain.SearchCriteria;
 import com.jobis.etp.exam.service.Etp_ExamService;
@@ -35,7 +36,7 @@ public class Etp_ExamController {
 
 	// 시험 일정 등록 페이지
 	@RequestMapping(value = "etp_Exam_Create", method = RequestMethod.GET)
-	public void Etp_Exam_Create_GET(Etp_ExamVO etp_examVO) throws Exception {
+	public void Etp_Exam_CreateForm(Etp_ExamVO etp_examVO) throws Exception {
 	}
 
 	// 시험 일정 등록 액션
@@ -91,4 +92,64 @@ public class Etp_ExamController {
 		}
 		return "redirect:/exam/etp/etp_Exam_List";
 	}
+	
+	//시험 문제 등록 페이지
+	@RequestMapping(value="etp_Question_Create", method = RequestMethod.GET)
+	public void Etp_Question_CreateForm(Etp_QuestionVO etp_QuestionVO, Model model)throws Exception{
+		try {
+			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService();
+			model.addAttribute("etp_Exam_List", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	//시험 문제 등록 액션
+	@RequestMapping(value="etp_Question_Create", method = RequestMethod.POST)
+	public String Etp_Question_Create(Etp_QuestionVO etp_QuestionVO)throws Exception{
+		try {
+			etp_ExamService.etp_Question_CreateService(etp_QuestionVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/exam/etp/etp_Exam_Main";
+	}
+	
+	//시험 문제 목록 페이지
+	@RequestMapping(value="etp_Question_List", method = RequestMethod.GET)
+	public void Etp_Question_List(@RequestParam("exam_no") int exam_no, Model model){
+		try {
+			List<Etp_QuestionVO> list = etp_ExamService.etp_Question_ListService(exam_no);
+			model.addAttribute("etp_Question_List", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.btn-info {
+	background: #3679B5;
+}
+
+.examNumberForm {
+	float: left;
+	width: 20%;
+}

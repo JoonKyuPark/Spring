@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+.btn-info {
+	background: #3679B5;
+}
+
+#etp_Exam_Table {
+	width: 100%;
+	font-family: "나눔고딕";
+}
+
+#etp_Exam_Table tr {
+	height: 40px;
+}
+
+#etp_Exam_Table th {
+	text-align: center;
+}
+
+#etp_Exam_Table td {
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	text-align: center;
+}
+
+.box-footer {
+	align: center;
+}

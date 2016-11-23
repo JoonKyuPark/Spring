@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jobis.etp.exam.domain.Etp_ExamVO;
+import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.SearchCriteria;
 import com.jobis.etp.exam.persistance.Etp_ExamDAO;
 @Service
@@ -53,6 +54,17 @@ public class Etp_ExamServiceImpl implements Etp_ExamService {
 		etp_ExamDao.etp_Exam_Qdelete(exam_no);
 		etp_ExamDao.etp_Exam_Delete(exam_no);
 		
+	}
+
+	@Override
+	public void etp_Question_CreateService(Etp_QuestionVO etp_QuestionVO) throws Exception {
+		etp_ExamDao.etp_Question_Create(etp_QuestionVO);
+		
+	}
+
+	@Override
+	public List<Etp_QuestionVO> etp_Question_ListService(int exam_no) throws Exception {
+		return etp_ExamDao.etp_Question_List(exam_no);
 	}
 
 }

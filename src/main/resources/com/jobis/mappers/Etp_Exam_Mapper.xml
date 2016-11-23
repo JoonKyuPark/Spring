@@ -6,8 +6,8 @@
 <mapper namespace="com.jobis.mappers.Etp_Exam_Mapper">
 	<!-- 시험 일정 등록 -->
 	<insert id="etp_Exam_Create"  parameterType="Etp_ExamVO">
-		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no)
-			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no})
+		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show)
+			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no}, 'hide')
 	</insert>
 	<!-- 시험 일정 목록 -->
 	<select id="etp_Exam_List" resultType="Etp_ExamVO" >
@@ -33,7 +33,8 @@
 			exam_ddate = #{exam_ddate},
 			exam_name = #{exam_name},
 			exam_number = #{exam_number},
-			exam_field = #{exam_field}
+			exam_field = #{exam_field},
+			exam_show = #{exam_show}
 		where exam_no = #{exam_no}
 	</update>
 	
@@ -42,10 +43,36 @@
 		delete from exam_infor <if test = "value != null">where exam_no = ${value}</if>
 	</delete>
 	
+	<!-- 연관된 시험 문제 모두 삭제 -->
 	<delete id="etp_Exam_Qdelete" parameterType="int">
 		delete from exam_question <if test ="value != null">where exam_no = ${value}</if>
 	</delete>
 	
+	<!-- 시험 문제 등록 -->
+	<insert id="etp_Question_Create" parameterType="Etp_QuestionVO">
+		insert into exam_question (
+			question_no, question_name, question_content, question_second, exam_no, etp_no, question_answer, exam_question_no
+		)values(
+			question_seq.nextval,#{question_name},#{question_content},#{question_second},#{exam_no},#{etp_no}, #{question_answer}, #{exam_question_no}
+		)
+		
+	</insert>
+	
+	<!-- 시험 문제 목록 -->
+	<select id = "etp_Question_List"  resultType="Etp_QuestionVO" parameterType="int">
+		select * from exam_question <if test = "value != null">where exam_no = ${value}</if> order by question_no desc
+	</select>
+	
+	<select id="exam_Question_No" resultType="integer" parameterType="int">
+		select max(exam_question_no) from exam_question where exam_no=#{exam_no}
+	</select>
+	
+	<!-- 시험 시작 종료 -->
+	<update id="etp_Exam_StartEnd" parameterType="Etp_ExamVO">
+		update exam_infor set
+			exam_show = #{exam_show}
+		where exam_no = #{exam_no}
+	</update>
 	<!-- 동적 쿼리문 -->
 	<sql id="search">
 		<if test="searchType != null">

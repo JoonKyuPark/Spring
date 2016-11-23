@@ -6,23 +6,20 @@
 <html>
 <!-- Script -->
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
-<script src="../bootstrap/bootstrap-select.min.js"></script>
+<script src="../../../../resources/js/exam/bootstrap-select.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../../../resources/js/exam/etp_Exam_Calendar.js"></script>
-<!-- Css -->
-<link href="../bootstrap/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
-<link rel="stylesheet" href="../../../../resources/css/exam/etp_Exam_Calendar.css">
-
+<!-- CSS -->
+<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-select.css" type="text/css" />
+<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-theme.min.css" type="text/css" />
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css"/>
+<link rel="stylesheet" href="../../../../resources/css/exam/etp_Exam_Calendar.css"/>
 
 <head>
 <meta charset="UTF-8">
-<title>Etp Exam Main</title>
+<title>시험 메인</title>
 </head>
-
-
 
 <body id="Etp_Exam_main">
 	<div>
@@ -34,7 +31,7 @@
 				<li><a href="etp_Exam_Main">시험메인</a></li>
 				<li><a href="etp_Exam_List">시험목록</a></li>
 				<li><a href="etp_Exam_Create">시험등록</a></li>
-				<li><a href="Etp_Question_Reg">시험문제등록</a></li>
+				<li><a href="etp_Question_Create">시험문제등록</a></li>
 				<li><a href="Etp_Question_List">시험문제목록</a>
 			</ul>
 		</div>
