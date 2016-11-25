@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,50 +9,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>부트스트랩</title>
 <link rel="stylesheet" type="text/css" media="all"
-	href="../../../css/recruit/mem/daterangepicker.css" />
-<link rel="import"
-  href="../polymer/polymer.html">
-<link rel="import" 
-  href="../iron-icon/iron-icon.html">
+	href="../../../resources/css/recruit/mem/daterangepicker.css" />
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="stylesheet"
-	href="../../../css/recruit/mem/sweetalert.css">
-<link href="../../../css/recruit/mem/bootstrap.min.css"
+	href="../../../resources/css/recruit/mem/sweetalert.css">
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css"
 	rel="stylesheet">
-<link href="../../../css/recruit/mem/kfonts2.css"
+<link href="../../../resources/css/recruit/mem/kfonts2.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
-	href="../../../css/recruit/mem/mem_Recruit_Read_Style.css" />
+	href="../../../resources/css/recruit/mem/mem_Recruit_Read_Style.css" />
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=7f371f73f647744ce5b5552611d68ab9&libraries=services"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript"
-	src="../../../js/recruit/mem/jquery-2.1.3.min.js"></script>
-<script src="../../../js/recruit/mem/sweetalert.min.js"></script>
-<script src="../../../js/recruit/mem/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../js/recruit/mem/moment.js"></script>
-<script type="text/javascript" src="../../../js/recruit/mem/daterangepicker.js"></script>
+	src="../../../resources/js/recruit/mem/jquery-2.1.3.min.js"></script>
+<script src="../../../resources/js/recruit/mem/sweetalert.min.js"></script>
+<script src="../../../resources/js/recruit/mem/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="../../../resources/js/recruit/mem/moment.js"></script>
+<script type="text/javascript"
+	src="../../../resources/js/recruit/mem/daterangepicker.js"></script>
 
 <script type="text/javascript">
-			$(document).ready(function() {
-				  $('.collapse.in').prev('.panel-heading').addClass('active');
-				  $('#accordion, #bs-collapse')
-				    .on('show.bs.collapse', function(a) {
-				      $(a.target).prev('.panel-heading').addClass('active');
-				    })
-				    .on('hide.bs.collapse', function(a) {
-				      $(a.target).prev('.panel-heading').removeClass('active');
-				    });
+
+		var rno ="${recruit_read.getRecruit_no()}";
+
+		$(document).ready(function() {
+			  $('.collapse.in').prev('.panel-heading').addClass('active');
+			  $('#accordion, #bs-collapse')
+			    .on('show.bs.collapse', function(a) {
+			      $(a.target).prev('.panel-heading').addClass('active');
+			    })
+			    .on('hide.bs.collapse', function(a) {
+			      $(a.target).prev('.panel-heading').removeClass('active');
+			    });
+			  
+				//스크랩 추가할때 
+				$("#button3").on("click",function(){
+					  
+					  $.ajax({
+							type:'post',
+							url:'/clip',
+							headers: { 
+							      "Content-Type": "application/json",
+							      "X-HTTP-Method-Override": "POST" },
+							dataType:'text',
+							data: JSON.stringify({recruit_no : rno}),//stringify문자열을 json으로
+							success:function(result){
+								console.log("result: " + result);
+								if(result == 'SUCCESS'){
+									alert("등록 되었습니다.");
+									$("#clip_count").text("${mem_clip_count+1}"); 
+								}
+							}	
+								
+						});
 				});
+		});
+		
 		
 		 function button1_click() {
-			 swal({   title: " ",   text: "잡이즈 기본 이력서로 온라인 지원 됩니다. ",   type: "warning",
-		 			showCancelButton: true,   confirmButtonText: "지원하기",   closeOnConfirm: false }, 
-		 				 function(){  
-		 				location.href="/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}";
-		 				
-		 				swal("지원 성공!", "잡이즈 이력서로 온라인 지원 성공 했습니다.", "success"); 
-		 			});
+			 window.open('/receive/mem_Join_Receive_Create_Form?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
 		 }
 		 
 		 function button2_click() {
@@ -93,7 +112,6 @@
 	        	 dy + hoursRound + hr + minutesRound + min + secondsRound + sec;
 	        	 newtime = window.setTimeout("reverse_counter();", 1000);
 	       }
-	         
 		</script>
 <style>
 </style>
@@ -127,32 +145,34 @@
 						<h3 id="recruit_title">${recruit_read.recruit_title}</h3>
 					</center>
 					<hr>
-					<br><br>
-						<div class="row">
-							<div class="col-md-5">	
+					<br> <br>
+					<div class="row">
+						<div class="col-md-5">
 							<center>
-							<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
-								alt="..." class="img-responsive img-rounded" id="logoImg" >
+								<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
+									alt="..." class="img-responsive img-rounded" id="logoImg">
 							</center>
+						</div>
+						<div class="col-md-5">
+							<h3>${etp_read.etp_name}<br>
+							</h3>
+							<b>기업형태&nbsp;&nbsp;</b> ${etp_read.etp_kind}<br> <b>기업주소&nbsp;&nbsp;</b>
+							${recruit_addr_2}<br> <b>대표자명&nbsp;&nbsp;</b>
+							${etp_read.delegator_name}<br> <b>매출액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+							${etp_read.etp_sales}<br> <b>직원수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+							${etp_read.employee_number}<br>
+						</div>
+						<div class="col-md-2">
+							<div id="clip">
+								<center><div id="clip_count">${mem_clip_count}</div></center>
 							</div>
-							<div class="col-md-5">	
-							<h3>${etp_read.etp_name}<br></h3>
-							<b>기업형태&nbsp;&nbsp;</b> ${etp_read.etp_kind}<br>
-							<b>기업주소&nbsp;&nbsp;</b> ${recruit_addr_2}<br>
-							<b>대표자명&nbsp;&nbsp;</b> ${etp_read.delegator_name}<br>
-							<b>매출액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${etp_read.etp_sales}<br>
-							<b>직원수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${etp_read.employee_number}<br>
-							</div>
-							<div class="col-md-2">	
-							<div id="clip"><center>${mem_clip_count}</center></div>
-							<center><button>관심 채용 등록</button></center>
-							</div>
+							<center>
+								<button id="button3">관심 채용 등록</button>
+							</center>
+						</div>
 					</div>
-					
-					<br>
-					<br>
-					<br>
-					<br>
+
+					<br> <br> <br> <br>
 					<div class="row">
 						<table class="table">
 							<tr>
@@ -199,21 +219,18 @@
 							</tr>
 						</table>
 					</div>
-					<form name="counter" id="timeform" >
-						남은 시간    <input type="text" name="counter_box"  size="22" id="time">
+					<form name="counter" id="timeform">
+						남은 시간 <input type="text" name="counter_box" size="22" id="time">
 					</form>
 				</div>
 				<center>
 					<br>
 					<button type="button" id="button1" onclick="button1_click();"
 						class="btn btn-primary btn-lg raised">즉시 지원</button>
-					<a> </a>
 					<button type="button" class="btn btn-primary btn-lg outline">안심
 						지원 예약</button>
 					<input type="button" id="button2" onclick="button2_click();"
-						value="입사 지원 현황" /> <br>
-					<br>
-					<br>
+						value="입사 지원 현황" /> <br> <br> <br>
 
 				</center>
 
@@ -286,69 +303,73 @@
 												<tr>
 													<th>접수기간</th>
 													<td>${recruit_read.receive_sdate}~${recruit_read.receive_ddate}</td>
-														<div data-provide="calendar"></div>
+													<div data-provide="calendar"></div>
 
-	<div class="container">
-		<div class="well configurator hidden">
-			<form>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="form-group">
-							<label for="parentEl">parentEl</label> <input type="text"
-								class="form-control" id="parentEl" value="" placeholder="body">
-						</div>
+													<div class="container">
+														<div class="well configurator hidden">
+															<form>
+																<div class="row">
+																	<div class="col-md-4">
+																		<div class="form-group">
+																			<label for="parentEl">parentEl</label> <input
+																				type="text" class="form-control" id="parentEl"
+																				value="" placeholder="body">
+																		</div>
 
-						<div class="form-group">
-							<label for="startDate">startDate</label> <input type="text"
-								class="form-control" id="startDate" value="07/01/2015">
-						</div>
+																		<div class="form-group">
+																			<label for="startDate">startDate</label> <input
+																				type="text" class="form-control" id="startDate"
+																				value="07/01/2015">
+																		</div>
 
-						<div class="form-group">
-							<label for="endDate">endDate</label> <input type="text"
-								class="form-control" id="endDate" value="07/15/2015">
-						</div>
+																		<div class="form-group">
+																			<label for="endDate">endDate</label> <input
+																				type="text" class="form-control" id="endDate"
+																				value="07/15/2015">
+																		</div>
 
-						<div class="form-group">
-							<label for="minDate">minDate</label> <input type="text"
-								class="form-control" id="minDate" value=""
-								placeholder="MM/DD/YYYY">
-						</div>
+																		<div class="form-group">
+																			<label for="minDate">minDate</label> <input
+																				type="text" class="form-control" id="minDate"
+																				value="" placeholder="MM/DD/YYYY">
+																		</div>
 
-						<div class="form-group">
-							<label for="maxDate">maxDate</label> <input type="text"
-								class="form-control" id="maxDate" value=""
-								placeholder="MM/DD/YYYY">
-						</div>
+																		<div class="form-group">
+																			<label for="maxDate">maxDate</label> <input
+																				type="text" class="form-control" id="maxDate"
+																				value="" placeholder="MM/DD/YYYY">
+																		</div>
 
-					</div>
-					<div class="col-md-12">
-						<div class="checkbox">
-							<label> <input type="checkbox" id="locale">
-								locale (with example settings)
-							</label> <label id="rtl-wrap"> <input type="checkbox" id="rtl">
-								RTL (right-to-left)
-							</label>
-						</div>
+																	</div>
+																	<div class="col-md-12">
+																		<div class="checkbox">
+																			<label> <input type="checkbox" id="locale">
+																				locale (with example settings)
+																			</label> <label id="rtl-wrap"> <input type="checkbox"
+																				id="rtl"> RTL (right-to-left)
+																			</label>
+																		</div>
 
-						<div class="checkbox">
-							<label> <input type="checkbox" id="alwaysShowCalendars">
-								alwaysShowCalendars
-							</label>
-						</div>
-					</div>
+																		<div class="checkbox">
+																			<label> <input type="checkbox"
+																				id="alwaysShowCalendars">
+																				alwaysShowCalendars
+																			</label>
+																		</div>
+																	</div>
 
-				</div>
-			</form>
+																</div>
+															</form>
 
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<input type="text" id="config-demo" class="form-control" > 
-			</div>
-			<div class="col-md-9"></div>
-		</div>
+														</div>
+														<div class="row">
+															<div class="col-md-3">
+																<input type="text" id="config-demo" class="form-control">
+															</div>
+															<div class="col-md-9"></div>
+														</div>
 
-	</div>
+													</div>
 												</tr>
 												<tr>
 													<th>접수방법</th>
@@ -484,9 +505,9 @@
 					<tr>
 						<td><center>
 								<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
-									alt="..." class="img-responsive img-rounded" id="logoImg" >
+									alt="..." class="img-responsive img-rounded" id="logoImg">
 								<br> ${etp_read.etp_name}
-								</center></td>
+							</center></td>
 						<td><center>
 								<img src="../images/people.png" alt="..."
 									class="img-responsive img-rounded" id="titleImg"> <br>
@@ -552,10 +573,10 @@
 				<h3>기업 History</h3>
 				<hr class="one">
 				<hr class="one">
-		</div>
+			</div>
 
-	</div>
-	<script type="text/javascript">
+		</div>
+		<script type="text/javascript">
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
 	        center: new daum.maps.LatLng(37.4969117,127.03292), // 지도의 중심좌표
@@ -761,6 +782,5 @@
 	}
     
 	</script>
-
 </body>
 </html>

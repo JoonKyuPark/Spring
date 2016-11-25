@@ -1,5 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,18 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>채용공고</title>
 <!-- Bootstrap -->
-<link href="../../../css/recruit/mem/bootstrap.min.css"
-	rel="stylesheet">
-<link href="../../../css/recruit/mem/custom2.css"
-	rel="stylesheet">
-<link href="../../../css/recruit/mem/kfonts2.css"
-	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="../../../css/recruit/mem/mem_Recruit_List_Style.css" />
-<script type="text/javascript"
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css" rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/custom2.css" rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/kfonts2.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/recruit/mem/mem_Recruit_List_Style.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#allCheck").click(function() {
