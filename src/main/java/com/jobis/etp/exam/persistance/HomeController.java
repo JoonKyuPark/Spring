@@ -3,7 +3,13 @@ package com.jobis.etp.exam.persistance;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +19,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.jobis.etp.login.persistance.Etp_LoginDAOImpl;
+import com.jobis.etp.recruit.persistance.Etp_RecuritDAO;
+import com.jobis.etp.recruit.persistance.Etp_RecuritDAOImpl;
+
+
 
 @Controller
 public class HomeController {
+	
+
+
+@Inject
+private Etp_RecuritDAO dao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -25,7 +41,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home12() {
-	
 		
 		return "join/main/main";
 	}
@@ -53,10 +68,7 @@ public class HomeController {
 		
 		return "";
 	}
-	
-	
-	
-	
+
 	
 	
 }

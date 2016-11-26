@@ -2,9 +2,24 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="org.spring.project.mappers.Mem_Match_Mapper">
 
+	<select id="mem_matching" parameterType="Mem_LoginVO">
+	
+select * from recruit_infor
+		where recruit_addr in(select recruit_addr from RECRUIT_INFOR r
+		,MEMBER_INFOR
+		m, resume re
+		where r.recruit_addr= ( select
+		substr(member_addr,1,2) from member_infor
+		where
+		member_id=#{member_id}))
+		and (select hope_income from resume
+		r,member_infor m where m.member_id=#{member_id})
+		between min_pay and max_pay and  ac_ability_no= (select max(ed_division) from ac_ability
+where resume_no = (select resume_no from member_infor where member_id=#{member_id}));
+	</select>
 </mapper>  
 
  

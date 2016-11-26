@@ -74,13 +74,13 @@
 		</interceptor>
 	</interceptors>
 	
-<!-- 		<beans:bean id="	AutoLogin" class="com.jobis.iterceptor.AutoLogin"></beans:bean>
+<beans:bean id="	AutoLogin" class="com.jobis.iterceptor.AutoLogin"></beans:bean>
 	<interceptors>
 		<interceptor>
 			<mapping path="/" />
 			<beans:ref bean="	AutoLogin" />
 		</interceptor>
-	</interceptors> -->
+	</interceptors> 
 	
 	
 
@@ -143,6 +143,11 @@
 	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="com.jobis.mem.receive.controller" />
 	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+
+<context:component-scan base-package="com.jobis.etp.recruit.service" />
+<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
+<context:component-scan base-package="com.jobis.etp.recruit.domain" />
+<context:component-scan base-package="com.jobis.mem.match.**" />
 
 
 

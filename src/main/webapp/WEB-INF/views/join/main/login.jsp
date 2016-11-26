@@ -36,13 +36,13 @@
 			</ul>
 			<div class="tab-content">
 				<div class="row tab-pane active" id="person">
-					<form action="mem_login" method="post">
+					<form action="/mem_login" method="post">
 						<input type="text" name="member_id" placeholder="아이디"
 							required="required"> <input type="password"
 							name="member_pwd" placeholder="비밀번호"><br> <input
 							type="submit" value="로그인"> <a type="button" href="/join">회원가입</a><br>
-							
-							<input type="checkbox" value="auto" name="autologin"><span>자동로그인</span>
+
+						<input type="checkbox" value="auto" name="autologin" class="auto"><span>자동로그인</span>
 					</form>
 				</div>
 				<div class="row tab-pane" id="coper">
@@ -51,8 +51,8 @@
 							required="required"> <input type="password"
 							name="etp_pass" placeholder="비밀번호"><br> <input
 							type="submit" value="로그인"> <a type="button" href="/join">회원가입</a>
-							<br>
-								<input type="checkbox" value="auto" name="autologin"><span>자동로그인</span>
+						<br> <input type="checkbox" value="auto" name="autologin"
+							class="auto"><span>자동로그인</span>
 					</form>
 				</div>
 			</div>
@@ -64,4 +64,32 @@
 
 		</div>
 </body>
+
+
+
+<script type="text/javascript">
+functin
+	$(".auto")
+			.on(
+					"click",
+					function() {
+						if(this.checked){
+						if(confirm('자동로그인을 사용하시면 다음부터 회원아이디와 패스워드를 입력하실 필요가 없습니다.\n\n\공공장소에서는 개인정보가 유출될 수 있으니 사용을 자제하여 주십시오.\n\n자동로그인을 사용하시겠습니까?')){
+							
+this.checked = true; } 
+else { this.checked = false; }	
+						}
+					});
+</script>
+
+
+
+
+
+
+
+
+
+
+
 </html>

@@ -27,6 +27,18 @@ public class Etp_RecuritDAOImpl implements Etp_RecuritDAO {
 		List<Etp_RecruitVO> list = sqlSession.selectList(namespace+".etp_recruit_list");
 		return list;
 	}
+
+	@Override
+	public List<Integer> rnolist() throws Exception {
+	
+		
+			
+			List<Integer> list = sqlSession.selectList(namespace+".rnolist");
+			System.out.println(list.get(0));
+			return list;
+
+		
+	}
 	
 	
 }

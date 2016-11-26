@@ -27,7 +27,7 @@ a:focus {background:transparent;}
 
 /* Common
 -------------------------------------------------------------------------- */
-body {font:normal 12px verdana, dotum, "돋움", gulim, "굴림", sans-serif; text-align:center; background:#fff; color:#333;}
+body {font:normal 12px verdana, dotum, "돋움", gulim, "굴림", sans-serif; background:#fff; color:#333;}
 .skip, .blind, legend {position:absolute; top:-5000em; width:1px; height:1px; overflow:hidden; line-height:0; font-size:0;}
 a {text-decoration:none;}
 
@@ -46,8 +46,60 @@ a {text-decoration:none;}
 
 /* Header
 -------------------------------------------------------------------------- */
+#header .snb {
+	margin-top: 40px;
+	position: relative;
+}
+/*#header .snb li span,*/
+#header .snb>li {
+	float: left;
+	width: 50%;
+	height: 55px;
+	box-sizing: border-box;
+	color: #666;
+	font-size: 18px;
+	font-weight: normal;
+	letter-spacing: -0.5px;
+	text-align: center;
+	font-family: 'Malgun Gothic', '맑은고딕', '돋움', Dotum, sans-serif;
+}
+
+#header .snb>li.person {
+	background-color: #f2f3f5;
+	border-top: 1px solid #cecece;
+	border-right: transparent;
+	border-bottom: 2px solid #3399ff;
+	border-left: 1px solid #cecece;
+}
+
+#header .snb>li.corp {
+	background-color: #f2f3f5;
+	border-top: 1px solid #cecece;
+	border-right: 1px solid #cecece;
+	border-bottom: 2px solid #3399ff;
+	border-left: transparent;
+}
+
+#header .snb>li.on {
+	font-size: 20px;
+}
+
+#header .snb>li>a {
+	overflow: hidden;
+	display: block;
+	height: 100%;
+	background: none;
+	white-space: nowrap;
+	text-indent: 0;
+	color: #666;
+	box-sizing: border-box;
+	padding-top: 12px;
 #header {position:relative; padding-bottom:15px;}
+
 #header h1 {padding:18px 0 0 2px;}
+
+.number{padding: 0;}
+.infor2{text-align: right;}
 
 #header .gnb {position:absolute; top:22px; right:0;}
 #header .gnb li {float:left; padding-left:7px; background:url('/content/images/member/sprites/mbr_header.png') no-repeat 0 -178px;}

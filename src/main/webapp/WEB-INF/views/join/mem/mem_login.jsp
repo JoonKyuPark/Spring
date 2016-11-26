@@ -17,6 +17,8 @@
 				<form action="/mem_logout">
 					<input type="submit" value="로그아웃">
 				</form>
+				
+				<a href="/mem_matching">여기</a>
 			</div>
 		</div>
 	</div>

@@ -25,4 +25,23 @@ public class Etp_RecuritServiceImpl implements Etp_RecuritService {
 		return dao.etp_recruit_list();
 	}
 
+	@Override
+	public List<Integer> rnolist() {
+	try {
+		List<Integer> list =dao.rnolist();
+		
+		
+		
+		return list;
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+		return null ;
+	}
+
+	@Override
+	public String toString() {
+		return "Etp_RecuritServiceImpl [dao=" + dao + "]";
+	}
+
 }

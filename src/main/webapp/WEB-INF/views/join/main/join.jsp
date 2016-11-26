@@ -14,59 +14,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link href="../../../../resources/css/main/mbr_common.css" rel="stylesheet">
+	<link href="../../../../resources/css/main/mbr_tpl.css" rel="stylesheet">
+	<link href="../../../../resources/css/main/mbr_style.css" rel="stylesheet">
 
-<style type="text/css">
+<!-- <style type="text/css">
 /* 탭 메뉴*/
-#header .snb {
-	margin-top: 40px;
-	position: relative;
-}
-/*#header .snb li span,*/
-#header .snb>li {
-	float: left;
-	width: 50%;
-	height: 55px;
-	box-sizing: border-box;
-	color: #666;
-	font-size: 18px;
-	font-weight: normal;
-	letter-spacing: -0.5px;
-	text-align: center;
-	font-family: 'Malgun Gothic', '맑은고딕', '돋움', Dotum, sans-serif;
-}
 
-#header .snb>li.person {
-	background-color: #f2f3f5;
-	border-top: 1px solid #cecece;
-	border-right: transparent;
-	border-bottom: 2px solid #3399ff;
-	border-left: 1px solid #cecece;
 }
-
-#header .snb>li.corp {
-	background-color: #f2f3f5;
-	border-top: 1px solid #cecece;
-	border-right: 1px solid #cecece;
-	border-bottom: 2px solid #3399ff;
-	border-left: transparent;
-}
-
-#header .snb>li.on {
-	font-size: 20px;
-}
-
-#header .snb>li>a {
-	overflow: hidden;
-	display: block;
-	height: 100%;
-	background: none;
-	white-space: nowrap;
-	text-indent: 0;
-	color: #666;
-	box-sizing: border-box;
-	padding-top: 12px;
-}
-</style>
+</style> -->
 <!------- JQUERY -------->
 
 <script type="text/javascript">
@@ -90,7 +46,8 @@
 
 	};
 
-	var check = function() {
+	var check = function(event) {
+		event.preventDefault();
 		if (document.getElementById("agree").checked) {
 			if (document.getElementById("agree2").checked) {
 				if (document.getElementById("mem_check").checked) {
@@ -130,7 +87,7 @@
 			alert(result)
 			if (result == "0") {
 				alert("사용할수 있는 아이디 입니다")
-				$("#etp_check").attr("checked", tr0.ue);
+				$("#etp_check").attr("checked", true);
 			} else {
 				alert("사용할 수 없는 아이디입니다")
 				$("#etp_check").attr("checked", false);
@@ -184,7 +141,7 @@
 	<div align="center">회원 약관</div>
 	<div>
 		<div class="container">
-			<textarea rows="20" cols="50" class="col-md-12" readonly="readonly"
+			<textarea rows="20" cols="40" class="col-md-12" readonly="readonly"
 				disabled="disabled">
 	제 1 조 (목적)
 본 약관은 잡코리아 유한회사 (이하 "회사")가 운영하는 "서비스"를 이용함에 있어 "회사"와 회원간의 이용 조건 및 제반 절차, 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 한다.
@@ -385,7 +342,7 @@
 		<div class="container">
 			<div align="center">개인정보 약관</div>
 
-			<textarea rows="20" cols="50" class="col-md-12" readonly="readonly"
+			<textarea rows="20" cols="30" class="col-md-12" readonly="readonly"
 				disabled="disabled" class="row">
 1. 개인정보의 수집 및 이용목적
 
@@ -445,69 +402,72 @@
 	<br>
 	<br>
 	<div class="tab-content">
-		<div class="tab-pane active" id="person">
+		<div class="tab-pane active infor2" id="person">
 			<form action="join/mem" id="member" method="post">
 
 				<input type="hidden" name="id" value="1">
-				<div class="container">
-					<div class="col-md-2">이름</div>
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<div class="col-md-1">이름</div>
 					<div class="col-md-3">
 						<input type="text" name="member_name" required="required"
 							onkeyup="this.value=this.value.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]+/,'')">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">아이디</div>
-
-					<div class="col-md-2">
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<div class="col-md-1">아이디</div>		
+					<div class="col-md-2 check">
 						<input id="mem_idCheck" type="text" name="member_id"
 							required="required"^[a-zA-Z]*$ 	>
 					</div>
-					<div class="col-md-1">
+					<div class="col-md-0 " align="left">
 						<input type="button" value="중복체크" onclick="id_check()">
-						 <input type="checkbox" id="mem_check" > 
+						 <input type="checkbox" id="mem_check"  style="display:none"> 
 					</div>
-
-
 
 				</div>
 
-				<div class="container">
-					<div class="col-md-2">비밀번호</div>
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<div class="col-md-1">비밀번호</div>
 					<div class="col-md-3">
 						<input type="password" name="member_pwd" required="required">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">이메일</div>
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<div class="col-md-1">이메일</div>
 					<div class="col-md-3">
 						<input type="email" name="member_email" required="required">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">휴대폰번호</div>
-					<div class="col-md-1">
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<div class="col-md-1">휴대폰번호</div>
+					<div class="col-md-1 number"  >
 						<select name="member_telephone">
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
 						</select>
 					</div>
-					<div class="col-md-1">
+					<div class="col-md-1 number">
 						<input type="member_telephone" required="required" name="tel2"
 							style="ime-mode: disabled;"
 							onkeyup="this.value=this.value.replace(/\D/,'')">
 					</div>
-					<div class="col-md-1">
+					<div class="col-md-1 number">
 						<input type="member_telephone" required="required" name="tel3"
 							style="ime-mode: disabled;"
 							onkeyup="this.value=this.value.replace(/\D/,'')">
 					</div>
 				</div>
 				<br>
-				<div class="container">
-					<button class="col-md-1" onclick="check()">회원가입</button>
-					<input type="reset" value="다시쓰기" class="col-md-1">
+				<div class="row infor">
+				<div div class="col-md-2"></div>
+					<input class="col-md-1 mbrBtnRegist" type="submit" onclick="check(event)" value="회원가입">
+					<input type="reset" value="다시쓰기" class="col-md-1 mbrBtnRegist">
 				</div>
 			</form>
 		</div>
@@ -515,7 +475,7 @@
 
 		<!-- 기업 -->
 		<div class="tab-pane" id="coper">
-			<form action="join/etp" id="etp" method="post">
+			<form action="/mypage/etp/join/etp" id="etp" method="post">
 				<input type="hidden" name="id" value="2">
 				<div class="container">
 					<div class="col-md-2">가입자명</div>
@@ -552,19 +512,19 @@
 				<div class="container">
 					<div class="col-md-2">회사전화번호</div>
 					<div class="col-md-1">
-						<select name="member_telephone">
+						<select name="etp_tel">
 							<option>02</option>
 							<option>031</option>
 							<option>054</option>
 						</select>
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required"
+						<input type= "text" name="etp_tel" required="required"
 							onkeyup="this.value=this.value.replace(/\D/,'')"
 							style="ime-mode: disabled;">
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required"
+						<input type= "text" name="etp_tel" required="required"
 							onkeyup="this.value=this.value.replace(/\D/,'')"
 							style="ime-mode: disabled;">
 					</div>
@@ -602,8 +562,7 @@
 				</div>
 				<br>
 				<div class="container">
-					<button class="col-md-1" onclick="check()">회원가입</button>
-					<input type="reset" value="다시쓰기" class="col-md-1">
+					<input type="submit" class="col-md-1" onclick="check(event)" value="회원가입">
 				</div>
 		</div>
 		</form>

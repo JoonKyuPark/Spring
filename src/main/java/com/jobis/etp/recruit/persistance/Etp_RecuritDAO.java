@@ -9,4 +9,6 @@ public interface Etp_RecuritDAO {
 	public void etp_recruit_insert(Etp_RecruitVO vo)throws Exception;
 	
 	public List<Etp_RecruitVO> etp_recruit_list()throws Exception;
+	
+	public List<Integer> rnolist()throws Exception;
 }
