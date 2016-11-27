@@ -9,21 +9,18 @@ import org.springframework.stereotype.Service;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.mem.exam.domain.Mem_AnswerVO;
+import com.jobis.mem.exam.domain.Mem_CountVO;
 import com.jobis.mem.exam.domain.Mem_QuestionVO;
 import com.jobis.mem.exam.persistance.Mem_ExamDAO;
+
 @Service
 public class Mem_ExamServiceImpl implements Mem_ExamService {
 
 	@Inject
 	private Mem_ExamDAO mem_ExamDAO;
-	
-	@Override
-	public List<Etp_ExamVO> mem_Exam_ListService() {
-		return mem_ExamDAO.mem_Exam_List();
-	}
 
 	@Override
-	public Etp_QuestionVO mem_Question_LIstService(Mem_QuestionVO mem_QuestionVO)throws Exception{
+	public Etp_QuestionVO mem_Question_LIstService(Mem_QuestionVO mem_QuestionVO) throws Exception {
 		try {
 			return mem_ExamDAO.mem_Question_List(mem_QuestionVO);
 		} catch (Exception e) {
@@ -33,15 +30,53 @@ public class Mem_ExamServiceImpl implements Mem_ExamService {
 	}
 
 	@Override
-	public void mem_Answer_CreateService(Mem_AnswerVO mem_AnswerVO) {
-		mem_ExamDAO.mem_Answer_Create(mem_AnswerVO);
-		
+	public void mem_Answer_CreateService(Mem_AnswerVO mem_AnswerVO) throws Exception {
+		try {
+			mem_ExamDAO.mem_Answer_Create(mem_AnswerVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public int mem_Question_MaxService(Mem_QuestionVO mem_QuestionVO) throws Exception {
-		int max = mem_ExamDAO.mem_Question_Max(mem_QuestionVO);
-		return max;
+		try {
+			int max = mem_ExamDAO.mem_Question_Max(mem_QuestionVO);
+			return max;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+
 	}
 
+	@Override
+	public List<Etp_ExamVO> mem_Exam_ListService(int member_no) throws Exception {
+		try {
+			return mem_ExamDAO.mem_Exam_List(member_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public List<Etp_ExamVO> all_Exam_ListService(int member_no) throws Exception {
+		try {
+			return mem_ExamDAO.all_Exam_List(member_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public void mem_Count_UpdateService(Mem_CountVO mem_CountVO) throws Exception {
+		try {
+			System.out.println("Service");
+			mem_ExamDAO.mem_Update_Count(mem_CountVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

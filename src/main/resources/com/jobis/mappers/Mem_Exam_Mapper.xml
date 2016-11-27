@@ -2,22 +2,48 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="com.jobis.mappers.Mem_Exam_Mapper">
-	<select id="mem_Exam_List" parameterType="int" resultType="Etp_ExamVO">
-		select * from exam_infor where exam_show = 'show'
+	<select id="mem_Exam_List" resultType="Etp_ExamVO"
+		parameterType="int">
+		select e.exam_no, exam_sdate, exam_ddate, exam_name,
+		exam_number, exam_field, etp_no, exam_show
+		from exam_infor e, member_exam m where e.exam_no = m.exam_no and
+		m.member_no = #{member_no} and exam_show = 'show' and m.exam_count = 0
 	</select>
 	
-	<select id="mem_Question_List" parameterType="Mem_QuestionVO" resultType="Etp_QuestionVO">
-		select * from exam_question where exam_no = #{exam_no} and exam_question_no = #{exam_question_no}
+	<update id = "mem_Exam_Count" parameterType="Mem_CountVO">
+		update member_exam set exam_count = 1 where member_no = #{member_no} and exam_no = #{exam_no}
+	</update>
+
+
+	<select id="all_Exam_List" resultType="Etp_ExamVO"
+		parameterType="int">
+		select e.exam_no, exam_sdate, exam_ddate, exam_name,
+		exam_number, exam_field, etp_no, exam_show
+		from exam_infor e, member_exam m where e.exam_no = m.exam_no and
+		m.member_no = #{member_no}
 	</select>
-	<select id="mem_Quesiton_Max" parameterType="Mem_QuestionVO" resultType="int">
-		select max(exam_question_no) from exam_question where exam_no = #{exam_no}
-	</select>	
+
+	<select id="mem_Question_List" parameterType="Mem_QuestionVO"
+		resultType="Etp_QuestionVO">
+		select * from exam_question where exam_no = #{exam_no} and
+		exam_question_no = #{exam_question_no}
+	</select>
+
+	<select id="mem_Quesiton_Max" parameterType="Mem_QuestionVO"
+		resultType="int">
+		select max(exam_question_no) from exam_question where
+		exam_no = #{exam_no}
+	</select>
+
 	<insert id="mem_Answer_Create" parameterType="Mem_AnswerVO">
-		insert into answer(ans_no, question_answer, question_no, member_no)
-			values(seq_answer.nextval, #{question_answer}, #{question_no}, #{member_no})
+		insert into
+		answer(ans_no, question_answer, question_no, member_no)
+		values(seq_answer.nextval, #{question_answer}, #{question_no},
+		#{member_no})
 	</insert>
-</mapper>  
+
+</mapper>
 
  

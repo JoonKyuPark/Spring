@@ -3,6 +3,7 @@ package com.jobis.etp.exam.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.PageMaker;
 import com.jobis.etp.exam.domain.SearchCriteria;
 import com.jobis.etp.exam.service.Etp_ExamService;
+import com.jobis.etp.login.domain.Etp_LoginVO;
 
 @Controller
 @RequestMapping("/exam/etp/")
@@ -25,9 +27,11 @@ public class Etp_ExamController {
 
 	// 메인 페이지
 	@RequestMapping("etp_Exam_Main")
-	public void Etp_Exam_Main(Model model) {
+	public void Etp_Exam_Main(HttpSession session, Model model) {
 		try {
-			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService();
+			Etp_LoginVO loginVO = (Etp_LoginVO)session.getAttribute("etp_infor");
+			int etp_no = loginVO.getEtp_no();
+			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService(etp_no);
 			model.addAttribute("list",list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,11 +45,13 @@ public class Etp_ExamController {
 
 	// 시험 일정 등록 액션
 	@RequestMapping(value = "etp_Exam_Create", method = RequestMethod.POST)
-	public String Etp_Exam_Create_POST(Etp_ExamVO etp_ExamVO) throws Exception {
+	public String Etp_Exam_Create_POST(HttpSession session, Etp_ExamVO etp_ExamVO) throws Exception {
 		try {
+			Etp_LoginVO loginVO = (Etp_LoginVO)session.getAttribute("etp_infor");
+			int etp_no = loginVO.getEtp_no();
+			etp_ExamVO.setEtp_no(etp_no);
 			etp_ExamService.etp_Exam_CreateService(etp_ExamVO);
 		} catch (Exception e) {
-			System.out.println("ok");
 			e.printStackTrace();
 		}
 		return "redirect:/exam/etp/etp_Exam_Main";
@@ -53,7 +59,10 @@ public class Etp_ExamController {
 
 	// 시험 일정 목록 페이지
 	@RequestMapping(value = "etp_Exam_List", method = RequestMethod.GET)
-	public void Etp_Exam_List(@ModelAttribute("cri") SearchCriteria ca, Model model) throws Exception {
+	public void Etp_Exam_List(@ModelAttribute("cri") SearchCriteria ca, Model model, HttpSession session) throws Exception {
+		Etp_LoginVO loginVO = (Etp_LoginVO)session.getAttribute("etp_infor");
+		int etp_no = loginVO.getEtp_no();
+		ca.setEtp_no(etp_no);
 		List<Etp_ExamVO> list = etp_ExamService.etp_Exam_CriteriaService(ca);
 		model.addAttribute("etp_Exam_List", list);
 		PageMaker pageMaker = new PageMaker();
@@ -95,9 +104,11 @@ public class Etp_ExamController {
 	
 	//시험 문제 등록 페이지
 	@RequestMapping(value="etp_Question_Create", method = RequestMethod.GET)
-	public void Etp_Question_CreateForm(Etp_QuestionVO etp_QuestionVO, Model model)throws Exception{
+	public void Etp_Question_CreateForm(Etp_QuestionVO etp_QuestionVO, HttpSession session , Model model)throws Exception{
 		try {
-			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService();
+			Etp_LoginVO loginVO = (Etp_LoginVO)session.getAttribute("etp_infor");
+			int etp_no = loginVO.getEtp_no();
+			List<Etp_ExamVO> list = etp_ExamService.etp_Exam_ListService(etp_no);
 			model.addAttribute("etp_Exam_List", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,14 +137,6 @@ public class Etp_ExamController {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 

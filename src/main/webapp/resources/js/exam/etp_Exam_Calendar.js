@@ -109,7 +109,7 @@
 
 		var year = date.getYear();
 
-		var docu;
+		var docu ="";
 
 		if (year <= 200)
 
@@ -252,7 +252,7 @@
 					}
 					;
 					var compareDate = year + '/' + (month + 1) + '/' + strI;
-					var exam_length = document.getElementsByClassName.length;
+					var exam_length = document.getElementsByClassName('exam_sdate').length;
 					var compareSdate = document
 							.getElementsByClassName('exam_sdate');
 					var compareDdate = document
@@ -287,7 +287,7 @@
 					}
 					;
 					var compareDate = year + '/' + (month + 1) + '/' + strI;
-					var exam_length = document.getElementsByClassName.length;
+					var exam_length = document.getElementsByClassName('exam_sdate').length;
 					var compareSdate = document
 							.getElementsByClassName('exam_sdate');
 					var compareDdate = document

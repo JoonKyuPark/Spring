@@ -10,13 +10,13 @@
 			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no}, 'hide')
 	</insert>
 	<!-- 시험 일정 목록 -->
-	<select id="etp_Exam_List" resultType="Etp_ExamVO" >
-		select * from exam_infor order by exam_no desc
+	<select id="etp_Exam_List" resultType="Etp_ExamVO"  parameterType="int">
+		select * from exam_infor where etp_no = #{etp_no} order by exam_no desc
 	</select>
 	<!-- 시험 페이지 카운트 -->
-	<select id="etp_Exam_CountPage" resultType="int">
+	<select id="etp_Exam_CountPage" resultType="int" parameterType="SearchCriteria">
 		<![CDATA[
-			select count(exam_no) from exam_infor where exam_no>0
+			select count(exam_no) from exam_infor where etp_no = #{etp_no} and exam_no > 0
 		]]>
 		<include refid="search"></include>
 	</select>

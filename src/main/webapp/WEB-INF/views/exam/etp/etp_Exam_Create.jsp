@@ -7,21 +7,21 @@
 <!DOCTYPE html>
 <html>
 <!-- Script -->
-<script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
-<script src="../../../../resources/js/exam/bootstrap.min.js"></script>
-<script src="../../../../resources/js/exam/bootstrap-select.js"></script>
-<script src="../../../../resources/js/exam/moment.js"></script>
+<script type="text/javascript" src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../../../resources/js/exam/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../../resources/js/exam/bootstrap-select.js"></script>
+<script type="text/javascript" src="../../../../resources/js/exam/moment.js"></script>
 <script type="text/javascript" src=../../../../resources/js/exam/etp_Exam_Create.js></script>
-<script src="../../../../resources/js/exam/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="../../../../resources/js/exam/bootstrap-datetimepicker.min.js"></script>
 <!-- CSS -->
-<link href="../../../../resources/css/exam/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="../../../../resources/css/exam/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-<link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet"/>
-<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-datetimepicker-standalone.css">
-<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-datetimepicker.css">
-<link rel="stylesheet" href="../../../../resources/css/exam/bootstrap-datetimepicker.min.css">
-<link href="../../../../resources/css/exam/bootstrap-select.css" rel="stylesheet" type="text/css" />
-<link href="../../../../resources/css/exam/etp_Exam_Create.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap.min.css"  />
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap-theme.min.css"  />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap-datetimepicker-standalone.css">
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap-datetimepicker.css">
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/bootstrap-select.css"/>
+<link rel="stylesheet" type="text/css" href="../../../../resources/css/exam/etp_Exam_Create.css" />
 <head>
 <meta charset="UTF-8">
 <title>시험 등록</title>

@@ -58,6 +58,7 @@
 					value="${etp_ExamVO.exam_field }"> <input type="hidden"
 					name="etp_no" value="1"> <input type="hidden"
 					name="exam_no" value="${etp_ExamVO.exam_no }">
+					<input type = "hidden" id="exam_show" value = "${etp_ExamVO.exam_show }">
 				<!-- 기업번호 꼭 넣기!! -->
 				<div class="form-group col-md-12">
 					<label><i class="xi-align-justify"></i>시험 이름</label>
@@ -114,8 +115,8 @@
 					</div>
 				</div>
 				<div class="col-md-12">
-					<input type="radio" name="exam_show" value="show">&nbsp; <label><font
-						size="3">시험 공개</font></label> &nbsp; <input type="radio" name="exam_show"
+					<input type="radio" id="show" name="exam_show" value="show">&nbsp; <label><font
+						size="3">시험 공개</font></label> &nbsp; <input type="radio" id="hide" name="exam_show"
 						value="hide">&nbsp; <label><font size="3">시험
 							비공개</font></label>
 				</div>

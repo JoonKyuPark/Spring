@@ -12,12 +12,12 @@ public class Etp_ExamVO {
 	private String exam_show;
 	private String exam_name;
 	private String exam_field;
+	private String exam_member;
 	
 	public Etp_ExamVO(){}
 
 	public Etp_ExamVO(Integer exam_no, Date exam_sdate, Date exam_ddate, int exam_number, int etp_no, String exam_show, String exam_name,
-			String exam_field) {
-		super();
+			String exam_field, String exam_member) {
 		this.exam_no = exam_no;
 		this.exam_sdate = exam_sdate;
 		this.exam_ddate = exam_ddate;
@@ -26,6 +26,7 @@ public class Etp_ExamVO {
 		this.exam_show = exam_show;
 		this.exam_name = exam_name;
 		this.exam_field = exam_field;
+		this.exam_member = exam_member;
 	}
 
 	public String getExam_show() {
@@ -90,6 +91,14 @@ public class Etp_ExamVO {
 
 	public void setExam_field(String exam_field) {
 		this.exam_field = exam_field;
+	}
+
+	public String getExam_member() {
+		return exam_member;
+	}
+
+	public void setExam_member(String exam_member) {
+		this.exam_member = exam_member;
 	}
 
 }

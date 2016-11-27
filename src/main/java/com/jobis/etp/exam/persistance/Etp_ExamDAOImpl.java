@@ -25,8 +25,8 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	}
 
 	@Override
-	public List<Etp_ExamVO> etp_Exam_List() throws Exception {
-		return sqlSession.selectList(namespace + ".etp_Exam_List");
+	public List<Etp_ExamVO> etp_Exam_List(int etp_no) throws Exception {
+		return sqlSession.selectList(namespace + ".etp_Exam_List", etp_no);
 	}
 
 	@Override
@@ -65,11 +65,11 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	public void etp_Question_Create(Etp_QuestionVO etp_QuestionVO) throws Exception {
 
 		if (sqlSession.selectOne(namespace + ".exam_Question_No", etp_QuestionVO.getExam_no()) == null) {
-			etp_QuestionVO.setExam_question_no(1);
+			etp_QuestionVO.setExam_question_no(1); //해당하는 시험에 문제가 존재하지 않을 경우 시험 번호를 1번으로 설정한다.
 			sqlSession.insert(namespace + ".etp_Question_Create", etp_QuestionVO);
 		} else {
 			int exam_Question_No = sqlSession.selectOne(namespace + ".exam_Question_No", etp_QuestionVO);
-			etp_QuestionVO.setExam_question_no(exam_Question_No + 1);
+			etp_QuestionVO.setExam_question_no(exam_Question_No + 1); // 그렇지 않을 경우 최대 시험번호 +1을 해준다.
 			sqlSession.insert(namespace + ".etp_Question_Create", etp_QuestionVO);
 		}
 	}

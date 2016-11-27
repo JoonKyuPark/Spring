@@ -3,7 +3,46 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="org.spring.project.mappers.Etp_Join_Mapper">
+<mapper namespace="com.jobis.mappers.Etp_Join_Mapper">
+ 
+
+
+<insert id="etp_create" parameterType="Etp_JoinVO">
+INSERT INTO etp_infor(
+		etp_no, delegator_name, etp_id, etp_pass, etp_email, etp_kind,etp_tel,etp_registration_num, etp_name
+		)
+		values(
+		ETP_INFOR_NO.nextval,#{delegator_name},#{etp_id},#{etp_pass},#{etp_email},#{etp_kind},#{etp_tel},#{etp_registration_num},#{etp_name}
+		)
+</insert>
+
+	<select id="etp_idcheck" resultType="String">
+	select COUNT(etp_id) from etp_infor where etp_id=#{etp_id}
+	
+	</select>
+	
+	
+	
+	<select id="etp_info_read" resultType="Etp_JoinVO" parameterType="int">
+		select * from etp_infor where etp_no = #{etp_no}
+	</select>
+
+	<update id="etp_info_update" parameterType="Etp_JoinVO">
+		update ETP_Infor set etp_tel=#{etp_tel},etp_email=#{etp_email},etp_kind=#{etp_kind}
+	  ,delegator_name=#{delegator_name},etp_field=#{etp_field},employee_number=#{employee_number},
+	  etp_location=
+	  <foreach collection="etp_location" open="'" separator="," close="'" item="item">
+	  	${item}
+	  </foreach>
+	  ,etp_capital=#{etp_capital},etp_sales=#{etp_sales},
+	  clip_number=#{clip_number} 
+	  where etp_no=3
+	</update>
+	
+	<update id="etp_info_upload">
+		update ETP_Infor SET etp_image = #{etp_image}
+	 	where etp_no=3
+	</update>
 
 </mapper>  
 

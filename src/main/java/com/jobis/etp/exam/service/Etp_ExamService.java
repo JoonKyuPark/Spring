@@ -9,7 +9,7 @@ import com.jobis.etp.exam.domain.SearchCriteria;
 public interface Etp_ExamService {
 	public void etp_Exam_CreateService(Etp_ExamVO etp_ExamVO)throws Exception;
 	
-	public List<Etp_ExamVO> etp_Exam_ListService()throws Exception;
+	public List<Etp_ExamVO> etp_Exam_ListService(int etp_no)throws Exception;
 	
 	public List<Etp_ExamVO> etp_Exam_CriteriaService(SearchCriteria ca)throws Exception;
 	

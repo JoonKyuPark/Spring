@@ -22,8 +22,9 @@
 </head>
 
 <body id="Etp_Exam_main">
-	<div>
-		<div class="col-md-2">Logo</div>
+<%@include file="../nav.jsp"%>
+	<div class="col-md-12" style = "background : white; margin-left : 1%;">
+<!-- 		<div class="col-md-2">Logo</div>
 		<div class="col-md-8">TopMenu</div>
 		<div class="col-md-2">Empty</div>
 		<div class="col-md-2">
@@ -34,7 +35,7 @@
 				<li><a href="etp_Question_Create">시험문제등록</a></li>
 				<li><a href="Etp_Question_List">시험문제목록</a>
 			</ul>
-		</div>
+		</div> -->
 		<c:forEach var="i" items="${list }">
 			<div class="exam_data">
 				<input type="hidden"
@@ -45,8 +46,7 @@
 					class="exam_ddate">
 			</div>
 		</c:forEach>
-		<div class="col-md-8" id="calendar"></div>
-		<div class="col-md-2">Right Menu(3)</div>
+		<div class="col-md-12" id="calendar"></div>
 		<div class="col-md-1"></div>
 		<div class="footer col-md-10">footer</div>
 		<div class="col-md-1"></div>

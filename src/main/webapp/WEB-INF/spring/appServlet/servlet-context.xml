@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
@@ -17,14 +15,79 @@
 
 	<resources mapping="/resources/**" location="/resources/" />
 
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		<beans:property name="order" value="1" />
+	</beans:bean>
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
+	</beans:bean>
+
+	<beans:bean id="Etp_LogginInterceptor" class="com.jobis.interceptor.Etp_LogginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/etp_login" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="Mem_LogginInterceptor" class="com.jobis.interceptor.Mem_LogginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/mem_login" />
+			<beans:ref bean="Mem_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="authInterceptor" class="com.jobis.interceptor.AuthInterceptor">
+	</beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/receive/mem_Join_Receive_Create" />
+			<beans:ref bean="authInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:value>/WEB-INF/tiles/tiles2def.xml</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760" />
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\upload" />
+	</beans:bean>
 	
 	<context:component-scan base-package="com.jobis.etp.exam.controller" />
+	<context:component-scan base-package="com.jobis.etp.login.controller" />
+	<context:component-scan base-package="com.jobis.etp.join.controller" />
+
 	<context:component-scan base-package="com.jobis.mem.exam.controller" />
-	
-	
-	
+	<context:component-scan base-package="com.jobis.mem.join.controller" />
+	<context:component-scan base-package="com.jobis.mem.login.controller" />
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+
+
+
+
+
+
 </beans:beans>

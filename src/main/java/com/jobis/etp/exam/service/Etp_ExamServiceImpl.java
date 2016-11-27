@@ -23,8 +23,8 @@ public class Etp_ExamServiceImpl implements Etp_ExamService {
 	}
 
 	@Override
-	public List<Etp_ExamVO> etp_Exam_ListService() throws Exception {
-		return etp_ExamDao.etp_Exam_List();
+	public List<Etp_ExamVO> etp_Exam_ListService(int etp_no) throws Exception {
+		return etp_ExamDao.etp_Exam_List(etp_no);
 	}
 
 	@Override

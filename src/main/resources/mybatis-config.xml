@@ -7,6 +7,15 @@
   <typeAliases>
     <package name="com.jobis.etp.exam.domain"/> 
     <package name="com.jobis.mem.exam.domain"/>
+    <package name="com.jobis.etp.join.domain"/>
+    <package name="com.jobis.mem.join.domain"/>
+    <package name="com.jobis.etp.login.domain"/>
+    <package name="com.jobis.mem.login.domain"/>
+    <package name="com.jobis.mem.clip.domain"/>
+    <package name="com.jobis.mem.recruit.domain"/>
+    <package name="com.jobis.mem.resume.domain"/>
+    <package name="com.jobis.mem.receive.domain"/>
+    
   </typeAliases>
 
 

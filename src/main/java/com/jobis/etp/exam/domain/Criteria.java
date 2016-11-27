@@ -1,9 +1,9 @@
 package com.jobis.etp.exam.domain;
 
-public class Criteria {
+public class Criteria extends Etp_ExamVO {
 
-  private int page=1;//페이지
-  private int perPageNum=10;//한페이지당 나오는 글갯수
+  private int page=1;// 처음 보일 페이지
+  private int perPageNum=10;// 한페이지당 나오는 글 갯수
 
   public Criteria() {
     this.page = 1;
@@ -34,13 +34,11 @@ public class Criteria {
     return page;
   }
 
-  // method for MyBatis SQL Mapper -
-  public int getPageStart() {//    곗  곕    곗 
+  public int getPageStart() {
 
     return (this.page - 1) * perPageNum;
   }
 
-  // method for MyBatis SQL Mapper
   public int getPerPageNum() {
 
     return this.perPageNum;

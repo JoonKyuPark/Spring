@@ -9,7 +9,7 @@ import com.jobis.etp.exam.domain.SearchCriteria;
 public interface Etp_ExamDAO {
 	public void etp_Exam_Create(Etp_ExamVO etp_ExamVO)throws Exception;
 	
-	public List<Etp_ExamVO> etp_Exam_List()throws Exception;
+	public List<Etp_ExamVO> etp_Exam_List(int etp_no)throws Exception;
 	
 	public List<Etp_ExamVO> etp_Exam_Criteria(SearchCriteria ca)throws Exception;
 

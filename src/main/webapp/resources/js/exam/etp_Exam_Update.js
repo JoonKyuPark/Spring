@@ -53,6 +53,15 @@ function date_check() {
 	$('#exam_updateForm').submit();
 };
 window.onload = function() {
+	function showCheck(){
+		if($('#exam_show').val() == 'hide'){
+			$('#hide').prop('checked', true);
+		}else{
+			$('#show').prop('checked', true);
+		}
+	}
+	showCheck();
+	
 	function select(){
 		var html = '';
 		html += '<select name="exam_field" class="col-md-3" id = "selectPicker">';
