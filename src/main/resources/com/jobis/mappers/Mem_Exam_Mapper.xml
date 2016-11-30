@@ -16,7 +16,6 @@
 		update member_exam set exam_count = 1 where member_no = #{member_no} and exam_no = #{exam_no}
 	</update>
 
-
 	<select id="all_Exam_List" resultType="Etp_ExamVO"
 		parameterType="int">
 		select e.exam_no, exam_sdate, exam_ddate, exam_name,
@@ -39,10 +38,14 @@
 
 	<insert id="mem_Answer_Create" parameterType="Mem_AnswerVO">
 		insert into
-		answer(ans_no, question_answer, question_no, member_no)
+		answer(ans_no, question_answer, question_no, member_no, correct_answer)
 		values(seq_answer.nextval, #{question_answer}, #{question_no},
-		#{member_no})
+		#{member_no}, #{correct_answer})
 	</insert>
+	
+	<select id="select_Exam_Answer" resultType = "Etp_QuestionVO" parameterType="int">
+		select * from exam_question where question_no = #{question_no}
+	</select>
 
 </mapper>
 

@@ -5,6 +5,7 @@ import java.util.List;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.SearchCriteria;
+import com.jobis.mem.join.domain.Mem_JoinVO;
 
 public interface Etp_ExamDAO {
 	public void etp_Exam_Create(Etp_ExamVO etp_ExamVO)throws Exception;
@@ -26,4 +27,6 @@ public interface Etp_ExamDAO {
 	public void etp_Question_Create(Etp_QuestionVO etp_QuestionVO)throws Exception;
 	
 	public List<Etp_QuestionVO> etp_Question_List(int exam_no)throws Exception;
+	
+	public List<Mem_JoinVO> etp_Exam_MemberList()throws Exception;
 }

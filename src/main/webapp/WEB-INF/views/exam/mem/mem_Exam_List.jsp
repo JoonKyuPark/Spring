@@ -7,6 +7,7 @@
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/bootstrap-select.js"></script>
+<script src="../../../../resources/js/exam/mem_Exam_List.js"></script>
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -15,85 +16,39 @@
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />
 <link href="../../../../resources/css/exam/bootstrap-select.css"
 	rel="stylesheet" type="text/css" />
+<link href="../../../../resources/css/exam/mem_Exam_List.css"
+	rel="stylesheet" type="text/css" />
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript">
-	window.onload = function() {
-
-		$('#gotoexamlink').click(function() {
-
-			if ($(':radio[class="agree"]:checked').val() == 'disagree') {
-				alert('진행하려면 약관에 동의해주세요.');
-				return;
-			} else {
-				var form = $('#mem_Exam_ListForm').serialize();
-				$.ajax({
-					url : 'mem_Update_Count',
-					type : 'post',
-					data : form,
-					success : function() {
-						alert('시험을 시작합니다.');
-					}
-				});
-				//alert('시험을 시작합니다.');
-				$('#mem_Exam_ListForm').submit();
-			}
-		});
-	}
-
-	history.pushState(null, null, location.href);
-	window.onpopstate = function(event) {
-		history.go(1);
-	};
-</script>
-<style type="text/css">
-body {
-	font-family: '나눔고딕';
-}
-
-#gotoexam {
-	margin-top: 1%;
-}
-
-#mem_Exam_ListForm {
-	float: left;
-}
-
-.outerDiv {
-	border: 1px solid #BCBCBC;;
-	border-radius: 15px;
-	padding-bottom: 3%;
-}
-</style>
+<title>J O B I X A M J O I N</title>
 </head>
 <body>
-	<div class="col-md-12">
-		<h1>header</h1>
-	</div>
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-		<div class="col-md-3"></div>
-		<div class="col-md-6 outerDiv">
-			<h1>시험 응시</h1>
-			<hr>
-			<div class="col-md-12">
-				<form id="mem_Exam_ListForm" action="mem_Question_List"
-					method="POST" class="col-md-12">
-					<input type="hidden" name="exam_question_no" value=1>
-					<div class="col-md-12">
-						<select id="mem_Selected_Exam" class="selectpicker" name="exam_no">
-							<option selected="selected">시험 선택</option>
-							<c:forEach var="i" items="${mem_Exam_List }">
-								<option value="${i.exam_no }">${i.exam_name }</option>
-							</c:forEach>
-						</select> <label><font size="3">&nbsp; 을 선택하셨습니다.</font></label>
-					</div>
-				</form>
-			</div>
-			<div class="col-md-12">
-				<textarea class="col-md-12 form-control" rows="10"
-					readonly="readonly">
+	<%@include file="../nav2.jsp"%>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 col-md-12">
+			<div class="card col-md-12">
+				<div class="card-body col-md-12">
+					<div class="col-md-12 outerDiv">
+
+						<div class="col-md-12 examListForm">
+							<h1>J O B I X A M &nbsp; J O I N</h1>
+							<hr>
+							<div class="col-md-12">
+								<form id="mem_Exam_ListForm" action="mem_Question_List"
+									method="POST" class="col-md-12">
+									<input type="hidden" name="exam_question_no" value=1> <select
+										id="mem_Selected_Exam" class="selectpicker" name="exam_no">
+										<option selected="selected">시험 선택</option>
+										<c:forEach var="i" items="${mem_Exam_List }">
+											<option value="${i.exam_no }">${i.exam_name }</option>
+										</c:forEach>
+									</select> <label><font size="3">&nbsp; 을 선택하셨습니다.</font></label>
+								</form>
+							</div>
+							<div class="col-md-12">
+								<div class="col-md-12">
+									<textarea class="col-md-12 form-control" rows="13"
+										readonly="readonly">
 					제 1 조 (목적)
 이 규정은 (주)멀티캠퍼스(이하 "멀티캠퍼스")에서 시행하는 ACTFL TEST와 관련하여
 부정행위를 방지 할 수 있도록 예방하며, 공정한 평가가 이루어지도록 하는데 그 목적이 있다.
@@ -152,21 +107,27 @@ ACTFL TEST와 관련한 부정행위 적발은 멀티캠퍼스의 고유권한�
 1. 성적조회는 조회일로부터 2년 이내 성적만 가능하다.
 2. 인증서를 위,변조하여 사용할 경우 부정행위처리규정 제6조 3항에 의거 부정행위처리 및 통보한다.
 				</textarea>
-			</div>
-			<br> <br>
-			<div id="agreement" align="center" class="col-md-12">
-				<br> <input type="radio" class="agree" value="agree"
-					name="agree"> 약관에 동의합니다. <input type="radio" class="agree"
-					value="disagree" name="agree" checked="checked"> 약관에 동의하지
-				않습니다.
-			</div>
-			<div id="gotoexam" align="right" class="col-md-12">
-				<label id="gotoexamlink" style="cursor: pointer"><font
-					size="5">시험 보러가기<i class="xi-school"></i></font></label>
+								</div>
+								<br> <br>
+								<div id="agreement" align="center" class="col-md-12">
+									<br> <input type="radio" class="agree" value="agree"
+										name="agree"> 약관에 동의합니다. <input type="radio"
+										class="agree" value="disagree" name="agree" checked="checked">
+									약관에 동의하지 않습니다.
+								</div>
+								<div id="gotoexam" align="right" class="col-md-12">
+									<label id="gotoexamlink" style="cursor: pointer"><font
+										size="5"><i class="xi-send"></i><i class="xi-send"></i>
+											&nbsp; </font></label>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</div>
-		<div class="col-md-3"></div>
 	</div>
-	<div class="col-md-2"></div>
+	</div>
 </body>
 </html>

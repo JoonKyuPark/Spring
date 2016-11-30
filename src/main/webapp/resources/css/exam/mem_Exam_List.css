@@ -3,14 +3,12 @@ body{
 	font-family : '나눔고딕' !important;
 }
 
-.btn-info {
-	background: #3679B5 !important;
+#gotoexam {
+	margin-top: 1%;
 }
 
-.examNumberForm {
+#mem_Exam_ListForm {
 	float: left;
-	text-align: right;
-	
 }
 
 .outerDiv {
@@ -19,10 +17,6 @@ body{
 	height: 2000px;
 }
 
-.inputExamForm {
+.examListForm {
 	padding: 3%;
-}
-
-.btnDiv {
-	margin-top: 5%;
 }

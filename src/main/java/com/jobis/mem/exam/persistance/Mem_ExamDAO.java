@@ -20,4 +20,7 @@ public interface Mem_ExamDAO {
 	public void mem_Answer_Create(Mem_AnswerVO mem_AnswerVO)throws Exception;
 	
 	public int mem_Question_Max(Mem_QuestionVO mem_QuestionVO)throws Exception;
+
+	public Etp_QuestionVO select_Exam_Answer(int question_no)throws Exception;
+	
 }

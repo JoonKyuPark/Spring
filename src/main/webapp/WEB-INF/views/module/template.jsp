@@ -9,7 +9,6 @@
 </head>
 <body>
 
-ead>
  <title>타일즈 테스트</title>
  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
  

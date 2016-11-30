@@ -33,108 +33,119 @@
 	href="../../../../resources/css/exam/etp_Exam_Update.css"
 	type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>시험 수정</title>
-				<script type="text/javascript">
-
-				</script>
+<title>J O B I X A M M O D I F Y</title>
 </head>
 <body>
-	<div class="col-md-2">
-		<ul class="nav nav-pills">
-			<li><a href="etp_Exam_Main">시험메인</a></li>
-			<li><a href="etp_Exam_List">시험목록</a></li>
-			<li><a href="etp_Exam_Create">시험등록</a></li>
-			<li><a href="etp_Question_Create">시험문제등록</a></li>
-			<li><a href="Etp_Question_List">시험문제목록</a>
-		</ul>
-	</div>
-	<h2 class="examRegTitle">시험 일정 수정</h2>
-	<br>
-	<div class="inputExamForm col-md-8">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-			<form action="etp_Exam_Update" id="exam_updateForm" method="post" name = "form">
-				<input type="hidden" id="exam_field"
-					value="${etp_ExamVO.exam_field }"> <input type="hidden"
-					name="etp_no" value="1"> <input type="hidden"
-					name="exam_no" value="${etp_ExamVO.exam_no }">
-					<input type = "hidden" id="exam_show" value = "${etp_ExamVO.exam_show }">
-				<!-- 기업번호 꼭 넣기!! -->
-				<div class="form-group col-md-12">
-					<label><i class="xi-align-justify"></i>시험 이름</label>
-					<div class="col-md-12">
-						<input type="text" class="form-control col-md-12" name="exam_name"
-							id="exam_name" value="${etp_ExamVO.exam_name }">
-					</div>
-					<br> <br> <br>
-				</div>
-				<div class="form-group col-md-6">
-					<label><i class="xi-align-justify"></i>시험 기간</label> <br> <label
-						for="inputSDate" class="examTerm col-md-12"><i
-						class="xi-clock-o"></i> 시작일</label>
-					<div class="col-md-12">
-						<div class="form-group">
-							<div class='input-group date datetimepicker'>
-								<input type='text' class="form-control" name="exam_sdate"
-									id="exam_sdate"
-									value="<fmt:formatDate value="${etp_ExamVO.exam_sdate }" pattern="yyyy/MM/dd"/>"><span
-									class="input-group-addon" onclick="cal()"><i
-									class="xi-calendar"></i> </span>
-							</div>
+	<%@include file="../nav.jsp"%>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 col-md-12">
+			<div class="card col-md-12">
+				<div class="card-body col-md-12">
+					<div class="col-md-12 outerDiv">
+						<div class="inputExamForm col-md-12">
+							<h2>M O D I F Y</h2>
+							<hr>
+							<form action="etp_Exam_Update" id="exam_updateForm" method="post"
+								name="form">
+								<input type="hidden" id="exam_field"
+									value="${etp_ExamVO.exam_field }"> <input type="hidden"
+									name="exam_no" value="${etp_ExamVO.exam_no }"> <input
+									type="hidden" id="exam_show" value="${etp_ExamVO.exam_show }">
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<label><i class="xi-align-justify"></i>시험 이름</label>
+									</div>
+									<div class="col-md-12">
+										<input type="text" class="form-control col-md-12"
+											name="exam_name" id="exam_name"
+											value="${etp_ExamVO.exam_name }">
+									</div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<label><i class="xi-align-justify"></i>시험 기간</label>
+									</div>
+
+									<div class="col-md-6">
+										<label for="inputSDate" class="examTerm"> <i
+											class="xi-clock-o"></i> 시작일
+										</label>
+										<div class='input-group date datetimepicker'>
+											<input type='text' class="form-control" name="exam_sdate"
+												id="exam_sdate"
+												value="<fmt:formatDate value="${etp_ExamVO.exam_sdate }" pattern="yyyy/MM/dd"/>"><span
+												class="input-group-addon" onclick="cal()"><i
+												class="xi-calendar"></i> </span>
+										</div>
+									</div>
+
+									<div class="col-md-6">
+										<label for="inputSDate" class="examTerm"> <i
+											class="xi-clock"></i> 종료일
+										</label>
+										<div class='input-group date datetimepicker'>
+											<input type='text' class="form-control" name="exam_ddate"
+												id="exam_ddate"
+												value="<fmt:formatDate value="${etp_ExamVO.exam_ddate }" pattern="yyyy/MM/dd"/>" />
+											<span class="input-group-addon" onclick="cal()"><i
+												class="xi-calendar"></i> </span>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<label><i class="xi-align-justify"></i>응시인원</label>
+									</div>
+
+									<div class="col-md-4">
+										<input type="text" class="examNumberForm form-control "
+											placeholder="명" name="exam_number"
+											value="${etp_ExamVO.exam_number }"
+											onkeydown="return showKeyCode(event)" id="exam_number">
+									</div>
+
+									<div class="col-md-8"></div>
+								</div>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<label><i class="xi-align-justify"></i>시험과목</label>
+									</div>
+									<div id="selectField" class="col-md-12"></div>
+								</div>
+
+								<div class="col-md-12 showDiv">
+									<div class="col-md-4">
+										<nobr><input type="radio" id="show" name="exam_show" value="show">&nbsp;
+										<label><font size="3">시험 공개</font></label></nobr> &nbsp; &nbsp;<nobr><input
+											type="radio" id="hide" name="exam_show" value="hide">&nbsp;
+										<label><font size="3">시험 비공개</font></label></nobr>
+									</div>
+									<div class="col-md-8"></div>
+								</div>
+
+								<div class="col-md-12 btnDiv">
+									<div class="col-md-5"></div>
+									<div class="col-md-1">
+										<input type="button" class="btn btn-info" value="등 록"
+											onclick="date_check()">
+									</div>
+									<div class="col-md-1">
+										<a href="etp_Exam_Main"><input type="button"
+											class="btn btn-info" value="취 소"></a>
+									</div>
+									<div class="col-md-5"></div>
+								</div>
+							</form>
 						</div>
 					</div>
-					<div class="col-md-6"></div>
-					<label for="inputSDate" class="examTerm col-md-12"><i
-						class="xi-clock"></i> 종료일</label>
-					<div class="col-md-12">
-						<div class="form-group">
-							<div class='input-group date datetimepicker'>
-								<input type='text' class="form-control" name="exam_ddate"
-									id="exam_ddate"
-									value="<fmt:formatDate value="${etp_ExamVO.exam_ddate }" pattern="yyyy/MM/dd"/>" />
-								<span class="input-group-addon" onclick="cal()"><i
-									class="xi-calendar"></i> </span>
-							</div>
-						</div>
-					</div>
 				</div>
-				<div class="form-group col-md-12">
-					<label><i class="xi-align-justify"></i>응시인원</label><br>
-					<div class="col-md-12">
-						<input type="text" class="examNumberForm form-control col-md-3"
-							name="exam_number" value="${etp_ExamVO.exam_number }"
-							onkeydown="return showKeyCode(event)" id="exam_number"><label
-							class="col-md-9" style="margin-top: 1%">명</label>
-					</div>
-					<br> <br>
-				</div>
-				<div class="form-group col-md-12">
-					<label><i class="xi-align-justify"></i>시험과목</label><br>
-					<div id = "selectField" class="col-md-12">
-					
-					</div>
-				</div>
-				<div class="col-md-12">
-					<input type="radio" id="show" name="exam_show" value="show">&nbsp; <label><font
-						size="3">시험 공개</font></label> &nbsp; <input type="radio" id="hide" name="exam_show"
-						value="hide">&nbsp; <label><font size="3">시험
-							비공개</font></label>
-				</div>
-				<div class="form-group col-md-12">
-					<div class="col-md-4"></div>
-					<div class="col-md-2">
-						<input type="button" class="btn btn-info" value="등 록"
-							onclick="date_check()">
-					</div>
-					<div class="col-md-2">
-						<a href="etp_Exam_Main"><input type="button"
-							class="btn btn-info" value="취 소"></a>
-					</div>
-					<div class="col-md-4"></div>
-				</div>
-			</form>
+			</div>
 		</div>
 	</div>
-	<div class="col-md-3"></div>
 </body>
 </html>

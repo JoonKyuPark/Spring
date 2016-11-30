@@ -21,4 +21,8 @@ public interface Mem_ExamService {
 	public void mem_Answer_CreateService(Mem_AnswerVO mem_AnswerVO)throws Exception;
 	
 	public int mem_Question_MaxService(Mem_QuestionVO mem_QuestionVO)throws Exception;
+	
+	public Etp_QuestionVO select_Exam_AnswerService(int question_no)throws Exception;
+	
 }
+

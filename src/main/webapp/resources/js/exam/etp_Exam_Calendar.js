@@ -151,7 +151,7 @@
 
 		beg_j = beg_j.getDay();
 
-		docu += '<div id="cal"><div class="col-md-4"></div><div class="ul_Div col-md-4"><ul class="calMonth"><li class="mR8"><a href="#" onclick="preYear('
+		docu += '<div id="cal" class="col-md-12"><div class="col-md-5"></div><div class="ul_Div col-md-3" align="center"><ul class="calMonth"><li class="mR8"><a href="#" onclick="preYear('
 				+ year
 				+ ','
 				+ month
@@ -163,9 +163,9 @@
 				+ month
 				+ ','
 				+ day
-				+ ');" title="이전달"><i class="xi-angle-left-min">&nbsp;</i></a></li><li class="yearMonth">'
+				+ ');" title="이전달"><i class="xi-angle-left-min">&nbsp;</i></a></li><li class="yearMonth"><font style="font-weight : bold">'
 				+ date_today
-				+ '</li><li class="mR8"><a href="#" onclick="nextMonth('
+				+ '</font></li><li class="mR8"><a href="#" onclick="nextMonth('
 				+ year
 				+ ','
 				+ month
@@ -177,7 +177,7 @@
 				+ month
 				+ ','
 				+ day
-				+ ');" title="내년"><i class="xi-angle-right"></i></a></li></ul></div><div class="col-md-4"></div>';
+				+ ');" title="내년"><i class="xi-angle-right"></i></a></li></ul></div><div class="col-md-4"></div><br><br>';
 
 		docu += '<table class="calTable" summary="일정"><colgroup><col width="15%" /><col width="14%" /><col width="14%" /><col width="14%" /><col width="14%" /><col width="14%" /><col width="15%" /></colgroup><thead><tr class="week_Tr"><th class="weekSun"><font color="red">일</font></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th class="weekSat"><font color="blue">토</font></th></tr></thead></div>';
 
@@ -226,15 +226,15 @@
 					if (compareDate == compareSdate[index]
 							.getAttribute('value').substring(0,10)) {
 						docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
-								+ '<font color="white">' + compareSdate[index].getAttribute('name')
-								+ '&nbsp;시작일'+'</font></a>';
+								+ '<span class="span"><nobr><font color="white">' + compareSdate[index].getAttribute('name')
+								+ '&nbsp;시작일'+'</font></nobr></span></a>';
 					}
 					;
 					if (compareDate == compareDdate[index]
 							.getAttribute('value')) {
 						docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
-								+compareSdate[index].getAttribute('name')
-								+ '&nbsp;종료일' + '</a>';
+								+'<span class="span"><nobr><font color="white">'+compareSdate[index].getAttribute('name')
+								+ '&nbsp;종료일' + '</font></nobr></span></a>';
 					}
 				}
 				docu += '</div>';
@@ -265,16 +265,16 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+ compareSdate[index].getAttribute('name')
-									+ '&nbsp;시작일'+'</a>';
+									+ '&nbsp;시작일'+'</nobr></span></a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+compareSdate[index].getAttribute('name')
-									+ '&nbsp;종료일' + '</a>';
+									+ '&nbsp;종료일' + '</nobr></span></a>';
 						}
 					}
 					docu += '</div>';
@@ -300,16 +300,16 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>'+'<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>'+'<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+ compareSdate[index].getAttribute('name')
-									+ '&nbsp;시작일'+'</a>';
+									+ '&nbsp;시작일'+'</nobr></span></a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+ compareSdate[index].getAttribute('name')
-									+ '&nbsp;종료일' + '</a>';
+									+ '&nbsp;종료일' + '</nobr></span></a>';
 						}
 					}
 					docu += '</div>';
@@ -334,16 +334,16 @@
 					for (var index = 0; index < exam_length; index++) {
 						if (compareDate == compareSdate[index]
 								.getAttribute('value').substring(0,10)) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+ compareSdate[index].getAttribute('name')
-									+ '&nbsp;시작일' + '</a>';
+									+ '&nbsp;시작일' + '</nobr></span></a>';
 						}
 						;
 						if (compareDate == compareDdate[index]
 								.getAttribute('value')) {
-							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'">'
+							docu += '<br>' + '<a class = "calender_Exam" href="/exam/etp/etp_Question_List?exam_no=' +compareSdate[index].getAttribute('value').substring(11)+'"><span class="span"><nobr>'
 									+ compareSdate[index].getAttribute('name')
-									+ '&nbsp;종료일' + '</a>';
+									+ '&nbsp;종료일' + '</nobr></span></a>';
 						}
 					}
 					docu += '</div>';

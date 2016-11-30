@@ -11,7 +11,7 @@
 
 	<div class="col-md-3">
 		<div class="col-md-4">
-			<a href="/exam/mem/mem_Exam_List">시험 목록</a>
+			<a href="/exam/mem/mem_Exam_Main">시험 목록</a>
 			<span type="" readonly="readonly">${sessionScope.member_infor.member_id }님
 				반갑습니다</span> <img src="images/javacan1.gif">
 			<div class="col-md-2">

@@ -159,7 +159,7 @@ function calendar(y, m, d)
 
 	beg_j = beg_j.getDay();
 
-	docu += '<div id="cal"><div class="col-md-4"></div><div class="ul_Div col-md-4"><ul class="calMonth"><li class="mR8"><a href="#" onclick="preYear('
+	docu += '<div id="cal" class="col-md-12"><div class="col-md-5"></div><div class="ul_Div col-md-3"><ul class="calMonth"><li class="mR8"><a href="#" onclick="preYear('
 			+ year
 			+ ','
 			+ month
@@ -171,9 +171,9 @@ function calendar(y, m, d)
 			+ month
 			+ ','
 			+ day
-			+ ');" title="이전달"><i class="xi-angle-left-min">&nbsp;</i></a></li><li class="yearMonth">'
+			+ ');" title="이전달"><i class="xi-angle-left-min">&nbsp;</i></a></li><li class="yearMonth"><font style="font-weight : bold">'
 			+ date_today
-			+ '</li><li class="mR8"><a href="#" onclick="nextMonth('
+			+ '</font></li><li class="mR8"><a href="#" onclick="nextMonth('
 			+ year
 			+ ','
 			+ month
@@ -232,15 +232,15 @@ function calendar(y, m, d)
 				if (compareDate == compareSdate[index].getAttribute('value')
 						.substring(0, 10)) {
 					docu += '<br>'
-							+ '<font color="white">'
+							+ '<span class="span"><nobr><font color="white">'
 							+ compareSdate[index].getAttribute('name')
-							+ '&nbsp;시작일' + '</font>';
+							+ '&nbsp;시작일' + '</span></nobr></font>';
 				}
 				;
 				if (compareDate == compareDdate[index].getAttribute('value')) {
-					docu += '<br>'
+					docu += '<br><span class="span"><nobr>'
 							+ compareSdate[index].getAttribute('name')
-							+ '&nbsp;종료일';
+							+ '&nbsp;종료일</span></nobr>';
 				}
 			}
 			docu += '</div>';
@@ -271,16 +271,16 @@ function calendar(y, m, d)
 				for (var index = 0; index < exam_length; index++) {
 					if (compareDate == compareSdate[index]
 							.getAttribute('value').substring(0, 10)) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;시작일';
+								+ '&nbsp;시작일</span></nobr>';
 					}
 					;
 					if (compareDate == compareDdate[index]
 							.getAttribute('value')) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;종료일';
+								+ '&nbsp;종료일</span></nobr>';
 					}
 				}
 				docu += '</div>';
@@ -306,16 +306,16 @@ function calendar(y, m, d)
 				for (var index = 0; index < exam_length; index++) {
 					if (compareDate == compareSdate[index]
 							.getAttribute('value').substring(0, 10)) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;시작일';
+								+ '&nbsp;시작일</span></nobr>';
 					}
 					;
 					if (compareDate == compareDdate[index]
 							.getAttribute('value')) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;종료일';
+								+ '&nbsp;종료일</span></nobr>';
 					}
 				}
 				docu += '</div>';
@@ -339,16 +339,16 @@ function calendar(y, m, d)
 				for (var index = 0; index < exam_length; index++) {
 					if (compareDate == compareSdate[index]
 							.getAttribute('value').substring(0, 10)) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;시작일';
+								+ '&nbsp;시작일</span></nobr>';
 					}
 					;
 					if (compareDate == compareDdate[index]
 							.getAttribute('value')) {
-						docu += '<br>'
+						docu += '<br><span class="span"><nobr>'
 								+ compareSdate[index].getAttribute('name')
-								+ '&nbsp;종료일';
+								+ '&nbsp;종료일</span></nobr>';
 					}
 				}
 				docu += '</div>';

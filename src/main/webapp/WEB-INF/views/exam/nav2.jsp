@@ -11,9 +11,9 @@
 <title>Insert title here</title>
 <!-- Bootstrap ../../../resources/css/resume/bootstrap/css/bootstrap.css-->
 <link
-	href="../../../../resources/css/exam/bootstrap.min.css"
+	href="../../../resources/css/resume/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="../../../resources/css/exam/custom2.css"
+<link href="../../../resources/css/resume/bootstrap/css/custom2.css"
 	rel="stylesheet">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,8 +23,9 @@
 <link href="../../../../resources/css/exam/sb-admin.css"
 	rel="stylesheet">
 
-<link href="../../../../resources/css/exam/font-awesome.min.css" rel="stylesheet" type="text/css"> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="../../../../resources/css/exam/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,7 +56,7 @@
 		</div>
 		<div class="sidebar-menu">
 			<ul class="sidebar-nav">
-				<li><a href="etp_Exam_Main">
+				<li><a href="mem_Exam_Main">
 						<div class="icon">
 							<i class="fa fa-tasks" aria-hidden="true"></i>
 						</div>
@@ -64,30 +65,15 @@
 				<li class="dropdown active"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">
 						<div class="icon">
-							<i class="fa fa-file-o" aria-hidden="true"></i>
+							<i class="fa fa-files-o" aria-hidden="true"></i>
 						</div>
-						<div class="title">시험 등록</div>
+						<div class="title">시험 응시</div>
 				</a>
 					<div class="dropdown-menu">
 						<ul>
 							<li class="section"><i class="fa fa-file-o"
-								aria-hidden="true"></i> 시험 등록</li>
-							<li><a href="etp_Exam_Create">시험 일정 등록</a></li>
-							<li><a href="etp_Exam_List">시험 일정 관리</a></li>
-						</ul>
-					</div></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">
-						<div class="icon">
-							<i class="fa fa-cube" aria-hidden="true"></i>
-						</div>
-						<div class="title">문제 등록</div>
-				</a>
-					<div class="dropdown-menu">
-						<ul>
-							<li class="section"><i class="fa fa-file-o"
-								aria-hidden="true"></i>문제 등록</li>
-							<li><a href="etp_Question_Create">시험 문제 등록</a></li>
+								aria-hidden="true"></i> 시험 응시</li>
+							<li><a href="mem_Exam_List">시험 응시 하기</a></li>
 						</ul>
 					</div></li>
 			</ul>
@@ -248,7 +234,7 @@
 			</div>
 			</nav>
 
-			<script type="text/javascript" src="../../../../resources/js/exam/vendor.js"></script>
-			<script type="text/javascript" src="../../../../resources/js/exam/app.js"></script>
+			<script type="text/javascript" src="../js/js/vendor.js"></script>
+			<script type="text/javascript" src="../js/js/app.js"></script>
 </body>
 </html>

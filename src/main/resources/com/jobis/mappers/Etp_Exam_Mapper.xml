@@ -51,9 +51,9 @@
 	<!-- 시험 문제 등록 -->
 	<insert id="etp_Question_Create" parameterType="Etp_QuestionVO">
 		insert into exam_question (
-			question_no, question_name, question_content, question_second, exam_no, etp_no, question_answer, exam_question_no
+			question_no, question_name, question_content, question_second, exam_no, etp_no, question_answer, exam_question_no, correct_per
 		)values(
-			question_seq.nextval,#{question_name},#{question_content},#{question_second},#{exam_no},#{etp_no}, #{question_answer}, #{exam_question_no}
+			question_seq.nextval,#{question_name},#{question_content},#{question_second},#{exam_no},#{etp_no}, #{question_answer}, #{exam_question_no}, #{correct_per}
 		)
 		
 	</insert>
@@ -73,6 +73,10 @@
 			exam_show = #{exam_show}
 		where exam_no = #{exam_no}
 	</update>
+	<!-- 시험 인원 추가 -->
+	<select id="etp_Exam_MemberList" resultType = "Mem_JoinVO">
+		select * from member_infor
+	</select>
 	<!-- 동적 쿼리문 -->
 	<sql id="search">
 		<if test="searchType != null">

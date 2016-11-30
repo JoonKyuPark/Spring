@@ -6,13 +6,14 @@ public class Etp_QuestionVO {
 	private int exam_no;//
 	private int etp_no;//
 	private int exam_question_no;//
+	private int correct_per;
 	
 	private String question_content;//
 	private String question_name;//
 	private String question_answer;//
 	public Etp_QuestionVO(){}
 
-	public Etp_QuestionVO(int question_no, int question_second, int exam_no, int etp_no, int exam_question_no,
+	public Etp_QuestionVO(int question_no, int question_second, int exam_no, int etp_no, int exam_question_no, int correct_per,
 			String question_content, String question_name, String question_answer) {
 		super();
 		this.question_no = question_no;
@@ -20,6 +21,7 @@ public class Etp_QuestionVO {
 		this.exam_no = exam_no;
 		this.etp_no = etp_no;
 		this.exam_question_no = exam_question_no;
+		this.correct_per = correct_per;
 		this.question_content = question_content;
 		this.question_name = question_name;
 		this.question_answer = question_answer;
@@ -87,6 +89,14 @@ public class Etp_QuestionVO {
 
 	public void setQuestion_answer(String question_answer) {
 		this.question_answer = question_answer;
+	}
+
+	public int getCorrect_per() {
+		return correct_per;
+	}
+
+	public void setCorrect_per(int correct_per) {
+		this.correct_per = correct_per;
 	}
 	
 	

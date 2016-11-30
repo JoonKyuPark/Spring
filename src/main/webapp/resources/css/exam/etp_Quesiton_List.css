@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+
 body{
 	font-family : '나눔고딕' !important;
 }
@@ -7,33 +8,35 @@ body{
 	background: #3679B5 !important;
 }
 
-#etp_Exam_Table {
+td{
+	text-overflow : ellipsis;
+	overflow : hidden;
+}
+
+#etp_Question_Table {
 	width: 100%;
+	table-layout : fixed !important;
 }
 
-#etp_Exam_Table tr {
-	height: 40px;
-	cursor : pointer;
-}
-
-
-#etp_Exam_Table th {
+#etp_Question_Table th {
 	text-align: center;
 }
-#etp_Exam_Table td {
+
+#etp_Question_Table td {
 	border-top: 1px solid gray;
 	border-bottom: 1px solid gray;
 	text-align: center;
 }
 
-.box-footer {
-	align: center;
+#etp_Question_Table tr {
+	height: 40px;
 }
+
 .outerDiv {
 	background: white;
 	margin-left: 1%;
-	height : 2000px;
+	height: 2000px;
 }
-.listForm{
+.questionListForm{
 	padding : 3%;
 }

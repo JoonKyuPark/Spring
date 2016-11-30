@@ -1,7 +1,6 @@
 function changeColor() {
 	$('.etp_Exam_Table_tr').hover(function() {
 		$(this).css('background', '#E5E5E5');
-		$(this).css('cursor', 'pointer');
 	});
 	$('.etp_Exam_Table_tr').mouseout(function() {
 		$(this).css('background', 'none');
@@ -19,11 +18,12 @@ $(document).ready(function() {
 
 });
 
-window.onload = function() {
+function clickList(){
 	$('.question_list').click(function(){
 		location.href="etp_Question_List?exam_no="+$(this).attr('title');
 	});
-	
+}
+function btnAction(){
 	$('.btn-info').hover(function(){
 		$(this).css('background', '#6695BE');
 	});
@@ -43,17 +43,13 @@ window.onload = function() {
 							+ $('.chk:checked').val()).submit();
 				}
 			});
-	
-	$('.btn-info').hover(function(){
-		$(this).css('background', '#6695BE');
-	});
-	$('.btn-info').mouseout(function(){
-		$(this).css('background', '#3679B5');
-	});
-	
 	$('#exam_delete_btn').click(
 			function(){
 				var param = "";
+				if($('.chk:checked').length == 0){
+					alert("삭제할 항목을 선택해주세요.");
+					return;
+				}
 				$('.chk:checked').each(function(index, entry){
 					if(param == ""){
 						param += "exam_no="+ $(entry).val(); 
@@ -73,3 +69,10 @@ window.onload = function() {
 				});
 			});
 }
+function reset(){
+	document.form.reset();
+}
+$(function(){
+	clickList();
+	btnAction();
+});

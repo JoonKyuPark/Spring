@@ -25,15 +25,16 @@ public class Mem_ExamController {
 
 	@Inject
 	private Mem_ExamService mem_ExamService;
-	
+
 	@RequestMapping("mem_Exam_Main")
-	public void Mem_Exam_Main(HttpSession session, Model model){
+	public void Mem_Exam_Main(HttpSession session, Model model) {
 		try {
-			Mem_LoginVO loginVO = (Mem_LoginVO)session.getAttribute("member_infor");
+			Mem_LoginVO loginVO = (Mem_LoginVO) session.getAttribute("member_infor");
 			int member_no = loginVO.getMember_no();
 			List<Etp_ExamVO> list = mem_ExamService.all_Exam_ListService(member_no);
 			model.addAttribute("list", list);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamController.Mem_Exam_Main Error!!!");
 			e.printStackTrace();
 		}
 	}
@@ -45,6 +46,7 @@ public class Mem_ExamController {
 			int mem_no = loginVO.getMember_no();
 			model.addAttribute("mem_Exam_List", mem_ExamService.mem_Exam_ListService(mem_no));
 		} catch (Exception e) {
+			System.out.println("Mem_ExamController.Mem_Exam_List Error!!!");
 			e.printStackTrace();
 		}
 	}
@@ -63,6 +65,7 @@ public class Mem_ExamController {
 			model.addAttribute("question", question);
 			return "/exam/mem/mem_Question_List";
 		} catch (Exception e) {
+			System.out.println("Mem_ExamController.Mem_Question_List Error!!!");
 			e.printStackTrace();
 			return "redirect:/exam/mem/mem_Exam_List";
 		}
@@ -71,23 +74,43 @@ public class Mem_ExamController {
 	@RequestMapping(value = "mem_Answer_Create", method = RequestMethod.POST)
 	public String mem_Answer_Create(Mem_AnswerVO mem_AnswerVO) throws Exception {
 		try {
+			int question_no = mem_AnswerVO.getQuestion_no();
+			double percent = mem_ExamService.select_Exam_AnswerService(question_no).getCorrect_per();
+
+			String mem_answer = mem_AnswerVO.getQuestion_answer().toLowerCase();
+			String etp_answer = mem_ExamService.select_Exam_AnswerService(question_no).getQuestion_answer()
+					.toLowerCase();
+			String[] etp_AnswerList = etp_answer.split(",");
+			int correct = 0;
+			for (int i = 0; i < etp_AnswerList.length; i++) {
+				if (mem_answer.contains(etp_AnswerList[i].replaceAll(" ", "")) == true) {
+					correct++;
+				}
+			}
+			double percentage = percent / 100;
+			if ((double) correct / (double) etp_AnswerList.length >= percentage) {
+				mem_AnswerVO.setCorrect_answer("correct");
+			} else {
+				mem_AnswerVO.setCorrect_answer("incorrect");
+			}
 			mem_ExamService.mem_Answer_CreateService(mem_AnswerVO);
+			return "mem_Question_List";
 		} catch (Exception e) {
+			System.out.println("Mem_ExamController.Mem_Answer_Create Error!!!");
 			e.printStackTrace();
+			return null;
 		}
-		return "mem_Question_List";
 	}
-	
+
 	@RequestMapping(value = "mem_Update_Count", method = RequestMethod.POST)
-	public void Mem_Update_Count(Mem_CountVO mem_CountVO, HttpSession session)throws Exception{
+	public void Mem_Update_Count(Mem_CountVO mem_CountVO, HttpSession session) throws Exception {
 		try {
-			Mem_LoginVO loginVO = (Mem_LoginVO)session.getAttribute("member_infor");
-			System.out.println("Controller");
+			Mem_LoginVO loginVO = (Mem_LoginVO) session.getAttribute("member_infor");
 			int member_no = loginVO.getMember_no();
 			mem_CountVO.setMember_no(member_no);
-			System.out.println(member_no);
 			mem_ExamService.mem_Count_UpdateService(mem_CountVO);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamController.Mem_Update_Count Error!!!");
 			e.printStackTrace();
 		}
 	}

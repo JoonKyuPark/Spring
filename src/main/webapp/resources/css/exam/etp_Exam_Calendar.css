@@ -1,5 +1,15 @@
 @CHARSET "UTF-8";
 
+#calendar {
+	margin: 1%;
+	padding: 2%;
+}
+
+.outerDiv {
+	background: white;
+	margin-left: 1%;
+	height: 2000px;
+}
 body{
 	font-family : '나눔고딕'	;
 	
@@ -13,8 +23,9 @@ body{
 }
 
 .day_Tr {
-	height: 150px;
+	height: 200px;
 }
+
 
 .calTable th {
 	text-align: center;
@@ -23,14 +34,23 @@ body{
 .calTable td {
 	padding: 1px;
 }
-
+table{
+	table-layout : fixed;
+	
+}
+.span{
+	text-overflow : ellipsis !important;
+	overflow : hidden !important;
+}
 .td_Div {
 	border: 1px solid #E1E1E1;
 	border-radius: 5%;
-	height: 150px;
+	height: 200px;
 	text-align: left;
 	vertical-align: top;
 	padding: 1%;
+	text-overflow : ellipsis !important;
+	overflow : hidden !important;
 }
 
 .ul_Div {

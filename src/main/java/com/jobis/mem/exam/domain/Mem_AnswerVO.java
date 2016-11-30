@@ -5,15 +5,17 @@ public class Mem_AnswerVO {
 	private String question_answer;
 	private int question_no;
 	private int member_no;
+	private String correct_answer;
 	
 	public Mem_AnswerVO(){}
 
-	public Mem_AnswerVO(int ans_no, String question_answer, int question_no, int member_no) {
+	public Mem_AnswerVO(int ans_no, String question_answer, int question_no, int member_no, String correct_answer) {
 		super();
 		this.ans_no = ans_no;
 		this.question_answer = question_answer;
 		this.question_no = question_no;
 		this.member_no = member_no;
+		this.correct_answer = correct_answer;
 	}
 
 	public int getAns_no() {
@@ -46,6 +48,14 @@ public class Mem_AnswerVO {
 
 	public void setMember_no(int member_no) {
 		this.member_no = member_no;
+	}
+
+	public String getCorrect_answer() {
+		return correct_answer;
+	}
+
+	public void setCorrect_answer(String correct_answer) {
+		this.correct_answer = correct_answer;
 	}
 	
 	

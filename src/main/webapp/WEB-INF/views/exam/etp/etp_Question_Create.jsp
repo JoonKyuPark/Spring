@@ -20,66 +20,140 @@
 	rel="stylesheet" type="text/css" />
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet"
 	type="text/css" />
+<link rel="stylesheet" type="text/css"
+	href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" />
 <head>
+<style type="text/css">
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>문제 등록</title>
+<title>Q U E S T I O N R E G I S T R A T I O N</title>
 </head>
 <body>
-	<div>
-		<div class="col-md-2">Logo</div>
-		<div class="col-md-8">TopMenu</div>
-		<div class="col-md-2">Empty</div>
-		<div class="col-md-2">
-			<ul class="nav nav-pills">
-				<li><a href="etp_Exam_Main">시험메인</a></li>
-				<li><a href="etp_Exam_List">시험목록</a></li>
-				<li><a href="etp_Exam_Create">시험등록</a></li>
-				<li><a href="etp_Question_Create">시험문제등록</a></li>
-				<li><a href="Etp_Question_List">시험문제목록</a>
-			</ul>
-		</div>
-		<div class="col-md-8">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
-				<form role="form" id="QuestionForm" action="etp_Question_Create"
-					method="post">
-					<input type="hidden" name="etp_no" value=1> <label>문제
-						이름</label> <input type="text" class="form-control" name="question_name"><br>
-					<label>시험 선택</label><br> <select name="exam_no" id="exam_list"
-						class="selectpicker col-md-4">
-						<option>시험 선택</option>
-						<c:forEach var="i" items="${etp_Exam_List }">
-							<option value="${i.exam_no }">${i.exam_name }</option>
-						</c:forEach>
-					</select><br> <br> <label>할당 시간</label><br> <label><input
-						type="text" id="question_second" name="question_second"
-						onkeydown="return showKeyCode(event)" style='ime-mode: disabled;'>
-						&nbsp;초</label><br> <br> <label>문제 내용</label>
-					<textarea id="question_content" name="question_content"
-						class="form-control"></textarea>
-					<br> <br> <label>문제 정답 키워드</label><br>
-					<div align="right">
-						<font size="2"><i class="xi-warning"></i> &nbsp; 키워드는 ','로
-							구분됩니다. <font color="red">(띄어쓰기 금지)</font></font>
+	<%@include file="../nav.jsp"%>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 col-md-12">
+			<div class="card col-md-12">
+				<div class="card-body col-md-12">
+					<div class="col-md-12 outerDiv">
+						<div class="col-md-12 inputForm">
+							<h2>
+								Q U E S T I O N <br> R E G I S T R A T I O N
+							</h2>
+							<hr>
+							<form role="form" id="QuestionForm" action="etp_Question_Create"
+								method="post">
+								<input type="hidden" name="etp_no" value=1>
+								<div class="col-md-12">
+									<div class="col-md-6">
+										<i class="xi-align-justify"></i><label>문제 이름</label>
+									</div>
+									<div class="col-md-12">
+										<input type="text" class="form-control" name="question_name"
+											id="question_name" placeholder="내용을 입력하세요.">
+									</div>
+								</div>
+
+								<br> <br>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<i class="xi-align-justify"></i><label>시험 선택</label>
+									</div>
+									<div class="col-md-12">
+										<select name="exam_no" id="exam_list" class="selectpicker ">
+											<option>시험 선택</option>
+											<c:forEach var="i" items="${etp_Exam_List }">
+												<option value="${i.exam_no }">${i.exam_name }</option>
+											</c:forEach>
+										</select>
+									</div>
+								</div>
+
+								<br> <br>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<i class="xi-align-justify"></i><label>할당시간</label>
+									</div>
+									<div class="col-md-12">
+										<label><input type="text" id="question_second"
+											class="form-control" name="question_second"
+											onkeydown="return showKeyCode(event)"
+											style='ime-mode: disabled;' placeholder="초"></label>
+									</div>
+								</div>
+
+								<br> <br>
+
+								<div class="col-md-12">
+									<div class="col-md-6">
+										<i class="xi-align-justify"></i><label>문제 내용</label>
+									</div>
+									<div class="col-md-6" align="right">
+										<font size="2" color="red"><i class="xi-warning"></i><span
+											class="bytes">0</span><span>/3000</span></font>
+									</div>
+									<div class="col-md-12">
+										<textarea id="question_content" name="question_content"
+											class="form-control question_content"
+											placeholder="내용을 입력하세요."></textarea>
+									</div>
+								</div>
+
+								<br> <br>
+
+								<div class="col-md-12">
+									<div class="col-md-12">
+										<i class="xi-align-justify"></i><label>문제 정답범위</label>
+									</div>
+									<div class="col-md-6">
+										<label><input type="text" id="percentage"
+											class="percentage form-control" name="correct_per"
+											onkeydown="return showKeyCode(event)"
+											style='ime-mode: disabled;' placeholder="%"></label>
+									</div>
+									<div class="col-md-6" align="right">
+										<font size="3" color="#BAB9B9"><i class="xi-warning"></i>
+											&nbsp; 예) 80 입력시 키워드가 80%이상 포함 되어있어야 정답으로 간주합니다.</font>
+									</div>
+								</div>
+
+								<br> <br>
+
+								<div class="col-md-12">
+									<div class="col-md-6">
+										<i class="xi-align-justify"></i><label>문제 정답 키워드</label>
+									</div>
+									<div class="col-md-6" align="right">
+										<font size="3" color="#BAB9B9"><i class="xi-warning"></i>
+											&nbsp; 키워드는 ','(따옴표)로 구분됩니다. <font color="red"> &nbsp;
+												<i class="xi-warning"></i><span class="bytes_1">0</span><span>/3000</span>
+										</font></font>
+									</div>
+
+									<div class="col-md-12">
+										<textarea id="question_answer" name="question_answer"
+											class="form-control question_answer" placeholder="내용을 입력하세요."></textarea>
+									</div>
+								</div>
+								
+								<div class="col-md-5"></div>
+								<div class="col-md-1">
+									<input type="button" class="btn btn-info" value="등 록"
+										onclick="create()">
+								</div>
+								<div class="col-md-1">
+									<a href="etp_Exam_Main"><input type="button"
+										id="go_exam_main" class="btn btn-info" value="취 소"></a>
+								</div>
+								<div class="col-md-5"></div>
+							</form>
+						</div>
 					</div>
-					<textarea id="question_answer" name="question_answer"
-						class="form-control"></textarea>
-					<br>
-					<div class="col-md-4"></div>
-					<div class="col-md-2">
-						<input type="button" class="btn btn-info" value="등 록"
-							onclick="create()">
-					</div>
-					<div class="col-md-2">
-						<a href="etp_Exam_Main"><input type="button" id="go_exam_main"
-							class="btn btn-info" value="취 소"></a>
-					</div>
-					<div class="col-md-4"></div>
-				</form>
+				</div>
 			</div>
-			<div class="col-md-3"></div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
+
 </body>
 </html>

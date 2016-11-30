@@ -9,6 +9,11 @@ function showKeyCode(event) {
 	}
 }
 
+function dontPressKey(event){
+	event = event || window.event;
+	return false;
+}
+
 function cal() {
 	$('.datetimepicker').datetimepicker({
 		format : 'YYYY/MM/DD'

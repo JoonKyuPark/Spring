@@ -5,8 +5,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.digester.SetNestedPropertiesRule;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.jobis.etp.login.domain.Etp_LoginVO;
@@ -27,10 +25,8 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 			throws Exception {
 		
 	Etp_LoginVO	vo=(Etp_LoginVO)request.getSession().getAttribute("etp_infor");    
-		Mem_LoginVO vo2=(Mem_LoginVO)request.getSession().getAttribute("member_infor");    
-		System.out.println("if");
+		Mem_LoginVO vo2=(Mem_LoginVO)request.getSession().getAttribute("member_infor");  
 		if(vo==null&&vo2==null){
-			System.out.println("if222222");
 			response.sendRedirect("/login");
 			return false;
 			
@@ -43,7 +39,6 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 					etp_loginvo.setEtp_id(cookies[i].getValue());
 				}else if(cookies[i].getName().equals("autopass")){
 					etp_loginvo.setEtp_pass(cookies[i].getValue());
-					System.out.println(cookies[i].getValue());
 					etp_login.loginservice(etp_loginvo);
 					response.sendRedirect("etp_login");
 					return false;
@@ -52,12 +47,9 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 			
 		}
 		else if(vo2!=null){
-			System.out.println("if2");
 			Cookie[] cookies= request.getCookies();
 			Mem_LoginVO mem_loginvo= new Mem_LoginVO();
 			for(int i=0; i<cookies.length; i++){
-				System.out.println(cookies[i].getName());
-				System.out.println(cookies[i].getValue());
 				if(cookies[i].getName().equals("autoid")){				
 					mem_loginvo.setMember_id(cookies[i].getValue());
 				}else if(cookies[i].getName().equals("autopass")){

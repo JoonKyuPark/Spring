@@ -26,6 +26,7 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 		try {
 			return sqlSession.selectList(namespace + ".mem_Exam_List", member_no);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.mem_Exam_List Error!!!");
 			e.printStackTrace();
 			return null;
 		}
@@ -37,6 +38,7 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 		try {
 			return sqlSession.selectOne(namespace + ".mem_Question_List", mem_QuestionVO);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.mem_Question_List Error!!!");
 			e.printStackTrace();
 			return null;
 		}
@@ -48,6 +50,7 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 		try {
 			sqlSession.insert(namespace + ".mem_Answer_Create", mem_AnswerVO);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.mem_Answer_Create Error!!!");
 			e.printStackTrace();
 		}
 
@@ -55,8 +58,13 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 
 	@Override
 	public int mem_Question_Max(Mem_QuestionVO mem_QuestionVO) throws Exception {
+		try{
 		int max = sqlSession.selectOne(namespace + ".mem_Quesiton_Max", mem_QuestionVO);
 		return max;
+		}catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.mem_Question_Max Error!!!");
+			return 0;
+		}
 	}
 
 	@Override
@@ -64,6 +72,7 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 		try {
 			return sqlSession.selectList(namespace + ".all_Exam_List", member_no);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.all_Exam_List Error!!!");
 			e.printStackTrace();
 			return null;
 		}
@@ -72,10 +81,21 @@ public class Mem_ExamDAOImpl implements Mem_ExamDAO {
 	@Override
 	public void mem_Update_Count(Mem_CountVO mem_CountVO) throws Exception {
 		try {
-			System.out.println("DAO");
 			sqlSession.update(namespace + ".mem_Exam_Count", mem_CountVO);
 		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.mem_Update_Count Error!!!");
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Etp_QuestionVO select_Exam_Answer(int question_no) throws Exception {
+		try {
+			return sqlSession.selectOne(namespace + ".select_Exam_Answer", question_no);
+		} catch (Exception e) {
+			System.out.println("Mem_ExamDAOImpl.select_Exam_Answer Error!!!");
+			e.printStackTrace();
+			return null;
 		}
 	}
 

@@ -41,6 +41,43 @@
 			<beans:ref bean="Etp_LogginInterceptor" />
 		</interceptor>
 	</interceptors>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Main" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Update" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
 
 	<beans:bean id="Mem_LogginInterceptor" class="com.jobis.interceptor.Mem_LogginInterceptor"></beans:bean>
 	<interceptors>

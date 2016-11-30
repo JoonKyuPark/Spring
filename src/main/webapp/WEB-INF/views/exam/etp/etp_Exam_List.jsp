@@ -24,106 +24,107 @@
 <link href="../../../../resources/css/exam/bootstrap-switch.css"
 	rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
-</script>
-<title>시험 목록</title>
+<title>J O B I X A M L I S T</title>
 </head>
-<body>
-	<div class="col-md-2">
-		<ul class="nav nav-pills">
-			<li><a href="etp_Exam_Main">시험메인</a></li>
-			<li><a href="etp_Exam_List">시험목록</a></li>
-			<li><a href="etp_Exam_Create">시험등록</a></li>
-			<li><a href="etp_Question_Create">시험문제등록</a></li>
-			<li><a href="Etp_Question_List">시험문제목록</a>
-		</ul>
-	</div>
-	<div class="col-md-8">
-		<div class="col-md-12">
-			<h2>시험 일정 목록</h2>
-			<hr>
-			<form id="etp_Exam_ListForm">
-				<table id="etp_Exam_Table">
-					<tr>
-						<th><input type="checkbox" id="checkall"></th>
-						<th>번호</th>
-						<th>시험 이름</th>
-						<th>시험 과목</th>
-						<th>응시 인원</th>
-						<th>시험 시작일</th>
-						<th>시험 종료일</th>
-						<th>시험 상태</th>
-					</tr>
-					<c:forEach var="Etp_ExamVO" items="${etp_Exam_List}">
-						<tr class="etp_Exam_Table_tr" onmouseover="changeColor()">
-							<td id="exam_no"><input type="checkbox" class="chk"
-								name="exam_no" value="${Etp_ExamVO.exam_no}"></td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_no}</td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_name}</td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }"><c:set
-									var="field" value="${Etp_ExamVO.exam_field }" /> <c:choose>
-									<c:when test="${field eq 'English'}">영어</c:when>
-									<c:when test="${field eq 'Korean'}">문학</c:when>
-									<c:when test="${field eq 'Math'}">수학</c:when>
-									<c:when test="${field eq 'Physics'}">물리</c:when>
-									<c:when test="${field eq 'History'}">역사</c:when>
-									<c:when test="${field eq 'IT'}">IT</c:when>
-								</c:choose></td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }" onmouseover="pointer">${Etp_ExamVO.exam_number}</td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }"><fmt:formatDate
-									value="${Etp_ExamVO.exam_sdate}" pattern="yyyy-MM-dd" /></td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }"><fmt:formatDate
-									value="${Etp_ExamVO.exam_ddate}" pattern="yyyy-MM-dd" /></td>
-							<td class="question_list" title="${Etp_ExamVO.exam_no }">
-							<c:set var = "state" value = "${Etp_ExamVO.exam_show }"/>
-								<c:choose>
-									<c:when test="${state eq 'show' }">공개</c:when>
-									<c:when test="${state eq 'hide' }">비공개</c:when>
-								</c:choose>
-							</td>
-						</tr>
+<body onload="reset()">
+	<%@include file="../nav.jsp"%>
+	<div class="row">
+		<div class="col-sm-12 col-xs-12 col-md-12">
+			<div class="card col-md-12">
+				<div class="card-body col-md-12">
+				
+					<div class="col-md-12 outerDiv">
+						<div class="col-md-12 listForm">
+							<h2>J O B I X A M &nbsp; L I S T</h2>
+							<hr>
+							<form id="etp_Exam_ListForm" name="form">
+								<table id="etp_Exam_Table">
+									<tr>
+										<th><input type="checkbox" id="checkall"></th>
+										<th>번호</th>
+										<th>시험 이름</th>
+										<th>시험 과목</th>
+										<th>응시 인원</th>
+										<th>시험 시작일</th>
+										<th>시험 종료일</th>
+										<th>시험 상태</th>
+									</tr>
+									<c:forEach var="Etp_ExamVO" items="${etp_Exam_List}">
+										<tr class="etp_Exam_Table_tr" onmouseover="changeColor();">
+											<td id="exam_no"><input type="checkbox" class="chk"
+												name="exam_no" value="${Etp_ExamVO.exam_no}"></td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_no}</td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_name}</td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }"><c:set
+													var="field" value="${Etp_ExamVO.exam_field }" /> <c:choose>
+													<c:when test="${field eq 'English'}">영어</c:when>
+													<c:when test="${field eq 'Korean'}">문학</c:when>
+													<c:when test="${field eq 'Math'}">수학</c:when>
+													<c:when test="${field eq 'Physics'}">물리</c:when>
+													<c:when test="${field eq 'History'}">역사</c:when>
+													<c:when test="${field eq 'IT'}">IT</c:when>
+												</c:choose></td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_number}</td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }"><fmt:formatDate
+													value="${Etp_ExamVO.exam_sdate}" pattern="yyyy-MM-dd" /></td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }"><fmt:formatDate
+													value="${Etp_ExamVO.exam_ddate}" pattern="yyyy-MM-dd" /></td>
+											<td class="question_list" title="${Etp_ExamVO.exam_no }"><c:set
+													var="state" value="${Etp_ExamVO.exam_show }" /> <c:choose>
+													<c:when test="${state eq 'show' }">공개</c:when>
+													<c:when test="${state eq 'hide' }">비공개</c:when>
+												</c:choose></td>
+										</tr>
 
-					</c:forEach>
-				</table>
-			</form>
-		</div>
-		<div class="col-md-6">
-			<br> <input type="button" class="btn btn-info" value="새 시험"
-				onclick="location.href='etp_Exam_Create'">
-		</div>
-		<div class="col-md-6" align="right">
-			<br> <input type="button" class="btn btn-info"
-				id="exam_update_btn" value="수 정"> <input type="button"
-				class="btn btn-info" id="exam_delete_btn" value="삭 제">
-		</div>
-		<div class="box-footer col-md-12">
-			<div class="text-center">
-				<ul class="pagination">
+									</c:forEach>
+								</table>
+							</form>
+						</div>
+						<div class="col-md-12">
+							<div class="col-md-4">
+								<br> <input type="button" class="btn btn-info" value="새 시험"
+									onclick="location.href='etp_Exam_Create'">
+							</div>
+							<div class="col-md-4"></div>
+							<div class="col-md-4" align="right">
+								<br> <input type="button" class="btn btn-info"
+									id="exam_update_btn" value="수 정"> <input type="button"
+									class="btn btn-info" id="exam_delete_btn" value="삭 제">
+							</div>
+						</div>
+						<div class="box-footer col-md-12">
+							<div class="text-center col-md-12">
+								<ul class="pagination">
+									<c:if test="${pageMaker.prev}">
+										<li><a
+											href="etp_Exam_List?page=${pageMaker.startPage - 1}">&laquo;</a></li>
+									</c:if>
 
-					<c:if test="${pageMaker.prev}">
-						<li><a href="etp_Exam_List?page=${pageMaker.startPage - 1}">&laquo;</a></li>
-					</c:if>
-
-					<c:forEach begin="${pageMaker.startPage }"
-						end="${pageMaker.endPage }" var="idx">
-						<li
-							<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-							<a href="etp_Exam_List?page=${idx}">${idx}</a>
-						</li>
-					</c:forEach>
-					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						<li><a href="etp_Exam_List?page=${pageMaker.endPage +1}">&raquo;</a></li>
-					</c:if>
-				</ul>
+									<c:forEach begin="${pageMaker.startPage }"
+										end="${pageMaker.endPage }" var="idx">
+										<li
+											<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+											<a href="etp_Exam_List?page=${idx}">${idx}</a>
+										</li>
+									</c:forEach>
+									<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+										<li><a href="etp_Exam_List?page=${pageMaker.endPage +1}">&raquo;</a></li>
+									</c:if>
+								</ul>
+							</div>
+						</div>
+						<!-- /.box-footer-->
+							<form id="jobForm">
+								<input type='hidden' name="page"
+									value='${pageMaker.cri.perPageNum}'> <input
+									type='hidden' name="perPageNum"
+									value='${pageMaker.cri.perPageNum}'>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-		<!-- /.box-footer-->
-		<form id="jobForm">
-			<input type='hidden' name="page" value='${pageMaker.cri.perPageNum}'>
-			<input type='hidden' name="perPageNum"
-				value='${pageMaker.cri.perPageNum}'>
-		</form>
 	</div>
-	<div class="col-md-2"></div>
 </body>
 </html>
