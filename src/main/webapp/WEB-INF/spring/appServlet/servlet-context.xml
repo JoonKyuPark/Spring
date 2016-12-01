@@ -71,7 +71,42 @@
 		</interceptor>
 	</interceptors>
 
-	
+		<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Main" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Update" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
 
 	
 	
@@ -169,6 +204,8 @@
 <context:component-scan base-package="com.jobis.mem.match.**" />
 <context:component-scan base-package="com.jobis.aop" />
 
+<context:component-scan base-package="com.jobis.etp.exam.controller" />
+<context:component-scan base-package="com.jobis.mem.exam.controller" />
 	<!--회원 채용공고 확인 -->
 	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
 	<context:component-scan base-package="com.jobis.mem.recruit.persistance" />

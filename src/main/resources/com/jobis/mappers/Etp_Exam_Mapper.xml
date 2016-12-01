@@ -3,8 +3,112 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="org.spring.project.mappers.Etp_Exam_Mapper">
-
+<mapper namespace="com.jobis.mappers.Etp_Exam_Mapper">
+	<!-- 시험 일정 등록 -->
+	<insert id="etp_Exam_Create"  parameterType="Etp_ExamVO">
+		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show)
+			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no}, 'hide')
+	</insert>
+	<!-- 시험 일정 목록 -->
+	<select id="etp_Exam_List" resultType="Etp_ExamVO"  parameterType="int">
+		select * from exam_infor where etp_no = #{etp_no} order by exam_no desc
+	</select>
+	<!-- 시험 페이지 카운트 -->
+	<select id="etp_Exam_CountPage" resultType="int" parameterType="SearchCriteria">
+		<![CDATA[
+			select count(exam_no) from exam_infor where etp_no = #{etp_no} and exam_no > 0
+		]]>
+		<include refid="search"></include>
+	</select>
+	
+	<!-- 시험 1개 선택 -->
+	<select id="etp_Exam_Select" resultType="Etp_ExamVO" parameterType="Integer">
+		select * from exam_infor where exam_no=#{exam_no}
+	</select>
+	
+	<!-- 시험 일정 수정 -->
+	<update id="etp_Exam_Update" parameterType="Etp_ExamVO">
+		update exam_infor set
+			exam_sdate = #{exam_sdate},
+			exam_ddate = #{exam_ddate},
+			exam_name = #{exam_name},
+			exam_number = #{exam_number},
+			exam_field = #{exam_field},
+			exam_show = #{exam_show}
+		where exam_no = #{exam_no}
+	</update>
+	
+	<!-- 시험 삭제 -->
+	<delete id="etp_Exam_Delete" parameterType="int">
+		delete from exam_infor <if test = "value != null">where exam_no = ${value}</if>
+	</delete>
+	
+	<!-- 연관된 시험 문제 모두 삭제 -->
+	<delete id="etp_Exam_Qdelete" parameterType="int">
+		delete from exam_question <if test ="value != null">where exam_no = ${value}</if>
+	</delete>
+	
+	<!-- 시험 문제 등록 -->
+	<insert id="etp_Question_Create" parameterType="Etp_QuestionVO">
+		insert into exam_question (
+			question_no, question_name, question_content, question_second, exam_no, etp_no, question_answer, exam_question_no, correct_per
+		)values(
+			question_seq.nextval,#{question_name},#{question_content},#{question_second},#{exam_no},#{etp_no}, #{question_answer}, #{exam_question_no}, #{correct_per}
+		)
+		
+	</insert>
+	
+	<!-- 시험 문제 목록 -->
+	<select id = "etp_Question_List"  resultType="Etp_QuestionVO" parameterType="int">
+		select * from exam_question <if test = "value != null">where exam_no = ${value}</if> order by question_no desc
+	</select>
+	
+	<select id="exam_Question_No" resultType="integer" parameterType="int">
+		select max(exam_question_no) from exam_question where exam_no=#{exam_no}
+	</select>
+	
+	<!-- 시험 시작 종료 -->
+	<update id="etp_Exam_StartEnd" parameterType="Etp_ExamVO">
+		update exam_infor set
+			exam_show = #{exam_show}
+		where exam_no = #{exam_no}
+	</update>
+	<!-- 시험 인원 추가 -->
+	<select id="etp_Exam_MemberList" resultType = "Mem_JoinVO">
+		select * from member_infor
+	</select>
+	<!-- 동적 쿼리문 -->
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and title like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and content like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and writer like '%'|| #{keyword}||'%'
+			</if>
+			<if test="searchType == 'tc'.toString()">
+				and ( title like '%'|| #{keyword}||'%' OR content like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'cw'.toString()">
+				and ( content like '%'|| #{keyword}||'%' OR writer like
+				'%'||
+				#{keyword}||'%')
+			</if>
+			<if test="searchType == 'tcw'.toString()">
+				and ( title like '%'|| #{keyword}||'%'
+				OR
+				content like
+				'%'|| #{keyword}||'%'
+				OR
+				writer like '%'|| #{keyword}||'%')
+			</if>
+		</if>
+	</sql>
 </mapper>  
 
  

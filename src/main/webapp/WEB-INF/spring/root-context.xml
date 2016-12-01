@@ -58,6 +58,33 @@
 	<context:component-scan base-package="com.jobis.mem.receive.service" />
 	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
 	<context:component-scan base-package="com.jobis.mem.clip.service" />
+	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
+	<context:component-scan base-package="com.jobis.etp.login.persistance" />
+	<context:component-scan base-package="com.jobis.etp.join.persistance" />
+
+	<context:component-scan base-package="com.jobis.mem.exam.persistance" />
+	<context:component-scan base-package="com.jobis.mem.join.persistance" />
+	<context:component-scan base-package="com.jobis.mem.login.persistance" />
+	<context:component-scan base-package="com.jobis.mem.receive.persistance" />
+
+	<context:component-scan base-package="com.jobis.etp.exam.service" />
+	<context:component-scan base-package="com.jobis.etp.login.service" />
+	<context:component-scan base-package="com.jobis.etp.join.service" />
+
+	<context:component-scan base-package="com.jobis.mem.exam.service" />
+	<context:component-scan base-package="com.jobis.mem.join.service" />
+	<context:component-scan base-package="com.jobis.mem.login.service" />
+
+	<context:component-scan base-package="com.jobis.etp.exam.domain" />
+	<context:component-scan base-package="com.jobis.etp.login.domain" />
+	<context:component-scan base-package="com.jobis.etp.join.domain" />
+
+	<context:component-scan base-package="com.jobis.mem.exam.domain" />
+	<context:component-scan base-package="com.jobis.mem.join.domain" />
+	<context:component-scan base-package="com.jobis.mem.login.domain" />
+	<context:component-scan base-package="com.jobis.mem.recruit.domain" />
+	<context:component-scan base-package="com.jobis.mem.receive.domain" />
+	<context:component-scan base-package="com.jobis.mem.clip.domain" />
     
     
       
