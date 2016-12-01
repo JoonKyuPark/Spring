@@ -76,20 +76,20 @@
 			<label for="etp_no" class="col-md-3 control-label">로고</label>
 			<div class="col-md-9">
 				<input type="text"	placeholder="이미지"/>
-				<img src="displayFile?fileName=test.jpg" width="133px" height="150px"/>
-				<a href="Etp_Info_Logo">로고ㄱ</a>
+				<img src="displayFile?fileName=${Etp_JoinDTO.etp_image}" width="133px" height="150px"/>
+				<a href="Etp_Info_Logo?etp_no=${Etp_JoinDTO.etp_no}">로고ㄱ</a>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="etp_no" class="col-md-3 control-label">기업회원번호</label>
 			<div class="col-md-9">
-				<label id="etp_no" class="col-md-9">${Etp_JoinVO.etp_no }</label>
+				<label id="etp_no" class="col-md-9">${Etp_JoinDTO.etp_no }</label>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label for="etp_name" class="col-md-3 control-label">기업이름</label>
 			<div>
-				<label id="etp_name" class="col-md-9">hi</label>
+				<label id="etp_name" class="col-md-9">${Etp_JoinDTO.etp_name}</label>
 			</div>
 		</div>
 		<div class="form-group row">
@@ -97,7 +97,7 @@
 				<label for="etp_id">기업아이디</label>
 			</div>
 			<div class="col-md-8">
-				<label id="etp_id">hi</label>
+				<label id="etp_id">${Etp_JoinVO.etp_id}</label>
 			</div>
 		</div>
 		<div class="form-group row">

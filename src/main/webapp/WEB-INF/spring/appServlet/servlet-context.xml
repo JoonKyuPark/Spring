@@ -44,7 +44,7 @@
 
 
 	<resources mapping="/resources/**" location="/resources/" />
-
+	<!-- 미리보기 -->
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 
@@ -133,11 +133,15 @@
 <!--  -->
 	<context:component-scan base-package="org.spring.project" />
 	<context:component-scan base-package="com.jobis.etp.join.domain" />
-	<context:component-scan base-package="com.jobis.etp.login.**" />
-	<context:component-scan base-package="com.jobis.etp.join.**" />
-	<context:component-scan base-package="com.jobis.mem.join.**" />
-	<context:component-scan base-package="com.jobis.mem.login.**" />
+	<context:component-scan base-package="com.jobis.etp.login.*" />
+	<context:component-scan base-package="com.jobis.etp.join.*" />
+	<context:component-scan base-package="com.jobis.mem.join.*" />
+	<context:component-scan base-package="com.jobis.mem.login.*" />
 	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
+	<!-- 채용공고 -->
+	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
+	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
+	<context:component-scan base-package="com.jobis.etp.recruit.service" />
 	
 	
 		<context:component-scan base-package="com.jobis.mem.recruit.persistance" />
@@ -146,10 +150,14 @@
 	<context:component-scan base-package="com.jobis.mem.receive.service" />
 	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
 	<context:component-scan base-package="com.jobis.mem.clip.service" />
-		<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
 	<context:component-scan base-package="controller" />
 	<context:component-scan base-package="com.jobis.mem.receive.controller" />
 	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+	
+	<context:component-scan base-package="com.jobis.etp.clip.service" />
+	<context:component-scan base-package="com.jobis.etp.clip.persistance" />
+	<context:component-scan base-package="com.jobis.etp.clip.controller" />
 
 <context:component-scan base-package="com.jobis.etp.recruit.service" />
 <context:component-scan base-package="com.jobis.etp.recruit.persistance" />

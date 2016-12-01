@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jobis.etp.exam.persistance.Etp_ExamDAOImpl;
+import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.etp.join.domain.Etp_joinDTO;
 import com.jobis.etp.join.persistance.Etp_JoinDAOImpl;
@@ -18,8 +19,13 @@ public class Etp_JoinServiceImpl  implements Etp_JoinService {
 	private Etp_JoinDAOImpl joinDao;
 
 	@Override
+<<<<<<< HEAD
 	public void Etp_joinService_create(Etp_joinDTO joindto) {
 		joinDao.etp_JoinDAO_create(joindto);
+=======
+	public void Etp_joinService_create(Etp_JoinDTO dto) {
+		joinDao.etp_JoinDAO_create(dto);
+>>>>>>> refs/remotes/HanMuYoung/KimMinJeong3
 		
 	}
 
@@ -31,13 +37,18 @@ public class Etp_JoinServiceImpl  implements Etp_JoinService {
 
 	
 	@Override
-	public Etp_JoinVO etp_info_read(Integer etp_no) throws Exception {
+	public Etp_JoinDTO etp_info_read(Integer etp_no) throws Exception {
 		return joinDao.etp_info_read(etp_no);
 	}
 
 	@Override
-	public void etp_info_update(Etp_JoinVO vo) throws Exception {
-		joinDao.etp_info_update(vo);
+	public void etp_info_update(Etp_JoinDTO dto) throws Exception {
+		joinDao.etp_info_update(dto);
+	}
+
+	@Override
+	public void etp_image_update(String etp_image, Integer etp_no) throws Exception {
+		joinDao.etp_image_update(etp_image, etp_no);
 	}
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.jobis.etp.recruit.domain.Etp_RecruitDTO;
 import com.jobis.etp.recruit.domain.Etp_RecruitVO;
 import com.jobis.etp.recruit.service.Etp_RecuritService;
 
@@ -23,14 +24,21 @@ public class Etp_RecruitController {
 	}
 	
 	@RequestMapping(value="/Etp_RecruitForm", method=RequestMethod.POST)
-	public String etp_recruit_insert_POST(Etp_RecruitVO vo, Model model)throws Exception{
-		System.out.println(vo);
+	public String etp_recruit_insert_POST(Etp_RecruitDTO dto, Model model)throws Exception{
+		System.out.println(dto);
 		
-		service.etp_recruit_create(vo);
+		service.etp_recruit_create(dto);
 		
 		model.addAttribute("result","success");
 		return "redirect:/mypage/etp/Etp_RecruitForm";
 	}
+	
+	@RequestMapping(value="/Etp_Recruit_ListForm", method=RequestMethod.GET)
+	public void Etp_Recruit_ListForm(Model model)throws Exception{
+		
+		model.addAttribute("etp_recruit_list", service.etp_recruit_list());
+	}
+	
 	/*
 	@RequestMapping(value="/Etp_RecruitList", method=RequestMethod.GET)
 	public void etp_recruit_list_GET(Model model)throws Exception{
