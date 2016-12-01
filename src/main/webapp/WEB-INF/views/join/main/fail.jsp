@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
  
-alter("로그인 실패");
-location.href="/join/main/main";
+alert("로그인 실패");
+location.href="/login";
 
 </script>
 <title>Insert title here</title>

@@ -28,13 +28,16 @@
 	<br>
 	<br>
 	<div class="container">
+	
 		<div class="col-md-9"></div>
 		<div class="col-md-3">
 			<ul class="row nav nav-tabs">
 				<li class="active"><a href="#person" data-toggle="tab">개인회원</a></li>
 				<li><a href="#coper" data-toggle="tab">기업회원</a></li>
 			</ul>
-			<div class="tab-content">
+			
+
+
 				<div class="row tab-pane active" id="person">
 					<form action="/mem_login" method="post">
 						<input type="text" name="member_id" placeholder="아이디"
@@ -68,7 +71,6 @@
 
 
 <script type="text/javascript">
-functin
 	$(".auto")
 			.on(
 					"click",

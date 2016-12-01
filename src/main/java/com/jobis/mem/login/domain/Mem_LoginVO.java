@@ -145,7 +145,9 @@ public class Mem_LoginVO {
 	}
 
 	public void setMember_pwd(String member_pwd) {
-		this.member_pwd = member_pwd;
+		
+		
+		this.member_pwd =member_pwd;
 	}
 
 	public int getLicense() {
@@ -156,4 +158,21 @@ public class Mem_LoginVO {
 		this.license = license;
 	}
 
+	
+	public void pass(){  //복호화
+		String c = this.member_pwd;
+		int key2= Integer.parseInt((c.substring(c.length()-1)));
+		String[] r = c.split(",");
+		String pass2 = "";
+		
+		for (int k = 0; k < r.length-1; k++) {
+			int y = Integer.parseInt(r[k]);
+			pass2 += Character.toString((char) (y - key2));
+
+			System.out.println(pass2);
+
+		}
+		this.member_pwd=pass2;
+		
+	}
 }

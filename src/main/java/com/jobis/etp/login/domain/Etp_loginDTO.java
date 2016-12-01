@@ -36,8 +36,8 @@ public class Etp_loginDTO {
 		this.autologin = autologin;
 	}
 
-	
-	
+
+
 	
 
 }

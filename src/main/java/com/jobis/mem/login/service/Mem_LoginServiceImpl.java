@@ -26,9 +26,18 @@ public class Mem_LoginServiceImpl implements Mem_LoginService{
 
 	@Override
 	public Mem_LoginVO Mem_LoginService_selelct(Mem_LoginDTO mem_logindto) {
-
+		Mem_LoginVO VO=	mem_logindao.Mem_LoginDAO_select(mem_logindto);
+		VO.pass();
+		System.out.println("비밀번호:"+VO.getMember_pwd());
+		System.out.println("비밀번호2:"+mem_logindto.getMember_pwd());
+		if(VO.getMember_pwd().equals(mem_logindto.getMember_pwd())){
+			System.out.println("값이 다른가?>>");
+			return VO;
+		}else{
+			return null;
+		}
 	
-		return mem_logindao.Mem_LoginDAO_select(mem_logindto);
+		
 	}
 
 

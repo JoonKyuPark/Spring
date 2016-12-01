@@ -9,6 +9,8 @@ public class Mem_JoinVO {
 	private String member_name, member_img, member_birth, member_gender, member_email, member_phone, member_telephone,
 			member_addr_no, member_addr, member_detail_addr, member_homepage, member_id, member_pwd;
 	private int license;
+	
+	
 	public Mem_JoinVO() {
 		super();
 	}

@@ -32,6 +32,9 @@
 	<bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
+	
+	<aop:aspectj-autoproxy/>
+    <bean id="advise" class="com.jobis.aop.LoginAOP"></bean>	
 
 		<!-- tiles  -->
 		  <!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">

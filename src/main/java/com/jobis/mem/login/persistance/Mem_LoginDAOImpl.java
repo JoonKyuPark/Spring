@@ -21,8 +21,8 @@ public class Mem_LoginDAOImpl implements Mem_LoginDAO {
         System.out.println(mem_logindto.getMember_pwd());    
 
         Mem_LoginVO vo =  sqlsession.selectOne(namespace+".mem_login_select", mem_logindto);
+        
 		
-        System.out.println("id : "+vo.getMember_id());
 		return vo;
 	}
 

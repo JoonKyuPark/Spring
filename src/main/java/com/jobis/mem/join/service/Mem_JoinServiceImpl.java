@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jobis.mem.join.domain.Mem_JoinVO;
+import com.jobis.mem.join.domain.Mem_joinDTO;
 import com.jobis.mem.join.persistance.Mem_JoinDAO;
 
 
@@ -16,10 +17,10 @@ public class Mem_JoinServiceImpl implements Mem_JoinService {
 	
 	
 	@Override
-	public void Mem_JoinService_create(Mem_JoinVO joinvo) {
+	public void Mem_JoinService_create(Mem_joinDTO joindto) {
 		
-		System.out.println(joinvo.getMember_email());
-		mem_joindao.mem_create(joinvo);
+
+		mem_joindao.mem_create(joindto);
 		
 	}
 

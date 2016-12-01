@@ -46,10 +46,9 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 					} else if (cookies[i].getName().equals("etp_autopass")) {
 						etp_logindto.setEtp_pass(cookies[i].getValue());
 
-						System.out.println(etp_logindto.getEtp_id());
 						System.out.println(etp_logindto.getEtp_pass());
 
-						request.getSession().setAttribute("etp_infor", etp_login.loginservice(etp_logindto));
+						request.getSession().setAttribute("etp_infor", etp_login.etp_loginservice_selelct(etp_logindto));
 
 						System.out.println("쿠키로 로그인?");
 
@@ -63,10 +62,10 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 						mem_logindto.setMember_pwd(cookies[i].getValue());
 						System.out.println(cookies[i].getValue());
 						System.out.println("멤버 쿠키 생성됨???");
-
+                         
 						request.getSession().setAttribute("member_infor",
 								mem_login.Mem_LoginService_selelct(mem_logindto));
-						response.sendRedirect("/mem_login");
+						response.sendRedirect("/mem_loginOK");
 						return false;
 					}
 

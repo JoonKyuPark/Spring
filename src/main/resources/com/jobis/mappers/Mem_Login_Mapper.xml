@@ -7,7 +7,7 @@
 
 
 <select id="mem_login_select" resultType="Mem_LoginVO"  parameterType="Mem_LoginDTO">
-select * from member_infor where member_id=#{member_id} and member_pwd=#{member_pwd}
+select * from member_infor where member_id=#{member_id} 
 
 </select>
 

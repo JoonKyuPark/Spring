@@ -25,25 +25,39 @@ public class Mem_LoginController {
 
 	@RequestMapping(value = "/mem_login", method = RequestMethod.POST)
 	public String Mem_LoginController_login(
-			Mem_LoginDTO mem_logindto/*
-										 * , @RequestParam("autologin") String
-										 * autologin
-										 */, Model model) {
+			Mem_LoginDTO mem_logindto, Model model) {
 
 		loginservice.Mem_LoginService_selelct(mem_logindto);
 		if (loginservice.Mem_LoginService_selelct(mem_logindto) == null) {
 
-			return "/main/fail";
+			return "redirect: fail";
 		} else {
 			model.addAttribute("member_infor", loginservice.Mem_LoginService_selelct(mem_logindto));
-			/* model.addAttribute("autologin", autologin); */
-			return "mem_login";
+			if(mem_logindto.getAutologin()==null){
+				
+			}else{
+				model.addAttribute("autologin",mem_logindto.getAutologin());
+			}
+			return "redirect: mem_loginOK";
 		}
 	}
+	
+	@RequestMapping(value = "/fail", method = RequestMethod.GET)
+	public String mem_loginget(){
+		
+		return "join/main/fail";
+	}
 
-	@RequestMapping(value = "/mem_login", method = RequestMethod.GET)
-	public String Mem_LoginController_return(Mem_LoginVO loginvo, Model model) {
+	@RequestMapping("/mem_loginOK")
+	public String mem_loginOK(){
+		
 		return "mem_login";
+	}
+	
+	
+	@RequestMapping("/join/main/fail")
+	public String mem_loginfail(){
+		 return "join/main/fail";
 	}
 
 	@RequestMapping("/mem_logout")

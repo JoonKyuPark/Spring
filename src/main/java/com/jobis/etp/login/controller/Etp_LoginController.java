@@ -35,12 +35,12 @@ public class Etp_LoginController {
 	
 		
 	try {
-if(loginservice.loginservice(loginDTO)==null){
+if(loginservice.etp_loginservice_selelct(loginDTO)==null){
 			
 			return "fail";
 			}
 			else{
-			model.addAttribute("etp_infor",loginservice.loginservice(loginDTO));
+			model.addAttribute("etp_infor",loginservice.etp_loginservice_selelct(loginDTO));
 			String auto = loginDTO.getAutologin();
 			System.out.println(auto);
 			if(auto==null){
@@ -64,12 +64,11 @@ if(loginservice.loginservice(loginDTO)==null){
 		
 	}
 	
-	
 	@RequestMapping(value = "/etp_login", method = RequestMethod.GET)
-	public String  autoLogin(){
-		
+	public String  login(){
 		return "etp_login";
 	}
+	
 	
 	@RequestMapping("/etp_logout")
 	public String etp_logout(HttpServletRequest request, HttpServletResponse response){
