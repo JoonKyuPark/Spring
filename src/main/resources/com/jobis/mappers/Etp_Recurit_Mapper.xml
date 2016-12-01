@@ -5,7 +5,7 @@
   
 <mapper namespace="org.spring.project.mappers.Etp_Recurit_Mapper">
 
-	  <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
+	  <insert id="etp_recruit_create" parameterType="Etp_RecruitDTO">
       INSERT INTO recruit_infor
             (recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
             <if test="career_period != null">
@@ -47,12 +47,15 @@
             ,#{recruit_day})
    </insert>
     
-    <select id="etp_recruit_list" resultType="Etp_RecruitVO">
+    <!-- <select id="etp_recruit_list" resultType="Etp_RecruitVO">
        select recruit_no, recruit_title, recruit_number,recruit_field 
        from recruit_infor 
-    </select>
+    </select> -->
 	
-	
+	<select id="etp_recruit_list" resultType="Etp_RecruitDTO">
+		select * 
+		from recruit_infor 
+	</select>
 </mapper>  
 
  

@@ -7,7 +7,7 @@
  
 
 
-<insert id="etp_create" parameterType="Etp_JoinVO">
+<insert id="etp_create" parameterType="Etp_JoinDTO">
 INSERT INTO etp_infor(
 		etp_no, delegator_name, etp_id, etp_pass, etp_email, etp_kind,etp_tel,etp_registration_num, etp_name
 		)
@@ -23,11 +23,12 @@ INSERT INTO etp_infor(
 	
 	
 	
-	<select id="etp_info_read" resultType="Etp_JoinVO" parameterType="int">
-		select * from etp_infor where etp_no = #{etp_no}
+	<select id="etp_info_read" resultType="Etp_JoinDTO" parameterType="int">
+		select * from etp_infor 
+		where etp_no = #{etp_no} 
 	</select>
 
-	<update id="etp_info_update" parameterType="Etp_JoinVO">
+	<update id="etp_info_update" parameterType="Etp_JoinDTO">
 		update ETP_Infor set etp_tel=#{etp_tel},etp_email=#{etp_email},etp_kind=#{etp_kind}
 	  ,delegator_name=#{delegator_name},etp_field=#{etp_field},employee_number=#{employee_number},
 	  etp_location=
@@ -41,9 +42,12 @@ INSERT INTO etp_infor(
 	
 	<update id="etp_info_upload">
 		update ETP_Infor SET etp_image = #{etp_image}
-	 	where etp_no=3
+	 	where etp_no = #{etp_no}
 	</update>
-
+	
+	<update id="etp_image_update">
+		update etp_infor set etp_image = #{etp_image} where etp_no = #{etp_no}
+	</update>
 </mapper>  
 
  

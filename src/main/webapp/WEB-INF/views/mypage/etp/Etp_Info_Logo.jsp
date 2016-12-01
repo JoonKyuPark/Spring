@@ -21,26 +21,13 @@
          <!-- general form elements -->
          <div class="box box-primary">
             <div class="box-header">
-               <h3 class="box-title">REGISTER BOARD</h3>
+               <h3 class="box-title">기업이미지변경</h3>
             </div>
             <!-- /.box-header -->
 
             <form id='registerForm' role="form" method="post">
+               <input type='hidden' id='etp_no' name='etp_no' value='${etp_no}'/>
                <div class="box-body">
-                  <div class="form-group">
-                     <label for="exampleInputEmail1">Title</label> <input type="text"
-                        name='title' class="form-control" placeholder="Enter Title">
-                  </div>
-                  <div class="form-group">
-                     <label for="exampleInputPassword1">Content</label>
-                     <textarea class="form-control" name="content" rows="3"
-                        placeholder="Enter ..."></textarea>
-                  </div>
-                  <div class="form-group">
-                     <label for="exampleInputEmail1">Writer</label> <input type="text"
-                        name="writer" value="${login.urd}" class="form-control"
-                        placeholder="Enter Writer">
-                  </div>
                   <div class="form-group">
                      <label for="exampleInputEmail1">File DROP Here</label>
                      <div class="fileDrop"></div>
@@ -72,6 +59,7 @@
 </section>
 <!-- /.content -->
 </div>
+
 <!-- /.content-wrapper -->
 
 <script type="text/javascript" src="/resources/js/upload.js"></script>
@@ -80,6 +68,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script id="template" type="text/x-handlebars-template">
 <li>
+  <input type=""
   <span class="mailbox-attachment-icon has-img"><img src="{{imgsrc}}" alt="Attachment"></span>
   <div class="mailbox-attachment-info">
    <a href="{{getLink}}" class="mailbox-attachment-name">{{fileName}}</a>
@@ -97,6 +86,19 @@
       event.preventDefault();
    });
 
+
+	function getImageLink(fileName){
+		
+		if(!checkImageType(fileName)){
+			return;
+		}
+		var front = fileName.substr(0,12);
+		var end = fileName.substr(14);
+		
+		return front + end;
+		
+	}
+	
    $(".fileDrop").on("drop", function(event) {
       event.preventDefault();
 
@@ -120,13 +122,12 @@
 			  var str ="";
 			  
 			  if(checkImageType(data)){
-				  str ="<div><a href=displayFile?fileName="+getImageLink(data)+">"
+				  str = "<input type='hidden' id='etp_image' name='etp_image' value='"+data+"'/>"
+				  		  +"<div><a href=displayFile?fileName="+getImageLink(data)+">"
 						  +"<img src='displayFile?fileName="+data+"'/>"
 						  +"</a><small data-src="+data+">X</small></div>";
 			  }else{
-				  str = "<div><a href='displayFile?fileName="+data+"'>" 
-						  + getOriginalName(data)+"</a>"
-						  +"<small data-src="+data+">X</small></div></div>";
+				  
 			  }
 			  
 			  $(".uploadedList").append(str); 

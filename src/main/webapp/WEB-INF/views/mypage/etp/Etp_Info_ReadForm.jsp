@@ -37,7 +37,7 @@
 		<div class="form-group row">
 			<label for="etp_tel" class="col-md-3">기업전화번호</label>
 			<div class="col-md-9">
-				<label id="etp_id">${Etp_JoinVO.etp_tel}</label>
+				<label id="etp_id">${Etp_JoinDTO.etp_tel}</label>
 			</div>
 		</div>
 		<input type="submit" value="수정ㄱ">

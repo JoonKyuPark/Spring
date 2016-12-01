@@ -21,11 +21,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.etp.join.service.Etp_JoinServiceImpl;
 
@@ -39,8 +41,8 @@ public class Etp_JoinController {
 	private String uploadPath;
 
 	@RequestMapping(value = "/join/etp", method = RequestMethod.POST)
-	public String etp_Etp_JoinController_login(Etp_JoinVO joinVo, Model model) {
-		  JoinService.Etp_joinService_create(joinVo);
+	public String etp_Etp_JoinController_login(Etp_JoinDTO joinDto, Model model) {
+		  JoinService.Etp_joinService_create(joinDto);
 		return "login";
 
 	}
@@ -53,26 +55,34 @@ public class Etp_JoinController {
 	
 	@RequestMapping(value="/Etp_Info_UpdateForm", method = RequestMethod.GET)
 	public String etp_info_updatePOST(@RequestParam Integer etp_no,Model model)throws Exception{
-		Etp_JoinVO vo = JoinService.etp_info_read(etp_no);
+		Etp_JoinDTO dto = JoinService.etp_info_read(etp_no);
 
 		//System.out.println(vo.toString());
 		
-		model.addAttribute("Etp_JoinVO", vo);
+		model.addAttribute("Etp_JoinDTO", dto);
 		
 		return "/mypage/etp/Etp_Info_UpdateForm";
 	}
 	
 	@RequestMapping(value="/Etp_Info_UpdateForm", method = RequestMethod.POST)
-	public String etp_info_updatePOST(Etp_JoinVO vo)throws Exception{
-		//vo.setEtp_no(3);
-		JoinService.etp_info_update(vo);
+	public String etp_info_updatePOST(Etp_JoinDTO dto)throws Exception{
+		JoinService.etp_info_update(dto);
 		System.out.println("1");
 		return "redirect:/mypage/etp/Etp_Info_UpdateForm";
 	}
 	
 	@RequestMapping(value="/Etp_Info_Logo", method = RequestMethod.GET)
-	public void Etp_Info_logoGET(){
+	public void Etp_Info_logoGET(@RequestParam("etp_no") Integer etp_no, Model model){
+		model.addAttribute("etp_no", etp_no);
+	}
+	
+	@RequestMapping(value="/Etp_Info_Logo", method = RequestMethod.POST)
+	public String Etp_Info_logoPOST(Etp_JoinVO vo, 
+									@RequestParam("etp_image") String etp_image, 
+									@RequestParam("etp_no") Integer etp_no) throws Exception{
+		JoinService.etp_image_update(etp_image, etp_no);
 		
+		return "redirect:/mypage/etp/Etp_Info_UpdateForm?etp_no=" + etp_no;
 	}
 	
 	@ResponseBody

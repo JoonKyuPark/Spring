@@ -1,5 +1,7 @@
 package com.jobis.etp.join.domain;
 
+import java.util.Arrays;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -32,10 +34,11 @@ public class Etp_JoinVO {
 	private int etp_capital;
 	private int etp_sales;
 	private int clip_number;
+	private String etp_image;
 
 	public Etp_JoinVO(int etp_no, String etp_name, String etp_id, String etp_pass, String etp_tel, String etp_email,
 			String etp_kind, String etp_registration_num, String delegator_name, String etp_field, int employee_number,
-			String[] etp_location, int etp_capital, int etp_sales, int clip_number) {
+			String[] etp_location, int etp_capital, int etp_sales, int clip_number,String etp_image) {
 		super();
 		this.etp_no = etp_no;
 		this.etp_name = etp_name;
@@ -52,6 +55,7 @@ public class Etp_JoinVO {
 		this.etp_capital = etp_capital;
 		this.etp_sales = etp_sales;
 		this.clip_number = clip_number;
+		this.etp_image = etp_image;
 	}
 	public int getEtp_no() {
 		return etp_no;
@@ -142,6 +146,21 @@ public class Etp_JoinVO {
 	}
 	public void setClip_number(int clip_number) {
 		this.clip_number = clip_number;
+	}
+	public String getEtp_image() {
+		return etp_image;
+	}
+	public void setEtp_image(String etp_image) {
+		this.etp_image = etp_image;
+	}
+	@Override
+	public String toString() {
+		return "Etp_JoinVO [etp_no=" + etp_no + ", etp_name=" + etp_name + ", etp_id=" + etp_id + ", etp_pass="
+				+ etp_pass + ", etp_tel=" + etp_tel + ", etp_email=" + etp_email + ", etp_kind=" + etp_kind
+				+ ", etp_registration_num=" + etp_registration_num + ", delegator_name=" + delegator_name
+				+ ", etp_field=" + etp_field + ", employee_number=" + employee_number + ", etp_location="
+				+ Arrays.toString(etp_location) + ", etp_capital=" + etp_capital + ", etp_sales=" + etp_sales
+				+ ", clip_number=" + clip_number + ", etp_image=" + etp_image + "]";
 	}
 	
 	

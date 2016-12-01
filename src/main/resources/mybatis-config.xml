@@ -5,20 +5,24 @@
 <configuration>
 
 	<typeAliases>
+	
 		<package name="com.jobis.etp.login.domain" />
 		<package name="com.jobis.etp.join.domain" />
 		<package name="com.jobis.mem.join.domain" />
 		<package name="com.jobis.mem.login.domain" />
 		<package name="com.jobis.etp.recruit.domain" />
-		<package name="com.jobis.etp.clip.domain" />
+		<package name="com.jobis.etp.clip.domain" /> <!-- 인재스크랩 -->
 		<package name="com.jobis.mem.recruit.domain" />
 		<package name="com.jobis.mem.receive.domain" />
 		<package name="com.jobis.mem.clip.domain" />
+		
 		<!-- 채용공고 -->
+		
 		<package name="com.jobis.etp.recruit.domain" />
-
+		<package name="com.jobis.etp.recruit.domain" />
+		<!-- 인재스크랩 -->
+		<package name="com.jobis.mem.resume.domain" />
 	</typeAliases>
-
 
 </configuration>
 
