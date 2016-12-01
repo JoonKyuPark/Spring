@@ -3,7 +3,25 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <mapper namespace="org.spring.project.mappers.Mem_Receive_Mapper">
+=======
+<mapper namespace="com.jobis.mappers.Mem_Receive_Mapper">
+
+	<insert id="mem_receive_create" parameterType="Mem_ReceivceVO">
+		insert into join_receive(
+		join_receive_no, recruit_no, receive_date, reading, first_interview, member_no
+		)
+		values(
+		join_receive_seq.nextval, #{recruit_no}, '2016/11/15','y','y',#{member_no}
+		)
+	</insert>
+
+
+	<select resultType="Mem_ReceivceVO" id="mem_receive_list">
+		select * from join_receive where member_no=#{member_no}
+	</select>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 	<insert id="mem_receive_create" parameterType="Mem_ReceivceVO">
 		insert into join_receive(

@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+<<<<<<< HEAD
 <!-- Root Context: defines shared resources visible to all other web components -->
 		 <context-param>
       <param-name>contextConfigLocation</param-name>
@@ -15,6 +16,22 @@
       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
    </listener>
    
+=======
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>
+	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener> 
+	
+	<session-config> 
+        <session-timeout>1440</session-timeout> 
+    </session-config> 
+
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
    <!-- 자식 spring container -->
    <servlet>
@@ -32,6 +49,7 @@
       <url-pattern>/</url-pattern>
    </servlet-mapping>
 		
+<<<<<<< HEAD
 
 		<filter>
       <filter-name>encodingFilter</filter-name>
@@ -55,4 +73,24 @@
 	
 	
 
+=======
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>
+        org.springframework.web.filter.CharacterEncodingFilter
+     </filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 </web-app>

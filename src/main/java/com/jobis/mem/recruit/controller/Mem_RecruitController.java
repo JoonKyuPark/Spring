@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.etp.join.service.Etp_JoinService;
 import com.jobis.mem.clip.service.Mem_ClipService;
+<<<<<<< HEAD
 import com.jobis.mem.recruit.domain.Mem_RecruitCriteria;
 import com.jobis.mem.recruit.domain.Mem_RecruitPageMaker;
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 import com.jobis.mem.recruit.service.Mem_RecruitService;
 
 @Controller
@@ -27,6 +30,7 @@ public class Mem_RecruitController {
 	private Mem_RecruitService service;
 	@Inject 
 	private Mem_ClipService clip_service;
+<<<<<<< HEAD
 	
 
 	@RequestMapping(value = "/mem_Recruit_List_Form", method = RequestMethod.GET)
@@ -47,6 +51,17 @@ public class Mem_RecruitController {
 		pageMaker.setTotalCount(service.countPageing(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		
+=======
+
+	@RequestMapping(value = "/mem_Recruit_List_Form", method = RequestMethod.GET)
+	public String mem_recruit_List(Model model) throws Exception {
+		model.addAttribute("recruit_list", service.mem_Recruit_List());
+		List<Etp_JoinVO> etp_read_list = new ArrayList<Etp_JoinVO>();
+		for (int i = 0; i < service.mem_Recruit_List().size(); i++) {
+			etp_read_list.add(service.etp_Join_Read((service.mem_Recruit_List()).get(i).getEtp_no()));
+		}
+		model.addAttribute("etp_read_list", etp_read_list);
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 		return "/recruit/mem_Recruit_List_Form";
 	}
 	

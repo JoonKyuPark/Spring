@@ -1,5 +1,6 @@
 package com.jobis.mem.login.service;
 
+<<<<<<< HEAD
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -13,11 +14,20 @@ import com.jobis.mem.login.domain.Mem_LoginDTO;
 import com.jobis.mem.login.domain.Mem_LoginVO;
 import com.jobis.mem.login.persistance.Mem_LoginDAO;
 
+=======
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.jobis.mem.login.domain.Mem_LoginVO;
+import com.jobis.mem.login.persistance.Mem_LoginDAO;
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 
 @Service
 public class Mem_LoginServiceImpl implements Mem_LoginService{
 	
+<<<<<<< HEAD
 	
 	@Inject
 	private Mem_LoginDAO mem_logindao;
@@ -38,6 +48,15 @@ public class Mem_LoginServiceImpl implements Mem_LoginService{
 		}
 	
 		
+=======
+	@Inject
+	private Mem_LoginDAO mem_logindao;
+
+	@Override
+	public Mem_LoginVO Mem_LoginService_selelct(Mem_LoginVO loginvo) {
+		
+		return mem_logindao.Mem_LoginDAO_select(loginvo);
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	}
 
 

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 
 <mapper namespace="org.spring.project.mappers.Etp_Recurit_Mapper">
 
@@ -166,6 +167,10 @@
 		select recruit_no, recruit_title, recruit_number,recruit_field
 		from recruit_infor
 	</select> -->
+=======
+  
+<mapper namespace="com.jobis.mappers.Etp_Recurit_Mapper">
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 </mapper>  
 

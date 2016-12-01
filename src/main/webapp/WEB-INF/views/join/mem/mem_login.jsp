@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
 
 <title>Insert title here</title>
 </head>
@@ -24,6 +25,26 @@
 		</div>
 	</div>
 
+=======
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<div class="col-md-3">
+		<div class="col-md-4">
+			<a href="/exam/mem/mem_Exam_Main">시험 목록</a>
+			<span type="" readonly="readonly">${sessionScope.member_infor.member_id }님
+				반갑습니다</span> <img src="images/javacan1.gif">
+			<div class="col-md-2">
+				<form action="/mem_logout">
+					<input type="submit" value="로그아웃">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 
 

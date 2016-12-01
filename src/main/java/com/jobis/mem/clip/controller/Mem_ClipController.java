@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+<<<<<<< HEAD
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -55,6 +56,38 @@ public class Mem_ClipController {
 			entity=new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
 		return entity;
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.jobis.etp.join.domain.Etp_JoinVO;
+import com.jobis.mem.clip.domain.Mem_ClipVO;
+import com.jobis.mem.clip.service.Mem_ClipService;
+import com.jobis.mem.recruit.domain.Mem_RecruitVO;
+import com.jobis.mem.recruit.service.Mem_RecruitService;
+
+@Controller
+@RequestMapping("/clip/*")
+public class Mem_ClipController {
+
+	@Inject
+	private Mem_ClipService service;
+	@Inject
+	public Mem_RecruitService recruit_Service;
+	
+	@RequestMapping(value="/mem_Clip_Create",  method = RequestMethod.GET)
+	public String mem_Clip_Create(@RequestParam("rno") int rno)throws Exception{
+		Mem_ClipVO mem_clip=new Mem_ClipVO();
+		mem_clip.setRecruit_no(rno);
+		mem_clip.setMember_no(1);
+		service.mem_Clip_Create(mem_clip);
+		
+		return "redirect:/recruit/mem_Recruit_List_Form";
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 		
 	}
 	

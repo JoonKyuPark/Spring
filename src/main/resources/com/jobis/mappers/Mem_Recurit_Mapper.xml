@@ -2,9 +2,13 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
 
 <mapper namespace="org.spring.project.mappers.Mem_Recurit_Mapper">
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
+<<<<<<< HEAD
 
 	<select id="recruit_List_Criteria" resultType="Mem_RecruitVO">
 	<![CDATA[
@@ -28,6 +32,23 @@
 		where etp_no = #{rno}
 	</select>
 
+=======
+<mapper namespace="com.jobis.mappers.Mem_Recurit_Mapper">
+	<select id="recruit_List" resultType="Mem_RecruitVO">
+		select * from recruit_infor
+	</select>
+	
+	<select id="recruit_Read" resultType="Mem_RecruitVO" >
+		select * from recruit_infor where recruit_no=#{rno}
+	</select>
+	
+	<select id="etp_read" resultType="Etp_JoinVO" parameterType="int">
+		select *
+		from etp_infor
+		where etp_no = #{rno}
+	</select>
+	
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 </mapper>  
 
  

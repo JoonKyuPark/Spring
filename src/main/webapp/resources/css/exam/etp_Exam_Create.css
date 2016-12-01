@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+body{
+	font-family : '나눔고딕' !important;
+}
+
+.btn-info {
+	background: #3679B5 !important;
+}
+
+.examNumberForm {
+	float: left;
+	text-align: right;
+	
+}
+
+.outerDiv {
+	background: white;
+	margin-left: 1%;
+	height: 2000px;
+}
+
+.inputExamForm {
+	padding: 3%;
+}
+
+.btnDiv {
+	margin-top: 5%;
+}

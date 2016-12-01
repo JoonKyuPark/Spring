@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.mem.join.domain.Mem_JoinVO;
+<<<<<<< HEAD
 import com.jobis.mem.join.domain.Mem_joinDTO;
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 import com.jobis.mem.join.service.Mem_JoinService;
 
 @Controller
@@ -20,6 +23,7 @@ public class Mem_JoinController {
 	
 	
 	@RequestMapping(value = "join/mem", method = RequestMethod.POST)
+<<<<<<< HEAD
 	public String Mem_JoinController_join(Mem_joinDTO joindto, Model model) {
 	
 	
@@ -28,6 +32,16 @@ public class Mem_JoinController {
          
 		
 		return "join/main/login";
+=======
+	public String Mem_JoinController_join(Mem_JoinVO joinvo, Model model) {
+	
+		System.out.println(joinvo.getMember_email());
+		
+		joinservice.Mem_JoinService_create(joinvo);
+
+		
+		return "join/main/main";
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	}
 	
 

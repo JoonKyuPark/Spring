@@ -28,6 +28,7 @@ a:focus {background:transparent;}
 /* Common
 -------------------------------------------------------------------------- */
 <<<<<<< HEAD
+<<<<<<< HEAD
 body {font:normal 12px verdana, dotum, "돋움", gulim, "굴림", sans-serif; background:#fff; color:#333;}
 .skip, .blind, legend {position:absolute; top:-5000em; width:1px; height:1px; overflow:hidden; line-height:0; font-size:0;}
 a {text-decoration:none;}
@@ -124,6 +125,29 @@ a {text-decoration:none;}
 #header {position:relative; padding-bottom:15px;}
 #header h1 {padding:18px 0 0 2px;}
 >>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
+=======
+body {font:normal 12px verdana, dotum, "돋움", gulim, "굴림", sans-serif; text-align:center; background:#fff; color:#333;}
+.skip, .blind, legend {position:absolute; top:-5000em; width:1px; height:1px; overflow:hidden; line-height:0; font-size:0;}
+a {text-decoration:none;}
+
+/*f_clear */
+.f_clear:after {content: "."; height: 0; display: block; visibility: hidden; clear: both;}
+* html .f_clear {height: 1px;}
+.f_clear {display: block;min-height:1px;}
+
+/* Layout
+-------------------------------------------------------------------------- */
+#wrap {width:620px; margin:0 auto; text-align:left;}
+
+#skipNavigation {position:relative; width:100%; z-index:1;}
+#skipNavigation a {display:block; position:absolute; left:0; top:-1px; overflow:hidden; width:1px; height:1px; font-weight:bold; text-align:center;}
+#skipNavigation a:hover, #skipNavigation a:focus, #skipNavigation a:active { width: 200px; top: 0; background-color: #fff; padding: 5px; height: auto; border: 1px solid #333; color:#000;}
+
+/* Header
+-------------------------------------------------------------------------- */
+#header {position:relative; padding-bottom:15px;}
+#header h1 {padding:18px 0 0 2px;}
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 #header .gnb {position:absolute; top:22px; right:0;}
 #header .gnb li {float:left; padding-left:7px; background:url('/content/images/member/sprites/mbr_header.png') no-repeat 0 -178px;}

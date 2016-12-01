@@ -6,8 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
  
+<<<<<<< HEAD
 alert("로그인 실패");
 location.href="/login";
+=======
+alter("로그인 실패");
+location.href="/join/main/main";
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 </script>
 <title>Insert title here</title>

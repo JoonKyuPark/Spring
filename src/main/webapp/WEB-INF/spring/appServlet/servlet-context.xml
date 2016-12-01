@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
+<<<<<<< HEAD
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:beans="http://www.springframework.org/schema/beans"
    xmlns:context="http://www.springframework.org/schema/context"
@@ -8,19 +9,38 @@
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+=======
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
+<<<<<<< HEAD
     
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing 
 		infrastructure -->
 
 	<!-- Enables the Spring MVC @Controller programming model -->
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	<annotation-driven />
 
+<<<<<<< HEAD
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	<resources mapping="/resources/**" location="/resources/" />
 
+<<<<<<< HEAD
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 
@@ -34,6 +54,8 @@
 
 	</beans:bean>
 
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -41,6 +63,7 @@
 		<beans:property name="order" value="2" />
 	</beans:bean>
 
+<<<<<<< HEAD
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- 미리보기 -->
@@ -71,7 +94,30 @@
 		</interceptor>
 	</interceptors>
 
+=======
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		<beans:property name="order" value="1" />
+	</beans:bean>
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
+	</beans:bean>
+
+	<beans:bean id="Etp_LogginInterceptor" class="com.jobis.interceptor.Etp_LogginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/etp_login" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	
+<<<<<<< HEAD
 
 	
 	
@@ -140,7 +186,78 @@
 	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
 	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
 	<context:component-scan base-package="com.jobis.etp.recruit.service" />
+=======
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Main" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Exam_Update" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_Create" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+	<interceptors>
+		<interceptor>
+			<mapping path="/exam/etp/etp_Question_List" />
+			<beans:ref bean="Etp_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="Mem_LogginInterceptor" class="com.jobis.interceptor.Mem_LogginInterceptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/mem_login" />
+			<beans:ref bean="Mem_LogginInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="authInterceptor" class="com.jobis.interceptor.AuthInterceptor">
+	</beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/receive/mem_Join_Receive_Create" />
+			<beans:ref bean="authInterceptor" />
+		</interceptor>
+	</interceptors>
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:value>/WEB-INF/tiles/tiles2def.xml</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760" />
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\upload" />
+	</beans:bean>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 	
+<<<<<<< HEAD
 	<!--기업 채용공고 등록 -->
 	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
 	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
@@ -187,3 +304,22 @@
 	<context:component-scan base-package="controller" />
 
 </beans:beans>
+=======
+	<context:component-scan base-package="com.jobis.etp.exam.controller" />
+	<context:component-scan base-package="com.jobis.etp.login.controller" />
+	<context:component-scan base-package="com.jobis.etp.join.controller" />
+
+	<context:component-scan base-package="com.jobis.mem.exam.controller" />
+	<context:component-scan base-package="com.jobis.mem.join.controller" />
+	<context:component-scan base-package="com.jobis.mem.login.controller" />
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+
+
+
+
+
+
+</beans:beans>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2

@@ -28,6 +28,7 @@
 	<br>
 	<br>
 	<div class="container">
+<<<<<<< HEAD
 	
 		<div class="col-md-9"></div>
 		<div class="col-md-3">
@@ -94,4 +95,42 @@ else { this.checked = false; }
 
 
 
+=======
+		<div class="col-md-9"></div>
+		<div class="col-md-3">
+			<ul class="row nav nav-tabs">
+				<li class="active"><a href="#person" data-toggle="tab">개인회원</a></li>
+				<li><a href="#coper" data-toggle="tab">기업회원</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="row tab-pane active" id="person">
+					<form action="/mem_login" method="post">
+						<input type="text" name="member_id" placeholder="아이디"
+							required="required"> <input type="password"
+							name="member_pwd" placeholder="비밀번호"><br> <input
+							type="submit" value="로그인"> <a type="button" href="/join">회원가입</a><br>
+							
+							<input type="checkbox" value="auto" name="autologin"><span>자동로그인</span>
+					</form>
+				</div>
+				<div class="row tab-pane" id="coper">
+					<form action="/etp_login" method="post">
+						<input type="text" name="etp_id" placeholder="기업아이디"
+							required="required"> <input type="password"
+							name="etp_pass" placeholder="비밀번호"><br> <input
+							type="submit" value="로그인"> <a type="button" href="/join">회원가입</a>
+							<br>
+								<input type="checkbox" value="auto" name="autologin"><span>자동로그인</span>
+					</form>
+				</div>
+			</div>
+
+			<div>${sessionScope.etp_infor.etp_id }
+				${sessionScope.member_infor.member_id }</div>
+
+
+
+		</div>
+</body>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 </html>

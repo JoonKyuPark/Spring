@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+<<<<<<< HEAD
 	<typeAliases>
 	
 		<package name="com.jobis.etp.login.domain" />
@@ -29,6 +30,21 @@
 		<!-- 채용공고 -->
 		<package name="com.jobis.etp.recruit.domain" />
 		<package name="com.jobis.mem.notice.domain" />
+=======
+  <typeAliases>
+    <package name="com.jobis.etp.exam.domain"/> 
+    <package name="com.jobis.mem.exam.domain"/>
+    <package name="com.jobis.etp.join.domain"/>
+    <package name="com.jobis.mem.join.domain"/>
+    <package name="com.jobis.etp.login.domain"/>
+    <package name="com.jobis.mem.login.domain"/>
+    <package name="com.jobis.mem.clip.domain"/>
+    <package name="com.jobis.mem.recruit.domain"/>
+    <package name="com.jobis.mem.resume.domain"/>
+    <package name="com.jobis.mem.receive.domain"/>
+    
+  </typeAliases>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 
 

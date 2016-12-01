@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+body {
+	font-family: '나눔고딕' !important;
+	background-image: url('../../../../resources/css/images/exam_background.png');
+	background-size: cover;
+}
+
+.mem_answerForm {
+	margin: 10%;
+	margin-left: 0 !important;
+	padding: 2%;
+	border: 2px solid #cccccc;
+	border-radius: 15px;
+	background : white;
+}
+
+.btnForm {
+	margin-top: 5%;
+}
+
+.btn-info{
+	background: #3679B5 !important;
+}

@@ -141,6 +141,7 @@ public class Etp_LoginVO {
 		this.clip_number = clip_number;
 		this.etp_image = etp_image;
 	}
+<<<<<<< HEAD
 	
 	public void pass(){  //복호화
 		String c = this.etp_pass;
@@ -158,5 +159,7 @@ public class Etp_LoginVO {
 		this.etp_pass=pass2;
 		
 	}
+=======
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 }

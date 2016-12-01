@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.etp.join.domain.Etp_JoinDTO;
+=======
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.jobis.etp.join.domain.Etp_JoinVO;
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 import com.jobis.etp.join.service.Etp_JoinServiceImpl;
 
 @Controller
@@ -40,6 +49,7 @@ public class Etp_JoinController {
 	@Resource(name="uploadPath")
 	private String uploadPath;
 
+<<<<<<< HEAD
 	@RequestMapping(value = "/join/etp", method = RequestMethod.POST)
 /*	public String Etp_JoinController_join(Etp_joinDTO joindto, Model model) {
 		joindto.pass();
@@ -96,6 +106,58 @@ public class Etp_JoinController {
 		ResponseEntity<byte[]> entity = null;
 		InputStream in = null;
 		System.out.println("1");
+=======
+	@RequestMapping(value = "/join/etp", method = RequestMethod.POST)
+	public String etp_Etp_JoinController_login(Etp_JoinVO joinVo, Model model) {
+		System.out.println(joinVo.getEtp_id());
+		System.out.println(joinVo.getEtp_pass());
+		System.out.println(joinVo.getEtp_email());
+		System.out.println(joinVo.getEtp_kind());
+		System.out.println(joinVo.getEtp_tel());
+		System.out.println(joinVo.getEtp_registration_num());
+		System.out.println(joinVo.getEtp_name());
+		  JoinService.Etp_joinService_create(joinVo);
+		return "login";
+
+	}
+	
+	//////////////////////
+	@RequestMapping(value="/Etp_Info_ReadForm", method = RequestMethod.GET)
+	public void etp_info_read(@RequestParam int etp_no,Model model)throws Exception{
+		model.addAttribute("Etp_JoinVO", JoinService.etp_info_read(etp_no));
+	}
+	
+	@RequestMapping(value="/Etp_Info_UpdateForm", method = RequestMethod.GET)
+	public String etp_info_updatePOST(@RequestParam Integer etp_no,Model model)throws Exception{
+		Etp_JoinVO vo = JoinService.etp_info_read(etp_no);
+
+		//System.out.println(vo.toString());
+		
+		model.addAttribute("Etp_JoinVO", vo);
+		
+		return "/mypage/etp/Etp_Info_UpdateForm";
+	}
+	
+	@RequestMapping(value="/Etp_Info_UpdateForm", method = RequestMethod.POST)
+	public String etp_info_updatePOST(Etp_JoinVO vo)throws Exception{
+		//vo.setEtp_no(3);
+		JoinService.etp_info_update(vo);
+		System.out.println("1");
+		return "redirect:/mypage/etp/Etp_Info_UpdateForm";
+	}
+	
+	@RequestMapping(value="/Etp_Info_Logo", method = RequestMethod.GET)
+	public void Etp_Info_logoGET(){
+		
+	}
+	
+	@ResponseBody
+    @RequestMapping(value = "/displayFile", method=RequestMethod.GET)
+	public ResponseEntity<byte[]> displayFile(@RequestParam("fileName") String fileName, HttpServletRequest request)
+			throws Exception {
+		ResponseEntity<byte[]> entity = null;
+		InputStream in = null;
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 		try {
 			HttpHeaders headers = new HttpHeaders();
 			in = new FileInputStream(uploadPath + "\\" + fileName);

@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+body{
+	font-family : '나눔고딕' !important;
+}
+.btn-info {
+	background: #3679B5 !important;
+}
+
+.examNumberForm {
+	text-align: right;
+}
+
+#selectPicker {
+	border: 1px solid #E7EDEE;
+	border-radius: 5px;
+	height: 35px;
+	width:
+}
+
+.outerDiv {
+	background: white;
+	margin-left: 1%;
+	height: 2000px;
+}
+
+.btnDiv {
+	margin-top: 3%;
+}
+
+.showDiv {
+	margin-top: 1%;
+}

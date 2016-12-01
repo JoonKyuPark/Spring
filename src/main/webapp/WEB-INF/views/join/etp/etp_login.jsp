@@ -10,6 +10,10 @@
 
 	<div class="col-md-3">
 		<div class="col-md-4">
+<<<<<<< HEAD
+=======
+		<a href="exam/etp/etp_Exam_Main">12341</a>
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 			<span readonly="readonly">${sessionScope.etp_infor.etp_id }´Ô
 				¹Ý°©½À´Ï´Ù</span>
 			<div class="col-md-2">

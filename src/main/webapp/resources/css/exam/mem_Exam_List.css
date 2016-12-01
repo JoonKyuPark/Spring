@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+body{
+	font-family : '나눔고딕' !important;
+}
+
+#gotoexam {
+	margin-top: 1%;
+}
+
+#mem_Exam_ListForm {
+	float: left;
+}
+
+.outerDiv {
+	background: white;
+	margin-left: 1%;
+	height: 2000px;
+}
+
+.examListForm {
+	padding: 3%;
+}

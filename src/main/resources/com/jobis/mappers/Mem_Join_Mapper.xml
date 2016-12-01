@@ -3,7 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <mapper namespace="org.spring.project.mappers.Mem_Join_Mapper">
+=======
+<mapper namespace="com.jobis.mappers.Mem_Join_Mapper">
+
+
+	<insert id="mem_create" parameterType="Mem_JoinVO">
+	INSERT INTO
+		member_infor(MEMBER_NO,member_name,member_id,member_pwd,member_email,member_telephone)
+		VALUES(MEM_INFOR_NO.nextval,#{member_name},#{member_id},#{member_pwd},#{member_email},#{member_telephone})
+	</insert>
+	
+	<select id="mem_idcheck" resultType="String">
+	select COUNT(member_id) from member_infor where member_id=#{mem_id}
+	
+	</select>
+	
+>>>>>>> refs/remotes/HanMuYoung/ParkJoonKyu2
 
 
 	<insert id="mem_create" parameterType="Mem_joinDTO">
