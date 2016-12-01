@@ -37,7 +37,7 @@
 			</ul>
 			
 
-
+<div class="tab-content">
 				<div class="row tab-pane active" id="person">
 					<form action="/mem_login" method="post">
 						<input type="text" name="member_id" placeholder="아이디"

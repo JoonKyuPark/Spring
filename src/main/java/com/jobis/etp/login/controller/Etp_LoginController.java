@@ -25,92 +25,73 @@ public class Etp_LoginController {
 
 	@Inject
 	private Etp_LoginService loginservice;
-<<<<<<< HEAD
-	
-	
-	@RequestMapping(value = "/etp_login", method = RequestMethod.POST)
-	public String  login(Etp_loginDTO loginDTO ,Model model) {
-	
-		/*loginVO.setEtp_id(logid);
-		loginVO.setEtp_pass(logpwd);*/
-	
-		
-	try {
-if(loginservice.etp_loginservice_selelct(loginDTO)==null){
-			
-			return "fail";
-			}
-			else{
-			model.addAttribute("etp_infor",loginservice.etp_loginservice_selelct(loginDTO));
-			String auto = loginDTO.getAutologin();
-			System.out.println(auto);
-			if(auto==null){
-				
-			}else{
-				model.addAttribute("autologin",loginDTO.getAutologin());
-				
-			}
-			
-			
-			return "etp_login";
-		}
-		
-	} catch (Exception e) {
-		
-	}
-		
-=======
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 
 	@RequestMapping(value = "/etp_login", method = RequestMethod.POST)
-	public String login(
-			Etp_LoginVO loginVO/*
-								 * ,@RequestParam("autologin") String autologin
-								 */ , Model model) {
+	public String login(Etp_loginDTO loginDTO, Model model) {
 
 		/*
 		 * loginVO.setEtp_id(logid); loginVO.setEtp_pass(logpwd);
 		 */
 
 		try {
-			if (loginservice.loginservice(loginVO) == null) {
+			if (loginservice.etp_loginservice_selelct(loginDTO) == null) {
 
 				return "fail";
 			} else {
-				model.addAttribute("etp_infor", loginservice.loginservice(loginVO));
-				/* model.addAttribute("autologin",autologin); */
-				System.out.println("#333333333");
+				model.addAttribute("etp_infor", loginservice.etp_loginservice_selelct(loginDTO));
+				String auto = loginDTO.getAutologin();
+				System.out.println(auto);
+				if (auto == null) {
+
+				} else {
+					model.addAttribute("autologin", loginDTO.getAutologin());
+
+				}
+
 				return "etp_login";
 			}
 
 		} catch (Exception e) {
-
+			return "etp_login";
 		}
-
-		return "etp_login";
-
 	}
-<<<<<<< HEAD
-	
+
+	/*
+	 * @RequestMapping(value = "/etp_login", method = RequestMethod.POST) public
+	 * String login( Etp_LoginVO loginVO ,@RequestParam("autologin") String
+	 * autologin , Model model) {
+	 * 
+	 * 
+	 * loginVO.setEtp_id(logid); loginVO.setEtp_pass(logpwd);
+	 * 
+	 * 
+	 * try { if (loginservice.loginservice(loginVO) == null) {
+	 * 
+	 * return "fail"; } else { model.addAttribute("etp_infor",
+	 * loginservice.loginservice(loginVO));
+	 * model.addAttribute("autologin",autologin);
+	 * System.out.println("#333333333"); return "etp_login"; }
+	 * 
+	 * } catch (Exception e) {
+	 * 
+	 * }
+	 * 
+	 * return "etp_login";
+	 * 
+	 * }
+	 */
+
 	@RequestMapping(value = "/etp_login", method = RequestMethod.GET)
-	public String  login(){
+	public String login() {
 		return "etp_login";
 	}
-	
-	
-=======
 
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 	@RequestMapping("/etp_logout")
-<<<<<<< HEAD
-	public String etp_logout(HttpServletRequest request, HttpServletResponse response){
-	          
-=======
-	public String etp_logout(HttpServletRequest request) {
 
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
+	public String etp_logout(HttpServletRequest request, HttpServletResponse response) {
+
 		request.getSession().invalidate();
-<<<<<<< HEAD
+
 		Cookie cookie1 = new Cookie("etp_autoid", null);
 		Cookie cookie2 = new Cookie("etp_autopass", null);
 		cookie1.setPath("/");
@@ -119,10 +100,7 @@ if(loginservice.etp_loginservice_selelct(loginDTO)==null){
 		cookie1.setMaxAge(0);
 		response.addCookie(cookie1);
 		response.addCookie(cookie2);
-		
-=======
 
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 		return "join/main/main";
 	};
 

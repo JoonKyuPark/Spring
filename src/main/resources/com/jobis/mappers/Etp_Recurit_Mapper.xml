@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.spring.project.mappers.Etp_Recurit_Mapper">
-<<<<<<< HEAD
+
 
 <!--  <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
       INSERT INTO recruit_infor
@@ -109,8 +109,8 @@
 		from recruit_infor 
 	</select>
 
-=======
-	<insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
+
+	<!-- <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
 		INSERT INTO recruit_infor
 		(recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
 		<if test="career_period != null">
@@ -165,9 +165,8 @@
 	<select id="etp_recruit_list" resultType="Etp_RecruitVO">
 		select recruit_no, recruit_title, recruit_number,recruit_field
 		from recruit_infor
-	</select>
+	</select> -->
 
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 </mapper>  
 
  

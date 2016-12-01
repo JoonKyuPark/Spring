@@ -28,20 +28,19 @@
       <property name="mapperLocations" value="classpath:com/jobis/mappers/*Mapper.xml"/>
 
    </bean>
-<<<<<<< HEAD
 	
-	<bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<!-- <bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 	<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
-	</bean>
+	</bean> -->
 	
 	<aop:aspectj-autoproxy/>
     <bean id="advise" class="com.jobis.aop.LoginAOP"></bean>	
-=======
+
    
    <bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
    <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
    </bean>
->>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
+
 
       <!-- tiles  -->
         <!-- <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
