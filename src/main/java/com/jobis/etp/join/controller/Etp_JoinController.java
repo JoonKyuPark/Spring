@@ -27,9 +27,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.domain.Etp_JoinVO;
-import com.jobis.etp.join.domain.Etp_joinDTO;
+import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.service.Etp_JoinServiceImpl;
 
 @Controller
@@ -42,14 +41,12 @@ public class Etp_JoinController {
 	private String uploadPath;
 
 	@RequestMapping(value = "/join/etp", method = RequestMethod.POST)
-<<<<<<< HEAD
-	public String Etp_JoinController_join(Etp_joinDTO joindto, Model model) {
+/*	public String Etp_JoinController_join(Etp_joinDTO joindto, Model model) {
 		joindto.pass();
-		  JoinService.Etp_joinService_create(joindto);
-=======
+		  JoinService.Etp_joinService_create(joindto);*/
+
 	public String etp_Etp_JoinController_login(Etp_JoinDTO joinDto, Model model) {
 		  JoinService.Etp_joinService_create(joinDto);
->>>>>>> refs/remotes/HanMuYoung/KimMinJeong3
 		return "login";
 
 	}

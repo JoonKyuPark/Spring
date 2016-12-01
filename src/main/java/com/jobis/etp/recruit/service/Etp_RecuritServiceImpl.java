@@ -28,8 +28,8 @@ public class Etp_RecuritServiceImpl implements Etp_RecuritService {
 */
 
 	@Override
-<<<<<<< HEAD
-	public List<Integer> rnolist() {
+
+	/*public List<Integer> rnolist() {
 	try {
 		List<Integer> list =dao.rnolist();
 		
@@ -45,11 +45,11 @@ public class Etp_RecuritServiceImpl implements Etp_RecuritService {
 	@Override
 	public String toString() {
 		return "Etp_RecuritServiceImpl [dao=" + dao + "]";
-	}
+	}*/
 
-=======
+
 	public List<Etp_RecruitDTO> etp_recruit_list() throws Exception {
 		return dao.etp_recruit_list();
 	}
->>>>>>> refs/remotes/HanMuYoung/KimMinJeong3
+
 }

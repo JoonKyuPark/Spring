@@ -29,17 +29,7 @@ public class Etp_RecuritDAOImpl implements Etp_RecuritDAO {
 		return list;
 	}
 
-	@Override
-	public List<Integer> rnolist() throws Exception {
-	
-		
-			
-			List<Integer> list = sqlSession.selectList(namespace+".rnolist");
-			System.out.println(list.get(0));
-			return list;
 
-		
-	}
 	
 	
 }

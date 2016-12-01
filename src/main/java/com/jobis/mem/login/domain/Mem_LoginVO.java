@@ -155,8 +155,6 @@ public class Mem_LoginVO {
 	public void setResume_no(int resume_no) {
 		this.resume_no = resume_no;
 	}
-
-<<<<<<< HEAD
 	
 	public void pass(){  //복호화
 		String c = this.member_pwd;
@@ -174,7 +172,7 @@ public class Mem_LoginVO {
 		this.member_pwd=pass2;
 		
 	}
-=======
+
 	@Override
 	public String toString() {
 		return "Mem_LoginVO [member_no=" + member_no + ", member_name=" + member_name + ", member_img=" + member_img
@@ -185,7 +183,5 @@ public class Mem_LoginVO {
 				+ ", member_pwd=" + member_pwd + ", resume_no=" + resume_no + "]";
 	}
 
-	
-	
->>>>>>> refs/remotes/HanMuYoung/KimMinJeong3
+
 }
