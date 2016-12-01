@@ -1,8 +1,5 @@
 package com.jobis.etp.join.controller;
 
-
-
-
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -45,8 +42,10 @@ public class Etp_JoinController {
 		joindto.pass();
 		  JoinService.Etp_joinService_create(joindto);*/
 
+	
 	public String etp_Etp_JoinController_login(Etp_JoinDTO joinDto, Model model) {
-		  JoinService.Etp_joinService_create(joinDto);
+		joinDto.pass();
+		JoinService.Etp_joinService_create(joinDto);
 		return "login";
 
 	}

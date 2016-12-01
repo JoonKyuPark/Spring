@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.login.domain.Etp_LoginVO;
 import com.jobis.etp.pass.domain.Etp_Pass_Map;
 import com.jobis.etp.pass.service.Etp_Pass_Service;
+import com.jobis.mem.clip.domain.Mem_ClipVO;
 import com.jobis.mem.receive.domain.Mem_ReceivceVO;
 import com.jobis.mem.resume.domain.Mem_ResumeVO;
 
@@ -103,10 +104,18 @@ public class Etp_PassController {
 		return etpMap;
 	}
 	
-	@RequestMapping(value="/Etp_Pass_Update", method = RequestMethod.GET)
-	public String Etp_Pass_Update(@RequestParam(value="resume_no") int resume_no)throws Exception{
-		service.Etp_Pass_Update(resume_no);
-		return "/first_pass/etp_First_Pass_List_Form";
+	@RequestMapping(value="/Etp_Pass_Update", method = RequestMethod.POST)
+	public ResponseEntity<String> Etp_Pass_Update(@RequestParam(value="recruit_no") int recruit_no)throws Exception{
+		ResponseEntity<String> entity=null;
+		try{
+			service.Etp_Pass_Update(recruit_no);
+			entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		}catch (Exception e) {
+			e.printStackTrace();
+			entity=new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+		
 	}
 
 }

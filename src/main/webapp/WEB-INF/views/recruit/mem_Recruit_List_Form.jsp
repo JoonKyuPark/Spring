@@ -7,12 +7,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>채용공고</title>
 <!-- Bootstrap -->
-<link href="../../../resources/css/recruit/mem/bootstrap.min.css" rel="stylesheet">
-<link href="../../../resources/css/recruit/mem/custom2.css" rel="stylesheet">
-<link href="../../../resources/css/recruit/mem/kfonts2.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="../../../resources/css/recruit/mem/mem_Recruit_List_Style.css" />
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css"
+	rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/custom2.css"
+	rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/kfonts2.css"
+	rel="stylesheet">
+<link rel="stylesheet" type="text/css"
+	href="../../../resources/css/recruit/mem/mem_Recruit_List_Style.css" />
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
+
+	var rno = "${recruit_read.getRecruit_no()}";
+	
 	$(function() {
 		$("#allCheck").click(function() {
 			if ($("#allCheck").prop("checked")) {
@@ -22,6 +30,31 @@
 			}
 		})
 	})
+
+	//스크랩 추가할때 
+	function button1_click(rno){
+
+		$.ajax({
+			type : 'post',
+			url : '/clip',
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			dataType : 'text',
+			data : JSON.stringify({
+				recruit_no : rno
+			}),//stringify문자열을 json으로
+			success : function(result) {
+				console.log("result: " + result);
+				if (result == 'SUCCESS') {
+					alert("등록 되었습니다.");
+					$("#clip_count").text("${mem_clip_count+1}");
+				}
+			}
+
+		});
+	};
 </script>
 </head>
 <body>
@@ -39,9 +72,9 @@
 
 			</ul>
 		</div>
-		<a href="Member_Recruit_List.jsp?id=all">전체</a>
-		 <a href="Member_Recruit_List.jsp?id=seoul">서울시</a> 
-		 <a href="Member_Recruit_List.jsp?id=gg">경기도</a>
+		<a href="Member_Recruit_List.jsp?id=all">전체</a> <a
+			href="Member_Recruit_List.jsp?id=seoul">서울시</a> <a
+			href="Member_Recruit_List.jsp?id=gg">경기도</a>
 		<table class="table table-hover">
 			<thead>
 				<tr height="30">
@@ -70,9 +103,9 @@
 						<td align="left"><h4>
 								<a
 									href="/recruit/mem_Recruit_Read_Form?rno=${recruit_list[i].recruit_no}">${recruit_list[i].recruit_title}</a>
-							</h4> <a
-							href="/clip/mem_Clip_Create?rno=${recruit_list[i].recruit_no}">좋아요</a>
-							<a href="/clip/mem_Recruit_Clip_List_Form">좋아요리스트</a></td>
+							</h4>
+							<button id="button3" onclick="button1_click(${recruit_list[i].recruit_no})">관심 채용 등록</button> <a
+							href="/clip/mem_Recruit_Clip_List_Form">좋아요리스트</a></td>
 						<td align="center">${recruit_list[i].hire_type}<br>${recruit_list[i].ac_ability_no}<br>봉급&nbsp
 							${recruit_list[i].income_qualification}<br>근무요일&nbsp${recruit_list[i].recruit_day}
 						</td>
@@ -82,35 +115,35 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
+
 		<div class="box-footer">
 
-					<div class="text-center">
-						<ul class="pagination">
+			<div class="text-center">
+				<ul class="pagination">
 
-							<c:if test="${pageMaker.prev}">
-								<li><a
-									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.startPage-1) }">&laquo;</a></li>
-							</c:if>
+					<c:if test="${pageMaker.prev}">
+						<li><a
+							href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.startPage-1) }">&laquo;</a></li>
+					</c:if>
 
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="mem_Recruit_List_Form${pageMaker.makeQuery(idx)}">${idx}</a>
-								</li>
-							</c:forEach>
+					<c:forEach begin="${pageMaker.startPage }"
+						end="${pageMaker.endPage }" var="idx">
+						<li
+							<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+							<a href="mem_Recruit_List_Form${pageMaker.makeQuery(idx)}">${idx}</a>
+						</li>
+					</c:forEach>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.endPage+1)}">&raquo;</a></li>
-							</c:if>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li><a
+							href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.endPage+1)}">&raquo;</a></li>
+					</c:if>
 
-						</ul>
-					</div>
+				</ul>
+			</div>
 
-				</div>
-				<!-- /.box-footer-->
+		</div>
+		<!-- /.box-footer-->
 	</div>
 </body>
 </html>

@@ -154,6 +154,24 @@ public class Etp_JoinDTO {
 	
 	
 	
+	public void pass(){ //암호화
+		System.out.println("22222");
+		String pass= this.etp_pass;
+		System.out.println("입력비밀번호"+pass);
+		String c = "";
+		int key=(int)Math.random()*10+1;
+		for (int i = 0; i < pass.length(); i++) {
+			pass.substring(i);
+			System.out.println((int) pass.substring(i, i + 1).charAt(0));
+			c += (int) pass.substring(i, i + 1).charAt(0) + key + ",";
+		}
+		c+=key;
+		System.out.println(c);
+		this.etp_pass= c;
+	}
+	
+	
+	
 	
 
 }

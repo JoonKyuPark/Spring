@@ -49,7 +49,6 @@
 			  
 				//스크랩 추가할때 
 				$("#button3").on("click",function(){
-					  
 					  $.ajax({
 							type:'post',
 							url:'/clip',

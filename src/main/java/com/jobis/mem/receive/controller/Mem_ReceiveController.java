@@ -164,7 +164,7 @@ public class Mem_ReceiveController {
 				int year=Integer.parseInt(ddate_arr[2]);
 				
 				//쓰레드 이용하여 예약, 알림 구현
-				Mem_Receive_Reserv_Thread thread=new Mem_Receive_Reserv_Thread(year, month, day, 14, 42, mem_receive, mem_notice);
+				Mem_Receive_Reserv_Thread thread=new Mem_Receive_Reserv_Thread(year, month, day, 11, 54, mem_receive, mem_notice);
 				thread.start(); // 지정된 시간까지 정지 시킴
 				entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 				

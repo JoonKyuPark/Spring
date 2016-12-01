@@ -42,6 +42,10 @@
 
 					});
 		}
+		
+		 function button1_click(no) {
+			 window.open('/receive/mem_Join_Receive_Create_Form?rno='+no,'name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
+		 }
 	</script>
 </head>
 <body>

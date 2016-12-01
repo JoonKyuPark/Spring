@@ -54,6 +54,27 @@
 		});
 
 	});
+	
+	//스크랩 추가할때 
+	function button_click1(rno){
+
+		$.ajax({
+			type : 'post',
+			url : '/first_pass/Etp_Pass_Update?recruit_no='+rno,
+			headers : {
+				"Content-Type" : "application/json",
+				"X-HTTP-Method-Override" : "POST"
+			},
+			dataType : 'text',
+			success : function(result) {
+				console.log("result: " + result);
+				if (result == 'SUCCESS') {
+					alert("등록 되었습니다.");
+				}
+			}
+
+		});
+	};
 </script>
 
 
@@ -169,7 +190,8 @@
 											</td>
 											<td align="left"><h4>${pass_resume_list[i].resume_title}</h4>
 											</td>
-											 <td><a  href="/first_pass/Etp_Pass_Update?resume_no=${pass_resume_list[i].resume_no}">합격</a></td>
+											 <td><button id="button1" onclick="button_click1(${pass_resume_list[i].resume_no})">합격</button>
+											<%--  <td><a  href="/first_pass/Etp_Pass_Update?resume_no=${pass_resume_list[i].resume_no}">합격</a></td> --%>
 										</tr>
 									</c:forEach>
 								</c:if>
