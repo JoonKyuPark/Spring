@@ -1,0 +1,139 @@
+#receive_div {
+	background-color: #4fca75;
+}
+
+#receive {
+	color: white;
+	font-weight: bold;
+}
+
+#resume_form_div {
+	background-color: #f7f7f7;
+}
+
+#basic_resume_form {
+	background-color: #f5fcf8;
+	margin: 10px;
+	border: 3px solid #4fca75;
+}
+#resume_form{
+	background-color: #f5fcf8;
+	margin: 10px;
+	border: 2px solid #b0e8c1;
+}
+#resume_title {
+	background-color: white;
+	border-bottom: 1px solid #dbdbdb;
+	padding: 5px;
+}
+
+#resume_title_h5 {
+	padding: 12px;
+}
+
+#resume_title_name {
+	font-weight: bold;
+	padding: 5px;
+}
+
+#resume_cont{
+	border-top: 1px solid #dbdbdb;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding: 15px;
+}
+
+#etp_name{
+	font-weight: bold;
+	padding: 5px;
+	color: #4fca75;
+}
+
+
+/**************************
+  DEFAULT BOOTSTRAP STYLES
+**************************/
+.btn {
+	display: inline-block;
+	padding: 6px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 10px 16px;
+}
+
+.btn-lg {
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 6px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #4fca75;
+	border-color: #4fca75;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+	.btn-primary.active, .open .dropdown-toggle.btn-primary {
+	color: #fff;
+	background-color: #4fca75;
+	border-color: #4fca75;
+}
+
+/***********************
+  RAISED BUTTONS
+************************/
+.btn-primary.raised {
+	box-shadow: 0 3px 0 0 #4fca75;
+}
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+	background: #4fca75;
+	box-shadow: none;
+	margin-bottom: -3px;
+	margin-top: 3px;
+}
+
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+.btn {
+	padding: 14px 50px;
+	border: 0 none;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+
+.btn-primary {
+	background: #4fca75;
+	color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+	.btn-primary.active, .open>.dropdown-toggle.btn-primary {
+	background: #4fca75;
+}
+
+.btn-primary:active, .btn-primary.active {
+	background: #4fca75;
+	box-shadow: none;
+}

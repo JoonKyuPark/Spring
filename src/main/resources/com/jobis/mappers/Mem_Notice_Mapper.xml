@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.spring.project.mappers.Mem_Notice_Mapper">
+
+	<insert id="receive_create">
+		insert into notice_center 
+		values(notice_no_seq.nextval, #{notice_type}, #{notice_name}, SYSDATE, 'N', #{member_no}, #{mem_submit_no}, #{exam_question_no},#{smart_match_no});
+	</insert>
+</mapper>  
+
+ 

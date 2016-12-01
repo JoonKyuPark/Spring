@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jobis.mem.notice.domain.Mem_NoticeVO;
 import com.jobis.mem.receive.domain.Mem_ReceivceVO;
+import com.jobis.mem.resume.domain.Mem_ResumeVO;
 
 @Repository
 public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
@@ -18,13 +20,41 @@ public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
 	
 	@Override
 	public void mem_Receive_Create(Mem_ReceivceVO mem_receive) throws Exception {
+		System.out.println(mem_receive.getResume_no());
+		System.out.println(mem_receive.getRecruit_no());
 		sqlSession.insert(namespace+".mem_receive_create",mem_receive);
 	}
 
 	@Override
-	public List<Mem_ReceivceVO> mem_Receive_List(int member_no) throws Exception {
-		return sqlSession.selectList(namespace+".mem_receive_list", member_no);
+	public List<Mem_ReceivceVO> mem_Receive_List(int resume_no) throws Exception {
+		return sqlSession.selectList(namespace+".mem_receive_list", resume_no);
 	}
+	
+	@Override
+	public int resume_no(int member_no) throws Exception {
+		return sqlSession.selectOne(namespace+".resume_no", member_no);
+	}
+	
+	@Override
+	public List<Mem_ResumeVO> mem_resume_List(int member_no) throws Exception {
+		return sqlSession.selectList(namespace+".mem_resume_List", member_no);
+	}
+	
+	@Override
+	public Integer basic_resume_no(int member_no) throws Exception {
+		return sqlSession.selectOne(namespace+".basic_resume_no", member_no);
+	}
+	
+	@Override
+	public List<Integer> mem_receive_overlap_create(int recruit_no)throws Exception{
+		return sqlSession.selectList(namespace+".mem_receive_overlap_create" ,recruit_no);
+	}
+	
+	@Override
+	public void mem_Notice_Create(Mem_NoticeVO notice) throws Exception {
+		sqlSession.insert(namespace+".receive_create", notice);
+	}
+
 	
 	
 

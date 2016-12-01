@@ -25,6 +25,7 @@ public class Mem_LoginController {
 
 	@RequestMapping(value = "/mem_login", method = RequestMethod.POST)
 	public String Mem_LoginController_login(
+<<<<<<< HEAD
 			Mem_LoginDTO mem_logindto, Model model) {
 
 		loginservice.Mem_LoginService_selelct(mem_logindto);
@@ -39,8 +40,23 @@ public class Mem_LoginController {
 				model.addAttribute("autologin",mem_logindto.getAutologin());
 			}
 			return "redirect: mem_loginOK";
+=======
+			Mem_LoginVO loginvo/*
+								 * , @RequestParam("autologin") String autologin
+								 */, Model model) {
+
+		loginservice.Mem_LoginService_selelct(loginvo);
+		if (loginservice.Mem_LoginService_selelct(loginvo) == null) {
+
+			return "/main/fail";
+		} else {
+			model.addAttribute("member_infor", loginservice.Mem_LoginService_selelct(loginvo));
+			/* model.addAttribute("autologin", autologin); */
+			return "mem_login";
+>>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 		}
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping(value = "/fail", method = RequestMethod.GET)
 	public String mem_loginget(){
@@ -72,6 +88,17 @@ public class Mem_LoginController {
 		response.addCookie(cookie1);
 		response.addCookie(cookie2); // 기존 멤버 쿠키 삭제
 		System.out.println("왜 안지워지냐");
+=======
+
+	@RequestMapping(value = "/mem_login", method = RequestMethod.GET)
+	public String Mem_LoginController_return(Mem_LoginVO loginvo, Model model) {
+		return "mem_login";
+	}
+
+	@RequestMapping("/mem_logout")
+	public String Mem_LoginController_logout(HttpServletRequest request) {
+
+>>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
 		request.getSession().invalidate();
 
 		return "login";
