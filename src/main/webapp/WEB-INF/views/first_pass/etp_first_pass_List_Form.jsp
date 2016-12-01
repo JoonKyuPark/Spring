@@ -9,9 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <!-- Bootstrap -->
-<link href="../../../resources/css/recruit/mem/bootstrap.min.css" rel="stylesheet">
-<link href="../../../resources/css/recruit/mem/custom2.css" rel="stylesheet">
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css"
+	rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/custom2.css"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#allCheck").click(function() {
@@ -22,55 +25,160 @@
 			}
 		})
 	})
+
+	$(document).ready(function() {
+
+		$("input:checkbox").change(function() {
+			var str = "";
+			$("input:checkbox:checked").each(function(index) {
+				str += $(this).val() + ",";
+			});
+			alert("dd");
+			$.ajax({
+				type : 'post',
+				url : '/first_pass/etp_First_Pass_List_Form?checkArray=' + str,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				success : function(result) {
+					alert("dd");
+					alert(result);
+					if (result.getEntity() == 'SUCCESS') {
+						$("#template").html(tag);
+					}
+				}
+
+			});
+		});
+
+	});
 </script>
+
 
 </head>
 <body>
-			<div class="row">
-				<div class="col-sm-12 col-xs-12">
-					<div class="card">
-						<div class="card-body">
-						
-							<table class="table table-hover">
-								<thead>
+	<%-- 
+	<c:if test="${sessionScope.pass_resume!=0}">
+		<table class="table table-hover">
+			<thead>
+				<tr height="30">
+					<th align="right" width="20"><center>
+							<div class="checkbox">
+								<input type="checkbox" id="allCheck"><label
+									for="allCheck"></label>
+							</div>
+						</center></th>
+					<th width="100"><center>이름</center></th>
+					<th width="100"><center>이력서제목dd</center></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="i" begin="0"
+					end="${sessionScope.pass_resume.size()-1}" step="1">
+					<tr height="30">
+						<td align="right"><center>
+								<div class="checkbox">
+									<input type="checkbox"
+										id="${sessionScope.pass_resume[i].resume_no}"> <label
+										for="${sessionScope.pass_resume[i].resume_no}"></label>
+								</div>
+							</center></td>
+						<td align="left"><h4>${sessionScope.pass_resume[i].resume_title}</h4></td>
+						<td align="left"><h4>${sessionScope.pass_resume[i].resume_title}</h4></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</c:if>
+ --%>
+
+	<div class="row">
+		<div class="col-sm-12 col-xs-12">
+			<div class="card">
+				<div class="card-body">
+
+					<table class="table table-hover">
+						<thead>
+							<tr height="30">
+								<th align="right" width="20"><center>
+										<div class="checkbox">
+											<input type="checkbox" id="allCheck"><label
+												for="allCheck"></label>
+										</div>
+									</center></th>
+								<th width="100"><center>회사명</center></th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:if test="${recruit_infor.size()>0}">
+								<c:forEach var="i" begin="0" end="${recruit_infor.size()-1}"
+									step="1">
 									<tr height="30">
-										<th align="right" width="20"><center>
+										<td align="right">
+											<center>
 												<div class="checkbox">
-													<input type="checkbox" id="allCheck"><label
-														for="allCheck"></label>
+													<input type="checkbox" id="${recruit_infor[i].recruit_no}"
+														value="${recruit_infor[i].recruit_no}"> <label
+														for="${recruit_infor[i].recruit_no}"></label>
 												</div>
-											</center></th>
-										<th width="100"><center>회사명</center></th>
-										<th width="300"><center>지원내역</center></th>
-										<th width="100"><center>지원일</center></th>
-										<th width="50"><center>열람여부</center></th>
+											</center>
+										</td>
+										<td align="left"><h4>
+												${recruit_infor[i].recruit_title}</h4></td>
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="i" begin="0" end="${mem_receive_list.size()-1}" step="1">
+
+								</c:forEach>
+							</c:if>
+						</tbody>
+					</table>
+
+					<br> <br>
+
+					<div id="template">
+						<table class="table table-hover">
+							<thead>
+								<tr height="30">
+									<th align="right" width="20"><center>
+											<div class="checkbox">
+												<input type="checkbox" id="allCheck"><label
+													for="allCheck"></label>
+											</div>
+										</center></th>
+									<th width="100"><center>이름</center></th>
+									<th width="100"><center>이력서제목</center></th>
+									<th width="100"><center>합격여부</center></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${pass_resume_list.size()>0}">
+									<c:forEach var="i" begin="0" end="${pass_resume_list.size()-1}"
+										step="1">
 										<tr height="30">
 											<td align="right">
-												 <div class="checkbox">
-													<input type="checkbox" id="${mem_receive_list[i].recruit_no}"> 
-														<label for="${mem_receive_list[i].recruit_no}"></label>
-												</div>
+												<center>
+													<div class="checkbox">
+														<input type="checkbox"
+															id="${pass_resume_list[i].resume_no}"> <label
+															for="${pass_resume_list[i].resume_no}"></label>
+													</div>
+												</center>
 											</td>
-											<td align="center"><h4>
-													<a
-														href="../recruit_infor/recruit_detail_infor.jsp?id=${mem_receive_list[i].recruit_no}"> ${etp_List[i].etp_name} </a>
-												</h4></td>
-											<td align="left"><h4>  ${recruit_List[i].recruit_title} </h4> <br>지원자:명<br>지원서류:이력서</td>
-											<td align="center">${mem_receive_list[i].receive_date}</td>
-											<td align="center">${mem_receive_list[i].reading}<br> <a>지원취소</a></td>
+											<td align="left"><h4>${pass_resume_list[i].resume_title}</h4>
+											</td>
+											<td align="left"><h4>${pass_resume_list[i].resume_title}</h4>
+											</td>
+											 <td><a  href="/first_pass/Etp_Pass_Update?resume_no=${pass_resume_list[i].resume_no}">합격</a></td>
 										</tr>
-
 									</c:forEach>
-								</tbody>
-							</table>
-							
-						</div>
+								</c:if>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 </body>
 </html>

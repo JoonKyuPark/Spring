@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.etp.join.service.Etp_JoinService;
 import com.jobis.mem.clip.service.Mem_ClipService;
+import com.jobis.mem.recruit.domain.Mem_RecruitCriteria;
+import com.jobis.mem.recruit.domain.Mem_RecruitPageMaker;
 import com.jobis.mem.recruit.service.Mem_RecruitService;
 
 @Controller
@@ -25,15 +27,26 @@ public class Mem_RecruitController {
 	private Mem_RecruitService service;
 	@Inject 
 	private Mem_ClipService clip_service;
+	
 
 	@RequestMapping(value = "/mem_Recruit_List_Form", method = RequestMethod.GET)
-	public String mem_recruit_List(Model model) throws Exception {
-		model.addAttribute("recruit_list", service.mem_Recruit_List());
+	public String mem_recruit_List(Mem_RecruitCriteria cri, Model model) throws Exception {
+		//채용공고의 정보
+		model.addAttribute("recruit_list", service.mem_Recruit_List_Criteria(cri));
+		
+		//채용공고의 회사 정보
 		List<Etp_JoinVO> etp_read_list = new ArrayList<Etp_JoinVO>();
-		for (int i = 0; i < service.mem_Recruit_List().size(); i++) {
-			etp_read_list.add(service.etp_Join_Read((service.mem_Recruit_List()).get(i).getEtp_no()));
+		for (int i = 0; i < service.mem_Recruit_List_Criteria(cri).size(); i++) {
+			etp_read_list.add(service.etp_Join_Read((service.mem_Recruit_List_Criteria(cri)).get(i).getEtp_no()));
 		}
 		model.addAttribute("etp_read_list", etp_read_list);
+		
+		//페이징 FOOTER
+		Mem_RecruitPageMaker pageMaker=new Mem_RecruitPageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.countPageing(cri));
+		model.addAttribute("pageMaker", pageMaker);
+		
 		return "/recruit/mem_Recruit_List_Form";
 	}
 	

@@ -1,5 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,18 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>채용공고</title>
 <!-- Bootstrap -->
-<link href="../../../css/recruit/mem/bootstrap.min.css"
-	rel="stylesheet">
-<link href="../../../css/recruit/mem/custom2.css"
-	rel="stylesheet">
-<link href="../../../css/recruit/mem/kfonts2.css"
-	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="../../../css/recruit/mem/mem_Recruit_List_Style.css" />
-<script type="text/javascript"
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css" rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/custom2.css" rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/kfonts2.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/recruit/mem/mem_Recruit_List_Style.css" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#allCheck").click(function() {
@@ -46,9 +39,9 @@
 
 			</ul>
 		</div>
-		<a href="Member_Recruit_List.jsp?id=all">전체</a> <a
-			href="Member_Recruit_List.jsp?id=seoul">서울시</a> <a
-			href="Member_Recruit_List.jsp?id=gg">경기도</a>
+		<a href="Member_Recruit_List.jsp?id=all">전체</a>
+		 <a href="Member_Recruit_List.jsp?id=seoul">서울시</a> 
+		 <a href="Member_Recruit_List.jsp?id=gg">경기도</a>
 		<table class="table table-hover">
 			<thead>
 				<tr height="30">
@@ -89,6 +82,35 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<div class="box-footer">
+
+					<div class="text-center">
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a
+									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.startPage-1) }">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="mem_Recruit_List_Form${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.endPage+1)}">&raquo;</a></li>
+							</c:if>
+
+						</ul>
+					</div>
+
+				</div>
+				<!-- /.box-footer-->
 	</div>
 </body>
 </html>

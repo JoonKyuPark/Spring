@@ -30,6 +30,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession();
 		session.setAttribute("member", 1);
+		//session.removeAttribute("member");
 		if (session.getAttribute("member") == null) {
 			saveDest(request);
 			response.sendRedirect("/recruit/mem_Recruit_List_Form");

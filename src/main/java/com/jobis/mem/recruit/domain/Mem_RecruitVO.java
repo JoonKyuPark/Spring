@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Mem_RecruitVO implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int recruit_no; 
 	private String recruit_title;
 	private String hire_type;

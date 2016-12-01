@@ -38,6 +38,7 @@
 	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
 	<context:component-scan base-package="com.jobis.etp.login.persistance" />
 	<context:component-scan base-package="com.jobis.etp.join.persistance" />
+		<context:component-scan base-package="com.jobis.mem.receive.persistance" />
 
 	<context:component-scan base-package="com.jobis.mem.exam.persistance" />
 	<context:component-scan base-package="com.jobis.mem.join.persistance" />

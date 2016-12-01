@@ -3,21 +3,31 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.jobis.mappers.Mem_Recurit_Mapper">
-	<select id="recruit_List" resultType="Mem_RecruitVO">
-		select * from recruit_infor
+<mapper namespace="org.spring.project.mappers.Mem_Recurit_Mapper">
+
+
+	<select id="recruit_List_Criteria" resultType="Mem_RecruitVO">
+	<![CDATA[
+		SELECT * FROM (select rownum rnum, a.*  from (select * from recruit_infor) a) where rnum between #{pageStart}+1 and #{perPageNum} + #{pageStart}
+	 ]]>
 	</select>
-	
-	<select id="recruit_Read" resultType="Mem_RecruitVO" >
-		select * from recruit_infor where recruit_no=#{rno}
+
+	<select id="countPaging" resultType="int">
+		select count(recruit_no) from recruit_infor
 	</select>
-	
+
+	<select id="recruit_Read" resultType="Mem_RecruitVO">
+		select *
+		from recruit_infor
+		where recruit_no=#{rno}
+	</select>
+
 	<select id="etp_read" resultType="Etp_JoinVO" parameterType="int">
 		select *
 		from etp_infor
 		where etp_no = #{rno}
 	</select>
-	
+
 </mapper>  
 
  
