@@ -49,6 +49,13 @@
 		,#{recruit_day})
 	</insert>
 
+	<select id="recruit_List_Page" resultType="Etp_RecruitVO">
+		select recruit_no, recruit_title, recruit_number,recruit_field
+		from recruit_infor
+		limit #{page}, 10
+	</select>
+	
+
 	<select id="etp_recruit_list" resultType="Etp_RecruitVO">
 		select recruit_no, recruit_title, recruit_number,recruit_field
 		from recruit_infor

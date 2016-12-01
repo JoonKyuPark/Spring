@@ -21,6 +21,8 @@
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
 
+	<beans:bean id="receive_service" class="com.jobis.mem.receive.service.Mem_ReceiveServiceImpl">
+	</beans:bean>
 
 	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass"
@@ -63,7 +65,7 @@
 			<beans:ref bean="authInterceptor" />
 		</interceptor>
 	</interceptors>
-	
+
 
 	<!-- <beans:bean id=" AutoLogin" class="com.jobis.iterceptor.AutoLogin"></beans:bean> 
 		<interceptors> <interceptor> <mapping path="/" /> <beans:ref bean=" AutoLogin" 
@@ -113,25 +115,41 @@
 	<context:component-scan base-package="com.jobis.mem.join.*" />
 	<context:component-scan base-package="com.jobis.mem.login.*" />
 	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
-	<!-- 채용공고 -->
+	
+	<!--기업 채용공고 등록 -->
 	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
 	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
 	<context:component-scan base-package="com.jobis.etp.recruit.service" />
 
-
+	<!--회원 입사지원 -->
 	<context:component-scan base-package="com.jobis.mem.receive.persistance" />
 	<context:component-scan base-package="com.jobis.mem.receive.service" />
 	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<!--회원 채용공고 스크랩 -->
 	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
 	<context:component-scan base-package="com.jobis.mem.clip.service" />
 	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+	<!--회원 채용공고 확인 -->
 	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
 	<context:component-scan base-package="com.jobis.mem.recruit.persistance" />
 	<context:component-scan base-package="com.jobis.mem.recruit.service" />
+	<!--기업 1차 합격 -->
 	<context:component-scan base-package="com.jobis.etp.pass.controller" />
 	<context:component-scan base-package="com.jobis.etp.pass.service" />
 	<context:component-scan base-package="com.jobis.etp.pass.persistance" />
+	<!--알림센터 -->
+	<context:component-scan base-package="com.jobis.mem.notice.controller" />
+	<context:component-scan base-package="com.jobis.mem.notice.service" />
+	<context:component-scan base-package="com.jobis.mem.notice.persistance" />
+	
+	
+	
+	
+	
 	<context:component-scan base-package="controller" />
+	
+	
+    
 
 
 </beans:beans>

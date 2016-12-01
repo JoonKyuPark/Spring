@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'NanumBarunGothic';
+	src: url("../fonts/NanumBarunGothic.eot");
+	src: local("☺"), url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+body {
+}

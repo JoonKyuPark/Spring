@@ -39,9 +39,9 @@
 
 			</ul>
 		</div>
-		<a href="Member_Recruit_List.jsp?id=all">전체</a> <a
-			href="Member_Recruit_List.jsp?id=seoul">서울시</a> <a
-			href="Member_Recruit_List.jsp?id=gg">경기도</a>
+		<a href="Member_Recruit_List.jsp?id=all">전체</a>
+		 <a href="Member_Recruit_List.jsp?id=seoul">서울시</a> 
+		 <a href="Member_Recruit_List.jsp?id=gg">경기도</a>
 		<table class="table table-hover">
 			<thead>
 				<tr height="30">
@@ -82,6 +82,35 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+		<div class="box-footer">
+
+					<div class="text-center">
+						<ul class="pagination">
+
+							<c:if test="${pageMaker.prev}">
+								<li><a
+									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.startPage-1) }">&laquo;</a></li>
+							</c:if>
+
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="mem_Recruit_List_Form${pageMaker.makeQuery(idx)}">${idx}</a>
+								</li>
+							</c:forEach>
+
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="mem_Recruit_List_Form${pageMaker.makeQuery(pageMaker.endPage+1)}">&raquo;</a></li>
+							</c:if>
+
+						</ul>
+					</div>
+
+				</div>
+				<!-- /.box-footer-->
 	</div>
 </body>
 </html>

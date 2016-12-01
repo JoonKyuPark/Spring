@@ -10,17 +10,16 @@
 		join_receive_no, recruit_no, receive_date, reading, first_interview, resume_no
 		)
 		values(
-		join_receive_seq.nextval, #{recruit_no}, '2016/11/15','y','y',#{resume_no}
+		join_receive_seq.nextval, #{recruit_no}, SYSDATE ,'y','y',#{resume_no}
 		)
 	</insert>
 
-
-	<select resultType="Mem_ReceivceVO" id="mem_receive_list">
-		select * from join_receive where resume_no=#{resume_no}
+	<select id="mem_receive_list" resultType="Mem_ReceivceVO" >
+		 	select * from join_receive j, resume re  where j.resume_no=re.resume_no and re.member_no=#{resume_no}
 	</select> 
 	
-	<select id="resume_no">
-		select resume_no  from resume where member_no=#{member_no}
+	<select id="resume_no" resultType="int">
+		  select re.resume_no  from join_receive j, resume re where member_no=#{member_no} and j.resume_no=re.resume_no
 	</select> 
 	
 	<select id="mem_resume_List" resultType="Mem_ResumeVO" >
@@ -35,6 +34,11 @@
 		<!-- select * from join_receive where recruit_no=#{recruit_no} and resume_no=#{resume_no} -->
 		select re.member_no from  join_receive j, resume re where j.resume_no=re.resume_no and j.recruit_no=#{recruit_no}
 	</select> 
+	
+	<insert id="receive_create" parameterType="Mem_NoticeVO">
+		insert into notice_center (notice_no, notice_type, notice_name, notice_date, notice_check, member_no, mem_submit_no, exam_question_no, smart_match_no)
+		values(notice_no_seq.nextval, #{notice_type}, #{notice_name}, SYSDATE, 'N', #{member_no},#{mem_submit_no},#{exam_question_no},#{smart_match_no})
+	</insert>
 	
 </mapper>  
 

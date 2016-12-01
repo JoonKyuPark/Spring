@@ -75,6 +75,10 @@
 			 window.open('/receive/mem_Join_Receive_Create_Form?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
 		 }
 		 
+		 function button4_click() {
+			 window.open('/receive/mem_Join_Receive_Reserv_Create_Form?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
+		 }
+		 
 		 function button2_click() {
 			 location.href="/receive/mem_Join_Receive_List_Form";
 		 }
@@ -227,8 +231,7 @@
 					<br>
 					<button type="button" id="button1" onclick="button1_click();"
 						class="btn btn-primary btn-lg raised">즉시 지원</button>
-					<button type="button" class="btn btn-primary btn-lg outline">안심
-						지원 예약</button>
+					<button type="button" id="button4" onclick="button4_click();" class="btn btn-primary btn-lg outline">안심 지원 예약</button>
 					<input type="button" id="button2" onclick="button2_click();"
 						value="입사 지원 현황" /> <br> <br> <br>
 

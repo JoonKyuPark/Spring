@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jobis.mem.notice.domain.Mem_NoticeVO;
 import com.jobis.mem.receive.domain.Mem_ReceivceVO;
 import com.jobis.mem.resume.domain.Mem_ResumeVO;
 
@@ -19,6 +20,8 @@ public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
 	
 	@Override
 	public void mem_Receive_Create(Mem_ReceivceVO mem_receive) throws Exception {
+		System.out.println(mem_receive.getResume_no());
+		System.out.println(mem_receive.getRecruit_no());
 		sqlSession.insert(namespace+".mem_receive_create",mem_receive);
 	}
 
@@ -29,7 +32,7 @@ public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
 	
 	@Override
 	public int resume_no(int member_no) throws Exception {
-		return sqlSession.selectOne(namespace+".mem_no", member_no);
+		return sqlSession.selectOne(namespace+".resume_no", member_no);
 	}
 	
 	@Override
@@ -47,6 +50,11 @@ public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
 		return sqlSession.selectList(namespace+".mem_receive_overlap_create" ,recruit_no);
 	}
 	
+	@Override
+	public void mem_Notice_Create(Mem_NoticeVO notice) throws Exception {
+		sqlSession.insert(namespace+".receive_create", notice);
+	}
+
 	
 	
 

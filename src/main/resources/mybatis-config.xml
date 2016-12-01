@@ -15,11 +15,11 @@
 		<package name="com.jobis.mem.receive.domain" />
 		<package name="com.jobis.mem.clip.domain" />
 		<package name="com.jobis.mem.resume.domain" />
+		<package name="com.jobis.mem.resume.domain" />
 		<!-- 채용공고 -->
 		<package name="com.jobis.etp.recruit.domain" />
-		
-		
-		
+		<package name="com.jobis.mem.notice.domain" />
+
 
 	</typeAliases>
 
