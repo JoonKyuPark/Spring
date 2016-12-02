@@ -18,11 +18,15 @@
 	</select>
 	
 	
- 	<update id="etp_pass_update" parameterType="int">
- 		update join_receive 
- 		set first_interview='Y'
+ 	<update id="etp_pass_update" parameterType="Mem_ReceivceVO">
+ 		update join_receive
+ 		set first_interview='Y', exam_no=#{exam_no}, exam_count=0
  		where resume_no=#{resume_no}
  	</update>
+	
+	<select id = "pass_exam_list" resultType = "Etp_ExamVO" parameterType="int">
+		select * from exam_infor where etp_no = #{etp_no}
+	</select>
 	
 </mapper>  
 

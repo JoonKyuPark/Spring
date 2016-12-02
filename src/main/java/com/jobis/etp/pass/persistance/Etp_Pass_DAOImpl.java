@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.mem.clip.domain.Mem_ClipVO;
 import com.jobis.mem.receive.domain.Mem_ReceivceVO;
 import com.jobis.mem.recruit.domain.Mem_RecruitVO;
@@ -36,8 +37,13 @@ public class Etp_Pass_DAOImpl implements Etp_Pass_DAO{
 	}
 
 	@Override
-	public void Etp_Pass_Update(int resume_no) throws Exception {
-		sqlSession.update(namespace+".etp_pass_update", resume_no);
+	public void Etp_Pass_Update(Mem_ReceivceVO mem_ReceiveVO) throws Exception {
+		sqlSession.update(namespace+".etp_pass_update", mem_ReceiveVO);
+	}
+
+	@Override
+	public List<Etp_ExamVO> pass_exam_list(int etp_no) throws Exception {
+		return sqlSession.selectList(namespace + ".pass_exam_list", etp_no);
 	}
 	
 	

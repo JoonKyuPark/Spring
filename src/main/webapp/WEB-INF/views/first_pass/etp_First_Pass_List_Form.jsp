@@ -16,63 +16,27 @@
 <script type="text/javascript"
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#allCheck").click(function() {
-			if ($("#allCheck").prop("checked")) {
-				$("input[type=checkbox]").prop("checked", true);
-			} else {
-				$("input[type=checkbox]").prop("checked", false);
-			}
-		})
-	})
 
-	$(document).ready(function() {
 
-		$("input:checkbox").change(function() {
-			var str = "";
-			$("input:checkbox:checked").each(function(index) {
-				str += $(this).val() + ",";
-			});
-			alert("dd");
-			$.ajax({
-				type : 'post',
-				url : '/first_pass/etp_First_Pass_List_Form?checkArray=' + str,
-				headers : {
-					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "POST"
-				},
-				dataType : 'text',
-				success : function(result) {
-					alert("dd");
-					alert(result);
-					if (result.getEntity() == 'SUCCESS') {
-						$("#template").html(tag);
-					}
-				}
 
-			});
-		});
 
-	});
-	
-	//스크랩 추가할때 
-	function button_click1(rno){
-
+	//합격 누를 때 
+	function button_click1(rno) {
+		var exam_no=$('#exam_no').val();
+		var resume_no=rno;
 		$.ajax({
-			type : 'post',
-			url : '/first_pass/Etp_Pass_Update?recruit_no='+rno,
-			headers : {
-				"Content-Type" : "application/json",
-				"X-HTTP-Method-Override" : "POST"
-			},
-			dataType : 'text',
+			type : 'GET',
+			url : 'Etp_Pass_Update?exam_no='+exam_no+'&resume_no='+resume_no,
 			success : function(result) {
 				console.log("result: " + result);
 				if (result == 'SUCCESS') {
+					var select = document.getElementsByClassName('exam_select');
+					for(var i=0; i < select.length; i++){
+						select[i].reset();
+					}
 					alert("등록 되었습니다.");
 				}
 			}
-
 		});
 	};
 </script>
@@ -119,54 +83,45 @@
 		<div class="col-sm-12 col-xs-12">
 			<div class="card">
 				<div class="card-body">
-
-					<table class="table table-hover">
-						<thead>
-							<tr height="30">
-								<th align="right" width="20"><center>
-										<div class="checkbox">
-											<input type="checkbox" id="allCheck"><label
-												for="allCheck"></label>
-										</div>
-									</center></th>
-								<th width="100"><center>회사명</center></th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:if test="${recruit_infor.size()>0}">
-								<c:forEach var="i" begin="0" end="${recruit_infor.size()-1}"
-									step="1">
-									<tr height="30">
-										<td align="right">
-											<center>
-												<div class="checkbox">
-													<input type="checkbox" id="${recruit_infor[i].recruit_no}"
-														value="${recruit_infor[i].recruit_no}"> <label
-														for="${recruit_infor[i].recruit_no}"></label>
-												</div>
-											</center>
-										</td>
-										<td align="left"><h4>
-												${recruit_infor[i].recruit_title}</h4></td>
-									</tr>
-
-								</c:forEach>
-							</c:if>
-						</tbody>
-					</table>
-
-					<br> <br>
-
-					<div id="template">
+					<div class="col-md-12">
 						<table class="table table-hover">
 							<thead>
 								<tr height="30">
 									<th align="right" width="20"><center>
-											<div class="checkbox">
-												<input type="checkbox" id="allCheck"><label
-													for="allCheck"></label>
-											</div>
 										</center></th>
+									<th width="100"><center>회사명</center></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${recruit_infor.size()>0}">
+									<c:forEach var="i" begin="0" end="${recruit_infor.size()-1}"
+										step="1">
+										<tr height="30">
+											<td align="right">
+												<center>
+													<div class="checkbox">
+														<input type="radio" id="${recruit_infor[i].recruit_no}" name="recruit_select"
+															value="${recruit_infor[i].recruit_no}"> <label
+															for="${recruit_infor[i].recruit_no}"></label>
+													</div>
+												</center>
+											</td>
+											<td align="left"><h4>
+													${recruit_infor[i].recruit_title}</h4></td>
+										</tr>
+
+									</c:forEach>
+								</c:if>
+							</tbody>
+						</table>
+					</div>
+					<br> <br>
+
+					<div id="template" class="col-md-12">
+
+						<table class="table table-hover">
+							<thead>
+								<tr height="30">
 									<th width="100"><center>이름</center></th>
 									<th width="100"><center>이력서제목</center></th>
 									<th width="100"><center>합격여부</center></th>
@@ -174,29 +129,30 @@
 							</thead>
 							<tbody>
 								<c:if test="${pass_resume_list.size()>0}">
-									<c:forEach var="i" begin="0" end="${pass_resume_list.size()-1}"
-										step="1">
-										<tr height="30">
-											<td align="right">
-												<center>
-													<div class="checkbox">
-														<input type="checkbox"
-															id="${pass_resume_list[i].resume_no}"> <label
-															for="${pass_resume_list[i].resume_no}"></label>
-													</div>
-												</center>
-											</td>
+									<c:forEach var="i" begin="0" end="${pass_resume_list.size()-1}" step="1">
+										<tr height="30" class="memberList" id = ${pass_resume_list[i].resume_no }>
 											<td align="left"><h4>${pass_resume_list[i].resume_title}</h4>
 											</td>
 											<td align="left"><h4>${pass_resume_list[i].resume_title}</h4>
 											</td>
-											 <td><button id="button1" onclick="button_click1(${pass_resume_list[i].resume_no})">합격</button>
-											<%--  <td><a  href="/first_pass/Etp_Pass_Update?resume_no=${pass_resume_list[i].resume_no}">합격</a></td> --%>
+											<td>
+												<form class ="exam_select">
+													<select id="exam_no" name="exam_no">
+														<option>시험 선택</option>
+														<c:forEach var="j" items="${examlist }">
+															<option value="${j.exam_no }">${j.exam_name }</option>
+														</c:forEach>
+													</select>
+												</form>
+											</td>
+											<td><button id="button1"
+													onclick="button_click1(${pass_resume_list[i].resume_no})">합격</button>
 										</tr>
 									</c:forEach>
 								</c:if>
 							</tbody>
 						</table>
+
 					</div>
 				</div>
 			</div>

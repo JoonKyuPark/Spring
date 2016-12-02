@@ -14,7 +14,11 @@ function dontPressKey(event){
 	return false;
 }
 
-
+function cal() {
+	$('.datetimepicker').datetimepicker({
+		format : 'YYYY/MM/DD'
+	});
+};
 
 function date_check() {
 	var sdate = $('#exam_sdate').val().split('/');

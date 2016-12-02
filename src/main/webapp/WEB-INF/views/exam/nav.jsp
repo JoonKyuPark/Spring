@@ -10,11 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <!-- Bootstrap ../../../resources/css/resume/bootstrap/css/bootstrap.css-->
-<link
-	href="../../../../resources/css/exam/bootstrap.min.css"
+<link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet">
-<link href="../../../resources/css/exam/custom2.css"
-	rel="stylesheet">
+<link href="../../../resources/css/exam/custom2.css" rel="stylesheet">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,8 +21,10 @@
 <link href="../../../../resources/css/exam/sb-admin.css"
 	rel="stylesheet">
 
-<link href="../../../../resources/css/exam/font-awesome.min.css" rel="stylesheet" type="text/css"> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="../../../../resources/css/exam/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -248,7 +248,6 @@
 			</div>
 			</nav>
 
-			<script type="text/javascript" src="../../../../resources/js/exam/vendor.js"></script>
-			<script type="text/javascript" src="../../../../resources/js/exam/app.js"></script>
+
 </body>
 </html>
