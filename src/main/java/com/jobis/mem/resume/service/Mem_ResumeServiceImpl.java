@@ -17,6 +17,7 @@ import com.jobis.mem.resume.domain.Mem_Resume_listVO;
 import com.jobis.mem.resume.domain.Mem_Resume_resumeOpenDTO;
 import com.jobis.mem.resume.persistance.Mem_ResumeDAO;
 
+
 @Service
 public class Mem_ResumeServiceImpl implements Mem_ResumeService {
 @Inject

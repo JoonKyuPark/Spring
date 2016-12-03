@@ -2,6 +2,8 @@ package com.jobis.mem.resume.persistance;
 
 import java.util.List;
 
+
+
 import com.jobis.mem.resume.domain.Mem_ResumeDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_abilityDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_allVO;

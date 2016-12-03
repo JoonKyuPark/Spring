@@ -4,14 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.junit.runners.AllTests;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.jobis.mem.resume.domain.Mem_ResumeDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_abilityDTO;
@@ -20,6 +20,8 @@ import com.jobis.mem.resume.domain.Mem_Resume_careerListDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_defaultResumeDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_listVO;
 import com.jobis.mem.resume.domain.Mem_Resume_resumeOpenDTO;
+
+
 import com.jobis.mem.resume.service.Mem_ResumeService;
 
 @Controller
@@ -34,6 +36,7 @@ public class Mem_ResumeController
 	public void  mem_Resume_list(Model model)
 	{
 		System.out.println("리스트");
+
 		List<Mem_Resume_listVO> list = resume_Service.mem_Resume_list();
 		model.addAttribute("list",list);
 		
@@ -101,6 +104,8 @@ public class Mem_ResumeController
 		resume_Service.mem_Reusme_resumeOpen_update(resumeOpenDTO);
 		return "redirect:/resume/list";
 	}
+	
+	
 	
 	
 	

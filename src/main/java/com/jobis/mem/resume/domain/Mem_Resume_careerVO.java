@@ -105,6 +105,4 @@ public class Mem_Resume_careerVO {
 	}
 	
 	
-	
-
 }

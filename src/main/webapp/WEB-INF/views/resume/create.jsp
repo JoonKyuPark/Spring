@@ -10,8 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <!------- JQUERY -------->
 <script type="text/javascript"
@@ -323,15 +321,5 @@ table.ui-datepicker-calendar {
 		</div>
 	</div>
 
-
-	<script type="text/javascript"
-		src="../../../resources/css/resume/bootstrap/js/daterangepicker.js"></script>
-
-	<script type="text/javascript"
-		src="../../../resources/css/resume/bootstrap/js/bootstrap-monthpicker.js"></script>
-
-
-	<script type="text/javascript"
-		src="../../../resources/css/resume/bootstrap/js/resume.js"></script>
 </body>
 </html>

@@ -14,8 +14,6 @@ public class Mem_ResumeVO {
 
 	public Mem_ResumeVO() {
 	}
-
-	
 	public int getResume_no() {
 		return resume_no;
 	}

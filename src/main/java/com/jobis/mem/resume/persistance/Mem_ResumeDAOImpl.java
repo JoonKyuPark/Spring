@@ -7,14 +7,15 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.jobis.mem.resume.domain.Mem_ResumeDTO;
 import com.jobis.mem.resume.domain.Mem_ResumeVO;
-import com.jobis.mem.resume.domain.Mem_Resume_abilityDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_abilityVO;
-import com.jobis.mem.resume.domain.Mem_Resume_allVO;
-import com.jobis.mem.resume.domain.Mem_Resume_careerDTO;
-import com.jobis.mem.resume.domain.Mem_Resume_careerListDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_careerVO;
+
+
+import com.jobis.mem.resume.domain.Mem_ResumeDTO;
+import com.jobis.mem.resume.domain.Mem_Resume_abilityDTO;
+import com.jobis.mem.resume.domain.Mem_Resume_allVO;
+import com.jobis.mem.resume.domain.Mem_Resume_careerListDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_defaultResumeDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_fileDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_fileVO;
