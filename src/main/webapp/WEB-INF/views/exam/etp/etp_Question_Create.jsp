@@ -9,6 +9,7 @@
 <script src="../../../../resources/js/exam/bootstrap-select.min.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/etp_Question_Create.js"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap-select.min.css"
 	rel="stylesheet" type="text/css" />
@@ -18,6 +19,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/etp_Question_Create.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet"
 	type="text/css" />
 <link rel="stylesheet" type="text/css"
@@ -136,7 +139,7 @@
 											class="form-control question_answer" placeholder="내용을 입력하세요."></textarea>
 									</div>
 								</div>
-								
+
 								<div class="col-md-5"></div>
 								<div class="col-md-1">
 									<input type="button" class="btn btn-info" value="등 록"

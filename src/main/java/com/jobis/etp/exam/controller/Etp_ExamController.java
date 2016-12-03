@@ -171,6 +171,10 @@ public class Etp_ExamController {
 			e.printStackTrace();
 		}
 	}
-
+	// 시험 인원 목록 페이지
+	@RequestMapping(value="etp_Exam_MemberList", method = RequestMethod.GET)
+	public void Etp_Exam_MemberList(@RequestParam("exam_no") int exam_no, Model model){
+		
+	}
 	
 }

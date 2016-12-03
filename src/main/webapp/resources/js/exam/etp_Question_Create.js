@@ -27,7 +27,13 @@ window.onload = function() {
 				var content = $('textarea.question_content').val();
 				var sub = content.substring(0,3000);
 				$('textarea.question_content').val(sub);
-				alert('3000자를 초과 할 수 없습니다.');
+				swal({
+					title : " ",
+					text : '3000자를 초과 할 수 없습니다.',
+					type:'warning',
+					confirmButtonText:'확인',
+					closeOnConfirm : false
+				});
 				return;
 			}
 			return length;
@@ -54,7 +60,13 @@ window.onload = function() {
 				var content = $('textarea.question_answer').val();
 				var sub = content.substring(0,3000);
 				$('textarea.question_answer').val(sub);
-				alert('3000자를 초과 할 수 없습니다.');
+				swal({
+					title : " ",
+					text : '3000자를 초과 할 수 없습니다.',
+					type:'warning',
+					confirmButtonText:'확인',
+					closeOnConfirm : false
+				});
 				return;
 			}
 			return length;
@@ -82,35 +94,84 @@ function create() {
 	var per = $('#percentage').val();
 	var answer = $('#question_answer').val();
 	if (exam == "시험 선택") {
+		swal({
+			title : " ",
+			text : '3000자를 초과 할 수 없습니다.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		alert('시험을 선택해주세요.');
 		return;
 	}
 	if (name == "") {
-		alert('문제 이름을 입력해주세요.');
+		swal({
+			title : " ",
+			text : '문제 이름을 입력해주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (second == "") {
-		alert('할당 시간을 입력해주세요.');
+		swal({
+			title : " ",
+			text : '할당 시간을 입력해주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (second == 0) {
-		alert('할당 시간은 0 이 될 수 없습니다.');
+		swal({
+			title : " ",
+			text : '할당 시간은 0 이 될 수 없습니다.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (content == "") {
-		alert('문제 내용을 입력해주세요.');
+		swal({
+			title : " ",
+			text : '문제 내용을 입력해주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (per == "") {
-		alert('정답 범위를 입력해 주세요.');
+		swal({
+			title : " ",
+			text : '정답 범위를 입력해 주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (per < 1 || per > 100) {
-		alert('정답 범위는 1 ~ 100까지 입니다.');
+		swal({
+			title : " ",
+			text : '정답 범위는 1 ~ 100까지 입니다.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	if (answer == "") {
-		alert('정답 키워드를 입력해주세요.');
+		swal({
+			title : " ",
+			text : '정답 키워드를 입력해주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
 		return;
 	}
 	var replace = $('#question_content').val().replace(/\n/g, "<br>");

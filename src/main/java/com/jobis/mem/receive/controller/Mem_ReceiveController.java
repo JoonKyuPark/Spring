@@ -139,9 +139,7 @@ public class Mem_ReceiveController {
 			mem_notice.setMember_no(member_no);
 			mem_notice.setNotice_type("receive");
 			mem_notice.setNotice_name("예약한 입사지원이 되었습니다.");
-			mem_notice.setExam_question_no(0);
 			mem_notice.setSmart_match_no(0);
-			mem_notice.setMem_submit_no(0);
 			
 			
 			//중복 지원 차단

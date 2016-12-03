@@ -33,9 +33,21 @@ function btnAction(){
 	$('#exam_update_btn').click(
 			function() {
 				if ($(".chk:checked").length > 1) {
-					alert("한개의 항목만 선택해주세요.")
+					swal({
+						title : " ",
+						text : '한개의 항목만 선택해주세요.',
+						type:'warning',
+						confirmButtonText:'확인',
+						closeOnConfirm : false
+					});
 				} else if ($(".chk:checked").length == 0) {
-					alert("수정할 항목을 선택해주세요.")
+					swal({
+						title : " ",
+						text : '수정할 항목을 선택해주세요.',
+						type:'warning',
+						confirmButtonText:'확인',
+						closeOnConfirm : false
+					});
 				} else {
 					$("#etp_Exam_ListForm").attr(
 							'action',
@@ -47,7 +59,13 @@ function btnAction(){
 			function(){
 				var param = "";
 				if($('.chk:checked').length == 0){
-					alert("삭제할 항목을 선택해주세요.");
+					swal({
+						title : " ",
+						text : '삭제할 항목을 선택해주세요.',
+						type:'warning',
+						confirmButtonText:'확인',
+						closeOnConfirm : false
+					});
 					return;
 				}
 				$('.chk:checked').each(function(index, entry){
@@ -63,7 +81,13 @@ function btnAction(){
 						type : "GET",
 						data : param,
 						success(data){
-							alert('삭제가 완료되었습니다.');
+							swal({
+								title : " ",
+								text : '삭제가 완료되었습니다.',
+								type:'warning',
+								confirmButtonText:'확인',
+								closeOnConfirm : false
+							});
 							location.href='etp_Exam_List';
 						}
 				});

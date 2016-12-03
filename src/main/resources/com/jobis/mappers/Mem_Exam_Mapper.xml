@@ -6,22 +6,26 @@
 <mapper namespace="com.jobis.mappers.Mem_Exam_Mapper">
 	<select id="mem_Exam_List" resultType="Etp_ExamVO"
 		parameterType="int">
-		select e.exam_no, exam_sdate, exam_ddate, exam_name,
-		exam_number, exam_field, etp_no, exam_show
-		from exam_infor e, member_exam m where e.exam_no = m.exam_no and
-		m.member_no = #{member_no} and exam_show = 'show' and m.exam_count = 0
+		select e.exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show
+		from exam_infor e, join_receive j where e.exam_no = j.exam_no and
+		(select member_no from resume where resume_no=j.resume_no) = #{member_no} and exam_show = 'show' and j.exam_count = 0
 	</select>
-	
-	<update id = "mem_Exam_Count" parameterType="Mem_CountVO">
-		update member_exam set exam_count = 1 where member_no = #{member_no} and exam_no = #{exam_no}
+
+	<update id="mem_Exam_Count" parameterType="Mem_CountVO">
+		update join_receive j
+		set exam_count=1
+		where (select member_no from resume r where resume_no = j.resume_no) = #{member_no}
+		and exam_no=#{exam_no}
 	</update>
 
 	<select id="all_Exam_List" resultType="Etp_ExamVO"
 		parameterType="int">
-		select e.exam_no, exam_sdate, exam_ddate, exam_name,
+    		select e.exam_no, exam_sdate, exam_ddate, exam_name,
 		exam_number, exam_field, etp_no, exam_show
-		from exam_infor e, member_exam m where e.exam_no = m.exam_no and
-		m.member_no = #{member_no}
+		from exam_infor e,
+		join_receive j where e.exam_no = j.exam_no and
+		(select member_no from resume where resume_no=j.resume_no)=
+		${member_no}
 	</select>
 
 	<select id="mem_Question_List" parameterType="Mem_QuestionVO"
@@ -38,13 +42,17 @@
 
 	<insert id="mem_Answer_Create" parameterType="Mem_AnswerVO">
 		insert into
-		answer(ans_no, question_answer, question_no, member_no, correct_answer)
-		values(seq_answer.nextval, #{question_answer}, #{question_no},
+		answer(ans_no, question_answer, question_no, member_no,
+		correct_answer)
+		values(seq_answer.nextval, #{question_answer},
+		#{question_no},
 		#{member_no}, #{correct_answer})
 	</insert>
-	
-	<select id="select_Exam_Answer" resultType = "Etp_QuestionVO" parameterType="int">
-		select * from exam_question where question_no = #{question_no}
+
+	<select id="select_Exam_Answer" resultType="Etp_QuestionVO"
+		parameterType="int">
+		select * from exam_question where question_no =
+		#{question_no}
 	</select>
 
 </mapper>

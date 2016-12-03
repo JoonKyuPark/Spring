@@ -8,10 +8,7 @@ body{
 	background: #3679B5 !important;
 }
 
-td{
-	text-overflow : ellipsis;
-	overflow : hidden;
-}
+
 
 #etp_Question_Table {
 	width: 100%;

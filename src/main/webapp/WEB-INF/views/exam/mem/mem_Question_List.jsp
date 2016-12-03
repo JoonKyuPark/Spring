@@ -7,15 +7,17 @@
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/mem_Question_List.js"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>J O B I X A M</title>
 <script type="text/javascript">
 	

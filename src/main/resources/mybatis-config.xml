@@ -15,6 +15,7 @@
 		<package name="com.jobis.mem.recruit.domain" />
 		<package name="com.jobis.mem.receive.domain" />
 		<package name="com.jobis.mem.clip.domain" />
+		<package name="com.jobis.mem.notice.domain" />
 
 		<!-- 시험 -->
 		<package name="com.jobis.etp.exam.domain" />

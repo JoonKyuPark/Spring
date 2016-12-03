@@ -13,12 +13,15 @@
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/etp_Exam_List.js"></script>
 <script src="../../../../resources/js/exam/bootstrap-switch.js"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <link href="../../../../resources/css/exam/etp_Exam_List.css"
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/bootstrap-switch.css"
@@ -32,7 +35,7 @@
 		<div class="col-sm-12 col-xs-12 col-md-12">
 			<div class="card col-md-12">
 				<div class="card-body col-md-12">
-				
+
 					<div class="col-md-12 outerDiv">
 						<div class="col-md-12 listForm">
 							<h2>J O B I X A M &nbsp; L I S T</h2>
@@ -114,17 +117,17 @@
 							</div>
 						</div>
 						<!-- /.box-footer-->
-							<form id="jobForm">
-								<input type='hidden' name="page"
-									value='${pageMaker.cri.perPageNum}'> <input
-									type='hidden' name="perPageNum"
-									value='${pageMaker.cri.perPageNum}'>
-							</form>
-						</div>
+						<form id="jobForm">
+							<input type='hidden' name="page"
+								value='${pageMaker.cri.perPageNum}'> <input
+								type='hidden' name="perPageNum"
+								value='${pageMaker.cri.perPageNum}'>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

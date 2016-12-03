@@ -7,10 +7,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <!-- Script -->
+
+
 <script type="text/javascript"
 	src="../../../../resources/js/exam/jquery-3.1.1.js" charset="UTF-8"></script>
 <script type="text/javascript"
 	src="../../../../resources/js/exam/jquery-3.1.1.min.js" charset="UTF-8"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <script type="text/javascript"
 	src="../../../../resources/js/exam/vendor.js"></script>
 <script type="text/javascript"
@@ -39,6 +42,8 @@
 <link rel="stylesheet" type="text/css"
 	href="../../../../resources/css/exam/bootstrap-theme.min.css"
 	media="screen" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <link rel="stylesheet" type="text/css"
 	href="../../../../resources/css/exam/bootstrap-theme.css"
 	media="screen" />

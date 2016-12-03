@@ -9,6 +9,7 @@
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/bootstrap-select.js"></script>
 <script src="../../../../resources/js/exam/moment.js"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <script
 	src="../../../../resources/js/exam/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript"
@@ -22,6 +23,8 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
 <link rel="stylesheet"
 	href="../../../../resources/css/exam/bootstrap-datetimepicker-standalone.css">
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <link rel="stylesheet"
 	href="../../../../resources/css/exam/bootstrap-datetimepicker.css">
 <link rel="stylesheet"
@@ -120,10 +123,15 @@
 
 								<div class="col-md-12 showDiv">
 									<div class="col-md-4">
-										<nobr><input type="radio" id="show" name="exam_show" value="show">&nbsp;
-										<label><font size="3">시험 공개</font></label></nobr> &nbsp; &nbsp;<nobr><input
-											type="radio" id="hide" name="exam_show" value="hide">&nbsp;
-										<label><font size="3">시험 비공개</font></label></nobr>
+										<nobr>
+											<input type="radio" id="show" name="exam_show" value="show">&nbsp;
+											<label><font size="3">시험 공개</font></label>
+										</nobr>
+										&nbsp; &nbsp;
+										<nobr>
+											<input type="radio" id="hide" name="exam_show" value="hide">&nbsp;
+											<label><font size="3">시험 비공개</font></label>
+										</nobr>
 									</div>
 									<div class="col-md-8"></div>
 								</div>

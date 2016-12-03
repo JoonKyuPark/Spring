@@ -8,6 +8,7 @@
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/bootstrap-select.js"></script>
 <script src="../../../../resources/js/exam/mem_Exam_List.js"></script>
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
@@ -18,6 +19,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/mem_Exam_List.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>J O B I X A M J O I N</title>

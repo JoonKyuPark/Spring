@@ -26,12 +26,18 @@
 table {
 	table-layout: fixed !important;
 }
-
 .question_content {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
-td
+td{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+th{
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 </style>
 </head>
 <body>
@@ -48,15 +54,15 @@ td
 
 								<table id="etp_Question_Table">
 									<tr>
-										<th class="col-md-1">번호</th>
-										<th class="col-md-5">문제 이름</th>
-										<th class="col-md-6">문제 내용</th>
+										<th class="col-md-1"><nobr>번호</nobr></th>
+										<th class="col-md-5"><nobr>문제 이름</nobr></th>
+										<th class="col-md-6"><nobr>문제 내용</nobr></th>
 									</tr>
 									<c:forEach var="i" items="${etp_Question_List }">
 										<tr class="etp_Exam_Table_tr">
-											<td>${i.question_no }</td>
-											<td>${i.question_name }</td>
-											<td class="question_content">${i.question_content }</td>
+											<td><nobr>${i.question_no }</nobr></td>
+											<td><nobr>${i.question_name }</nobr></td>
+											<td class="question_content"><nobr>${i.question_content }</nobr></td>
 										</tr>
 									</c:forEach>
 								</table>

@@ -83,12 +83,12 @@ window.onload = function() {
 	}
 	function submit() {
 		if (maxQuestion == nowQuesiton) {
+			alert(' 시험을 모두 마치셨습니다.\n회원님의 합격을 기원합니다.');
 			$('.mem_answerForm').attr({
 				action : 'mem_Exam_List',
 				method : 'post'
 			}).submit();
-			location.href('mem_Exam_List');
-			alert(' 시험을 모두 마치셨습니다.\n회원님의 합격을 기원합니다.');
+
 		} else {
 			alert('제출이 완료되었습니다.');
 			$('.mem_answerForm').attr({

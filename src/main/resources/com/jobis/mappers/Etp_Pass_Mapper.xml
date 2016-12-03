@@ -17,6 +17,9 @@
 		select re.* from resume re, join_receive j, recruit_infor rei where re.resume_no=j.resume_no and rei.recruit_no=j.recruit_no and rei.etp_no=#{etp_no}
 	</select>
 	
+	<select id="pass_member_no" resultType="int" parameterType="int">
+		select member_no from resume where resume_no = #{resume_no}
+	</select>
 	
  	<update id="etp_pass_update" parameterType="Mem_ReceivceVO">
  		update join_receive
@@ -26,6 +29,19 @@
 	
 	<select id = "pass_exam_list" resultType = "Etp_ExamVO" parameterType="int">
 		select * from exam_infor where etp_no = #{etp_no}
+	</select>
+	
+	<select id="pass_exam_name" resultType="Etp_ExamVO" parameterType="int">
+		select * from exam_infor where exam_no = #{exam_no}
+	</select>
+	
+	<insert id = "exam_notice_center"  parameterType="Mem_NoticeVO">
+		insert into notice_center (notice_no, notice_type, notice_name, notice_date, notice_check, member_no, exam_no)
+			values(notice_no_seq.nextval, 'JOBIXAM 소식', #{notice_name}, SYSDATE, 'N', #{member_no}, #{exam_no})
+	</insert>
+	
+	<select id="etp_refresh_list" parameterType="int" resultType="Mem_ResumeVO">
+		select * from resume where resume_no = (select resume_no from join_receive where recruit_no=#{recruit_no})
 	</select>
 	
 </mapper>  

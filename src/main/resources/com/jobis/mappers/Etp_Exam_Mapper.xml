@@ -9,6 +9,7 @@
 		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show)
 			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no}, 'hide')
 	</insert>
+	
 	<!-- 시험 일정 목록 -->
 	<select id="etp_Exam_List" resultType="Etp_ExamVO"  parameterType="int">
 		select * from exam_infor where etp_no = #{etp_no} order by exam_no desc
@@ -37,6 +38,10 @@
 			exam_show = #{exam_show}
 		where exam_no = #{exam_no}
 	</update>
+<!-- 	<insert id="etp_Exam_Notice" parameterType="Mem_NoticeVO">
+		insert into notice_center(notice_no, notice_type, notice_name, notice_date, notice_check, member_no, exam_no, smart_match_no)
+	</insert> -->
+	
 	
 	<!-- 시험 삭제 -->
 	<delete id="etp_Exam_Delete" parameterType="int">
@@ -73,10 +78,12 @@
 			exam_show = #{exam_show}
 		where exam_no = #{exam_no}
 	</update>
-	<!-- 시험 인원 추가 -->
+	<!-- 시험 인원 -->
 	<select id="etp_Exam_MemberList" resultType = "Mem_JoinVO">
-		select * from member_infor
+		select * from member_infor where 
 	</select>
+	
+	
 	<!-- 동적 쿼리문 -->
 	<sql id="search">
 		<if test="searchType != null">
