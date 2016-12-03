@@ -27,7 +27,7 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 			throws Exception {
 
 		Etp_LoginVO vo = (Etp_LoginVO) request.getSession().getAttribute("etp_infor");
-		Mem_LoginDTO vo2 = (Mem_LoginDTO) request.getSession().getAttribute("member_infor");
+		Mem_LoginVO vo2 = (Mem_LoginVO) request.getSession().getAttribute("member_infor");
 		Cookie[] cookies = request.getCookies();
 		System.out.println("if");
 		if (vo == null && vo2 == null) {

@@ -23,6 +23,7 @@ public class Mem_LoginController {
 	@Inject
 	private Mem_LoginService loginservice;
 
+	
 	@RequestMapping(value = "/mem_login", method = RequestMethod.POST)
 	public String Mem_LoginController_login(Mem_LoginDTO mem_logindto, Model model) {
 
