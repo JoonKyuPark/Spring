@@ -31,7 +31,6 @@ function boxButtonsClickFn() {
 				alertify.confirm(submitHtml + "<br>이력서 사진으로 등록하시겠습니까?", function(event) {
 				if (event) {
 					var submitImgNo = $('.selectedFile').parent(".files").find('.fileboxIcon img').attr('src');
-					alert(submitImgNo);
 					$(opener.document).find('#resume_img_input').val(submitImgNo);
 					$(opener.document).find('#resume_img_box').html("");
 					$(opener.document).find('#resume_img_box').append(submitHtml);
@@ -175,9 +174,9 @@ function showfileBoxList(list, parent) {
 		var fileHtml;
 		var a = '"' + list[i].file_no + '"';
 		fileHtml = "";
-		fileHtml += "<div class='files'>";
+		fileHtml += "<div class='files col-md-2'>";
 
-		fileHtml += '<button type="button" onmousedown=allClick("' + list[i].file_no + '",' + '"' + list[i].file_extension + '") class="btn btn-default btn-lg fileboxIcon" id="' + list[i].file_no
+		fileHtml += '<button type="button" onmousedown=allClick("' + list[i].file_no + '",' + '"' + list[i].file_extension + '") class="btn btn-default btn-lg fileboxIcon col-md-12" id="' + list[i].file_no
 				+ '">';
 		switch (list[i].file_extension) {
 		case "jpeg":
@@ -188,20 +187,20 @@ function showfileBoxList(list, parent) {
 			 * fileHtml += '<i class="glyphicon glyphicon-picture"
 			 * aria-hidden="true"></i>';
 			 */
-			fileHtml += '<img src=/resume/file/displayFile?fileName=' + list[i].file_route + '>';
+			fileHtml += '<img clss="col-md-12" src=/resume/file/displayFile?fileName=' + list[i].file_route + '>';
 			break;
 
 		case "folder":
-			fileHtml += '<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>';
+			fileHtml += '<i class="glyphicon glyphicon-folder-open fa-2x"" aria-hidden="true"></i>';
 			break;
 		default:
-			fileHtml += '<i class="fa fa-question fa-1x" aria-hidden="true"></i>';
+			fileHtml += '<i class="fa fa-question fa-2x" aria-hidden="true"></i>';
 			break;
 		}
 
 		f_name = list[i].file_name;
-		if (f_name.length > 10)
-			f_name = f_name.substring(0, 10) + "...";
+		if (f_name.length > 15)
+			f_name = f_name.substring(0, 15) + "...";
 		fileHtml += '</button>';
 		fileHtml += "<br> <span>" + f_name + "</span>";
 		fileHtml += "</div>";

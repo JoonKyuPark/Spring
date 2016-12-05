@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>[FileBox]사진 선택</title>
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -49,19 +49,20 @@ small {
 <body>
 
 	<h3>[FileBox]이력서 사진 선택</h3>
-	<div class="fileDrop"></div>
-	<div class="uploadedList"></div>
 
 	<div class="container_id"></div>
 
 	<div id="box" class="col-md-8"></div>
 	<div id="boxButtons" class="col-md-4">
+		<h3>아래 박스에 파일을 Drag해주세요</h3>
+
+		<div class="fileDrop col-md-12"></div>
 		<div id="boxBtn" class="col-md-12">
 			<input type="button" id="newFolder" class="btn btn-large btn-success col-md-12" onclick="createFolder()" value="폴더생성">
 		</div>
 		<div id="uploadButtons" class="col-md-12">
-			<input type="button" id="submitBtn" value="확인" class="btn btn-large btn-primary col-md-12"> 
-			<input type="button" id="closeBtn" value="취소" class="btn btn-large btn-danger col-md-12">
+			<input type="button" id="submitBtn" value="확인" class="btn btn-large btn-primary col-md-6">
+			<input type="button" id="closeBtn" value="취소" class="btn btn-large btn-danger col-md-6">
 		</div>
 	</div>
 

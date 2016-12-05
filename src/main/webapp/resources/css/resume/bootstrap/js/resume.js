@@ -65,7 +65,7 @@ function ResumeOpenbtn() {
 			if (resume_openValue == "N")
 				result = "비공개";
 			$('#resume_open_id').html('현재 설정 : ' + resume_openValue);
-			alert("기본이력서 " + default_resume_no + "번의 공개설정이 " + result + "가 되었습니다. ");
+			alertify.log("기본이력서 " + default_resume_no + "번의 공개설정이 " + result + "가 되었습니다. ");
 		}
 	});
 }

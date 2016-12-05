@@ -4,10 +4,15 @@ html{
 	
 }
 .selectedFile{
-	border : dotted 3px;
+	border : dotted 1px;
 	background: grey;
 }
 
+
+.fileboxIcon img,i{
+	width : 100%;
+	height : 50px;
+}
 #boxButtons input{
 	margin :3px;
 }

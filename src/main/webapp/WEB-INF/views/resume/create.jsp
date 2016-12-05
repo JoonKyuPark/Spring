@@ -66,11 +66,10 @@ table.ui-datepicker-calendar {
 							</div>
 							<label class="col-lg-2 control-label">증명사진</label>
 							<div class="col-lg-4 resume_img_div">
-								<input type="hidden" id="resume_img_input" name="resume_img" value="">
-								<input type="button" class="btn btn-large btn-info" value="사진등록" onclick="window.open('/resume/file/upload','win')">
+								<input type="hidden" id="resume_img_input" name="resume_img" value=""> <input type="button" class="btn btn-large btn-info" value="사진등록" onclick="window.open('/resume/file/upload','win')">
 								<div id="resume_img_box"></div>
 								<br>
-								
+
 
 							</div>
 							<br>
@@ -288,7 +287,8 @@ table.ui-datepicker-calendar {
 						</div>
 						<!-- form-group -->
 
-						<input type="button" value="확인" id="submitBtn" class="btn btn-primary col-lg-offset-4 col-lg-2"> <input type="reset" value="취소" class="btn btn-danger col-lg-offset-4 col-lg-2">
+						<input type="button" value="확인" id="submitBtn" class="btn btn-primary col-lg-offset-4 col-lg-2"> 
+						<a href="/resume/list" class="btn btn-danger col-lg-offset-4 col-lg-2">취소</a>
 
 					</form>
 
