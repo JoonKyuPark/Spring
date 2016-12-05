@@ -29,6 +29,7 @@ body {
 
 table {
 	width: 100%;
+	margin-top : 1%;
 }
 
 tr {
@@ -55,15 +56,13 @@ td {
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="outerDiv">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<h2>&nbsp; 시험 인원 목록</h2>
 
+					<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
+						<div class="col-md-3"></div>
+						
+						<div class="col-md-6">
+							
+<h2>JOBIXAM MEMBER LIST</h2>
 							<table class="table">
 								<tr>
 									<th><center>회원 이름</center></th>
@@ -86,10 +85,5 @@ td {
 						</div>
 						<div class="col-md-3"></div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 </body>
 </html>

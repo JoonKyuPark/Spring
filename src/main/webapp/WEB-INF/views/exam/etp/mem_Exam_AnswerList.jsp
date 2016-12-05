@@ -82,8 +82,9 @@ body {
 
 table {
 	width: 100%;
-	border-radius: 10px;
-	-moz-border-radius:10px;
+
+	margin-top : 1%;
+
 }
 
 .td {
@@ -129,14 +130,11 @@ textarea {
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="outerDiv">
+
+					<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
-							<h2>&nbsp; 회원 정답 목록</h2>
+							<h2>회원 정답 목록</h2>
 							<table class="table table-hover">
 								<c:forEach var="i" items="${mem_answer }">
 									<tr>

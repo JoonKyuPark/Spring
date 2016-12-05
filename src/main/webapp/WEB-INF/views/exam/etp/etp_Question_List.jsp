@@ -48,43 +48,36 @@ th {
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="col-md-12 outerDiv">
-						<div class="col-md-12 questionListForm">
-							<h2>Q U E S T I O N &nbsp; L I S T</h2>
-							<div class="col-md-12">
 
-								<table id="etp_Question_Table" class="table">
-									<tr>
-										<th class="col-md-1"><nobr>번호</nobr></th>
-										<th class="col-md-5"><nobr>문제 이름</nobr></th>
-										<th class="col-md-6"><nobr>문제 내용</nobr></th>
-									</tr>
-									<c:forEach var="i" items="${etp_Question_List }">
-										<tr class="etp_Exam_Table_tr" >
-											<td><nobr>${i.question_no }</nobr></td>
-											<td><nobr>${i.question_name }</nobr></td>
-											<td class="question_content"><nobr>${i.question_content }</nobr></td>
-										</tr>
-									</c:forEach>
-								</table>
-								<c:if test="${empty etp_Question_List }">
-									<br>
-									<br>
-									<div align="center">
-										<span style="font-size: 25px; margin: auto;">등록된 문제가
-											없습니다.</span>
-									</div>
-								</c:if>
-								<br> <a href="etp_Exam_List"><button
-										class="btn btn-info"><font color = "black" size="3">시험 목록</font></button></a>
-							</div>
-						</div>
+	<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
+		<div class="col-md-12 questionListForm">
+			<h2>Q U E S T I O N &nbsp; L I S T</h2>
+			<br>
+			<div class="col-md-12">
+				<table id="etp_Question_Table" class="table">
+					<tr>
+						<th class="col-md-1"><nobr>번호</nobr></th>
+						<th class="col-md-5"><nobr>문제 이름</nobr></th>
+						<th class="col-md-6"><nobr>문제 내용</nobr></th>
+					</tr>
+					<c:forEach var="i" items="${etp_Question_List }">
+						<tr class="etp_Exam_Table_tr">
+							<td><nobr>${i.question_no }</nobr></td>
+							<td><nobr>${i.question_name }</nobr></td>
+							<td class="question_content"><nobr>${i.question_content }</nobr></td>
+						</tr>
+					</c:forEach>
+				</table>
+				<c:if test="${empty etp_Question_List }">
+					<br>
+					<br>
+					<div align="center">
+						<span style="font-size: 25px; margin: auto;">등록된 문제가 없습니다.</span>
 					</div>
-				</div>
+				</c:if>
+				<br> <a href="etp_Exam_List"><button class="btn btn-info">
+						<font color="black" size="3">시험 목록</font>
+					</button></a>
 			</div>
 		</div>
 	</div>

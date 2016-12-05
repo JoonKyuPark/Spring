@@ -30,31 +30,27 @@
 </head>
 <body>
 	<%@include file="../nav2.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="col-md-12 outerDiv">
+	<div class="col-md-10 col-sm-10 col-xs-10  outerDiv">
 
-						<div class="col-md-12 examListForm">
-							<h1>J O B I X A M &nbsp; J O I N</h1>
-							<hr>
-							<div class="col-md-12">
-								<form id="mem_Exam_ListForm" action="mem_Question_List"
-									method="POST" class="col-md-12">
-									<input type="hidden" name="exam_question_no" value=1> <select
-										id="mem_Selected_Exam" class="selectpicker" name="exam_no">
-										<option selected="selected">시험 선택</option>
-										<c:forEach var="i" items="${mem_Exam_List }">
-											<option value="${i.exam_no }">${i.exam_name }</option>
-										</c:forEach>
-									</select> <label><font size="3">&nbsp; 을 선택하셨습니다.</font></label>
-								</form>
-							</div>
-							<div class="col-md-12">
-								<div class="col-md-12">
-									<textarea class="col-md-12 form-control" rows="13"
-										readonly="readonly">
+		<div class="col-md-12 examListForm">
+			<h1>J O B I X A M &nbsp; J O I N</h1>
+			<hr>
+			<div class="col-md-12">
+				<form id="mem_Exam_ListForm" action="mem_Question_List"
+					method="POST" class="col-md-12">
+					<input type="hidden" name="exam_question_no" value=1> <select
+						id="mem_Selected_Exam" class="selectpicker" name="exam_no">
+						<option selected="selected">시험 선택</option>
+						<c:forEach var="i" items="${mem_Exam_List }">
+							<option value="${i.exam_no }">${i.exam_name }</option>
+						</c:forEach>
+					</select> <label><font size="3">&nbsp; 을 선택하셨습니다.</font></label>
+				</form>
+			</div>
+			<div class="col-md-12 textDiv">
+				<div class="col-md-12">
+					<textarea class="col-md-12 form-control" rows="13"
+						readonly="readonly">
 					제 1 조 (목적)
 이 규정은 (주)멀티캠퍼스(이하 "멀티캠퍼스")에서 시행하는 ACTFL TEST와 관련하여
 부정행위를 방지 할 수 있도록 예방하며, 공정한 평가가 이루어지도록 하는데 그 목적이 있다.
@@ -113,27 +109,22 @@ ACTFL TEST와 관련한 부정행위 적발은 멀티캠퍼스의 고유권한�
 1. 성적조회는 조회일로부터 2년 이내 성적만 가능하다.
 2. 인증서를 위,변조하여 사용할 경우 부정행위처리규정 제6조 3항에 의거 부정행위처리 및 통보한다.
 				</textarea>
-								</div>
-								<br> <br>
-								<div id="agreement" align="center" class="col-md-12">
-									<br> <input type="radio" class="agree" value="agree"
-										name="agree"> 약관에 동의합니다. <input type="radio"
-										class="agree" value="disagree" name="agree" checked="checked">
-									약관에 동의하지 않습니다.
-								</div>
-								<div id="gotoexam" align="right" class="col-md-12">
-									<label id="gotoexamlink" style="cursor: pointer"><font
-										size="5"><i class="xi-send"></i><i class="xi-send"></i>
-											&nbsp; </font></label>
-								</div>
-							</div>
-						</div>
-					</div>
-
+				</div>
+				<br> <br>
+				<div id="agreement" align="center" class="col-md-12">
+					<br> <input type="radio" class="agree" value="agree"
+						name="agree"> 약관에 동의합니다. <input type="radio" class="agree"
+						value="disagree" name="agree" checked="checked"> 약관에 동의하지
+					않습니다.
+				</div>
+				<div id="gotoexam" align="right" class="col-md-12">
+					<label id="gotoexamlink" style="cursor: pointer"><font
+						size="5"><i class="xi-send"></i><i class="xi-send"></i>
+							&nbsp; </font></label>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
+
 </body>
 </html>

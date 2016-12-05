@@ -24,7 +24,9 @@ body{
 	width: 100%;
 	resize: vertical;
 }
-
+.btnDiv{
+	margin-top : 1%;
+}
 #question_second {
 	width: 30%;
 	border: 1px solid #D2D2D2;
@@ -40,12 +42,7 @@ body{
 
 .outerDiv {
 	background: white;
-	margin-left: 1%;
 	height: 2000px;
-}
-
-.inputForm {
-	padding: 3%;
 }
 
 

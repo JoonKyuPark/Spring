@@ -1,253 +1,82 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<!-- Bootstrap ../../../resources/css/resume/bootstrap/css/bootstrap.css-->
-<link href="../../../../resources/css/exam/bootstrap.min.css"
-	rel="stylesheet">
-<link href="../../../resources/css/exam/custom2.css" rel="stylesheet">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link href="../../../../resources/css/exam/sb-admin.css"
-	rel="stylesheet">
-
-<link href="../../../../resources/css/exam/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<title></title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" type="text/css"
-	href="../../../../resources/css/exam/vendor.css">
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/exam/flat-admin.css">
-<!-- Theme -->
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/theme/blue-sky.css">
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/theme/blue.css">
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/theme/red.css">
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/theme/yellow.css">
-
+<title>Bootstrap 3 Admin</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+<link href="../../../../resources/css/exam/nav_styles.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
 </head>
 <body>
-	<div class="app app-default" class="col-lg-12">
-
-		<aside class="app-sidebar" id="sidebar">
-		<div class="sidebar-header">
-			<button type="button" class="sidebar-toggle">
-				<i class="fa fa-times"></i>
-			</button>
-		</div>
-		<div class="sidebar-menu">
-			<ul class="sidebar-nav">
-				<li><a href="etp_Exam_Main">
-						<div class="icon">
-							<i class="fa fa-tasks" aria-hidden="true"></i>
-						</div>
-						<div class="title">캘린더</div>
-				</a></li>
-				<li class="dropdown active"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">
-						<div class="icon">
-							<i class="fa fa-file-o" aria-hidden="true"></i>
-						</div>
-						<div class="title">시험 등록</div>
-				</a>
-					<div class="dropdown-menu">
-						<ul>
-							<li class="section"><i class="fa fa-file-o"
-								aria-hidden="true"></i> 시험 등록</li>
-							<li><a href="etp_Exam_Create">시험 일정 등록</a></li>
-							<li><a href="etp_Exam_List">시험 일정 관리</a></li>
-						</ul>
-					</div></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown">
-						<div class="icon">
-							<i class="fa fa-cube" aria-hidden="true"></i>
-						</div>
-						<div class="title">문제 등록</div>
-				</a>
-					<div class="dropdown-menu">
-						<ul>
-							<li class="section"><i class="fa fa-file-o"
-								aria-hidden="true"></i>문제 등록</li>
-							<li><a href="etp_Question_Create">시험 문제 등록</a></li>
-						</ul>
-					</div></li>
-			</ul>
-		</div>
-		<div class="sidebar-footer">
-			<ul class="menu">
-				<li><a href="/" class="dropdown-toggle" data-toggle="dropdown">
-						<i class="fa fa-cogs" aria-hidden="true"></i>
-				</a></li>
-				<li><a href="#"><span
-						class="flag-icon flag-icon-th flag-icon-squared"></span></a></li>
-			</ul>
-		</div>
-		</aside>
-
-		<script type="text/ng-template" id="sidebar-dropdown.tpl.html">
-</script>
-		<div class="app-container">
-
-			<nav class="navbar navbar-default" id="navbar">
-			<div class="container-fluid">
-				<div class="navbar-collapse collapse in">
-					<ul class="nav navbar-nav navbar-mobile">
-						<li>
-							<button type="button" class="sidebar-toggle">
-								<i class="fa fa-bars"></i>
-							</button>
-						</li>
-						<li class="logo"><a class="navbar-brand" href="#"><span
-								class="highlight">Flat v3</span> Admin</a></li>
-						<li>
-							<button type="button" class="navbar-toggle">
-								<img class="profile-img"
-									src="../../../../resources/css/images/profile_img.png">
-							</button>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav navbar-left">
-						<li class="navbar-search hidden-sm"><input id="search"
-							type="text" placeholder="Search..">
-							<button class="btn-search">
-								<i class="fa fa-search"></i>
-							</button></li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown notification"><a href="#"
-							class="dropdown-toggle" data-toggle="dropdown">
-								<div class="icon">
-									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
-								</div>
-								<div class="title">New Orders</div>
-								<div class="count">0</div>
-						</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li class="dropdown-header">Ordering</li>
-									<li class="dropdown-empty">No New Ordered</li>
-									<li class="dropdown-footer"><a href="#">View All <i
-											class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-								</ul>
-							</div></li>
-						<li class="dropdown notification warning"><a href="#"
-							class="dropdown-toggle" data-toggle="dropdown">
-								<div class="icon">
-									<i class="fa fa-comments" aria-hidden="true"></i>
-								</div>
-								<div class="title">Unread Messages</div>
-								<div class="count">99</div>
-						</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li class="dropdown-header">Message</li>
-									<li><a href="#"> <span
-											class="badge badge-warning pull-right">10</span>
-											<div class="message">
-												<img class="profile" src="https://placehold.it/100x100">
-												<div class="content">
-													<div class="title">"Payment Confirmation.."</div>
-													<div class="description">Alan Anderson</div>
-												</div>
-											</div>
-									</a></li>
-									<li><a href="#"> <span
-											class="badge badge-warning pull-right">5</span>
-											<div class="message">
-												<img class="profile" src="https://placehold.it/100x100">
-												<div class="content">
-													<div class="title">"Hello World"</div>
-													<div class="description">Marco Harmon</div>
-												</div>
-											</div>
-									</a></li>
-									<li><a href="#"> <span
-											class="badge badge-warning pull-right">2</span>
-											<div class="message">
-												<img class="profile" src="https://placehold.it/100x100">
-												<div class="content">
-													<div class="title">"Order Confirmation.."</div>
-													<div class="description">Brenda Lawson</div>
-												</div>
-											</div>
-									</a></li>
-									<li class="dropdown-footer"><a href="#">View All <i
-											class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-								</ul>
-							</div></li>
-						<li class="dropdown notification danger"><a href="#"
-							class="dropdown-toggle" data-toggle="dropdown">
-								<div class="icon">
-									<i class="fa fa-bell" aria-hidden="true"></i>
-								</div>
-								<div class="title">System Notifications</div>
-								<div class="count">10</div>
-						</a>
-							<div class="dropdown-menu">
-								<ul>
-									<li class="dropdown-header">Notification</li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">8</span>
-											<div class="message">
-												<div class="content">
-													<div class="title">New Order</div>
-													<div class="description">$400 total</div>
-												</div>
-											</div>
-									</a></li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">14</span> Inbox
-									</a></li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">5</span> Issues Report
-									</a></li>
-									<li class="dropdown-footer"><a href="#">View All <i
-											class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-								</ul>
-							</div></li>
-						<li class="dropdown profile"><a
-							href="/html/pages/profile.html" class="dropdown-toggle"
-							data-toggle="dropdown"> <img class="profile-img"
-								src="../../../../resources/css/images/profile_img.png">
-								<div class="title">Profile</div>
-						</a>
-							<div class="dropdown-menu">
-								<div class="profile-info">
-									<h4 class="username">${mi.member_name}님</h4>
-								</div>
-								<ul class="action">
-									<li><a href="#"> Profile </a></li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">5</span> My Inbox
-									</a></li>
-									<li><a href="#"> Setting </a></li>
-									<li><a href="#"> Logout </a></li>
-								</ul>
-							</div></li>
-					</ul>
-				</div>
+	<!-- header -->
+	<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid col-md-2 col-sm-2 col-xs-2">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Dashboard</a>
 			</div>
-			</nav>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle" role="button"
+						data-toggle="dropdown" href="#"><i
+							class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
+						<ul id="g-account-menu" class="dropdown-menu" role="menu">
+							<li><a href="#">My Profile</a></li>
+						</ul></li>
+					<li><a href="#"><i class="glyphicon glyphicon-lock"></i>
+							Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Header -->
 
+	<!-- Main -->
+	<div class="container-fluid col-md-2 col-sm-2 col-xs-2">
+	<div class="row col-md-12"></div>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<!-- Left column -->
+				<a id = "main" href="etp_Exam_Main"><strong><i
+						class="xi-calendar-check xi-2x"></i><font size="5" color="black"> J O B I X A M </font></strong></a>
+
+				<hr>
+
+				<ul class="nav nav-stacked">
+					<li class="nav-header"><a href="#" data-toggle="collapse"
+						data-target="#userMenu"><font size = "4"> S c h e d u l e s &nbsp; &nbsp; </font><i
+							class="xi-angle-down"></i></a>
+						<ul class="nav nav-stacked collapse in" id="userMenu">
+							<li class="active"><a href="etp_Exam_Create"><font size = "3"><i
+									class="xi-align-justify"></i> Schedule Registation<br> &nbsp; &nbsp; &nbsp; 일 정 등 록 </font></a></li>
+							<li><a href="etp_Exam_List"><font size = "3"><i class="xi-align-justify"></i>
+									Schedules Management<br> &nbsp; &nbsp; &nbsp;  일 정 관 리 </font></a></li>
+						</ul></li>
+					<li class="nav-header"><a href="#" data-toggle="collapse"
+						data-target="#menu2"><font size = "4"> Q u e s t i o n s &nbsp; &nbsp; </font><i
+							class="xi-angle-down"></i></a>
+
+						<ul class="nav nav-stacked collapse" id="menu2">
+							<li><a href="etp_Question_Create"><font size="3"><i class="xi-align-justify"></i> Question Registration<br> &nbsp; &nbsp; &nbsp; 문 제 등 록 </font></a></li>
+						</ul></li>
+				</ul>
+				<hr>
+			</div>
+			<!-- /col-3 -->
+		</div>
 
 </body>
 </html>
