@@ -30,27 +30,20 @@
 
 <body>
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-				
-					<div class="col-md-12 outderDiv" >
-						<c:forEach var="i" items="${list }">
-							<input type="hidden"
-								value='<fmt:formatDate value="${i.exam_sdate }" pattern="yyyy/MM/dd"/>-${i.exam_no }'
-								class="exam_sdate" name="${i.exam_name }">
-							<input type="hidden"
-								value='<fmt:formatDate value="${i.exam_ddate }" pattern="yyyy/MM/dd"/>'
-								class="exam_ddate">
-						</c:forEach>
-						<h2>C A L E N D A R</h2>
-						<hr>
-						<div class="col-md-12" id="calendar"></div>
-					</div>
-				</div>
-			</div>
+		<div class="col-sm-10 col-xs-10 col-md-10 outderDiv">
+
+				<c:forEach var="i" items="${list }">
+					<input type="hidden"
+						value='<fmt:formatDate value="${i.exam_sdate }" pattern="yyyy/MM/dd"/>-${i.exam_no }'
+						class="exam_sdate" name="${i.exam_name }">
+					<input type="hidden"
+						value='<fmt:formatDate value="${i.exam_ddate }" pattern="yyyy/MM/dd"/>'
+						class="exam_ddate">
+				</c:forEach>
+				<div class="col-md-12" align="left"><h2> J O B I X A M &nbsp; C a l e n d a r </h2></div>
+			<br>
+				<div class="col-md-12" id="calendar"></div>
+
 		</div>
-	</div>
 </body>
 </html>

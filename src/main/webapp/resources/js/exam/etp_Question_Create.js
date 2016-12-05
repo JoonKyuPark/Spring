@@ -77,13 +77,6 @@ window.onload = function() {
 		}
 	}
 	checkByte();
-
-	$('.btn-info').hover(function() {
-		$(this).css('background', '#6695BE');
-	});
-	$('.btn-info').mouseout(function() {
-		$(this).css('background', '#3679B5');
-	});
 }
 
 function create() {
@@ -93,21 +86,21 @@ function create() {
 	var content = $('#question_content').val();
 	var per = $('#percentage').val();
 	var answer = $('#question_answer').val();
-	if (exam == "시험 선택") {
-		swal({
-			title : " ",
-			text : '3000자를 초과 할 수 없습니다.',
-			type:'warning',
-			confirmButtonText:'확인',
-			closeOnConfirm : false
-		});
-		alert('시험을 선택해주세요.');
-		return;
-	}
+
 	if (name == "") {
 		swal({
 			title : " ",
 			text : '문제 이름을 입력해주세요.',
+			type:'warning',
+			confirmButtonText:'확인',
+			closeOnConfirm : false
+		});
+		return;
+	}
+	if (exam == "시험 선택") {
+		swal({
+			title : " ",
+			text : '시험을 선택해주세요.',
 			type:'warning',
 			confirmButtonText:'확인',
 			closeOnConfirm : false

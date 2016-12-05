@@ -4,9 +4,24 @@ window.onpopstate = function(event) {
 };
 
 document.oncontextmenu = function(e) {
-	alert('오른쪽 버튼 사용은 금지되어있습니다.');
-	return false;
+	swal({
+		title : " ",
+		text : '오른쪽 버튼 사용은 금지되어 있습니다.',
+		type : 'error',
+		confirmButtonText : '확인',
+		closeOnConfirm : false
+	});
+	return;
 }
+
+$(function() {
+	$('.etp_Exam_Table_tr').hover(function() {
+		alert('hi');
+		$(this).children().css('background', '#ffecdf');
+	}, function() {
+		$(this).children().css('background', '#FFF3EB');
+	});
+});
 
 $(document).keydown(function(e) {
 	key = (e) ? e.keyCode : event.keyCode;
@@ -42,7 +57,7 @@ window.onload = function() {
 
 			for (var i = 0; i < text.length; i++) {
 				if (escape(text.charAt(i)).length == 6) {
-					length++; //한글일 때 2바이트 추가
+					length++; // 한글일 때 2바이트 추가
 					length++;
 				}
 				length++;
@@ -51,7 +66,13 @@ window.onload = function() {
 				var content = $('textarea.question_answer').val();
 				var sub = content.substring(0, 3000);
 				$('textarea.question_answer').val(sub);
-				alert('3000자를 초과 할 수 없습니다.');
+				swal({
+					title : " ",
+					text : '3000자를 초과 할 수 없습니다.',
+					type : 'error',
+					confirmButtonText : '확인',
+					closeOnConfirm : false
+				});
 				return;
 			}
 			return length;
@@ -81,20 +102,36 @@ window.onload = function() {
 		$('.nextBtn').val('시험종료');
 		$('.exitBtn').css('display', 'none');
 	}
-	function submit() {
+
+	function submit1() {
 		if (maxQuestion == nowQuesiton) {
-			alert(' 시험을 모두 마치셨습니다.\n회원님의 합격을 기원합니다.');
-			$('.mem_answerForm').attr({
-				action : 'mem_Exam_List',
-				method : 'post'
-			}).submit();
+			swal({
+				title : "시험을 모두 마치셨습니다.",
+				text : '회원님의 합격을 기원합니다.',
+				type : 'success',
+				confirmButtonText : '확인',
+				closeOnConfirm : false
+			}, function() {
+				$('.mem_answerForm').attr({
+					action : 'mem_Exam_Main',
+					method : 'post'
+				}).submit();
+			});
 
 		} else {
-			alert('제출이 완료되었습니다.');
-			$('.mem_answerForm').attr({
-				action : 'mem_Question_List',
-				method : 'post'
-			}).submit();
+			swal({
+				title : " ",
+				text : '제출이 완료되었습니다.',
+				type : 'success',
+				confirmButtonText : '확인',
+				closeOnConfirm : false
+			}, function() {
+				$('.mem_answerForm').attr({
+					action : 'mem_Question_List',
+					method : 'post'
+				}).submit();
+
+			});
 		}
 	}
 
@@ -103,17 +140,23 @@ window.onload = function() {
 		time--;
 		if (time == -1) {
 			$('.nextBtn').trigger('click');
+			clearInterval();
 		}
 	}, 1000);
 
 	$('.nextBtn').click(function() {
+		var replace = $('.question_answer').val().replace(/\n/g, "<br>");
+		$('.question_answer').val(replace);
 		var form = $('.mem_answerForm').serialize();
 		$.ajax({
 			url : 'mem_Answer_Create',
 			type : 'post',
-			data : form
+			data : form,
+			success : function(data){
+				submit1();
+			}
 		});
-		submit();
+
 	});
 	$('.exitBtn').click(function() {
 		if (confirm("시험을 정말로 종료하시겠습니까?")) {

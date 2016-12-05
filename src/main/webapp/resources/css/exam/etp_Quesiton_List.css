@@ -4,12 +4,6 @@ body{
 	font-family : '나눔고딕' !important;
 }
 
-.btn-info {
-	background: #3679B5 !important;
-}
-
-
-
 #etp_Question_Table {
 	width: 100%;
 	table-layout : fixed !important;
@@ -17,12 +11,12 @@ body{
 
 #etp_Question_Table th {
 	text-align: center;
+	background : #ffecdf;
 }
 
 #etp_Question_Table td {
-	border-top: 1px solid gray;
-	border-bottom: 1px solid gray;
 	text-align: center;
+	background : #FFF3EB;
 }
 
 #etp_Question_Table tr {
@@ -31,9 +25,16 @@ body{
 
 .outerDiv {
 	background: white;
-	margin-left: 1%;
 	height: 2000px;
 }
 .questionListForm{
-	padding : 3%;
+}
+
+.btn-info{
+	background : #fecda9 !important;
+	border : 0 !important;
+}
+.btn-info:hover{
+	background : #fecda9 !important;
+	border : 0 !important;
 }
