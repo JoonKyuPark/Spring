@@ -21,9 +21,6 @@
 
 <link rel="stylesheet" type="text/css"
 	href="../../../resources/css/resume/bootstrap/css/bootstrap.css">
-<script type="text/javascript"
-	src="../../../resources/css/resume/bootstrap/js/bootstrap.js"></script>
-
 
 
 
@@ -57,9 +54,9 @@ table.ui-datepicker-calendar {
 					<h1 class="page-header">
 						MyPage <small>이력서 등록</small>
 					</h1>
-
-
-
+					<h1>
+					<a href="file/uploadAjax">사진등록</a>
+					</h1>
 					<form class="resume_form form-horizontal img-thumbnail col-md-12"
 						action="/resume/create" method="post" id="form">
 						<div class="form-group col-lg-12 col-md-12">
@@ -86,7 +83,6 @@ table.ui-datepicker-calendar {
 
 							<label class="resume_volun_field_label col-lg-2 control-label">지원분야</label>
 							<div class="resume_volun_field_form col-lg-10">
-
 								<select class="form-control" name="volun_field">
 									<option value="웹개발자">웹개발자</option>
 									<option value="웹디자이너">웹디자이너</option>
@@ -140,7 +136,6 @@ table.ui-datepicker-calendar {
 											<i class="glyphicon glyphicon-calendar fa fa-calendar"></i> <span
 												class="resume_career_join_date_input" index="0"></span> <b
 												class="caret"></b>
-
 										</div> -->
 										<div class="col-md-10">
 											<input type="text"
@@ -322,4 +317,12 @@ table.ui-datepicker-calendar {
 	</div>
 
 </body>
+<script type="text/javascript"
+	src="../../../resources/css/resume/bootstrap/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../../../../resources/css/resume/bootstrap/js/resume.js"></script>
+<script type="text/javascript" src="../../../../resources/css/resume/bootstrap/js/bootstrap-monthpicker.js"></script>
+
+
+
 </html>

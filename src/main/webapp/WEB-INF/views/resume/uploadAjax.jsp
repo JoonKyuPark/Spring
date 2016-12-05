@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,32 +9,25 @@
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<script type="text/javascript"
-	src="../../../resources/css/resume/bootstrap/js/filebox.js"></script>
+<script type="text/javascript" src="../../../resources/css/resume/bootstrap/js/filebox.js"></script>
 
 
 
-<script type="text/javascript"
-	src="../../../resources/css/resume/bootstrap/js/alertify.min.js"></script>
+<script type="text/javascript" src="../../../resources/css/resume/bootstrap/js/alertify.min.js"></script>
 
 
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 
 
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/resume/bootstrap/css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/resume/bootstrap/css/font-awesome.css">
 
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/resume/bootstrap/css/resume.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/resume/bootstrap/css/resume.css">
 
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/resume/bootstrap/css/alertify.core.css">
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/resume/bootstrap/css/alertify.default.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/resume/bootstrap/css/alertify.core.css">
+<link rel="stylesheet" type="text/css" href="../../../resources/css/resume/bootstrap/css/alertify.default.css">
 
 <style type="text/css">
 .fileDrop {
@@ -56,23 +48,27 @@ small {
 </head>
 <body>
 
-	<h3>Ajax File upload</h3>
+	<h3>[FileBox]이력서 사진 선택</h3>
 	<div class="fileDrop"></div>
 	<div class="uploadedList"></div>
 
 	<div class="container_id"></div>
-	<div id="boxBtn">
-		<button id="newFolder" class="btn btn-success"
-			onclick="createFolder()">폴더생성</button>
 
+	<div id="box" class="col-md-8"></div>
+	<div id="boxButtons" class="col-md-4">
+		<div id="boxBtn" class="col-md-12">
+			<input type="button" id="newFolder" class="btn btn-large btn-success col-md-12" onclick="createFolder()" value="폴더생성">
+		</div>
+		<div id="uploadButtons" class="col-md-12">
+			<input type="button" id="submitBtn" value="확인" class="btn btn-large btn-primary col-md-12"> 
+			<input type="button" id="closeBtn" value="취소" class="btn btn-large btn-danger col-md-12">
+		</div>
 	</div>
-	<div id="box"></div>
+
 </body>
 
 
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </html>

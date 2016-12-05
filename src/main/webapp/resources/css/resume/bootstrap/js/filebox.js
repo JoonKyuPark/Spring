@@ -9,47 +9,75 @@ $(function() {
 	var isClick = 0;
 
 	var timer;
+	$(window.document).on("contextmenu", function(event) { // 마우스 우클릭 메뉴 이벤트 해제
+		return false;
+	});
 
-	$("#box").find("div").on("click", function() {
-		alert("!!@!#")
-	})
+	boxButtonsClickFn();
 
 })
 
-function allClick(number) {
+function boxButtonsClickFn() {
+	$('#submitBtn').on('click', function() {
+
+		if (!$('.selectedFile').html()) {
+			alertify.alert("사진 파일을 선택해주세요!");
+		} else {
+			var submitHtml = $('.selectedFile').html();
+			alertify.confirm(submitHtml + "<br>이력서 사진으로 등록하시겠습니까?", function(event) {
+				if (event) {
+					alert("확인됨");
+				} else {
+					alertify.error("사진 등록이 취소되었습니다");
+				}
+			})
+		}
+
+	});
+
+	$('#closeBtn').on('click', function() {
+
+	})
+
+}
+function allClick(number, file_extension) {
+
 	$("#box").find(".files").on('mousedown', function(e) {
-		alert("들어오나");
+		e.preventDefault();
 		if (e.which == 3) {
-			e.preventDefault();
-			alertify.confirm($(this).find("span") + "삭제하시겠습니까", function(e) {
+
+			alertify.confirm($(this).html() + "삭제하시겠습니까?", function(e) {
 				if (e) {
 					$.ajax({
-						url : "/resume/file/deleteFile",
-						data : "33333",
-						success : function(){
-							alertify.log("aaa");
+						url : "/resume/file/deleteFile?file_no=" + number,
+						method : "POST",
+						success : function() {
+							alertify.log("삭제완료");
+							goListNum = $('#goBack').attr("parent");
+							fileBoxList(goListNum);
 						}
 					})
-					
 				} else {
-					alert("취소")
+
 				}
 			});
 		} else if (e.which == 1) {
 			var f_extension = "" + file_extension;
-			if(f_extension == "folder")
+			if (f_extension == "folder")
 				fileBoxList(number);
-			else{
-				alert("다운로드 or 선택 구현 ㄱㄱ");
+			else {
+				selectedFile($(this));
 			}
-			
 		}
+
+		$("#box").find(".files").off('mousedown');
 	});
 }
 
 $(function() {
 
 	$(".fileDrop").on("drop", function(event) {
+		event.preventDefault();
 		var files = event.originalEvent.dataTransfer.files;
 		var file = files[0];
 
@@ -98,7 +126,7 @@ $(function() {
 			data : {
 				fileName : $(this).attr('data-src')
 			},
-			dataType : 'text',
+			dataType : 'json',
 			success : function(result) {
 				if (result == 'deleted') {
 					that.parent('div').remove();
@@ -134,7 +162,7 @@ function showfileBoxList(list, parent) {
 
 		var goback;
 		goback = "";
-		goback += "<div class='files'>";
+		goback += "<div class='files col-md-1'>";
 		goback += '<button type="button" onclick="goParent(' + parent + ')"class="btn btn-default btn-lg fileboxIcon" id="goBack" parent="' + parent + '">';
 		goback += '<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>';
 		goback += '</button>';
@@ -144,10 +172,12 @@ function showfileBoxList(list, parent) {
 	}
 	for (var i = 0; i < list.length; i++) {
 		var fileHtml;
-		var jpg = "" + list[i].file_extension;
+		var a = '"' + list[i].file_no + '"';
 		fileHtml = "";
 		fileHtml += "<div class='files'>";
-		fileHtml += '<button type="button" onmousedown="allClick(' + list[i].file_no + ',' + jpg + ')"class="btn btn-default btn-lg fileboxIcon" id="' + list[i].file_no + '">';
+
+		fileHtml += '<button type="button" onmousedown=allClick("' + list[i].file_no + '",' + '"' + list[i].file_extension + '") class="btn btn-default btn-lg fileboxIcon" id="' + list[i].file_no
+				+ '">';
 		switch (list[i].file_extension) {
 		case "jpeg":
 		case "jpg":
@@ -168,8 +198,11 @@ function showfileBoxList(list, parent) {
 			break;
 		}
 
+		f_name = list[i].file_name;
+		if (f_name.length > 10)
+			f_name = f_name.substring(0, 10) + "...";
 		fileHtml += '</button>';
-		fileHtml += "<br> <span>" + list[i].file_name + "</span>";
+		fileHtml += "<br> <span>" + f_name + "</span>";
 		fileHtml += "</div>";
 		$('#box').append(fileHtml);
 
@@ -251,5 +284,13 @@ function checkImageType(fileName) {
 	var pattern = /jpg|gif|png|jpeg/i;
 
 	return fileName.match(pattern);
+
+}
+
+function selectedFile($event) {
+	$('.fileboxIcon').removeClass('active');
+	$('.fileboxIcon').removeClass('selectedFile');
+	$event.find('.fileboxIcon').addClass("active");
+	$event.find('.fileboxIcon').addClass("selectedFile");
 
 }

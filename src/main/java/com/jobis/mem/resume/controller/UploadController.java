@@ -139,7 +139,7 @@ public class UploadController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="fileDelete", method=RequestMethod.POST,  produces="application/json;charset=UTF-8")
+	@RequestMapping(value="deleteFile", method=RequestMethod.POST,  produces="application/json;charset=UTF-8")
 	public void fileDelete(@RequestParam("file_no") String file_no){
 		Mem_Resume_fileDTO fileDTO = new Mem_Resume_fileDTO();
 		int f_no = Integer.parseInt(file_no);
