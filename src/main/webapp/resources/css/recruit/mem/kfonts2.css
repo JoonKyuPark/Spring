@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+@font-face{
+  font-family:'NanumBarunGothic';
+  src:url("../fonts/NanumBarunGothic.eot");
+  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+body {font-family: "맑은 고딕","Malgun Gothic",  sans-serif; }
+
+=======
+@font-face {
+	font-family: 'NanumBarunGothic';
+	src: url("../fonts/NanumBarunGothic.eot");
+	src: local("☺"), url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+body {
+	font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+}
+>>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3

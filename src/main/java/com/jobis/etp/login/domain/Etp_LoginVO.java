@@ -2,7 +2,7 @@ package com.jobis.etp.login.domain;
 
 public class Etp_LoginVO {
 	 private int etp_no;
-	   private String etp_name;    //°¡ÀÔÀÚ¸í
+	   private String etp_name;    //ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
 	   private String etp_id;
 	   private String etp_pass;
 	   private String etp_tel;
@@ -138,7 +138,7 @@ public class Etp_LoginVO {
 	      this.etp_image = etp_image;
 	   }
 	   
-	   public void pass(){  //º¹È£È­
+	   public void pass(){  //ï¿½ï¿½È£È­
 	      String c = this.etp_pass;
 	      int key2= Integer.parseInt((c.substring(c.length()-1)));
 	      String[] r = c.split(",");
@@ -154,7 +154,6 @@ public class Etp_LoginVO {
 	      this.etp_pass=pass2;
 	      
 	   }
-
 
 
 }

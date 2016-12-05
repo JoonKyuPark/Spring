@@ -1,5 +1,45 @@
 package com.jobis.mem.recruit.service;
 
-public class Mem_RecruitServiceImpl implements Mem_RecuritService {
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.jobis.etp.join.domain.Etp_JoinVO;
+import com.jobis.mem.recruit.domain.Mem_RecruitCriteria;
+import com.jobis.mem.recruit.domain.Mem_RecruitVO;
+import com.jobis.mem.recruit.persistance.Mem_RecruitDAO;
+
+@Service
+public class Mem_RecruitServiceImpl implements Mem_RecruitService {
+	
+	@Inject
+	private Mem_RecruitDAO dao;
+
+	
+	@Override
+	public List<Mem_RecruitVO> mem_Recruit_List_Criteria(Mem_RecruitCriteria cri) throws Exception {
+		return dao.mem_Recruit_List_Criteria(cri);
+	}
+	
+	@Override
+	public int countPageing(Mem_RecruitCriteria cri) throws Exception {
+		return dao.countPageing(cri);
+	}
+
+	@Override
+	public Etp_JoinVO etp_Join_Read(int rno) throws Exception {
+		return dao.etp_Join_Read(rno);
+	}
+	
+	@Override
+	public Mem_RecruitVO mem_Recruit_Read(int rno) throws Exception {
+		return dao.mem_Recruit_Read(rno);
+	}
+
+	
+
+	
 
 }

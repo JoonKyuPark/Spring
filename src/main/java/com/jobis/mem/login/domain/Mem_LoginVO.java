@@ -8,16 +8,15 @@ public class Mem_LoginVO {
 	private int member_no = 0;
 	private String member_name, member_img, member_birth, member_gender, member_email, member_phone, member_telephone,
 			member_addr_no, member_addr, member_detail_addr, member_homepage, member_id, member_pwd;
-	private int license;
 
-	public Mem_LoginVO() {
-		super();
-	}
+	private int resume_no=0;
+
+	public Mem_LoginVO() {}
 
 	public Mem_LoginVO(int member_no, String member_name, String member_img, String member_birth, String member_gender,
 			String member_email, String member_phone, String member_telephone, String member_addr_no,
 			String member_addr, String member_detail_addr, String member_homepage, String member_id, String member_pwd,
-			int license) {
+			int resume_no) {
 		super();
 		this.member_no = member_no;
 		this.member_name = member_name;
@@ -33,7 +32,7 @@ public class Mem_LoginVO {
 		this.member_homepage = member_homepage;
 		this.member_id = member_id;
 		this.member_pwd = member_pwd;
-		this.license = license;
+		this.resume_no = resume_no;
 	}
 
 	public int getMember_no() {
@@ -145,15 +144,45 @@ public class Mem_LoginVO {
 	}
 
 	public void setMember_pwd(String member_pwd) {
-		this.member_pwd = member_pwd;
+		
+		
+		this.member_pwd =member_pwd;
 	}
 
-	public int getLicense() {
-		return license;
+	public int getResume_no() {
+		return resume_no;
 	}
 
-	public void setLicense(int license) {
-		this.license = license;
+	public void setResume_no(int resume_no) {
+		this.resume_no = resume_no;
 	}
+	
+	public void pass(){  //복호화
+		String c = this.member_pwd;
+		int key2= Integer.parseInt((c.substring(c.length()-1)));
+		String[] r = c.split(",");
+		String pass2 = "";
+		
+		for (int k = 0; k < r.length-1; k++) {
+			int y = Integer.parseInt(r[k]);
+			pass2 += Character.toString((char) (y - key2));
+
+			System.out.println(pass2);
+
+		}
+		this.member_pwd=pass2;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Mem_LoginVO [member_no=" + member_no + ", member_name=" + member_name + ", member_img=" + member_img
+				+ ", member_birth=" + member_birth + ", member_gender=" + member_gender + ", member_email="
+				+ member_email + ", member_phone=" + member_phone + ", member_telephone=" + member_telephone
+				+ ", member_addr_no=" + member_addr_no + ", member_addr=" + member_addr + ", member_detail_addr="
+				+ member_detail_addr + ", member_homepage=" + member_homepage + ", member_id=" + member_id
+				+ ", member_pwd=" + member_pwd + ", resume_no=" + resume_no + "]";
+	}
+
 
 }

@@ -1,0 +1,87 @@
+@CHARSET "UTF-8";
+
+#calendar {
+	margin-top : 2%;
+}
+
+.outerDiv {
+	background: white;
+	margin-left : 0px !important;
+	padding-left : 0px !important;
+	height: 2000px;
+	
+}
+body{
+	font-family : '나눔고딕'	;
+	
+}
+.week_Tr {
+	height: 50px;
+}
+
+.calTable {
+	width: 100%;
+}
+
+.day_Tr {
+	height: 200px;
+}
+
+
+.calTable th {
+	text-align: center;
+}
+
+.calTable td {
+	font-family : '나눔고딕';
+	padding: 1px;
+}
+table{
+	table-layout : fixed;
+	
+}
+.span{
+	text-overflow : ellipsis !important;
+	overflow : hidden !important;
+}
+.td_Div {
+	border: 1px solid #E1E1E1;
+	border-radius: 5%;
+	height: 200px;
+	text-align: left;
+	vertical-align: top;
+	padding: 1%;
+	text-overflow : ellipsis !important;
+	overflow : hidden !important;
+}
+
+.ul_Div {
+	text-align: center;
+}
+a{
+	text-decoration : none;
+	color : black;
+}
+a:focus, a:hover{
+	text-decoration : none;
+	color : black;
+}
+.today {
+	padding: 1%;
+	border-radius : 5%;
+	text-align: left;
+	vertical-align: top;
+	background: #f6b9b3;
+	border-radius: 5%;
+	color : white;
+}
+
+.calMonth {
+	width: 100%;
+	list-style: none;
+}
+
+.calMonth li {
+	font-size: 23px;
+	float: left;
+}

@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+    
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
-	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 	
 
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+
+	<beans:bean id="receive_service" class="com.jobis.mem.receive.service.Mem_ReceiveServiceImpl">
+	</beans:bean>
+
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+		<beans:property name="order" value="1" />
+
+	</beans:bean>
+
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-		<beans:property name="contentType" value="text/html; charset=UTF-8"/>
-	</beans:bean>
-	
-	
+
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="maxUploadSize" value ="10485760">
 		</beans:property>
@@ -39,7 +45,120 @@
     </beans:bean>
 	
 	<context:component-scan base-package="com.jobis.*" />
+=======
 	
+<beans:bean id="	AutoLogin" class="com.jobis.iterceptor.AutoLogin"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/" />
+			<beans:ref bean="	AutoLogin" />
+		</interceptor>
+	</interceptors> 
 	
+
+
+
+	<!-- <beans:bean id=" AutoLogin" class="com.jobis.iterceptor.AutoLogin"></beans:bean> 
+		<interceptors> <interceptor> <mapping path="/" /> <beans:ref bean=" AutoLogin" 
+		/> </interceptor> </interceptors> -->
+
+
+
+
+	<!-- tiles -->
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:value>/WEB-INF/tiles/tiles2def.xml</beans:value>
+		</beans:property>
+	</beans:bean>
+
+	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
+	<!-- <context:component-scan base-package="com.jobis.etp.join.persistance" 
+		/> <context:component-scan base-package="com.jobis.etp.join.controller" /> 
+		<context:component-scan base-package="com.jobis.etp.join.domain" /> <context:component-scan 
+		base-package="com.jobis.etp.join.service" /> <context:component-scan base-package="com.jobis.etp.login.domain" 
+		/> <context:component-scan base-package="com.jobis.etp.login.controller" 
+		/> <context:component-scan base-package="com.jobis.etp.login.persistance" 
+		/> <context:component-scan base-package="com.jobis.etp.login.service" /> 
+		<context:component-scan base-package="com.jobis.mem.login.controller" /> 
+		<context:component-scan base-package="com.jobis.mem.login.domain" /> <context:component-scan 
+		base-package="com.jobis.mem.login.persistance" /> <context:component-scan 
+		base-package="com.jobis.mem.login.service" /> <context:component-scan base-package="com.jobis.mem.join.controller" 
+		/> <context:component-scan base-package="com.jobis.mem.join.domain" /> <context:component-scan 
+		base-package="com.jobis.mem.join.service" /> <context:component-scan base-package="com.jobis.mem.join.persistance" 
+		/> -->
+
+	<!-- 이미지업로드 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760" />
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\upload" />
+	</beans:bean>
+
+	<!-- -->
+	<context:component-scan base-package="org.spring.project" />
+	<context:component-scan base-package="com.jobis.etp.join.domain" />
+	<context:component-scan base-package="com.jobis.etp.login.*" />
+	<context:component-scan base-package="com.jobis.etp.join.*" />
+	<context:component-scan base-package="com.jobis.mem.join.*" />
+	<context:component-scan base-package="com.jobis.mem.login.*" />
+	<context:component-scan base-package="com.jobis.etp.exam.persistance" />
+	<!-- 채용공고 -->
+	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
+	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
+	<context:component-scan base-package="com.jobis.etp.recruit.service" />
+>>>>>>> refs/remotes/JungHyunWoo/16/12/03-2www
 	
+	<!--기업 채용공고 등록 -->
+	<context:component-scan base-package="com.jobis.etp.recruit.controller" />
+	<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
+	<context:component-scan base-package="com.jobis.etp.recruit.service" />
+
+	<!--회원 입사지원 -->
+	<context:component-scan base-package="com.jobis.mem.receive.persistance" />
+	<context:component-scan base-package="com.jobis.mem.receive.service" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	<!--회원 채용공고 스크랩 -->
+	<context:component-scan base-package="com.jobis.mem.clip.controller" />
+	<context:component-scan base-package="com.jobis.mem.clip.persistance" />
+	<context:component-scan base-package="com.jobis.mem.clip.service" />
+
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="controller" />
+	<context:component-scan base-package="com.jobis.mem.receive.controller" />
+	
+<<<<<<< HEAD
+	
+=======
+	<context:component-scan base-package="com.jobis.etp.clip.service" />
+	<context:component-scan base-package="com.jobis.etp.clip.persistance" />
+	<context:component-scan base-package="com.jobis.etp.clip.controller" />
+
+<context:component-scan base-package="com.jobis.etp.recruit.service" />
+<context:component-scan base-package="com.jobis.etp.recruit.persistance" />
+<context:component-scan base-package="com.jobis.etp.recruit.domain" />
+<context:component-scan base-package="com.jobis.mem.match.**" />
+<context:component-scan base-package="com.jobis.aop" />
+
+<context:component-scan base-package="com.jobis.etp.exam.controller" />
+<context:component-scan base-package="com.jobis.mem.exam.controller" />
+	<!--회원 채용공고 확인 -->
+	<context:component-scan base-package="com.jobis.mem.recruit.controller" />
+	<context:component-scan base-package="com.jobis.mem.recruit.persistance" />
+	<context:component-scan base-package="com.jobis.mem.recruit.service" />
+	<!--기업 1차 합격 -->
+	<context:component-scan base-package="com.jobis.etp.pass.controller" />
+	<context:component-scan base-package="com.jobis.etp.pass.service" />
+	<context:component-scan base-package="com.jobis.etp.pass.persistance" />
+	<!--알림센터 -->
+	<context:component-scan base-package="com.jobis.mem.notice.controller" />
+	<context:component-scan base-package="com.jobis.mem.notice.service" />
+	<context:component-scan base-package="com.jobis.mem.notice.persistance" />
+	<context:component-scan base-package="com.jobis.mem.resume.*"/>
+	<context:component-scan base-package="controller" />
+
 </beans:beans>

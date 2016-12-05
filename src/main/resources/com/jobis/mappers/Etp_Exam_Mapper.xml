@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jobis.mappers.Etp_Exam_Mapper">
+	<!-- 시험 일정 등록 -->
+	<insert id="etp_Exam_Create"  parameterType="Etp_ExamVO">
+		insert into exam_infor(exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show)
+			values(etp_exam.nextval, #{exam_sdate}, #{exam_ddate}, #{exam_name}, #{exam_number}, #{exam_field}, #{etp_no}, 'hide')
+	</insert>
+	
+	<!-- 시험 일정 목록 -->
+	<select id="etp_Exam_List" resultType="Etp_ExamVO"  parameterType="int">
+		select * from exam_infor where etp_no = #{etp_no} order by exam_no desc
+	</select>
+	
+	<!-- 시험 페이지 카운트 -->
+	<select id="etp_Exam_CountPage" resultType="int" parameterType="Criteria">
+		<![CDATA[
+			select count(exam_no) from exam_infor where etp_no = #{etp_no} and exam_no > 0
+		]]>
+	</select>
+	
+	<!-- 시험 1개 선택 -->
+	<select id="etp_Exam_Select" resultType="Etp_ExamVO" parameterType="Integer">
+		select * from exam_infor where exam_no=#{exam_no}
+	</select>
+	
+	<!-- 시험 일정 수정 -->
+	<update id="etp_Exam_Update" parameterType="Etp_ExamVO">
+		update exam_infor set
+			exam_sdate = #{exam_sdate},
+			exam_ddate = #{exam_ddate},
+			exam_name = #{exam_name},
+			exam_number = #{exam_number},
+			exam_field = #{exam_field},
+			exam_show = #{exam_show}
+		where exam_no = #{exam_no}
+	</update>
+
+	<!-- 시험 삭제 -->
+	<delete id="etp_Exam_Delete" parameterType="int">
+		delete from exam_infor <if test = "value != null">where exam_no = ${value}</if>
+	</delete>
+	
+	<!-- 연관된 시험 문제 모두 삭제 -->
+	<delete id="etp_Exam_Qdelete" parameterType="int">
+		delete from exam_question <if test ="value != null">where exam_no = ${value}</if>
+	</delete>
+	
+	<!-- 시험 문제 등록 -->
+	<insert id="etp_Question_Create" parameterType="Etp_QuestionVO">
+		insert into exam_question (
+			question_no, question_name, question_content, question_second, exam_no, etp_no, question_answer, exam_question_no, correct_per
+		)values(
+			question_seq.nextval,#{question_name},#{question_content},#{question_second},#{exam_no},#{etp_no}, #{question_answer}, #{exam_question_no}, #{correct_per}
+		)
+	</insert>
+	
+	<!-- 시험 문제 목록 -->
+	<select id = "etp_Question_List"  resultType="Etp_QuestionVO" parameterType="int">
+		select * from exam_question <if test = "value != null">where exam_no = ${value}</if> order by question_no desc
+	</select>
+	<select id="exam_Question_No" resultType="integer" parameterType="int">
+		select max(exam_question_no) from exam_question where exam_no=#{exam_no}
+	</select>
+	
+	<!-- 시험 시작 종료 -->
+	<update id="etp_Exam_StartEnd" parameterType="Etp_ExamVO">
+		update exam_infor set
+			exam_show = #{exam_show}
+		where exam_no = #{exam_no}
+	</update>
+	
+	<!-- 시험 인원 -->
+	<select id="etp_Exam_MemberList" resultType = "Mem_JoinVO" parameterType="int">
+		select * from member_infor where member_no in (select member_no from resume where resume_no in (select resume_no from join_receive where exam_no = #{exam_no}))
+	</select>
+	
+	<!-- 해당 시험의 회원 제출 답안 -->
+	<select id="mem_Answer_List" resultType="Mem_AnswerVO" parameterType="Mem_CountVO">
+		select * from answer where member_no = #{member_no} and question_no in (select question_no from exam_question where exam_no = #{exam_no}) 
+	</select>
+	
+	<!-- 정답/ 오답처리 -->
+	<update id="etp_Member_toCorrect" parameterType="int">
+		update answer set correct_answer = 'correct' where ans_no = #{ans_no}
+	</update>
+	<update id="etp_Member_toIncorrect" parameterType="int">
+		update answer set correct_answer = 'incorrect' where ans_no = #{ans_no}
+	</update>
+	
+	<!-- 회원이 맞은 정답 -->
+	<select id="mem_correct_answer" resultType="int" parameterType="Mem_CountVO">
+		select count(correct_answer) from answer where correct_answer='correct' and member_no=#{member_no} and question_no in (select question_no from exam_question where exam_no=#{exam_no});
+	</select>
+	
+</mapper>  
+
+ 

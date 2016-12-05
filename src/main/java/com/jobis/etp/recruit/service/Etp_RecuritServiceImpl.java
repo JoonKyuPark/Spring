@@ -4,10 +4,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.jobis.etp.login.domain.Etp_LoginDTO;
+
 import com.jobis.etp.recruit.domain.Etp_RecruitDTO;
 import com.jobis.etp.recruit.domain.Etp_RecruitVO;
 import com.jobis.etp.recruit.domain.Etp_mem_infoVO;
