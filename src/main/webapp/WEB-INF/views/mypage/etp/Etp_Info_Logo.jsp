@@ -124,8 +124,8 @@
 			  if(checkImageType(data)){
 				  str = "<input type='hidden' id='etp_image' name='etp_image' value='"+data+"'/>"
 				  		  +"<div><a href=displayFile?fileName="+getImageLink(data)+">"
-						  +"<img src='displayFile?fileName="+data+"'/>"
-						  +"</a><small data-src="+data+">X</small></div>";
+						  +"<img src='displayFile?fileName="+data+"'/>";
+						  /* +"</a><small data-src="+data+">X</small></div>"; */
 			  }else{
 				  
 			  }

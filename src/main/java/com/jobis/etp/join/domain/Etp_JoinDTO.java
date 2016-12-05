@@ -10,12 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Etp_JoinDTO {
 	
+	public Etp_JoinDTO() {}
 	
-	
-	
-	public Etp_JoinDTO() {
-		super();
-	}
 	private int etp_no;
 	private String etp_name;    //가입자명
 	private String etp_id;

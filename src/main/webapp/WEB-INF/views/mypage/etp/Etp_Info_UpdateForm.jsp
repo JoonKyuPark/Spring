@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -75,7 +82,6 @@
 		<div class="form-group row">
 			<label for="etp_no" class="col-md-3 control-label">로고</label>
 			<div class="col-md-9">
-				<input type="text"	placeholder="이미지"/>
 				<img src="displayFile?fileName=${Etp_JoinDTO.etp_image}" width="133px" height="150px"/>
 				<a href="Etp_Info_Logo?etp_no=${Etp_JoinDTO.etp_no}">로고ㄱ</a>
 			</div>
@@ -205,11 +211,10 @@
 		</div>
 		<div class="form-group">
 			<label for="etp_capital" class="col-md-3 control-label">자본금</label>
-			<div class="col-md-4">
-				<input type="text" class="form-control" name="etp_capital"
-					placeholder="자본금" id="etp_capital">
+			<div class="col-md-9">
+				<input type="text" class="form-control" name="etp_capital" placeholder="자본금" id="etp_capital">
 			</div>
-			<div class="nol-md-5">만원</div>
+			<!-- <div class="nol-md-5">만원</div> -->
 		</div>
 		<div class="form-group">
 			<label for="etp_sales" class="col-md-3 control-label">매출액</label>
