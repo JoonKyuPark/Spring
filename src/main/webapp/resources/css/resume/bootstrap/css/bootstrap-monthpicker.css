@@ -6,7 +6,7 @@
     position: absolute;
     z-index: 1000;
     width: 282px;
-    height: 260px;
+    height: 310px;
     background: #fff;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -35,7 +35,7 @@
     float: left;
     margin: 6px;
     padding: 0;
-    width: 48px;
+    width: 27%;
     height: 48px;
     border: 2px dotted #ccc;
     cursor: pointer;

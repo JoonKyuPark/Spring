@@ -36,14 +36,14 @@ public class UploadController {
 	@Resource(name = "uploadPath") // 서블릿 컨텍스트에 써있는 이름을 가진 value를 가져옴 (컨테이너)
 	private String uploadPath;
 
-	@RequestMapping(value = "/uploadAjax", method = RequestMethod.GET)
-	public String uploadAjax() {
-		return "/resume/uploadAjax";
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	public String upload() {
+		return "/resume/upload";
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/uploadAjax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	public ResponseEntity<String> uploadAjax(MultipartFile file, @RequestParam("p_no") String p_no) throws Exception {
+	@RequestMapping(value = "/upload", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	public void upload(MultipartFile file, @RequestParam("p_no") String p_no) throws Exception {
 		ResponseEntity<String> uploadFile = new ResponseEntity<String>(UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes()), HttpStatus.CREATED);
 		Mem_Resume_fileDTO fileDTO = new Mem_Resume_fileDTO();
 		String fileFullName = file.getOriginalFilename();
@@ -59,16 +59,13 @@ public class UploadController {
 		fileDTO.setFile_extension(file_extension);
 		
 		resume_Service.mem_Resume_file_create(fileDTO);
-		
-		
-		return uploadFile;
 	}
 
 	// 파일 다운로드
 
 	@ResponseBody
 	@RequestMapping("/displayFile")
-	public ResponseEntity<byte[]> displayFile(String fileName) throws Exception {
+	public ResponseEntity<byte[]> displayFile(@RequestParam("fileName") String fileName) throws Exception {
 		InputStream in = null;
 		ResponseEntity<byte[]> entity = null;
 

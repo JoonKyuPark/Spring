@@ -16,7 +16,8 @@
 		volun_field,
 		resume_date,
 		self_intro_cont,
-		member_no
+		member_no,
+		resume_img
 
 		) values(
 		resume_seq.nextval,
@@ -26,7 +27,8 @@
 		SYSDATE,
 		#{self_intro_cont,
 		jdbcType=VARCHAR},
-		#{member_no, jdbcType=VARCHAR}
+		#{member_no, jdbcType=VARCHAR},
+		#{resume_img, jdbcType=VARCHAR}
 		)
 
 

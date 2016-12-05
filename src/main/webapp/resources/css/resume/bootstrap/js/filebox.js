@@ -15,6 +15,10 @@ $(function() {
 
 	boxButtonsClickFn();
 
+	$('#closeBtn').on('click', function(){
+		window.open('about:blank', '_self').close();
+	})
+	
 })
 
 function boxButtonsClickFn() {
@@ -23,10 +27,17 @@ function boxButtonsClickFn() {
 		if (!$('.selectedFile').html()) {
 			alertify.alert("사진 파일을 선택해주세요!");
 		} else {
-			var submitHtml = $('.selectedFile').html();
-			alertify.confirm(submitHtml + "<br>이력서 사진으로 등록하시겠습니까?", function(event) {
+				var submitHtml = $('.selectedFile').html();
+				alertify.confirm(submitHtml + "<br>이력서 사진으로 등록하시겠습니까?", function(event) {
 				if (event) {
-					alert("확인됨");
+					var submitImgNo = $('.selectedFile').parent(".files").find('.fileboxIcon img').attr('src');
+					alert(submitImgNo);
+					$(opener.document).find('#resume_img_input').val(submitImgNo);
+					$(opener.document).find('#resume_img_box').html("");
+					$(opener.document).find('#resume_img_box').append(submitHtml);
+					
+					alertify.log("등록 완료");
+					window.open('about:blank', '_self').close();
 				} else {
 					alertify.error("사진 등록이 취소되었습니다");
 				}
@@ -91,23 +102,13 @@ $(function() {
 		if (!p_no)
 			p_no = "0";
 		$.ajax({
-			url : '/resume/file/uploadAjax?p_no=' + p_no,
+			url : '/resume/file/upload?p_no=' + p_no,
 			data : formData,
 			dataType : 'text',
 			processData : false,
 			contentType : false,
 			type : 'POST',
-			success : function(data) {
-				alert(data);
-				var str = "";
-
-				if (checkImageType(data)) {
-					str = "<div><a href=displayFile?fileName=" + getImageLink(data) + ">" + "<img src='displayFile?fileName=" + data + "'/>" + "</a><small data-src=" + data + ">X</small></div>";
-				} else {
-					str = "<div><a href='displayFile?fileName=" + data + "'>" + getOriginalName(data) + "</a>" + "<small data-src=" + data + ">X</small></div></div>";
-				}
-
-				$(".uploadedList").append(str);
+			success : function() {
 				fileBoxList(p_no);
 			}
 		})
@@ -187,7 +188,7 @@ function showfileBoxList(list, parent) {
 			 * fileHtml += '<i class="glyphicon glyphicon-picture"
 			 * aria-hidden="true"></i>';
 			 */
-			fileHtml += '<img src=displayFile?fileName=' + list[i].file_route + '>';
+			fileHtml += '<img src=/resume/file/displayFile?fileName=' + list[i].file_route + '>';
 			break;
 
 		case "folder":
