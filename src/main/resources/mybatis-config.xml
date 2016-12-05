@@ -17,7 +17,6 @@
 		<package name="com.jobis.mem.clip.domain" />
 		
 		<!-- 채용공고 -->
-		
 		<package name="com.jobis.etp.recruit.domain" />
 		<package name="com.jobis.etp.recruit.domain" />
 		<!-- 인재스크랩 -->

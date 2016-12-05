@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.jobis.etp.clip.domain.AlarmDTO;
 import com.jobis.etp.clip.domain.Etp_Mem_ClipDTO;
 import com.jobis.etp.clip.domain.Etp_Mem_ClipVO;
 import com.jobis.etp.clip.domain.Mem_Resume_ClipDTO;
@@ -36,6 +37,12 @@ public class Etp_Mem_ClipServiceImpl implements Etp_Mem_ClipService {
 	@Override
 	public void mem_eval_memo_update(Etp_Mem_ClipDTO dto) throws Exception {
 		dao.mem_eval_memo_update(dto);
+	}
+
+	@Override
+	public void alarm_insert(AlarmDTO dto) throws Exception {
+		dao.alarm_insert(dto);
+		
 	}
 
 
