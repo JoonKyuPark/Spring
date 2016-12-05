@@ -12,8 +12,6 @@ public interface Mem_ReceiveService {
 
 	public List<Mem_ReceivceVO> mem_Receive_List(int resume_no) throws Exception;
 	
-	public int resume_no(int member_no) throws Exception;
-	
 	public List<Mem_ResumeVO> mem_resume_List(int member_no) throws Exception;
 	
 	public Integer basic_resume_no(int member_no)throws Exception;

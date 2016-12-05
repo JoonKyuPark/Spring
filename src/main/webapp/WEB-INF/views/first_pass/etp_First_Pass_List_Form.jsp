@@ -55,7 +55,6 @@
 
 	});
 	
-	//스크랩 추가할때 
 	function button_click1(rno){
 
 		$.ajax({
