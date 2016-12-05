@@ -2,13 +2,11 @@
 
 .outerDiv {
 	background: white;
-	margin-left: 1%;
 	height: 2000px;
 }
 body{
 	font-family : '나눔고딕' !important;
 }
 #calendar {
-	margin: 1%;
-	padding: 2%;
+	margin-top : 2%;
 }

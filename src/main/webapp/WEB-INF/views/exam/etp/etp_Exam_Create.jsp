@@ -63,15 +63,10 @@
 </head>
 <body id="Etp_Exam_Reg">
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="col-md-12 outerDiv">
-						<div class="col-md-12">
+					<div class="col-sm-10 col-xs-10 col-md-10 outerDiv">
 							<div class="inputExamForm col-md-12">
 								<h2>R E G I S T R A T I O N</h2>
-								<hr>
+								<br>
 								<form role="form" action="etp_Exam_Create" id="exam_registForm"
 									method="post">
 
@@ -141,9 +136,9 @@
 										<div class="col-md-12">
 											<label><i class="xi-align-justify"></i>시험과목</label>
 										</div>
-										<div class="col-md-12">
+										
 											<select name="exam_field" id="exam_field"
-												class="selectpicker">
+												class="selectpicker col-md-4">
 												<option selected="selected">선택</option>
 												<option value="Korean">문학</option>
 												<option value="English">영어</option>
@@ -152,7 +147,7 @@
 												<option value="History">역사</option>
 												<option value="IT">IT</option>
 											</select>
-										</div>
+										
 									</div>
 
 
@@ -171,10 +166,5 @@
 								</form>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

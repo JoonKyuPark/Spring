@@ -78,18 +78,5 @@ public class PageMaker {
 
     return uriComponents.toUriString();
   }
-  
-  //makeSearch사용방법
-  public String makeSearch(int page){
-    //UriComponents자동으로 ?searchType=, ?page=1 만들어줌
-    UriComponents uriComponents =
-              UriComponentsBuilder.newInstance()
-              .queryParam("page", page)
-              .queryParam("perPageNum", cri.getPerPageNum())
-              .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
-              .queryParam("keyword", ((SearchCriteria)cri).getKeyword())
-              .build();             
-    
-    return uriComponents.toUriString();
-  } 
+
 }

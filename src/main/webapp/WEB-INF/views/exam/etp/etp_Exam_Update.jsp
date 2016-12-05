@@ -40,14 +40,11 @@
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
-	<div class="row">
-		<div class="col-sm-12 col-xs-12 col-md-12">
-			<div class="card col-md-12">
-				<div class="card-body col-md-12">
-					<div class="col-md-12 outerDiv">
+
+					<div class="col-sm-10 col-xs-10 col-md-10outerDiv">
 						<div class="inputExamForm col-md-12">
 							<h2>M O D I F Y</h2>
-							<hr>
+<br>
 							<form action="etp_Exam_Update" id="exam_updateForm" method="post"
 								name="form">
 								<input type="hidden" id="exam_field"

@@ -8,9 +8,11 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jobis.etp.exam.domain.Criteria;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
-import com.jobis.etp.exam.domain.SearchCriteria;
+import com.jobis.mem.exam.domain.Mem_AnswerVO;
+import com.jobis.mem.exam.domain.Mem_CountVO;
 import com.jobis.mem.join.domain.Mem_JoinVO;
 
 @Repository
@@ -42,7 +44,7 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	}
 
 	@Override
-	public List<Etp_ExamVO> etp_Exam_Criteria(SearchCriteria ca) throws Exception {
+	public List<Etp_ExamVO> etp_Exam_Criteria(Criteria ca) throws Exception {
 		try {
 			return sqlSession.selectList(namespace + ".etp_Exam_List", ca,
 					new RowBounds(ca.getPageStart(), ca.getPerPageNum()));
@@ -54,7 +56,7 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	}
 
 	@Override
-	public int etp_Exam_CountPage(SearchCriteria ca) throws Exception {
+	public int etp_Exam_CountPage(Criteria ca) throws Exception {
 		try{
 			return sqlSession.selectOne(namespace + ".etp_Exam_CountPage", ca);
 		}catch (Exception e) {
@@ -134,13 +136,55 @@ public class Etp_ExamDAOImpl implements Etp_ExamDAO {
 	}
 
 	@Override
-	public List<Mem_JoinVO> etp_Exam_MemberList() throws Exception {
+	public List<Mem_JoinVO> etp_Exam_MemberList(int exam_no) throws Exception {
 		try {
-			return sqlSession.selectList(namespace + ".etp_Exam_MemberList");
+			return sqlSession.selectList(namespace + ".etp_Exam_MemberList", exam_no);
 		} catch (Exception e) {
 			System.out.println("Etp_ExamDAOImpl.Etp_Exam_MemberList Error!!!");
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public List<Mem_AnswerVO> mem_Answer_List(Mem_CountVO mem_CountVO) throws Exception {
+		try {
+			return sqlSession.selectList(namespace + ".mem_Answer_List", mem_CountVO);
+		} catch (Exception e) {
+			System.out.println("Etp_ExamDAOImpl.mem_Answer_List Error!!!");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public void etp_Member_toCorrect(int ans_no) throws Exception {
+		try {
+			sqlSession.update(namespace + ".etp_Member_toCorrect", ans_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void etp_Member_toIncorrect(int ans_no) throws Exception {
+		try {
+			sqlSession.update(namespace + ".etp_Member_toIncorrect", ans_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public int mem_correct_answer(Mem_CountVO mem_CountVO) throws Exception {
+		try {
+			return sqlSession.selectOne(namespace + ".mem_correct_answer", mem_CountVO);
+		} catch (Exception e) {
+			return 0;
+		}
+
+
 	}
 }

@@ -7,10 +7,12 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jobis.etp.exam.domain.Criteria;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
-import com.jobis.etp.exam.domain.SearchCriteria;
 import com.jobis.etp.exam.persistance.Etp_ExamDAO;
+import com.jobis.mem.exam.domain.Mem_AnswerVO;
+import com.jobis.mem.exam.domain.Mem_CountVO;
 import com.jobis.mem.join.domain.Mem_JoinVO;
 
 @Service
@@ -41,7 +43,7 @@ public class Etp_ExamServiceImpl implements Etp_ExamService {
 	}
 
 	@Override
-	public List<Etp_ExamVO> etp_Exam_CriteriaService(SearchCriteria ca) throws Exception {
+	public List<Etp_ExamVO> etp_Exam_CriteriaService(Criteria ca) throws Exception {
 		try {
 			return etp_ExamDao.etp_Exam_Criteria(ca);
 		} catch (Exception e) {
@@ -53,7 +55,7 @@ public class Etp_ExamServiceImpl implements Etp_ExamService {
 	}
 
 	@Override
-	public int etp_Exam_CountpageService(SearchCriteria ca) throws Exception {
+	public int etp_Exam_CountpageService(Criteria ca) throws Exception {
 		try {
 			return etp_ExamDao.etp_Exam_CountPage(ca);
 		} catch (Exception e) {
@@ -126,14 +128,56 @@ public class Etp_ExamServiceImpl implements Etp_ExamService {
 	}
 
 	@Override
-	public List<Mem_JoinVO> etp_Exam_MemberListService() throws Exception {
+	public List<Mem_JoinVO> etp_Exam_MemberListService(int exam_no) throws Exception {
 		try {
-			return etp_ExamDao.etp_Exam_MemberList();
+			return etp_ExamDao.etp_Exam_MemberList(exam_no);
 		} catch (Exception e) {
 			System.out.println("Etp_ExamServiceImpl.Etp_Exam_MemberListService Error!!!");
 			e.printStackTrace();
 			return null;
 		}
 	}
+
+	@Override
+	public List<Mem_AnswerVO> mem_Answer_ListService(Mem_CountVO mem_CountVO) throws Exception {
+		try {
+			return etp_ExamDao.mem_Answer_List(mem_CountVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+	}
+
+	@Override
+	public void etp_Member_toCorrectService(int ans_no) throws Exception {
+		try {
+			etp_ExamDao.etp_Member_toCorrect(ans_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void etp_Member_toIncorrectService(int ans_no) throws Exception {
+		try {
+			etp_ExamDao.etp_Member_toIncorrect(ans_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public int mem_correct_answerService(Mem_CountVO mem_CountVO) throws Exception {
+		try {
+			return etp_ExamDao.mem_correct_answer(mem_CountVO);
+		} catch (Exception e) {
+			return 0;
+		}
+
+	}
+
 
 }

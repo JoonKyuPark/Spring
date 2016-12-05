@@ -1,11 +1,4 @@
-function changeColor() {
-	$('.etp_Exam_Table_tr').hover(function() {
-		$(this).css('background', '#E5E5E5');
-	});
-	$('.etp_Exam_Table_tr').mouseout(function() {
-		$(this).css('background', 'none');
-	});
-}
+
 
 $(document).ready(function() {
 	$("#checkall").click(function() {
@@ -17,6 +10,15 @@ $(document).ready(function() {
 	});
 
 });
+$(function(){
+	$('.etp_Exam_Table_tr').hover(
+		function(){
+			$(this).children().css('background', '#ffecdf');
+		},function(){
+			$(this).children().css('background', '#FFF3EB');
+	});
+});
+
 
 function clickList(){
 	$('.question_list').click(function(){
@@ -24,12 +26,6 @@ function clickList(){
 	});
 }
 function btnAction(){
-	$('.btn-info').hover(function(){
-		$(this).css('background', '#6695BE');
-	});
-	$('.btn-info').mouseout(function(){
-		$(this).css('background', '#3679B5');
-	});
 	$('#exam_update_btn').click(
 			function() {
 				if ($(".chk:checked").length > 1) {
@@ -81,14 +77,17 @@ function btnAction(){
 						type : "GET",
 						data : param,
 						success(data){
+
 							swal({
 								title : " ",
 								text : '삭제가 완료되었습니다.',
 								type:'warning',
 								confirmButtonText:'확인',
 								closeOnConfirm : false
+							}, function(){
+								location.href='etp_Exam_List';
 							});
-							location.href='etp_Exam_List';
+
 						}
 				});
 			});

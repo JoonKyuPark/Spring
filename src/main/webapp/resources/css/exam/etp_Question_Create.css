@@ -4,10 +4,15 @@ body{
 	font-family : '나눔고딕' !important;
 }
 
-.btn-info {
-	background: #3679B5 !important;
-}
 
+.btn-info{
+	background : #60d588!important;
+	border : 2px solid #60d588 !important;
+}
+.btn-info:hover{
+	background : #60d588!important;
+	border : 2px solid #60d588 !important;
+}
 #question_content {
 	width: 100%;
 	resize: vertical;
@@ -19,7 +24,9 @@ body{
 	width: 100%;
 	resize: vertical;
 }
-
+.btnDiv{
+	margin-top : 1%;
+}
 #question_second {
 	width: 30%;
 	border: 1px solid #D2D2D2;
@@ -35,12 +42,7 @@ body{
 
 .outerDiv {
 	background: white;
-	margin-left: 1%;
 	height: 2000px;
-}
-
-.inputForm {
-	padding: 3%;
 }
 
 

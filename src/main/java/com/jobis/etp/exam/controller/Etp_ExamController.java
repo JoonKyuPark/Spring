@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.jobis.etp.exam.domain.Criteria;
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
 import com.jobis.etp.exam.domain.PageMaker;
-import com.jobis.etp.exam.domain.SearchCriteria;
 import com.jobis.etp.exam.service.Etp_ExamService;
 import com.jobis.etp.login.domain.Etp_LoginVO;
+import com.jobis.mem.exam.domain.Mem_AnswerVO;
+import com.jobis.mem.exam.domain.Mem_CountVO;
 import com.jobis.mem.join.domain.Mem_JoinVO;
 
 @Controller
@@ -36,21 +40,6 @@ public class Etp_ExamController {
 			model.addAttribute("list", list);
 		} catch (Exception e) {
 			System.out.println("Etp_ExamController.Etp_Exam_Main Error!!!");
-			e.printStackTrace();
-		}
-	}
-	
-	// 시험 인원 등록
-	@RequestMapping("etp_Exam_Member")
-	public void Etp_Exam_MemberList(Model model)throws Exception{
-		try {
-			System.out.println("1");
-			List<Mem_JoinVO> list = etp_ExamService.etp_Exam_MemberListService();
-			System.out.println("2");
-			model.addAttribute("etp_Exam_MemberList", list);
-			System.out.println("3");
-		} catch (Exception e) {
-			System.out.println("Etp_ExamController.Etp_Exam_MemberList Error!!!");
 			e.printStackTrace();
 		}
 	}
@@ -77,7 +66,7 @@ public class Etp_ExamController {
 
 	// 시험 일정 목록 페이지
 	@RequestMapping(value = "etp_Exam_List", method = RequestMethod.GET)
-	public void Etp_Exam_List(@ModelAttribute("cri") SearchCriteria ca, Model model, HttpSession session)
+	public void Etp_Exam_List(@ModelAttribute("cri") Criteria ca, Model model, HttpSession session)
 			throws Exception {
 		try {
 			Etp_LoginVO loginVO = (Etp_LoginVO) session.getAttribute("etp_infor");
@@ -162,7 +151,7 @@ public class Etp_ExamController {
 
 	// 시험 문제 목록 페이지
 	@RequestMapping(value = "etp_Question_List", method = RequestMethod.GET)
-	public void Etp_Question_List(@RequestParam("exam_no") int exam_no, Model model) {
+	public void Etp_Question_List(@RequestParam("exam_no") int exam_no, Model model)throws Exception {
 		try {
 			List<Etp_QuestionVO> list = etp_ExamService.etp_Question_ListService(exam_no);
 			model.addAttribute("etp_Question_List", list);
@@ -173,8 +162,54 @@ public class Etp_ExamController {
 	}
 	// 시험 인원 목록 페이지
 	@RequestMapping(value="etp_Exam_MemberList", method = RequestMethod.GET)
-	public void Etp_Exam_MemberList(@RequestParam("exam_no") int exam_no, Model model){
-		
+	public void Etp_Exam_MemberList(@RequestParam("exam_no") int exam_no, Model model)throws Exception{
+		try {
+			List<Mem_JoinVO> memlist = etp_ExamService.etp_Exam_MemberListService(exam_no);
+			
+			model.addAttribute("memlist", memlist);
+			model.addAttribute("exam_no", exam_no);
+		} catch (Exception e) {
+			System.out.println("Etp_ExamController.Etp_Exam_MemberList Error!!!");
+			e.printStackTrace();
+		}
 	}
+	@RequestMapping(value="mem_Exam_AnswerList", method = RequestMethod.GET)
+	public void mem_Exam_AnswerList(@RequestParam("exam_no") int exam_no, @RequestParam("member_no") int member_no, Model model)throws Exception{
+		try {
+			Mem_CountVO mem_CountVO = new Mem_CountVO();
+			mem_CountVO.setExam_no(exam_no);
+			mem_CountVO.setMember_no(member_no);
+			List<Mem_AnswerVO> mem_AnswerVO = etp_ExamService.mem_Answer_ListService(mem_CountVO);
+			
+			model.addAttribute("mem_answer", mem_AnswerVO);
+		} catch (Exception e) {
+			System.out.println("Etp_ExamController.mem_Exam_AnswerList Error!!!");
+			e.printStackTrace();
+		}
+	}
+	@ResponseBody
+	@RequestMapping(value="etp_Member_toCorrect", method = RequestMethod.GET)
+	public String etp_Member_toCorrect(@RequestParam("ans_no") int ans_no)throws Exception{
+		try {
+			etp_ExamService.etp_Member_toCorrectService(ans_no);
+			return "정답";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	
+	}
+	@ResponseBody
+	@RequestMapping(value="etp_Member_toIncorrect", method = RequestMethod.GET)
+	public String etp_Member_toIncorrect(@RequestParam("ans_no") int ans_no)throws Exception{
+		try {
+			etp_ExamService.etp_Member_toIncorrectService(ans_no);
+			System.out.println("오답처리완료");
+			return "오답";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return  null;
+		}
+	}
+
 }

@@ -10,13 +10,10 @@ body{
 #mem_Exam_ListForm {
 	float: left;
 }
-
+.textDiv{
+	margin-top : 1%;
+}
 .outerDiv {
 	background: white;
-	margin-left: 1%;
 	height: 2000px;
-}
-
-.examListForm {
-	padding: 3%;
 }
