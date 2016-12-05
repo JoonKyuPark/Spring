@@ -53,6 +53,7 @@ public class Etp_Mem_ClipController {
 	@RequestMapping(value="/Etp_Mem_Clip_ListForm", method=RequestMethod.GET)
 	public void mem_clip_listGET(Model model) throws Exception{
 		model.addAttribute("mem_clip_list", service.mem_clip_list());
+		
 		/*
 		Etp_RecruitDTO recruit_dto = new Etp_RecruitDTO();
 		Mem_Resume_ClipDTO resume_dto = new Mem_Resume_ClipDTO();
@@ -135,6 +136,7 @@ public class Etp_Mem_ClipController {
 	
 	@RequestMapping(value="/Etp_Mem_Clip_ListForm", method=RequestMethod.POST)
 	public void mem_clip_listPOST(AlarmDTO dto) throws Exception{
+		System.out.println(dto);
 		service.alarm_insert(dto);
 		//return "redirect:/mypage/etp/Etp_Mem_Clip_InsertForm";
 	}

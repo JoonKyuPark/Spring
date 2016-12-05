@@ -39,10 +39,10 @@
 		<c:forEach items="${mem_clip_list}" var="etp_Mem_ClipDTO" varStatus="status">
 			<tr>
 				<td>${etp_Mem_ClipDTO.mem_clip_no}</td>
-				<td>${etp_Mem_ClipDTO.member_no}</td>
+				<%-- <td>${etp_Mem_ClipDTO.member_no}</td> --%>
 				<td>${etp_Mem_ClipDTO.etp_no}</td>
-				<td><a href="Mem_Resume_ReadForm">${etp_Mem_ClipDTO.mem_clip_title}</a></td>
-				<td id="eval_memo"><a id="show-option" href="Etp_Eval_Memo" title="${etp_Mem_ClipDTO.eval_memo}">${etp_Mem_ClipDTO.eval_memo}</a></td>
+				<td><a href="Mem_Resume_ReadForm?resume_no=${etp_Mem_ClipDTO.resume_no}">${etp_Mem_ClipDTO.mem_clip_title}</a></td>
+				<td id="eval_memo"><a id="show-option" href="Etp_Eval_Memo?mem_clip_no=${etp_Mem_ClipDTO.mem_clip_no}" title="${etp_Mem_ClipDTO.eval_memo}">${etp_Mem_ClipDTO.eval_memo}</a></td>
 				<td>${etp_Mem_ClipDTO.mem_clip_date}</td>
 			</tr>
 		</c:forEach>
