@@ -1,8 +1,10 @@
 Method Name : mem_Service_Create(){}, etp_Service_Create(){}
 
-ÀÔ·Â : Create
-»ó¼¼ : Read
-¼öÁ¤ : Update
-»èÁ¦ : Delete
+ï¿½Ô·ï¿½ : Create
+ï¿½ï¿½ : Read
+ï¿½ï¿½ï¿½ï¿½ : Update
+ï¿½ï¿½ï¿½ï¿½ : Delete
 
 JSP Name : etp_Exam_Update_Form.jsp, etp_Exam_Update.jsp, mem_Resume_Create_Form.jsp, mem_Resume_Create.jsp
+
+

@@ -1,5 +1,7 @@
 package com.jobis.mem.notice.persistance;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.xml.stream.events.Namespace;
 
@@ -20,6 +22,19 @@ public class Mem_NoticeDAOImpl implements Mem_NoticeDAO{
 		sqlSession.insert(namespace+".receive_create", notice);
 		
 	}
+
+	@Override
+	public List<Mem_NoticeVO> mem_Notice_List(int member_no) throws Exception {
+		return sqlSession.selectList(namespace+".mem_notice_list", member_no);
+	}
+	
+	@Override
+	public List<Mem_NoticeVO> mem_Notice_List_three(int member_no) throws Exception {
+		return sqlSession.selectList(namespace+".mem_notice_list_three", member_no);
+	}
+	
+	
+	
 
 	
 }

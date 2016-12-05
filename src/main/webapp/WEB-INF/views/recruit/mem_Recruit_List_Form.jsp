@@ -59,19 +59,32 @@
 </head>
 <body>
 	<div class="container">
-		<div name="main_menu" class="container">
-			<ul class="nav nav-pills">
-				<li><a href="../main/mainDisplay.jsp">홈</a></li>
-				<li><a href="../main/update.jsp">마이페이지</a></li>
-				<li><a href="../ETP_Exam/Etp_Exam_Main.jsp">시험</a></li>
-				<li><a href="Member_Recruit_List.jsp">전체채용정보</a></li>
-				<li><a href="../main/smart.jsp">스마트매칭</a></li>
-				<li><a>맞춤채용정보</a></li>
-				<li><a href="../mypage_resume/resume_list.jsp">이력서목록</a></li>
-				<li><a>채용등록</a></li>
 
-			</ul>
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="navbar-white col-md-12" style="z-index: 5000;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top"> JOB <span
+					class="light">IS</span>
+				</a>
+			</div>
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#about">전체 채용공고</a></li>
+					<li><a class="page-scroll" href="#download">시험</a></li>
+					<li><a class="page-scroll" href="#download">스마트매칭</a></li>
+					<li><a class="page-scroll" href="#contact">로그인</a></li>
+				</ul>
+			</div>
 		</div>
+
+
+
 		<a href="Member_Recruit_List.jsp?id=all">전체</a> <a
 			href="Member_Recruit_List.jsp?id=seoul">서울시</a> <a
 			href="Member_Recruit_List.jsp?id=gg">경기도</a>
@@ -104,8 +117,9 @@
 								<a
 									href="/recruit/mem_Recruit_Read_Form?rno=${recruit_list[i].recruit_no}">${recruit_list[i].recruit_title}</a>
 							</h4>
-							<button id="button3" onclick="button1_click(${recruit_list[i].recruit_no})">관심 채용 등록</button> <a
-							href="/clip/mem_Recruit_Clip_List_Form">좋아요리스트</a></td>
+							<button id="button3"
+								onclick="button1_click(${recruit_list[i].recruit_no})">관심
+								채용 등록</button> <a href="/clip/mem_Recruit_Clip_List_Form">좋아요리스트</a></td>
 						<td align="center">${recruit_list[i].hire_type}<br>${recruit_list[i].ac_ability_no}<br>봉급&nbsp
 							${recruit_list[i].income_qualification}<br>근무요일&nbsp${recruit_list[i].recruit_day}
 						</td>
