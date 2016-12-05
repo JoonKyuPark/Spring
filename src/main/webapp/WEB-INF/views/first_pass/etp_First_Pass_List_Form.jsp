@@ -19,7 +19,9 @@
 	src="../../../resources/js/recruit/mem/jquery-3.1.1.js"></script>
 <script type="text/javascript"
 	src="../../../resources/js/recruit/mem/bootstrap.min.js"></script>
-
+<script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <script type="text/javascript">
  window.onload=function(){
 	$('.recruit_list').click(function(){
@@ -39,30 +41,29 @@
 						html += '<td class="resume_title">';
 						html += entry.resume_title;
 						html += '</td>';
-						html += '<td><center>';
-						html += '<button class="btn btn-info" id = "buttion1" onclick="button_click1('+entry.resume_no+')">합격';
+						html += '<td title="td"><center>';
+						html += '<button class="btn btn-info" id = "button_'+entry.resume_no+'" onclick="button_click1('+entry.resume_no+')" title="button">합격';
 						html += '</button><center>';
 						html += '</td>';
 						html += '</tr>';
 						$('#tbody').append(html);
-						$.ajax({
-							type : 'GET',
-							datatype : 'json',
-							url : 'etp_Exam_List',
-							success : function(data){
-								var exam ='<td>';
-								exam += '<form class="exam_select">';
-								exam += '<select id = "exam_no" name = "exam_no" class="form-control">';
-								exam += '<option>시험 선택</option>';
-								$.each(data, function(index, entry){
-										exam += '<option value='+entry.exam_no+'>'+entry.exam_name+'</option>';							
-								});
-								exam += '</select>';
-								exam += '</form>';
-								exam += '</td>';
-								$('.resume_title').after(exam);
-							}
+
+				});
+				$.ajax({
+					type : 'GET',
+					datatype : 'json',
+					url : 'etp_Exam_List',
+					success : function(data){
+						var exam ='<td title="td1">';
+						exam += '<select name = "exam_no" class="form-control exam_no" title="select">';
+						exam += '<option>시험 선택</option>';
+						$.each(data, function(index, entry){
+								exam += '<option value='+entry.exam_no+'>'+entry.exam_name+'</option>';							
 						});
+						exam += '</select>';
+						exam += '</td>';
+						$('.resume_title').after(exam);
+					}
 				});
 			}
 		});
@@ -71,19 +72,33 @@
 
 	//합격 누를 때 
 	function button_click1(rno) {
-		var exam_no=$('#exam_no').val();
+		var that = $('#button_'+rno);
+		var exam_no=that.parent().parent().prev().children().val();
+		if(exam_no =='시험 선택'){
+			swal({
+				title : " ",
+				text : '시험을 선택해주세요.',
+				type : 'warning',
+				confirmButtonText:'확인',
+				closeOnConfirm : false
+			});
+			return;
+		}
 		var resume_no=rno;
 		$.ajax({
 			type : 'GET',
 			url : 'Etp_Pass_Update?exam_no='+exam_no+'&resume_no='+resume_no,
 			success : function(result) {
 				console.log("result: " + result);
-				if (result == 'SUCCESS') {
-					var select = document.getElementsByClassName('exam_select');
-					for(var i=0; i < select.length; i++){
-						select[i].reset();
-					}
-					alert("등록 되었습니다.");
+				if (result == 'SUCCESS') {	
+					that.parent().parent().parent().hide('1000');
+					swal({
+						title : " ",
+						text : '등록되었습니다.',
+						type : 'success',
+						confirmButtonText:'확인',
+						closeOnConfirm : false
+					});
 				}
 			}
 		});
@@ -172,7 +187,9 @@ th {
 											<tr height="30" class="recruit_list">
 												<td><input type="hidden"
 													value="${recruit_infor[i].recruit_no }">
-													<center><h4>${recruit_infor[i].recruit_no }</h4></center></td>
+													<center>
+														<h4>${recruit_infor[i].recruit_no }</h4>
+													</center></td>
 												<td align="left">
 													<h4>
 														<nobr>${recruit_infor[i].recruit_title }</nobr>
@@ -235,24 +252,25 @@ th {
 									<c:forEach var="i" begin="0" end="${pass_resume_list.size()-1}"
 										step="1">
 										<tr height="30" class="memberList">
-											<td><center><h4>${pass_resume_list[i].resume_no}</h4></center>
-											</td>
-											<td align="left"><h4>
+											<td><center>
+													<h4>${pass_resume_list[i].resume_no}</h4>
+												</center></td>
+											<td align="left" class="resume_title"><h4>
 													<nobr>${pass_resume_list[i].resume_title}</nobr>
 												</h4></td>
-											<td><center>
-													<form class="exam_select">
+											<td>
 
-														<select id="exam_no" name="exam_no" class="form-control">
+														<select name="exam_no" class="form-control exam_no">
 															<option>시험 선택</option>
 															<c:forEach var="j" items="${examlist }">
 																<option value="${j.exam_no }">${j.exam_name }</option>
 															</c:forEach>
 														</select>
-													</form>
+												</td>
+											<td><center>
+													<button id="button_${pass_resume_list[i].resume_no}" class="btn btn-info"
+														onclick="button_click1(${pass_resume_list[i].resume_no})">합격</button>
 												</center></td>
-											<td><center><button id="button1" class="btn btn-info"
-													onclick="button_click1(${pass_resume_list[i].resume_no})">합격</button></center></td>
 										</tr>
 									</c:forEach>
 								</c:if>

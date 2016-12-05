@@ -41,7 +41,7 @@
 	</insert>
 	
 	<select id="etp_refresh_list" parameterType="int" resultType="Mem_ResumeVO">
-		select * from resume where resume_no = (select resume_no from join_receive where recruit_no=#{recruit_no})
+		select * from resume where resume_no in (select resume_no from join_receive where recruit_no=#{recruit_no})
 	</select>
 	
 </mapper>  

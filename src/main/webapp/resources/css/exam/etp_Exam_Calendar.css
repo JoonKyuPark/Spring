@@ -32,6 +32,7 @@ body{
 }
 
 .calTable td {
+	font-family : '나눔고딕';
 	padding: 1px;
 }
 table{
@@ -69,7 +70,7 @@ a:focus, a:hover{
 	border-radius : 5%;
 	text-align: left;
 	vertical-align: top;
-	background: #3679B5;
+	background: #f6b9b3;
 	border-radius: 5%;
 	color : white;
 }

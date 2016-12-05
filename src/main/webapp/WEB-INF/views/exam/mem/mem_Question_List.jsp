@@ -11,6 +11,8 @@
 <!-- CSS -->
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+<link href="../../../../resources/css/exam/mem_Quesiton_List.css"
+	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />

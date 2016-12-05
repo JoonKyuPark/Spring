@@ -2,9 +2,7 @@
 body{
 	font-family : '나눔고딕' !important;
 }
-.btn-info {
-	background: #3679B5 !important;
-}
+
 
 .examNumberForm {
 	text-align: right;
@@ -16,7 +14,14 @@ body{
 	height: 35px;
 	width:
 }
-
+.btn-info{
+	background : #60d588 !important;
+	border : 2px solid #60d588 !important;
+}
+.btn-info:hover{
+	background : #60d588 !important;
+	border : 2px solid #60d588 !important;
+}
 .outerDiv {
 	background: white;
 	margin-left: 1%;

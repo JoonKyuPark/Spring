@@ -39,9 +39,8 @@
 					<div class="col-md-12 outerDiv">
 						<div class="col-md-12 listForm">
 							<h2>J O B I X A M &nbsp; L I S T</h2>
-							<hr>
 							<form id="etp_Exam_ListForm" name="form">
-								<table id="etp_Exam_Table">
+								<table id="etp_Exam_Table" class="table table-hover">
 									<tr>
 										<th><input type="checkbox" id="checkall"></th>
 										<th>번호</th>
@@ -51,9 +50,10 @@
 										<th>시험 시작일</th>
 										<th>시험 종료일</th>
 										<th>시험 상태</th>
+										<th>시험 인원</th>
 									</tr>
 									<c:forEach var="Etp_ExamVO" items="${etp_Exam_List}">
-										<tr class="etp_Exam_Table_tr" onmouseover="changeColor();">
+										<tr class="etp_Exam_Table_tr">
 											<td id="exam_no"><input type="checkbox" class="chk"
 												name="exam_no" value="${Etp_ExamVO.exam_no}"></td>
 											<td class="question_list" title="${Etp_ExamVO.exam_no }">${Etp_ExamVO.exam_no}</td>
@@ -77,6 +77,9 @@
 													<c:when test="${state eq 'show' }">공개</c:when>
 													<c:when test="${state eq 'hide' }">비공개</c:when>
 												</c:choose></td>
+											<td>
+												<a href = "etp_Exam_MemberList?exam_no=${Etp_ExamVO.exam_no }">[바로가기]</a>
+											</td>
 										</tr>
 
 									</c:forEach>
@@ -85,14 +88,14 @@
 						</div>
 						<div class="col-md-12">
 							<div class="col-md-4">
-								<br> <input type="button" class="btn btn-info" value="새 시험"
-									onclick="location.href='etp_Exam_Create'">
+								<br> <button class="btn btn-info" 
+									onclick="location.href='etp_Exam_Create'"><font color = "black" size="3">시험 등록</font></button>
 							</div>
 							<div class="col-md-4"></div>
 							<div class="col-md-4" align="right">
-								<br> <input type="button" class="btn btn-info"
-									id="exam_update_btn" value="수 정"> <input type="button"
-									class="btn btn-info" id="exam_delete_btn" value="삭 제">
+								<br> <button class="btn btn-info"
+									id="exam_update_btn" value="수 정"><font color = "black" size="3">수 정</font></button> 
+									<button class="btn btn-info" id="exam_delete_btn"> <font color = "black" size="3">삭 제</font></button>
 							</div>
 						</div>
 						<div class="box-footer col-md-12">

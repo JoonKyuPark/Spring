@@ -164,10 +164,4 @@ window.onload = function() {
 	}
 	select();
 		
-	$('.btn-info').hover(function() {
-		$(this).css('background', '#6695BE');
-	});
-	$('.btn-info').mouseout(function() {
-		$(this).css('background', '#3679B5');
-	});
 }

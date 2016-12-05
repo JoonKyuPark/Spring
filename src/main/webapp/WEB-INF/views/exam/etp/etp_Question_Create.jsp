@@ -142,12 +142,12 @@
 
 								<div class="col-md-5"></div>
 								<div class="col-md-1">
-									<input type="button" class="btn btn-info" value="등 록"
-										onclick="create()">
+									<button class="btn btn-info" 
+										onclick="create()"><font size="3">등 록</font></button>
 								</div>
 								<div class="col-md-1">
-									<a href="etp_Exam_Main"><input type="button"
-										id="go_exam_main" class="btn btn-info" value="취 소"></a>
+									<a href="etp_Exam_Main"><button
+										id="go_exam_main" class="btn btn-info"><font size="3">취 소</font></button></a>
 								</div>
 								<div class="col-md-5"></div>
 							</form>

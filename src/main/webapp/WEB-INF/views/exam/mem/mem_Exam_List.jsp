@@ -7,6 +7,7 @@
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <script src="../../../../resources/js/exam/bootstrap-select.js"></script>
+<script src="../../../../resources/js/exam/bootstrap-switch.js"></script>
 <script src="../../../../resources/js/exam/mem_Exam_List.js"></script>
 <script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
 <!-- CSS -->
@@ -17,6 +18,8 @@
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />
 <link href="../../../../resources/css/exam/bootstrap-select.css"
 	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <link href="../../../../resources/css/exam/mem_Exam_List.css"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet"

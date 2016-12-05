@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jobis.etp.exam.domain.Etp_ExamVO;
 import com.jobis.etp.exam.domain.Etp_QuestionVO;
@@ -70,33 +72,47 @@ public class Mem_ExamController {
 			return "redirect:/exam/mem/mem_Exam_List";
 		}
 	}
-
+	
+	
+	@ResponseBody
 	@RequestMapping(value = "mem_Answer_Create", method = RequestMethod.POST)
-	public String mem_Answer_Create(Mem_AnswerVO mem_AnswerVO) throws Exception {
+	public String mem_Answer_Create(Mem_AnswerVO mem_AnswerVO, HttpSession session) throws Exception {
+		System.out.println("0");
 		try {
+			System.out.println("1");
 			int question_no = mem_AnswerVO.getQuestion_no();
 			double percent = mem_ExamService.select_Exam_AnswerService(question_no).getCorrect_per();
-
+			System.out.println("2");
 			String mem_answer = mem_AnswerVO.getQuestion_answer().toLowerCase();
 			String etp_answer = mem_ExamService.select_Exam_AnswerService(question_no).getQuestion_answer()
 					.toLowerCase();
 			String[] etp_AnswerList = etp_answer.split(",");
+			System.out.println("3");
 			int correct = 0;
 			for (int i = 0; i < etp_AnswerList.length; i++) {
 				if (mem_answer.contains(etp_AnswerList[i].replaceAll(" ", "")) == true) {
 					correct++;
 				}
 			}
+			System.out.println("4");
 			double percentage = percent / 100;
+			Mem_LoginVO loginVO = (Mem_LoginVO)session.getAttribute("member_infor");
+			System.out.println("5");
+			int member_no = loginVO.getMember_no();
+			mem_AnswerVO.setMember_no(member_no);
+			System.out.println("6");
 			if ((double) correct / (double) etp_AnswerList.length >= percentage) {
 				mem_AnswerVO.setCorrect_answer("correct");
 			} else {
 				mem_AnswerVO.setCorrect_answer("incorrect");
 			}
+			System.out.println("7");
 			mem_ExamService.mem_Answer_CreateService(mem_AnswerVO);
+			System.out.println("8");
 			return "mem_Question_List";
 		} catch (Exception e) {
 			System.out.println("Mem_ExamController.Mem_Answer_Create Error!!!");
+			System.out.println("9");
 			e.printStackTrace();
 			return null;
 		}

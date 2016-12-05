@@ -23,9 +23,9 @@
     		select e.exam_no, exam_sdate, exam_ddate, exam_name,
 		exam_number, exam_field, etp_no, exam_show
 		from exam_infor e,
-		join_receive j where e.exam_no = j.exam_no and
+		join_receive j <if test="value != null">where e.exam_no = j.exam_no and
 		(select member_no from resume where resume_no=j.resume_no)=
-		${member_no}
+		${value}</if>
 	</select>
 
 	<select id="mem_Question_List" parameterType="Mem_QuestionVO"
