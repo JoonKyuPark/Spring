@@ -1,8 +1,6 @@
 package com.jobis.mem.resume.domain;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class Mem_Resume_careerDTO {
 
 

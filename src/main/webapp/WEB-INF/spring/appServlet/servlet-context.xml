@@ -218,7 +218,7 @@
 	<context:component-scan base-package="com.jobis.mem.notice.controller" />
 	<context:component-scan base-package="com.jobis.mem.notice.service" />
 	<context:component-scan base-package="com.jobis.mem.notice.persistance" />
-
+	<context:component-scan base-package="com.jobis.mem.resume.*"/>
 	<context:component-scan base-package="controller" />
 
 </beans:beans>

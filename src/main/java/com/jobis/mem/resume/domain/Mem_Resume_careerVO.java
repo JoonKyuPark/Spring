@@ -17,6 +17,8 @@ public class Mem_Resume_careerVO {
 	private int work_income; /* ��� ���� */
 	private String responibility_field; /* ��� ������ */
 	private String retire_reason; /* ������ */
+
+	
 	public int getCareer_no() {
 		return career_no;
 	}
@@ -103,6 +105,4 @@ public class Mem_Resume_careerVO {
 	}
 	
 	
-	
-
 }

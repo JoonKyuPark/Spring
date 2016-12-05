@@ -26,7 +26,7 @@ import com.jobis.etp.util.MediaUtils;
 import com.jobis.etp.util.UploadFileUtils;
 
 @Controller
-public class UploadController {
+public class Etp_Logo_UploadController {
    
    @Resource(name="uploadPath")
    private String uploadPath;

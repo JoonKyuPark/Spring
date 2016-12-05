@@ -11,11 +11,21 @@ public class Mem_ResumeDTO {
 	private String resume_img;
 	private int member_no;
 	private String resume_open;
-
+	private String career_radio_btn;
 	public Mem_ResumeDTO() {
 	}
 
 	
+	public String getCareer_radio_btn() {
+		return career_radio_btn;
+	}
+
+
+	public void setCareer_radio_btn(String career_radio_btn) {
+		this.career_radio_btn = career_radio_btn;
+	}
+
+
 	public int getResume_no() {
 		return resume_no;
 	}
@@ -98,4 +108,3 @@ public class Mem_ResumeDTO {
 
 	
 }
-	  
