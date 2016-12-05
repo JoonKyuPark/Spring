@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.jobis.etp.clip.domain.AlarmDTO;
 import com.jobis.etp.clip.domain.Etp_Mem_ClipDTO;
 import com.jobis.etp.clip.domain.Etp_Mem_ClipVO;
 import com.jobis.etp.clip.domain.Mem_Resume_ClipDTO;
@@ -39,6 +40,12 @@ public class Etp_Mem_ClipDAOImpl implements Etp_Mem_ClipDAO {
 	@Override
 	public void mem_eval_memo_update(Etp_Mem_ClipDTO dto) throws Exception {
 		sqlSession.update(namespace+".mem_eval_memo_update", dto);
+	}
+
+	@Override
+	public void alarm_insert(AlarmDTO dto) {
+		sqlSession.insert(namespace+".alarm_insert", dto);
+		
 	}
 
 	/*

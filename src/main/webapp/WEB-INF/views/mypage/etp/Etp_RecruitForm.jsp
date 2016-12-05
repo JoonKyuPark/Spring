@@ -156,12 +156,10 @@ $(function() {
 				<select class="form-control" name="ac_ability_no">
 					<option value="no_choice">--선택--</option>
 					<option value="학력무관">학력무관</option>
-					<option value="초등학교졸업">초등학교졸업</option>
-					<option value="중학교졸업">중학교졸업</option>
-					<option value="대학교졸업(2,3년제)">대학교졸업(2,3년제)</option>
-					<option value="대학교졸업(4년제)">대학교졸업(4년제)</option>
-					<option value="대학원석사졸업">대학원석사졸업</option>
-					<option value="대학원박사졸업">대학원박사졸업</option>
+					<option value="고등학교졸업">고등학교졸업</option>
+					<option value="전문대학교재학/졸업(2,3년제)">전문대학교재학/졸업(2,3년제)</option>
+					<option value="대학교재학/졸업(4년제)">대학교재학/졸업(4년제)</option>
+					<option value="대학원재학/졸업">대학원재학/졸업</option>
 				</select>
 			</div>
 		</div>
@@ -189,7 +187,7 @@ $(function() {
 			<div class="col-md-9">
 				<span><input name="receive_way" value="우편접수" type="checkbox">우편접수</span>
 				<span><input name="receive_way" value="방문접수" type="checkbox">방문접수</span>
-				span><input name="receive_way" value="온라인접수" type="checkbox">온라인접수</span>
+				<span><input name="receive_way" value="온라인접수" type="checkbox">온라인접수</span>
 			</div>
 		</div>
 		<div class="form-group row">

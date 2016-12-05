@@ -4,13 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.spring.project.mappers.Mem_Clip_Mapper">
-
+<!-- 
 	<insert id="insertMemClip" parameterType="Etp_Mem_ClipVO">
 		insert into mem_clip(mem_clip_no, etp_no, member_no, mem_clip_title, eval_memo, mem_clip_date)
 		VALUES(seq_mem_clip.nextval, #{etp_no}, #{member_no}, #{mem_clip_title}, #{eval_memo}, sysdate)
 	</insert>
+	 -->
+	
+	<insert id="insertMemClip" parameterType="Etp_Mem_ClipVO">
+		insert into mem_clip(mem_clip_no, etp_no, mem_clip_title, eval_memo, mem_clip_date)
+		VALUES(seq_mem_clip.nextval, #{etp_no},#{mem_clip_title}, #{eval_memo}, sysdate)
+	</insert>
 
-	<select id="mem_clip_list" resultType="Etp_Mem_ClipVO">
+	<select id="mem_clip_list" resultType="Etp_Mem_ClipDTO">
 		select *
 		from mem_clip
 	</select>
@@ -25,7 +31,7 @@
 	</select>
 
 	<update id="mem_eval_memo_update" parameterType="Etp_Mem_ClipDTO">
-		update mem_clip set eval_memo =#{eval_memo} 
+		update mem_clip set eval_memo = #{eval_memo} 
 		where mem_clip_no = #{mem_clip_no}
 	</update>	
 
