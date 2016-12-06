@@ -60,10 +60,10 @@
 									<i class="fa fa-file-o" aria-hidden="true"></i> 이력서
 								</li>
 								<li>
-									<a href="../Member_Resume/Member_Resume_Reg.jsp">이력서 등록</a>
+									<a href="/resume/create">이력서 등록</a>
 								</li>
 								<li>
-									<a href="../Member_Resume/Member_Resume_List.jsp">이력서 관리</a>
+									<a href="/resume/list">이력서 관리</a>
 								</li>
 							</ul>
 						</div>

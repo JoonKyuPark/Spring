@@ -11,9 +11,22 @@ public class Mem_ResumeVO {
 	private String resume_img;
 	private int member_no;
 	private String resume_open;
+	private String career_check;
+	
+	
 
 	public Mem_ResumeVO() {
 	}
+	
+	
+	public String getCareer_check() {
+		return career_check;
+	}
+
+	public void setCareer_check(String career_check) {
+		this.career_check = career_check;
+	}
+	
 	public int getResume_no() {
 		return resume_no;
 	}

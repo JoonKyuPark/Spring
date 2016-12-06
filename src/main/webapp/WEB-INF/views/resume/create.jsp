@@ -66,7 +66,8 @@ table.ui-datepicker-calendar {
 							</div>
 							<label class="col-lg-2 control-label">증명사진</label>
 							<div class="col-lg-4 resume_img_div">
-								<input type="hidden" id="resume_img_input" name="resume_img" value=""> <input type="button" class="btn btn-large btn-info" value="사진등록" onclick="window.open('/resume/file/upload','win')">
+								<input type="hidden" id="resume_img_input" name="resume_img" value="">
+								<input type="button" class="btn btn-large btn-info" value="사진등록" onclick="window.open('/resume/file/upload','win')">
 								<div id="resume_img_box"></div>
 								<br>
 
@@ -108,7 +109,10 @@ table.ui-datepicker-calendar {
 							<label for="career_radio_btn_new" class="col-lg-2 control-label">경력사항</label>
 							<div id="career_radio" class="col-lg-10 form-inline">
 
-								<input type="radio" value="new" name="career_radio_btn" checked="checked" id="career_radio_btn_new">신입 &nbsp;&nbsp; <input type="radio" value="old" name="career_radio_btn" id="career_radio_btn_old">경력
+								<input type="radio" value="신입" name="career_check" checked="checked" id="career_radio_btn_new">
+								신입 &nbsp;&nbsp;
+								<input type="radio" value="경력" name="career_check" id="career_radio_btn_old">
+								경력
 							</div>
 							<div id="career_wrapper" class="col-md-12">
 								<div id="career" class="form-inline career col-md-12">
@@ -139,7 +143,8 @@ table.ui-datepicker-calendar {
 												class="caret"></b>
 										</div> -->
 										<div class="col-md-10">
-											<input type="text" class="resume_career_join_date monthpicker form-control col-md-6" name="join_date" index="0"> <input type="text" class="resume_career_retire_date monthpicker form-control col-md-6" name="retire_date" index="0">
+											<input type="text" class="resume_career_join_date monthpicker form-control col-md-6" name="join_date" index="0">
+											<input type="text" class="resume_career_retire_date monthpicker form-control col-md-6" name="retire_date" index="0">
 										</div>
 										<br>
 										<br>
@@ -193,7 +198,8 @@ table.ui-datepicker-calendar {
 										<br>
 										<label for="resume_work_income_input" class="col-lg-2 control-label">경력연봉</label>
 										<div class="resume_work_income_div col-lg-4">
-											<input type="number" id="resume_work_income_input" class="form-control" name="work_income" placeholder="만원"> &nbsp;
+											<input type="number" id="resume_work_income_input" class="form-control" name="work_income" placeholder="만원">
+											&nbsp;
 										</div>
 
 										<label for="resume_responibility_field_input" class="col-lg-2 control-label">경력업무</label>
@@ -287,7 +293,7 @@ table.ui-datepicker-calendar {
 						</div>
 						<!-- form-group -->
 
-						<input type="button" value="확인" id="submitBtn" class="btn btn-primary col-lg-offset-4 col-lg-2"> 
+						<input type="button" value="확인" id="submitBtn" class="btn btn-primary col-lg-offset-4 col-lg-2">
 						<a href="/resume/list" class="btn btn-danger col-lg-offset-4 col-lg-2">취소</a>
 
 					</form>

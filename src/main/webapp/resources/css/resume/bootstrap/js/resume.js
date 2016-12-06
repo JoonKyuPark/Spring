@@ -38,6 +38,9 @@ function inputRadioEachCheck() {
 function submitBtnAddCareerAttr() {
 	$("#submitBtn").on('click', function() {
 		renameForCareerForm();
+		if($('#career_radio_btn_new').is(":checked")){
+			$('#career_wrapper').html("");
+		}
 		$("#form").submit();
 
 	});

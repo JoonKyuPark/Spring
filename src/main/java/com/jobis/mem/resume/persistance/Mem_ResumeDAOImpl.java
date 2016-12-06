@@ -11,7 +11,6 @@ import com.jobis.mem.resume.domain.Mem_ResumeVO;
 import com.jobis.mem.resume.domain.Mem_Resume_abilityVO;
 import com.jobis.mem.resume.domain.Mem_Resume_careerVO;
 
-
 import com.jobis.mem.resume.domain.Mem_ResumeDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_abilityDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_allVO;
@@ -21,8 +20,6 @@ import com.jobis.mem.resume.domain.Mem_Resume_fileDTO;
 import com.jobis.mem.resume.domain.Mem_Resume_fileVO;
 import com.jobis.mem.resume.domain.Mem_Resume_listVO;
 import com.jobis.mem.resume.domain.Mem_Resume_resumeOpenDTO;
-
-
 
 @Repository
 public class Mem_ResumeDAOImpl implements Mem_ResumeDAO {
@@ -35,19 +32,17 @@ public class Mem_ResumeDAOImpl implements Mem_ResumeDAO {
 
 		sqlSession.insert(namespace + ".resume_create", resumeDTO);
 		int resume_no = resumeDTO.getResume_no();
-		
+
 		abilityDTO.setResume_no(resume_no);
 		sqlSession.insert(namespace + ".resume_ability_create", abilityDTO);
-		
-		
-		System.out.println("다오 create");
-		
-			for(int i=0; i<careerListDTO.getResumeListDTO().size();i++){
+
+		if (resumeDTO.getCareer_check() == "경력") {
+			for (int i = 0; i < careerListDTO.getResumeListDTO().size(); i++) {
 				careerListDTO.getResumeListDTO().get(i).setResume_no(resume_no);
 				sqlSession.insert(namespace + ".resume_career_create", careerListDTO.getResumeListDTO().get(i));
 				System.out.println("퇴사이유" + careerListDTO.getResumeListDTO().get(i).getRetire_reason());
 			}
-		
+		}
 
 	}
 
@@ -56,23 +51,20 @@ public class Mem_ResumeDAOImpl implements Mem_ResumeDAO {
 		sqlSession.update(namespace + ".resume_update", resumeDTO);
 	}
 
-
 	@Override
 	public Mem_Resume_allVO mem_Resume_select(Integer num) {
 		Mem_Resume_allVO allVO = new Mem_Resume_allVO();
-		
-		
-		
+
 		Mem_ResumeVO resumeVO = sqlSession.selectOne(namespace + ".resume_select", num);
 		Mem_Resume_abilityVO abilityVO = sqlSession.selectOne(namespace + ".ac_ability_select", num);
-		List<Mem_Resume_careerVO> careerListVO =sqlSession.selectList(namespace + ".career_select", num);
-		
+		List<Mem_Resume_careerVO> careerListVO = sqlSession.selectList(namespace + ".career_select", num);
+
 		allVO.setResumeVO(resumeVO);
 		allVO.setAc_abilityVO(abilityVO);
 		allVO.setCareerVO(careerListVO);
-		
+
 		return allVO;
-		
+
 	}
 
 	@Override
@@ -109,12 +101,12 @@ public class Mem_ResumeDAOImpl implements Mem_ResumeDAO {
 
 	@Override
 	public int mem_Resume_fileParent(int file_no) {
-		return sqlSession.selectOne(namespace + ".resume_file_parent",file_no);
+		return sqlSession.selectOne(namespace + ".resume_file_parent", file_no);
 	}
 
 	@Override
 	public void mem_Resume_fileDelete(Mem_Resume_fileDTO fileDTO) {
 		sqlSession.delete(namespace + ".resume_file_delete", fileDTO);
 	}
-	
+
 }
