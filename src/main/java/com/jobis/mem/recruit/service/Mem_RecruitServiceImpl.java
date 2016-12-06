@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.jobis.etp.join.domain.Etp_JoinVO;
-import com.jobis.mem.recruit.domain.Mem_RecruitCriteria;
 import com.jobis.mem.recruit.domain.Mem_RecruitVO;
 import com.jobis.mem.recruit.persistance.Mem_RecruitDAO;
 
@@ -17,15 +16,9 @@ public class Mem_RecruitServiceImpl implements Mem_RecruitService {
 	@Inject
 	private Mem_RecruitDAO dao;
 
-	
 	@Override
-	public List<Mem_RecruitVO> mem_Recruit_List_Criteria(Mem_RecruitCriteria cri) throws Exception {
-		return dao.mem_Recruit_List_Criteria(cri);
-	}
-	
-	@Override
-	public int countPageing(Mem_RecruitCriteria cri) throws Exception {
-		return dao.countPageing(cri);
+	public List<Mem_RecruitVO> mem_Recruit_List() throws Exception {
+		return dao.mem_Recruit_List();
 	}
 
 	@Override
@@ -37,9 +30,5 @@ public class Mem_RecruitServiceImpl implements Mem_RecruitService {
 	public Mem_RecruitVO mem_Recruit_Read(int rno) throws Exception {
 		return dao.mem_Recruit_Read(rno);
 	}
-
-	
-
-	
 
 }

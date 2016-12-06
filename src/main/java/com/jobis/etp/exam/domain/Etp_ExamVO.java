@@ -2,6 +2,9 @@ package com.jobis.etp.exam.domain;
 
 import java.util.Date;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Etp_ExamVO {
 	private Integer exam_no;
 	private Date exam_sdate;

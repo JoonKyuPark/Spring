@@ -6,7 +6,7 @@
 <mapper namespace="org.spring.project.mappers.Mem_Join_Mapper">
 
 
-	<insert id="mem_create" parameterType="Mem_joinDTO">
+	<insert id="mem_create" parameterType="Mem_JoinVO">
 	INSERT INTO
 		member_infor(MEMBER_NO,member_name,member_id,member_pwd,member_email,member_telephone)
 		VALUES(MEM_INFOR_NO.nextval,#{member_name},#{member_id},#{member_pwd},#{member_email},#{member_telephone})

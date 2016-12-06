@@ -2,273 +2,98 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+  
 <mapper namespace="org.spring.project.mappers.Mem_Resume_Mapper">
 
+	
+<insert keyProperty="resume_no" keyColumn="resume_no" useGeneratedKeys="true" parameterType="Mem_ResumeDTO" id="resume_create">
+insert into resume( resume_no, resume_title, hope_income, volun_field, resume_date, self_intro_cont, member_no, resume_img ) values( resume_seq.nextval, #{resume_title, jdbcType=VARCHAR}, #{hope_income, jdbcType=VARCHAR}, #{volun_field, jdbcType=VARCHAR}, SYSDATE, #{self_intro_cont, jdbcType=VARCHAR}, #{member_no, jdbcType=VARCHAR}, #{resume_img, jdbcType=VARCHAR} ) 
+<selectKey keyProperty="resume_no" resultType="java.lang.Integer"> select resume_seq.currval from dual </selectKey>
 
-   <insert id="resume_create" parameterType="Mem_ResumeDTO"
-      useGeneratedKeys="true" keyColumn="resume_no" keyProperty="resume_no">
+</insert>
 
-      insert into resume(
-      resume_no,
-      resume_title,
-      hope_income,
-      volun_field,
-      resume_date,
-      self_intro_cont,
-      member_no,
-      resume_img
-
-      ) values(
-      resume_seq.nextval,
-      #{resume_title, jdbcType=VARCHAR},
-      #{hope_income, jdbcType=VARCHAR},
-      #{volun_field, jdbcType=VARCHAR},
-      SYSDATE,
-      #{self_intro_cont,
-      jdbcType=VARCHAR},
-      #{member_no, jdbcType=VARCHAR},
-      #{resume_img, jdbcType=VARCHAR}
-      )
+<insert parameterType="Mem_Resume_abilityDTO" id="resume_ability_create"> insert into ac_ability( ac_ability_no, resume_no, enter_date, graduation_date, school_name, major_1, major_2, grade, ed_division )values( ac_ability_seq.nextval, #{resume_no}, #{enter_date, jdbcType=VARCHAR}, #{graduation_date, jdbcType=VARCHAR}, #{school_name, jdbcType=VARCHAR}, #{major_1, jdbcType=VARCHAR}, #{major_2, jdbcType=VARCHAR}, #{grade, jdbcType=VARCHAR}, #{ed_division} ) </insert>
 
 
-      <selectKey resultType="java.lang.Integer" keyProperty="resume_no">
-         select resume_seq.currval from dual
-      </selectKey>
-   </insert>
+<insert parameterType="Mem_Resume_careerDTO" id="resume_career_create">
+insert into career( career_no, resume_no, important_ability, join_date, retire_date, career_work_state, career_etp_name, career_field, work_dept, work_rank, work_month, work_location, work_income, responibility_field, retire_reason )values( career_seq.nextval, 
+<!-- 경력사항 번호 -->
 
-   <insert id="resume_ability_create" parameterType="Mem_Resume_abilityDTO">
-      insert into
-      ac_ability(
-      ac_ability_no,
-      resume_no,
-      enter_date,
-      graduation_date,
-      school_name,
-      major_1,
-      major_2,
-      grade,
-      ed_division
+#{resume_no}, #{important_ability, jdbcType=VARCHAR}, 
+<!-- 핵심역량 -->
 
-      )values(
-      ac_ability_seq.nextval,
-      #{resume_no},
-      #{enter_date, jdbcType=VARCHAR},
-      #{graduation_date, jdbcType=VARCHAR},
-      #{school_name, jdbcType=VARCHAR},
-      #{major_1, jdbcType=VARCHAR},
-      #{major_2, jdbcType=VARCHAR},
-      #{grade, jdbcType=VARCHAR},
-      #{ed_division}
-      )
+#{join_date, jdbcType=VARCHAR}, 
+<!-- 입사일 -->
 
-   </insert>
+#{retire_date, jdbcType=VARCHAR}, 
+<!-- 퇴사일 -->
 
+#{career_work_state, jdbcType=VARCHAR}, 
+<!-- 경력 상태(퇴사/재직중) -->
 
+#{career_etp_name, jdbcType=VARCHAR}, 
+<!-- 경력회사명 -->
 
+#{career_field, jdbcType=VARCHAR}, 
+<!-- 경력 직종 -->
 
+#{work_dept, jdbcType=VARCHAR}, 
+<!-- 근무부서 -->
 
+#{work_rank, jdbcType=VARCHAR}, 
+<!-- 경력 직급 -->
 
-   <insert id="resume_career_create" parameterType="Mem_Resume_careerDTO">
-      insert into career(
-      career_no,
-      resume_no,
-      important_ability,
-      join_date,
-      retire_date,
-      career_work_state,
-      career_etp_name,
-      career_field,
-      work_dept,
-      work_rank,
-      work_month,
-      work_location,
-      work_income,
-      responibility_field,
-      retire_reason
+#{work_month, jdbcType=VARCHAR}, 
+<!-- 경력 년차 -->
 
-      )values(
-     career_seq.nextval,      <!-- 경력사항 번호 -->
-      #{resume_no},
-      #{important_ability, jdbcType=VARCHAR},            <!-- 핵심역량 -->
-      #{join_date, jdbcType=VARCHAR},         <!-- 입사일 -->
-      #{retire_date, jdbcType=VARCHAR},         <!-- 퇴사일 -->
-      #{career_work_state, jdbcType=VARCHAR},         <!-- 경력 상태(퇴사/재직중) -->
-      #{career_etp_name, jdbcType=VARCHAR},         <!-- 경력회사명 -->
-      #{career_field, jdbcType=VARCHAR},         <!-- 경력 직종 -->
-      #{work_dept, jdbcType=VARCHAR},         <!-- 근무부서 -->
-      #{work_rank, jdbcType=VARCHAR},         <!-- 경력 직급 -->
-      #{work_month, jdbcType=VARCHAR},         <!-- 경력 년차 -->
-      #{work_location, jdbcType=VARCHAR},         <!-- 경력 근무지역 -->
-      #{work_income, jdbcType=VARCHAR},         <!-- 경력 연봉 -->
-      #{responibility_field, jdbcType=VARCHAR},         <!-- 경력 담당업무 -->
-      #{retire_reason, jdbcType=VARCHAR}         <!-- 퇴사사유 -->
+#{work_location, jdbcType=VARCHAR}, 
+<!-- 경력 근무지역 -->
 
-      )
+#{work_income, jdbcType=VARCHAR}, 
+<!-- 경력 연봉 -->
 
-   </insert>
+#{responibility_field, jdbcType=VARCHAR}, 
+<!-- 경력 담당업무 -->
+
+#{retire_reason, jdbcType=VARCHAR} 
+<!-- 퇴사사유 -->
+
+) 
+</insert>
+
+<select id="resume_list" resultType="Mem_Resume_listVO"> select * from resume where resume_no is not null order by resume_no ASC </select>
+
+<select parameterType="int" id="resume_select" resultType="Mem_ResumeVO"> select * from resume where resume_no = #{resume_no} </select>
+
+<select parameterType="int" id="career_select" resultType="Mem_Resume_careerVO"> select * from career where resume_no = #{resume_no} </select>
+
+<select parameterType="int" id="ac_ability_select" resultType="Mem_Resume_abilityVO"> select * from ac_ability where resume_no = #{resume_no} </select>
+
+<update parameterType="Mem_ResumeDTO" id="resume_update"> update resume set resume_title=#{resume_title}, hope_income=#{hope_income}, volun_field=#{volun_field}, resume_date=SYSDATE, ac_ability_no=#{ac_ability_no}, self_intro_cont=#{self_intro_cont} where resume_no=#{resume_no} </update>
+
+<update parameterType="Mem_Resume_abilityDTO" id="resume_ability_update"> update ac_ability set enter_date=#{enter_date}, graduation_date=#{graduation_date}, school_name=#{school_name}, major_1 =#{major_1}, major_2=#{major_2}, grade=#{grade} where ac_ability_no = #{ac_ability_no} </update>
+
+<update parameterType="Mem_Resume_careerDTO" id="resume_career_update"> update career set important_ability=#{important_ability}, join_date=#{join_date}, retire_date=#{retire_date}, career_work_state=#{career_work_state}, career_etp_name=#{career_etp_name}, career_field=#{career_field}, work_dept=#{work_dept}, work_rank=#{work_rank}, work_year=#{work_year}, work_location=#{work_location}, work_income=#{work_income}, responibility_field=#{responibility_field}, retire_reasion=#{retire_reasion}, career_year=#{career_year} where career_no=#{career_no} </update>
+
+<update parameterType="Mem_Resume_ImgDTO" id="resume_img_update"> update resume set resume_img = #{resume_img} where resume_no = #{resume_no} </update>
+
+<update parameterType="Mem_Resume_defaultResumeDTO" id="resume_default_update"> update member_infor set resume_no = #{resume_no} where member_no = #{member_no} </update>
+
+<select parameterType="int" id="member_resumeNo_select" resultType="int"> select resume_no from member_infor where member_no = #{member_no} </select>
+
+<update parameterType="Mem_Resume_resumeOpenDTO" id="resume_resumeOpen_update"> update resume set resume_open = #{resume_open} where resume_no = #{resume_no} </update>
+
+<!-- file -->
 
 
+<insert parameterType="Mem_Resume_fileDTO" id="resume_file_create"> insert into file_box( file_no, file_parent, file_name, file_extension, file_route, member_no )values( file_no.nextval, ${file_parent}, #{file_name, jdbcType=VARCHAR}, #{file_extension, jdbcType=VARCHAR}, #{file_route, jdbcType=VARCHAR}, #{member_no} ) </insert>
 
+<select parameterType="Mem_Resume_fileDTO" id="resume_file_list" resultType="Mem_Resume_fileVO"> select * from file_box where file_parent = #{file_parent} AND member_no = #{member_no} </select>
 
+<select parameterType="int" id="resume_file_parent" resultType="int"> select FILE_PARENT from file_box where file_no = #{file_no} </select>
 
+<delete parameterType="Mem_Resume_fileDTO" id="resume_file_delete"> delete from file_box where file_no = #{file_no} AND member_no = #{member_no} </delete>
 
-   <select id="resume_list" resultType="Mem_Resume_listVO">
-      select *
-      from resume
-      where
-      resume_no is not null
-      order by resume_no ASC
-   </select>
-
-   <select id="resume_select" parameterType="int" resultType="Mem_ResumeVO">
-      select *
-      from resume
-      where resume_no = #{resume_no}
-   </select>
-
-
-   <select id="career_select" parameterType="int" resultType="Mem_Resume_careerVO">
-      select *
-      from career
-      where resume_no = #{resume_no}
-   </select>
-
-
-   <select id="ac_ability_select" parameterType="int"
-      resultType="Mem_Resume_abilityVO">
-      select *
-      from ac_ability
-      where resume_no = #{resume_no}
-   </select>
-
-   <update id="resume_update" parameterType="Mem_ResumeDTO">
-      update resume
-      set
-      resume_title=#{resume_title},
-      hope_income=#{hope_income},
-      volun_field=#{volun_field},
-      resume_date=SYSDATE,
-      ac_ability_no=#{ac_ability_no},
-      self_intro_cont=#{self_intro_cont}
-
-      where resume_no=#{resume_no}
-   </update>
-
-   <update id="resume_ability_update" parameterType="Mem_Resume_abilityDTO">
-      update
-      ac_ability
-      set
-      enter_date=#{enter_date},
-      graduation_date=#{graduation_date},
-      school_name=#{school_name},
-      major_1 =#{major_1},
-      major_2=#{major_2},
-      grade=#{grade}
-
-      where ac_ability_no = #{ac_ability_no}
-   </update>
-
-
-   <update id="resume_career_update" parameterType="Mem_Resume_careerDTO">
-      update career
-      set
-      important_ability=#{important_ability},
-      join_date=#{join_date},
-      retire_date=#{retire_date},
-      career_work_state=#{career_work_state},
-      career_etp_name=#{career_etp_name},
-      career_field=#{career_field},
-      work_dept=#{work_dept},
-      work_rank=#{work_rank},
-      work_year=#{work_year},
-      work_location=#{work_location},
-      work_income=#{work_income},
-      responibility_field=#{responibility_field},
-      retire_reasion=#{retire_reasion},
-      career_year=#{career_year}
-
-      where career_no=#{career_no}
-
-   </update>
-
-
-
-   <update id="resume_img_update" parameterType="Mem_Resume_ImgDTO">
-      update resume
-      set
-      resume_img = #{resume_img}
-      where resume_no = #{resume_no}
-   </update>
-
-   <update id="resume_default_update" parameterType="Mem_Resume_defaultResumeDTO">
-      update
-      member_infor
-      set resume_no = #{resume_no}
-      where member_no = #{member_no}
-   </update>
-
-
-   <select id="member_resumeNo_select" parameterType="int"
-      resultType="int">
-      select resume_no
-      from member_infor
-      where member_no =
-      #{member_no}
-   </select>
-
-
-   <update id="resume_resumeOpen_update" parameterType="Mem_Resume_resumeOpenDTO">
-      update
-      resume
-      set resume_open = #{resume_open}
-      where resume_no = #{resume_no}
-   </update>
-
-
-
-
-   <!-- file -->
-   <insert id="resume_file_create" parameterType="Mem_Resume_fileDTO">
-      insert into file_box(
-      file_no,
-      file_parent,
-      file_name,
-      file_extension,
-      file_route,
-      member_no
-      )values(
-      file_no.nextval,
-      ${file_parent},
-      #{file_name, jdbcType=VARCHAR},
-      #{file_extension, jdbcType=VARCHAR},
-      #{file_route, jdbcType=VARCHAR},
-      #{member_no}
-      )
-
-   </insert>
-   
-   
-   <select id="resume_file_list" resultType="Mem_Resume_fileVO" parameterType="Mem_Resume_fileDTO">
-      select *
-      from file_box
-      where file_parent = #{file_parent} AND 
-            member_no = #{member_no}
-   </select>
-
-
-   <select id="resume_file_parent" parameterType="int" resultType="int">
-      select FILE_PARENT
-      from file_box
-      where file_no = #{file_no}
-   </select>
-   
-   
-   <delete id="resume_file_delete" parameterType="Mem_Resume_fileDTO">
-      delete from file_box
-         where file_no = #{file_no}   AND
-         member_no = #{member_no}
-   </delete>
 </mapper>  
 
  

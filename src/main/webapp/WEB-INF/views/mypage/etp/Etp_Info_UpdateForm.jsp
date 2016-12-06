@@ -11,6 +11,24 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
+<style type="text/css">
+#headlind{
+	border-bottom: 0.5px solid;
+	border-top-color: gray;
+	padding-bottom:20px;
+	padding-top:20px;
+	margin-bottom: 20px; 
+	margin-top: 20px;
+} 
+#a{
+	border-bottom: 0.5px solid;
+	border-top-color: gray;
+	padding-bottom:20px;
+	padding-top:20px;
+	margin-bottom: 20px; 
+	margin-top: 20px;
+}
+</style>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javasript"></script>
@@ -79,35 +97,46 @@
 </head>
 <body>
 	<form action="Etp_Info_UpdateForm" method="post">
+	<h3 id="a">기업정보수정</h3>
+	<div id="headlind">
 		<div class="form-group row">
-			<label for="etp_no" class="col-md-3 control-label">로고</label>
+		<div class="col-md-1"></div>
+			<label for="etp_no" class="col-md-2 control-label">로고</label>
 			<div class="col-md-9">
 				<img src="displayFile?fileName=${Etp_JoinDTO.etp_image}" width="133px" height="150px"/>
-				<a href="Etp_Info_Logo?etp_no=${Etp_JoinDTO.etp_no}">로고ㄱ</a>
+				<a href="Etp_Info_Logo?etp_no=${Etp_JoinDTO.etp_no}">로고수정</a>
 			</div>
 		</div>
+		</div>
+		<div id="headlind">
 		<div class="form-group row">
-			<label for="etp_no" class="col-md-3 control-label">기업회원번호</label>
+		<div class="col-md-1"></div>
+			<label for="etp_no" class="col-md-2 control-label">기업회원번호</label>
 			<div class="col-md-9">
 				<label id="etp_no" class="col-md-9">${Etp_JoinDTO.etp_no }</label>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="etp_name" class="col-md-3 control-label">기업이름</label>
+		<div class="col-md-1"></div>
+			<label for="etp_name" class="col-md-2 control-label">기업이름</label>
 			<div>
 				<label id="etp_name" class="col-md-9">${Etp_JoinDTO.etp_name}</label>
 			</div>
 		</div>
 		<div class="form-group row">
-			<div class="col-md-4">
+		<div class="col-md-1"></div>
+			<div class="col-md-2 control-label">
 				<label for="etp_id">기업아이디</label>
 			</div>
-			<div class="col-md-8">
-				<label id="etp_id">${Etp_JoinVO.etp_id}</label>
+			<div class="col-md-9">
+				<label id="etp_id">${Etp_JoinDTO.etp_id}</label>
 			</div>
 		</div>
+		</div>
+		<div id="headlind">
 		<div class="form-group row">
-			<label for="etp_tel_location" class="col-md-3">기업전화번호</label>
+		<div class="col-md-1"></div>
+			<label for="etp_tel_location" class="col-md-2 control-label">기업전화번호</label>
 			<div class="col-md-4">
 				<select class="form-control" name="etp_tel_location"
 					id="etp_tel_location">
@@ -123,7 +152,8 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="etp_email_id" class="col-md-3 control-label">기업이메일</label>
+		<div class="col-md-1"></div>
+			<label for="etp_email_id" class="col-md-2 control-label">기업이메일</label>
 			<div class="col-md-3">
 				<input type="text" class="form-control" name="etp_email_id"
 					id="etp_email_id" placeholder="아이디">
@@ -144,7 +174,8 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="etp_kind" class="col-md-3 control-label">기업형태</label>
+		<div class="col-md-1"></div>
+			<label for="etp_kind" class="col-md-2 control-label">기업형태</label>
 			<div class="col-md-9">
 				<select class="form-control" name="etp_kind" id="etp_kind">
 					<option value="중소기업">중소기업(300명이하)</option>
@@ -154,20 +185,24 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="etp_registration_num" class="col-md-3 control-label">사업자등록번호</label>
+		<div class="col-md-1"></div>
+			<label for="etp_registration_num" class="col-md-2 control-label">사업자등록번호</label>
 			<div class="col-md-9">
 				<input type="text" class="form-control" name="etp_registration_num" placeholder="사업자등록번호" id="etp_registration_num">
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="delegator_name" class="col-md-3 control-label">대표자명</label>
+		<div class="col-md-1"></div>
+			<label for="delegator_name" class="col-md-2 control-label">대표자명</label>
 			<div class="col-md-9">
 				<input type="text" class="form-control" name="delegator_name"
 					placeholder="대표자명" id="delegator_name">
 			</div>
 		</div>
+		</div>
 		<div class="form-group row">
-			<label for="etp_field" class="col-md-3 control-label">기업업종(산업내용)</label>
+		<div class="col-md-1"></div>
+			<label for="etp_field" class="col-md-2 control-label">기업업종(산업내용)</label>
 			<div class="col-md-9">
 				<select class="form-control" name="etp_field" id="etp_field">
 					<option value="IT">IT</option>
@@ -178,14 +213,16 @@
 			</div>
 		</div>
 		<div class="form-group row">
-			<label for="employee_number" class="col-md-3 control-label">직원수</label>
-			<div class="col-md-9">
+		<div class="col-md-1"></div>
+			<label for="employee_number" class="col-md-2 control-label">직원수</label>
+			<div class="col-md-8">
 				<input type="text" class="form-control" name="employee_number" id="employee_number">
 			</div>
-			<div class="col-md-1">명</div>
+			<div class="col-md-1"></div>
 		</div>
 		<div class="form-group row">
-			<label class="col-md-3 control-label">기업주소</label>
+		<div class="col-md-1"></div>
+			<label class="col-md-2 control-label">기업주소</label>
 			<div class="row">
 				<div class="col-md-3">
 					<input type="text" id="sample4_postcode" name="recruit_addr"
@@ -210,27 +247,36 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="etp_capital" class="col-md-3 control-label">자본금</label>
+		<div class="col-md-1"></div>
+			<label for="etp_capital" class="col-md-2 control-label">자본금</label>
 			<div class="col-md-9">
 				<input type="text" class="form-control" name="etp_capital" placeholder="자본금" id="etp_capital">
 			</div>
 			<!-- <div class="nol-md-5">만원</div> -->
 		</div>
 		<div class="form-group">
-			<label for="etp_sales" class="col-md-3 control-label">매출액</label>
+		<div class="col-md-1"></div>
+			<label for="etp_sales" class="col-md-2 control-label">매출액</label>
 			<div class="col-md-9">
 				<input type="text" class="form-control" name="etp_sales"
 					placeholder="매출액" id="etp_sales">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="clip_number" class="col-md-3 control-label">관심인원</label>
+		<div class="col-md-1"></div>
+			<label for="clip_number" class="col-md-2 control-label">관심인원</label>
 			<div class="col-md-9">
 				<input type="text" class="form-control" name="clip_number"
 					placeholder="괸심인원" id="clip_number">
 			</div>
 		</div>
-		<input type="submit" value="확인">
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-2">
+				<input class="btn btn-success" type="submit" value="확인">
+			</div>
+			<div class="col-md-5"></div>
+		</div>
 	</form>
 </body>
 </html>
