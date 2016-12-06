@@ -2,170 +2,136 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.jobis.mappers.Etp_Recurit_Mapper">
 
-<mapper namespace="org.spring.project.mappers.Etp_Recurit_Mapper">
 
-
-<!--  <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
-      INSERT INTO recruit_infor
-            (recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
-            <if test="career_period != null">
-               career_period
-            </if>
-            ,ac_ability_no,receive_sdate,receive_ddate,receive_way,
-            <if test="ads != null">
-               ads
-            </if>
-            ,etp_no,recruit_field,recruit_position,recruit_addr,recruit_day)
-      VALUES(seq_recruit_infor.NEXTVAL,#{recruit_title},
-            <foreach collection="hire_type" open="'" separator="/" close="'" item="item">
-               ${item}
-            </foreach>
-            ,#{recruit_number},#{income_qualification},#{max_pay},#{min_pay},
-            <foreach collection="career_check" open="'" separator="/" close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <if test="career_period != null">
-               #{career_period}
-            </if>
-            ,#{ac_ability_no},#{receive_sdate},#{receive_ddate},
-            <foreach collection="receive_way" open="'" separator="/" 
-               close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <if test="ads != null">
-               #{ads}
-            </if>
-            ,0,#{recruit_field},
-            <foreach collection="recruit_position" open="'" separator="/"
-               close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <foreach collection="recruit_addr" open="'" separator="/" close="'" item="item">${item}</foreach>
-            ,#{recruit_day})
-   </insert>
-    
-    <select id="etp_recruit_list" resultType="Etp_RecruitVO">
-       select recruit_no, recruit_title, recruit_number,recruit_field 
-       from recruit_infor 
-    </select>
-   
-   <select id="rnolist" resultType="int">
-   select RECRUIT_NO from RECRUIT_INFOR
-   </select> -->
-
-	  <insert id="etp_recruit_create" parameterType="Etp_RecruitDTO">
-      INSERT INTO recruit_infor
-            (recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
-            <if test="career_period != null">
-               career_period
-            </if>
-            ,ac_ability_no,receive_sdate,receive_ddate,receive_way,
-            <if test="ads != null">
-               ads
-            </if>
-            ,etp_no,recruit_field,recruit_position,recruit_addr,recruit_day)
-      VALUES(seq_recruit_infor.NEXTVAL,#{recruit_title},
-            <foreach collection="hire_type" open="'" separator="/" close="'" item="item">
-               ${item}
-            </foreach>
-            ,#{recruit_number},#{income_qualification},#{max_pay},#{min_pay},
-            <foreach collection="career_check" open="'" separator="/" close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <if test="career_period != null">
-               #{career_period}
-            </if>
-            ,#{ac_ability_no},#{receive_sdate},#{receive_ddate},
-            <foreach collection="receive_way" open="'" separator="/" 
-               close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <if test="ads != null">
-               #{ads}
-            </if>
-            ,0,#{recruit_field},
-            <foreach collection="recruit_position" open="'" separator="/"
-               close="'" item="item">
-               ${item}
-            </foreach>
-            ,
-            <foreach collection="recruit_addr" open="'" separator="/" close="'" item="item">${item}</foreach>
-            ,#{recruit_day})
-   </insert>
-    
-    <!-- <select id="etp_recruit_list" resultType="Etp_RecruitVO">
-       select recruit_no, recruit_title, recruit_number,recruit_field 
-       from recruit_infor 
-    </select> -->
+	<select id="selectEtp_no"  parameterType="String" resultType="int">
 	
-	<select id="etp_recruit_list" resultType="Etp_RecruitDTO">
-		select * 
-		from recruit_infor 
+		select etp_no from etp_infor where etp_id =#{Etp_no}
+		
 	</select>
+	
+	
+	<!-- Etp_RecruitDTO 로그 테이블과 같음-->
 
-
-	<!-- <insert id="etp_recruit_create" parameterType="Etp_RecruitVO">
-		INSERT INTO recruit_infor
-		(recruit_no,recruit_title,hire_type,recruit_number,income_qualification,max_pay,min_pay,career_check,
-		<if test="career_period != null">
-			career_period
-		</if>
-		,ac_ability_no,receive_sdate,receive_ddate,receive_way,
-		<if test="ads != null">
-			ads
-		</if>
-		,etp_no,recruit_field,recruit_position,recruit_addr,recruit_day)
-		VALUES(seq_recruit_infor.NEXTVAL,#{recruit_title},
-		<foreach collection="hire_type" open="'" separator="/" close="'"
-			item="item">
-			${item}
-		</foreach>
-		,#{recruit_number},#{income_qualification},#{max_pay},#{min_pay},
-		<foreach collection="career_check" open="'" separator="/"
-			close="'" item="item">
-			${item}
-		</foreach>
-		,
-		<if test="career_period != null">
-			#{career_period}
-		</if>
-		,#{ac_ability_no},#{receive_sdate},#{receive_ddate},
-		<foreach collection="receive_way" open="'" separator="/"
-			close="'" item="item">
-			${item}
-		</foreach>
-		,
-		<if test="ads != null">
-			#{ads}
-		</if>
-		,0,#{recruit_field},
-		<foreach collection="recruit_position" open="'" separator="/"
-			close="'" item="item">
-			${item}
-		</foreach>
-		,
-		<foreach collection="recruit_addr" open="'" separator="/"
-			close="'" item="item">${item}</foreach>
-		,#{recruit_day})
+	<insert id="InsertEtp_log"  parameterType="Etp_RecruitDTO"  >
+	
+		insert into mem_log(
+			mem_logno,log_date,etp_no,member_no
+		)values(
+			#{mem_logno},sysdate,#{etp_no},#{member_no}
+		) 
+		
+	
 	</insert>
-
-	<select id="recruit_List_Page" resultType="Etp_RecruitVO">
-		select recruit_no, recruit_title, recruit_number,recruit_field
-		from recruit_infor
-		limit #{page}, 10
-	</select>
+	
+	
 	
 
-	<select id="etp_recruit_list" resultType="Etp_RecruitVO">
-		select recruit_no, recruit_title, recruit_number,recruit_field
-		from recruit_infor
-	</select> -->
+
+<select id="select_logNum" resultType="int">
+
+	select nvl(count(mem_logno),0) from mem_log 
+
+</select>
+
+
+	<select id="Etpselect" resultType="Etp_RecruitVO" parameterType="int" >
+	
+	select a.mem_logno,a.log_date , b.member_name ,b.member_img,c.etp_name
+	  from MEM_LOG a 
+	  inner join member_infor b
+	on a.member_no = b.member_no 
+	  inner join ETP_INFOR c
+	on a.ETP_NO = c.ETP_NO
+  	WHERE a.ETP_NO =#{bno}
+  	order by a.mem_logno
+	
+		
+	</select>
+	
+	
+	<select id ="select_mem_info" resultType="Etp_mem_infoVO">
+	
+	
+	
+  select a.member_name, (2016-substr(a.member_birth,1,4)+1) as age, a.member_gender,a.resume_title,a.resume_date,a.hope_income,b.work_year,a.ed_division
+  from (
+    select a.resume_no,a.member_gender,a.member_name,a.member_birth,b.hope_income,resume_date,c.ed_division,b.resume_title
+      from member_infor a
+      inner join resume b
+      on a.resume_no = b.resume_no
+      inner join ac_ability c
+      on a.resume_no = c.resume_no
+     
+  )a inner join (
+       SELECT resume_no,sum(MOD(FLOOR(MONTHS_BETWEEN(TO_DATE(nvl(RETIRE_DATE,sysdate),'RRRR-MM-DD'), 
+               TO_DATE(JOIN_DATE,'RRRR-MM-DD'))),12)) as work_year
+         fROM career
+        group by resume_no
+  
+  )b on a.resume_no = b.resume_no
+
+	
+	
+	
+	</select>
+
+
+<insert id="InsertMem_Upload" parameterType="Etp_mem_uploadDTO" >
+	insert into file_box(
+		file_no,
+		file_step,
+		file_parent,
+		file_name,
+		file_extension,
+		file_route,
+		member_no
+	)values(
+	file_no.nextval
+	,#{file_step , jdbcType=VARCHAR}
+	,#{file_parent, jdbcType=VARCHAR}
+	,#{file_name}
+	,#{file_extension , jdbcType=VARCHAR}
+	,#{file_route, jdbcType=VARCHAR}
+	,#{member_no}
+	
+	)
+
+</insert>
+
+
+<select id="selectUpload" parameterType="Etp_mem_uploadDTO" resultType="Etp_mem_uploadVO">
+
+select * 
+	from file_box 
+where member_no = #{member_no}
+and file_parent = #{file_no} 
+
+</select>
+
+
+
+<select id="selectGoback" parameterType="Etp_mem_uploadDTO" resultType="int">
+
+select file_parent 
+	from file_box 
+where member_no = #{member_no}
+and file_no = #{file_no} 
+
+
+
+</select>
+
+
+
+
+
+
+
+
+
 
 </mapper>  
 

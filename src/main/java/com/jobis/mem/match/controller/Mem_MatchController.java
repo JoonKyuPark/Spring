@@ -30,7 +30,7 @@ public class Mem_MatchController {
 		if(Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor"))!= null){
 			model.addAttribute("matchinglist",Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor")) );
 			List<Etp_RecruitVO> f= (List<Etp_RecruitVO>)Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor"));
-			System.out.println(f.get(0).getMax_pay());
+			/*System.out.println(f.get(0).getMax_pay());*/
 		}else{
 		
 		}
