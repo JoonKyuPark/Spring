@@ -64,7 +64,6 @@ public class Mem_Receive_Reserv_Thread extends Thread {
 		try {
 			sleep(timeUntil(mYear, mMonth, mDay, mHour, mMinute));//일시정지
 			work();// 작업을 수행
-
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

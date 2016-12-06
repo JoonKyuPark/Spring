@@ -66,6 +66,7 @@
 </script>
 </head>
 <body>
+<<<<<<< HEAD
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 	<div class="navbar-white col-md-12" style="z-index: 5000;">
 		<div class="navbar-header">
@@ -86,7 +87,33 @@
 				<li><a class="page-scroll" href="#download">스마트매칭</a></li>
 				<li><a class="page-scroll" href="#contact">로그인</a></li>
 			</ul>
+=======
+	<div class="container">
+
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+		<div class="navbar-white col-md-12" style="z-index: 5000;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					Menu <i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand page-scroll" href="#page-top"> JOB <span
+					class="light">IS</span>
+				</a>
+			</div>
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#about">전체 채용공고</a></li>
+					<li><a class="page-scroll" href="#download">시험</a></li>
+					<li><a class="page-scroll" href="#download">스마트매칭</a></li>
+					<li><a class="page-scroll" href="#contact">로그인</a></li>
+				</ul>
+			</div>
+>>>>>>> refs/heads/ParkSeRyoung6
 		</div>
+<<<<<<< HEAD
 	</div>
 	</nav>
 	<br>
@@ -105,6 +132,30 @@
 			<h2>전체 채용 공고</h2>
 			<br><br>
 			<div class="row">
+=======
+
+
+
+		<a href="Member_Recruit_List.jsp?id=all">전체</a> <a
+			href="Member_Recruit_List.jsp?id=seoul">서울시</a> <a
+			href="Member_Recruit_List.jsp?id=gg">경기도</a>
+		<table class="table table-hover">
+			<thead>
+				<tr height="30">
+					<th width="50"><center>
+							<div class="checks etrans">
+								<input type="checkbox" id="allCheck"><label
+									for="allCheck"></label>
+							</div>
+						</center></th>
+					<th width="100"><center>회사명</center></th>
+					<th width="250"><center>채용제목</center></th>
+					<th width="150"><center>근무조건</center></th>
+					<th width="100"><center>등록일마감일</center></th>
+				</tr>
+			</thead>
+			<tbody>
+>>>>>>> refs/heads/ParkSeRyoung6
 				<c:forEach var="i" begin="0" end="${recruit_list.size()-1}" step="1">
 					<div class="col-lg-4">
 						<div class="recruit1">
@@ -112,6 +163,7 @@
 								<div class="col-lg-8"><a href="/recruit/mem_Recruit_Read_Form?rno=${recruit_list[i].recruit_no}">${recruit_list[i].recruit_title}</a></div>
 								<div class="col-lg-4"><div id="recruit_title2"><center>모집 중</center></div></div>
 							</div>
+<<<<<<< HEAD
 							<div class="row" id="recruit_title">
 								<div class="col-lg-3"><center><div id="recruit_cont1">기간</div><h3>D-${d_day[i]}<a id=recruit_cont1></a></h3></center></div>
 								<div class="col-lg-3"><center><div id="recruit_cont1">모집인원</div><h3>${recruit_list[i].recruit_number} <a id=recruit_cont1>명</a></h3></center></div>
@@ -142,6 +194,23 @@
 						</div>
 					</div>
 					<c:if test="${i==2}">&nbsp;&nbsp;&nbsp;<br><br><br><br></c:if>
+=======
+						</td>
+						<td align="center"><h4>${etp_read_list[i].etp_name}</h4></td>
+						<td align="left"><h4>
+								<a
+									href="/recruit/mem_Recruit_Read_Form?rno=${recruit_list[i].recruit_no}">${recruit_list[i].recruit_title}</a>
+							</h4>
+							<button id="button3"
+								onclick="button1_click(${recruit_list[i].recruit_no})">관심
+								채용 등록</button> <a href="/clip/mem_Recruit_Clip_List_Form">좋아요리스트</a></td>
+						<td align="center">${recruit_list[i].hire_type}<br>${recruit_list[i].ac_ability_no}<br>봉급&nbsp
+							${recruit_list[i].income_qualification}<br>근무요일&nbsp${recruit_list[i].recruit_day}
+						</td>
+						<td align="center">${recruit_list[i].receive_ddate}</td>
+					</tr>
+
+>>>>>>> refs/heads/ParkSeRyoung6
 				</c:forEach>
 			</div>
 
