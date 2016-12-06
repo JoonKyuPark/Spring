@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,7 +6,6 @@
 <title>Insert title here</title>
 <!-- Bootstrap -->
 <link href="../../../resources/css/recruit/mem/bootstrap.min.css" rel="stylesheet">
-<link href="../../../resources/css/recruit/mem/custom2.css" rel="stylesheet">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +23,26 @@
 <link rel="stylesheet" type="text/css" href="../../../resources/css/receive/mem/theme/red.css">
 <link rel="stylesheet" type="text/css" href="../../../resources/css/receive/mem/theme/yellow.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script type="text/javascript">
+setInterval(function() { 
+	$.ajax({
+		type:'post',
+		url:'/notice',
+		headers: { 
+		      "Content-Type": "application/json",
+		      "X-HTTP-Method-Override": "POST" },
+		dataType:'json',
+		success:function(response){
+			$('#notice1').html(response[0].notice_name);
+			$('#notice2').html(response[1].notice_name);
+			//$('#notice3').html(response[2].notice_name);
+			$('#notice_count').html( Object.keys(response).length);
+		}	
+			
+	});
+}, 3000);
+
+</script>
 </head>
 <body>
 	<div class="app app-default">
@@ -75,7 +92,7 @@
 							<li><a
 								href="../Member_Join_Receive/Member_Join_Receive_Form.jsp">입사지원
 									현황</a></li>
-							<li><a href="../Member_Recruit_Clip/Member_Recruit_Clip.jsp">스크랩한
+							<li><a href="clip/mem_Recruit_Clip_List_Form">스크랩한
 									채용정보</a></li>
 							<li><a>스크랩한 기업정보</a></li>
 							<li><a
@@ -180,7 +197,7 @@
 								<ul>
 									<li class="dropdown-header">Message</li>
 									<li><a href="#"> <span
-											class="badge badge-warning pull-right">10</span>
+											class="badge badge-warning pull-right"></span>
 											<div class="message">
 												<img class="profile" src="https://placehold.it/100x100">
 												<div class="content">
@@ -219,25 +236,17 @@
 									<i class="fa fa-bell" aria-hidden="true"></i>
 								</div>
 								<div class="title">System Notifications</div>
-								<div class="count">10</div>
+								<div class="count"><div id="notice_count"></div></div>
 						</a>
 							<div class="dropdown-menu">
 								<ul>
 									<li class="dropdown-header">Notification</li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">8</span>
-											<div class="message">
-												<div class="content">
-													<div class="title">New Order</div>
-													<div class="description">$400 total</div>
-												</div>
-											</div>
+									<li><a href="#"> <div id="notice1"></div>
+									</a></li>
+									<li><a href="#"> <div id="notice2"></div>
 									</a></li>
 									<li><a href="#"> <span
-											class="badge badge-danger pull-right">14</span> Inbox
-									</a></li>
-									<li><a href="#"> <span
-											class="badge badge-danger pull-right">5</span> Issues Report
+											class="badge badge-danger pull-right">5</span><div id="notice3"></div>
 									</a></li>
 									<li class="dropdown-footer"><a href="#">View All <i
 											class="fa fa-angle-right" aria-hidden="true"></i></a></li>

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.mem.clip.domain.Mem_ClipVO;
 import com.jobis.mem.clip.service.Mem_ClipService;
+import com.jobis.mem.login.domain.Mem_LoginVO;
 import com.jobis.mem.recruit.domain.Mem_RecruitVO;
 import com.jobis.mem.recruit.service.Mem_RecruitService;
 
@@ -42,12 +44,15 @@ public class Mem_ClipController {
 	}*/
 	
 	@RequestMapping(value="",  method = RequestMethod.POST)
-	public ResponseEntity<String> mem_Clip_Create(@RequestBody Mem_ClipVO vo)throws Exception{
+	public ResponseEntity<String> mem_Clip_Create(@RequestBody Mem_ClipVO vo, HttpServletRequest request)throws Exception{
 		ResponseEntity<String> entity=null;
 		try{
+			Mem_LoginVO member_infor=(Mem_LoginVO) request.getSession().getAttribute("member_infor");
+			int member_no=member_infor.getMember_no();
+			
 			Mem_ClipVO mem_clip=new Mem_ClipVO();
 			mem_clip.setRecruit_no(vo.getRecruit_no());
-			mem_clip.setMember_no(1);
+			mem_clip.setMember_no(member_no);
 			service.mem_Clip_Create(mem_clip);
 			entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		}catch (Exception e) {
@@ -59,8 +64,10 @@ public class Mem_ClipController {
 	}
 	
 	@RequestMapping(value="/mem_Recruit_Clip_List_Form",  method = RequestMethod.GET)
-	public void mem_Clip_List(Model model)throws Exception{
-		List<Mem_ClipVO> recruit_clip_List=service.mem_Clip_List(1);
+	public void mem_Clip_List(Model model, HttpServletRequest request)throws Exception{
+		Mem_LoginVO member_infor=(Mem_LoginVO) request.getSession().getAttribute("member_infor");
+		int member_no=member_infor.getMember_no();
+		List<Mem_ClipVO> recruit_clip_List=service.mem_Clip_List(member_no);
 		model.addAttribute("recruit_clip_List",recruit_clip_List);
 		
 		

@@ -31,11 +31,6 @@ public class Mem_ReceiveDAOImpl implements Mem_ReceiveDAO {
 	}
 	
 	@Override
-	public int resume_no(int member_no) throws Exception {
-		return sqlSession.selectOne(namespace+".resume_no", member_no);
-	}
-	
-	@Override
 	public List<Mem_ResumeVO> mem_resume_List(int member_no) throws Exception {
 		return sqlSession.selectList(namespace+".mem_resume_List", member_no);
 	}

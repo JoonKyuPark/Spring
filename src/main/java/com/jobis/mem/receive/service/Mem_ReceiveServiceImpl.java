@@ -32,11 +32,6 @@ public class Mem_ReceiveServiceImpl implements Mem_ReceiveService {
 	}
 	
 	@Override
-	public int resume_no(int member_no) throws Exception {
-		return dao.resume_no(member_no);
-	}
-	
-	@Override
 	public List<Mem_ResumeVO> mem_resume_List(int member_no) throws Exception {
 		return dao.mem_resume_List(member_no);
 	}

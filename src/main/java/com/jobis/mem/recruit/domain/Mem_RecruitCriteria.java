@@ -7,7 +7,7 @@ public class Mem_RecruitCriteria {
 
   public Mem_RecruitCriteria() {
     this.page = 1;
-    this.perPageNum = 2;
+    this.perPageNum = 6;
   }
 
   public void setPage(int page) {

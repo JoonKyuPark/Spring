@@ -127,8 +127,8 @@
 			<a href="" data-target="#myModal" type="button" data-toggle="modal"
 				class="page-scroll btn btn-xl" id="myBtn">Log in</a>
 
-			<div>${sessionScope.etp_infor.etp_id }님
-				어서오세요 ${sessionScope.member_infor.member_id }님 어서오세요</div>
+			<div>${sessionScope.etp_infor.etp_id }님어서오세요
+				${sessionScope.member_infor.member_id }님 어서오세요</div>
 
 
 
@@ -149,7 +149,8 @@
 				</div>
 				<!-- body -->
 				<div class="col-md-3"></div>
-				<div class="modal-body col-md-8" style="width: 310px; height: 200px; vertical-align: middle;">
+				<div class="modal-body col-md-8"
+					style="width: 310px; height: 200px; vertical-align: middle;">
 					<div class="col-md-12">
 						<ul class="row nav-pills">
 							<li class="active"><a href="#person" data-toggle="tab"
@@ -167,18 +168,18 @@
 											style="width: 200px; height: 30px; float: left"> <input
 											type="submit" value="로그인" class="col-md-3 btn btn-info"
 											style="font-size: 17px; float: right; height: 60px; padding: 0">
+
 										<input type="password" class="form-control" name="member_pwd"
 											placeholder="비밀번호" required="required"
 											style="width: 200px; height: 30px; float: left;">
 
 									</div>
 									<div class="row">
-
 										<a class="col-md-4" type="button" href="/join"
-											style="font-size: 17px; padding: 0">회원가입</a> <input
+											style="font-size: 17px; padding: 0">회원가입</a>&nbsp;&nbsp;&nbsp; <input
 											type="checkbox" value="auto" name="autologin"
-											class="auto col-md-1" style="border-radius : 5px;"><a class="col-md-6"
-											style="font-size: 17px; padding: 0">자동로그인</A>
+											class="auto col-md-1" style="border-radius: 5px;"> <a
+											class="col-md-6" style="font-size: 17px; padding: 0">자동로그인</A>
 
 									</div>
 
@@ -190,11 +191,27 @@
 							<div class="row tab-pane" id="coper">
 								<form action="/etp_login" method="post">
 									<input type="text" name="etp_id" placeholder="기업아이디"
-										required="required"> <input type="password"
-										name="etp_pass" placeholder="비밀번호"><br> <input
-										type="submit" value="로그인" required="required"> <a
-										type="button" href="/join">회원가입</a> <br> <input
-										type="checkbox" value="auto" name="autologin" class="auto"><span>자동로그인</span>
+										required="required"
+										style="width: 200px; height: 30px; float: left"
+										class="form-control"> <input type="submit" value="로그인"
+										class="col-md-3 btn btn-info"
+										style="font-size: 17px; float: right; height: 60px; padding: 0">
+
+									<input type="password" name="etp_pass" placeholder="비밀번호"
+										class="form-control"
+										style="width: 200px; height: 30px; float: left;">
+
+									<div class="row">
+										<a class="col-md-4" type="button" href="/join"
+											style="font-size: 17px; padding: 0">회원가입</a>
+											 <input
+											type="checkbox" value="auto" name="autologin"
+											class="auto  col-md-1"
+											style="border-radius: 5px;"><a
+											class="col-md-6" style="font-size: 17px; padding: 0">자동로그인</a>
+
+
+									</div>
 								</form>
 							</div>
 						</div>

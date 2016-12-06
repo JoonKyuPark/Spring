@@ -1,4 +1,4 @@
-package com.jobis.etp.pass.controller;
+/*package com.jobis.etp.pass.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,6 +37,14 @@ public class Etp_PassController {
 		Etp_LoginVO etp_infor = (Etp_LoginVO) session.getAttribute("etp_infor");
 		int etp_no = etp_infor.getEtp_no();
 		List<Etp_ExamVO> examList = service.pass_exam_list(etp_no);
+	
+	@RequestMapping(value="/etp_First_Pass_List_Form", method = RequestMethod.GET)
+	public void etp_first_pass_List(HttpServletRequest request, Model model)throws Exception{
+		Etp_LoginVO etp_infor=(Etp_LoginVO) request.getSession().getAttribute("etp_infor");
+		System.out.println(etp_infor.getEtp_no());
+		int etp_no=etp_infor.getEtp_no();
+		model.addAttribute("recruit_infor",service.recruit_infor(etp_no));
+		model.addAttribute("pass_resume_list",service.pass_resume_list_all(etp_no));
 		
 		model.addAttribute("recruit_infor", service.recruit_infor(etp_no));
 		model.addAttribute("pass_resume_list", service.pass_resume_list_all(etp_no));
@@ -90,6 +98,15 @@ public class Etp_PassController {
 			service.pass_exam_notice(mem_noticeVO);
 			entity = new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 		} catch (Exception e) {
+	
+	
+	@RequestMapping(value="/Etp_Pass_Update", method = RequestMethod.POST)
+	public ResponseEntity<String> Etp_Pass_Update(@RequestParam(value="recruit_no") int recruit_no)throws Exception{
+		ResponseEntity<String> entity=null;
+		try{
+			service.Etp_Pass_Update(recruit_no);
+			entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		}catch (Exception e) {
 			e.printStackTrace();
 			entity = new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}
@@ -99,3 +116,4 @@ public class Etp_PassController {
 	
 
 }
+*/

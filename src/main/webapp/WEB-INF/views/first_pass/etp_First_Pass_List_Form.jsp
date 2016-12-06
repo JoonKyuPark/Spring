@@ -23,9 +23,53 @@
 <link rel="stylesheet"
 	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <script type="text/javascript">
+<<<<<<< HEAD
  window.onload=function(){
 	$('.recruit_list').click(function(){
 		var rno = $(this).find('input').val();
+=======
+	$(function() {
+		$("#allCheck").click(function() {
+			if ($("#allCheck").prop("checked")) {
+				$("input[type=checkbox]").prop("checked", true);
+			} else {
+				$("input[type=checkbox]").prop("checked", false);
+			}
+		})
+	})
+
+	$(document).ready(function() {
+
+		$("input:checkbox").change(function() {
+			var str = "";
+			$("input:checkbox:checked").each(function(index) {
+				str += $(this).val() + ",";
+			});
+			alert("dd");
+			$.ajax({
+				type : 'post',
+				url : '/first_pass/etp_First_Pass_List_Form?checkArray=' + str,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				success : function(result) {
+					alert("dd");
+					alert(result);
+					if (result.getEntity() == 'SUCCESS') {
+						$("#template").html(tag);
+					}
+				}
+
+			});
+		});
+
+	});
+	
+	function button_click1(rno){
+
+>>>>>>> refs/remotes/HanMooYoung/ParkSeRyoung7
 		$.ajax({
 			type : 'GET',
 			datatype : 'json',
