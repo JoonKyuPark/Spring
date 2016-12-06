@@ -11,7 +11,7 @@ public class Mem_RecruitPageMaker {
   private boolean prev;
   private boolean next;
 
-  private int displayPageNum = 2;
+  private int displayPageNum = 5;
 
   private Mem_RecruitCriteria cri;
 

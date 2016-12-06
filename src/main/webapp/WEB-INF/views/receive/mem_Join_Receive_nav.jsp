@@ -75,7 +75,7 @@
 							<li><a
 								href="../Member_Join_Receive/Member_Join_Receive_Form.jsp">입사지원
 									현황</a></li>
-							<li><a href="../Member_Recruit_Clip/Member_Recruit_Clip.jsp">스크랩한
+							<li><a href="clip/mem_Recruit_Clip_List_Form">스크랩한
 									채용정보</a></li>
 							<li><a>스크랩한 기업정보</a></li>
 							<li><a
