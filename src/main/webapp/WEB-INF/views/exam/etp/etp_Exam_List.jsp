@@ -31,10 +31,8 @@
 </head>
 <body onload="reset()">
 	<%@include file="../nav.jsp"%>
-
-
 	<div class="col-sm-10 col-xs-10 col-md-10 outerDiv">
-		<div class="col-md-12 listForm">
+		<div class="col-md-10 listForm">
 			<h2>J O B I X A M &nbsp; L I S T</h2><br>
 			<form id="etp_Exam_ListForm" name="form">
 				<table id="etp_Exam_Table" class="table table-hover">
@@ -83,7 +81,8 @@
 				</table>
 			</form>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-2"></div>
+		<div class="col-md-10">
 			<div class="col-md-4">
 				<br>
 				<button class="btn btn-info"
@@ -102,7 +101,8 @@
 				</button>
 			</div>
 		</div>
-		<div class="box-footer col-md-12">
+		<div class="col-md-2"></div>
+		<div class="box-footer col-md-10">
 			<div class="text-center col-md-12">
 				<ul class="pagination">
 					<c:if test="${pageMaker.prev}">
@@ -122,6 +122,7 @@
 				</ul>
 			</div>
 		</div>
+		<div class="col-md-2"></div>
 		<!-- /.box-footer-->
 		<form id="jobForm">
 			<input type='hidden' name="page" value='${pageMaker.cri.perPageNum}'>

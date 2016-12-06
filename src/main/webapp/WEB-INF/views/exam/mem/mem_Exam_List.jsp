@@ -32,7 +32,7 @@
 	<%@include file="../nav2.jsp"%>
 	<div class="col-md-10 col-sm-10 col-xs-10  outerDiv">
 
-		<div class="col-md-12 examListForm">
+		<div class="col-md-10 examListForm">
 			<h1>J O B I X A M &nbsp; J O I N</h1>
 			<hr>
 			<div class="col-md-12">
@@ -124,6 +124,7 @@ ACTFL TEST와 관련한 부정행위 적발은 멀티캠퍼스의 고유권한�
 				</div>
 			</div>
 		</div>
+		<div class="col-md-2"></div>
 	</div>
 
 </body>

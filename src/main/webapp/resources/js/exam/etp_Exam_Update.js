@@ -82,11 +82,13 @@ function date_check() {
 	swal({
 		title : " ",
 		text : '수정이 완료되었습니다.',
-		type:'warning',
+		type:'success',
 		confirmButtonText:'확인',
 		closeOnConfirm : false
+	},function(){
+		$('#exam_updateForm').submit();
 	});
-	$('#exam_updateForm').submit();
+
 };
 window.onload = function() {
 	function showCheck(){

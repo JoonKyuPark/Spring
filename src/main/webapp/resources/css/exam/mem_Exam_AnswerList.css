@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+body {
+   font-family: '나눔고딕 !important';
+}
+
+table {
+   width: 100%;
+
+   margin-top : 1%;
+
+}
+
+.td {
+   padding: 0px;
+   background : #FFF3F3;
+
+}
+th{
+   background : #fce4e2;
+   
+}
+textarea {
+   width: 100%;
+}
+
+.question_answer {
+   border: 3px solid #DADADA !important;
+   border-radius: 10px;
+   padding: 3%;
+}
+.btn-info{
+   border : 2px solid  #f6b9b3!important;
+   background: #f6b9b3 !important;
+}
+.btn_info:HOVER{
+   border : 2px solid  #f6b9b3!important;
+   background : #fce4e2 !important;
+}
+.answer_info {
+   border-bottom: 3px solid #DADADA !important;;
+   padding-top: 1%;
+   padding-bottom: 1%;
+}
+
+.btn_th {
+   border-bottom: 3px solid #DADADA !important;
+}
+.outerDiv{
+   height : 1050px;
+   background : white;
+}

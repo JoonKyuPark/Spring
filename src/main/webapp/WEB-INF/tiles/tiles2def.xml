@@ -13,28 +13,28 @@
      <put-attribute name = "header" value = "/WEB-INF/views/join/main/include/NewFile.jsp"/>
 </definition>
 
-<definition name="login"  extends = "base_layout">
+<!-- <definition name="login"  extends = "base_layout">
      <put-attribute name = "body" value = "/WEB-INF/views/join/main/login.jsp"/>
-</definition>
+</definition> -->
 
 
-	<definition name="mem_login"  extends = "base_layout">
+<!-- 	<definition name="mem_login"  extends = "base_layout">
      <put-attribute name = "body" value = "/WEB-INF/views/join/mem/mem_login.jsp"/>
-</definition>
+</definition> -->
 
 
 	<definition name="fail"  extends = "base_layout">
      <put-attribute name = "body" value = "/WEB-INF/views/join/main/fail.jsp"/>
 </definition>
 
-<definition name="join"  extends = "base_layout">
+<!-- <definition name="join"  extends = "base_layout">
      <put-attribute name = "body" value = "/WEB-INF/views/join/main/join.jsp"/>
-</definition> 
+</definition>  -->
 
-	<definition name="etp_login"  extends = "base_layout">
+<!-- 	<definition name="etp_login"  extends = "base_layout">
      <put-attribute name = "body" value = "/WEB-INF/views/join/etp/etp_login.jsp"/>
 </definition>
-
+ -->
 
 
 

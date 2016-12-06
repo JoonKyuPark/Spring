@@ -25,14 +25,9 @@
 	src="../../../resources/css/resume/bootstrap/js/resume.js"></script>
 
 
-<script type="text/javascript"
-	src="../../../resources/css/resume/bootstrap/js/daterangepicker.js"></script>
 
 <script type="text/javascript"
 	src="../../../resources/css/resume/bootstrap/js/bootstrap-monthpicker.js"></script>
-
-<link rel="stylesheet" type="text/css"
-	href="../../../resources/css/resume/bootstrap/css/daterangepicker.css">
 <link rel="stylesheet" type="text/css"
 	href="../../../resources/css/resume/bootstrap/css/bootstrap-monthpicker.css">
 <link

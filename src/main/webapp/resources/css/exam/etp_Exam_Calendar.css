@@ -33,7 +33,6 @@ body{
 }
 
 .calTable td {
-	font-family : '나눔고딕';
 	padding: 1px;
 }
 table{
@@ -58,9 +57,9 @@ table{
 .ul_Div {
 	text-align: center;
 }
-a{
+td a{
 	text-decoration : none;
-	color : black;
+	color : black !important;
 }
 a:focus, a:hover{
 	text-decoration : none;

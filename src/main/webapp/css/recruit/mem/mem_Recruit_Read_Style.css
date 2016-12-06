@@ -1,0 +1,226 @@
+#titleImg {
+	max-width: 50px;
+	height: auto;
+}
+
+#logoImg {
+	max-width: 400px;
+	height: auto;
+	border: 1px solid #EEEEEE;
+}
+
+table td:nth-child(1) {
+	width: 17%;
+}
+
+table td:nth-child(2) {
+	width: 17%;
+}
+
+table td:nth-child(3) {
+	width: 16%;
+}
+
+table td:nth-child(4) {
+	width: 16%;
+}
+
+table td:nth-child(5) {
+	width: 17%;
+}
+
+table td:nth-child(6) {
+	width: 17%;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table td {
+	border: 1px solid #EEEEEE;
+}
+
+h2 {
+	margin: 20px 0
+}
+
+.tab-content {
+	padding: 10px 0;
+}
+
+hr {
+	width: 100%;
+	text-align: center;
+}
+
+#bold {
+	width: 100%;
+	text-align: center;
+	border-top: 3px solid #a0a0a0
+}
+
+#clip{
+	color: #4fca75;
+	font-size: 25pt;
+	text-align: right;
+	font-weight: bold;
+}
+#recruit_title{
+	font-weight: bold;
+}
+
+#time {
+	border-right: 0px solid;
+	border-left: 0px solid;
+	border-top: 0px solid;
+	border-bottom: 0px solid;
+	background-color: #fbfbfb;
+	color: #4fca75;
+	font-size: 12pt;
+	text-align: right;
+	font-weight: bold;
+	
+	/* normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900 */
+}
+
+#timeform {
+	text-align: right;
+	font-weight: bold;
+}
+
+#infor {
+	background-color: #FBFBFB;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+/**************************
+  DEFAULT BOOTSTRAP STYLES
+**************************/
+.btn {
+	display: inline-block;
+	padding: 6px 20px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 10px 16px;
+}
+
+.btn-lg {
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 6px;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #4fca75;
+	border-color: #4fca75;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+	.btn-primary.active, .open .dropdown-toggle.btn-primary {
+	color: #fff;
+	background-color: #4fca75;
+	border-color: #4fca75;
+}
+
+/***********************
+  RAISED BUTTONS
+************************/
+.btn-primary.raised {
+	box-shadow: 0 3px 0 0 #4fca75;
+}
+
+.btn-primary.raised:active, .btn-primary.raised.active {
+	background: #4fca75;
+	box-shadow: none;
+	margin-bottom: -3px;
+	margin-top: 3px;
+}
+
+/***********************
+  CUSTON BTN VALUES
+************************/
+.btn {
+	padding: 14px 50px;
+	border: 0 none;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+
+.btn-primary {
+	background: #4fca75;
+	color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active,
+	.btn-primary.active, .open>.dropdown-toggle.btn-primary {
+	background: #4fca75;
+}
+
+.btn-primary:active, .btn-primary.active {
+	background: #4fca75;
+	box-shadow: none;
+}
+
+/***********************
+  OUTLINE BUTTONS
+************************/
+.btn.outline {
+	background: none;
+	padding: 14px 10px;
+}
+
+.btn-primary.outline {
+	border: 2px solid #4fca75;
+	color: #4fca75;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active,
+	.btn-primary.outline.active, .open>.dropdown-toggle.btn-primary {
+	color: #4fca75;
+	border-color: #4fca75;
+}
+
+.btn-primary.outline:active, .btn-primary.outline.active {
+	border-color: #4fca75;
+	color: #4fca75;
+	box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

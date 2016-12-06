@@ -29,7 +29,7 @@ public class Mem_NoticeController {
 	public static int notice_count = 0;
 
 	@ResponseBody
-	@RequestMapping(value = "", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public List<Mem_NoticeVO> mem_notice(HttpServletRequest request, Model model) throws Exception {
 		Mem_LoginVO member_infor = (Mem_LoginVO) request.getSession().getAttribute("member_infor");
 		int member_no = member_infor.getMember_no();

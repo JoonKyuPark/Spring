@@ -35,7 +35,7 @@
 	<%@include file="../nav.jsp"%>
 
 	<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
-		<div class="col-md-12 inputForm">
+		<div class="col-md-10 inputForm">
 			<h2>
 				Q U E S T I O N <br> R E G I S T R A T I O N
 			</h2>
@@ -43,7 +43,7 @@
 			<form role="form" id="QuestionForm" action="etp_Question_Create"
 				method="post">
 				<input type="hidden" name="etp_no" value=1>
-				<div class="col-md-12">
+				<div class="col-md-12" style = "margin-bottom : 1%">
 					<div class="col-md-6">
 						<i class="xi-align-justify"></i><label>문제 이름</label>
 					</div>
@@ -55,12 +55,12 @@
 
 				<br> <br>
 
-				<div class="col-md-12">
+				<div class="col-md-12" style = "margin-bottom : 1%">
 					<div class="col-md-12">
 						<i class="xi-align-justify"></i><label>시험 선택</label>
 					</div>
-					<div class="col-md-12">
-						<select name="exam_no" id="exam_list" class="selectpicker ">
+					<div class="col-md-4">
+						<select name="exam_no" id="exam_list" class="form-control ">
 							<option>시험 선택</option>
 							<c:forEach var="i" items="${etp_Exam_List }">
 								<option value="${i.exam_no }">${i.exam_name }</option>
@@ -69,9 +69,7 @@
 					</div>
 				</div>
 
-				<br> <br>
-
-				<div class="col-md-12">
+				<div class="col-md-12" style = "margin-bottom : 1%">
 					<div class="col-md-12">
 						<i class="xi-align-justify"></i><label>할당시간</label>
 					</div>
@@ -83,14 +81,13 @@
 					</div>
 				</div>
 
-				<br> <br>
 
-				<div class="col-md-12">
+				<div class="col-md-12" style = "margin-bottom : 1%">
 					<div class="col-md-6">
 						<i class="xi-align-justify"></i><label>문제 내용</label>
 					</div>
 					<div class="col-md-6" align="right">
-						<font size="2" color="red"><i class="xi-warning"></i><span
+						<font size="3" color="red"><i class="xi-warning"></i><span
 							class="bytes">0</span><span>/3000</span></font>
 					</div>
 					<div class="col-md-12">
@@ -99,9 +96,7 @@
 					</div>
 				</div>
 
-				<br> <br>
-
-				<div class="col-md-12">
+				<div class="col-md-12" style = "margin-bottom : 1%">
 					<div class="col-md-12">
 						<i class="xi-align-justify"></i><label>문제 정답범위</label>
 					</div>
@@ -152,10 +147,7 @@
 				</div>
 			</form>
 		</div>
-	</div>
-	</div>
-	</div>
-	</div>
+		<div class="col-md-2"></div>
 	</div>
 
 </body>

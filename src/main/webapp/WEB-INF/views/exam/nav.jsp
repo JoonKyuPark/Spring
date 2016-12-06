@@ -15,33 +15,36 @@
 		<![endif]-->
 <link href="../../../../resources/css/exam/nav_styles.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
+
+<link href="../../../../resources\css\main\css\grayscale.min.css" rel="stylesheet">
+<link href="../../../../resources\css\main\css\grayscale.css" rel="stylesheet">
 </head>
-<body>
+<body style = "background : white !important;">
 	<!-- header -->
-	<div id="top-nav" class="navbar navbar-inverse navbar-static-top">
-		<div class="container-fluid col-md-2 col-sm-2 col-xs-2">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Dashboard</a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle" role="button"
-						data-toggle="dropdown" href="#"><i
-							class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
-						<ul id="g-account-menu" class="dropdown-menu" role="menu">
-							<li><a href="#">My Profile</a></li>
-						</ul></li>
-					<li><a href="#"><i class="glyphicon glyphicon-lock"></i>
-							Logout</a></li>
-				</ul>
-			</div>
-		</div>
-		<!-- /container -->
+	<div id="top-nav" class="navbar navbar-inverse navbar-static-top" style = "background : white !important;margin : 0; margin-bottom : 1%; padding : 0px;">
+	 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style ="margin : 0; padding : 0;">
+   <div class="navbar-white col-md-12" style="z-index: 5000;">
+      <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-main-collapse">
+            Menu <i class="fa fa-bars"></i>
+         </button>
+         <a class="navbar-brand page-scroll" href="#page-top"> JOB <span
+            class="light">IS</span>
+         </a>
+      </div>
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+         <ul class="nav navbar-nav">
+            <li><a class="page-scroll" href="#about">
+            <li class="hidden"><a href="#page-top"></a></li>
+            <li><a class="page-scroll" href="#about">전체 채용공고</a></li>
+            <li><a class="page-scroll" href="#download">시험</a></li>
+            <li><a class="page-scroll" href="#download">스마트매칭</a></li>
+            <li><a class="page-scroll" href="#contact">로그인</a></li>
+         </ul>
+      </div>
+   </div>
+   </nav>
 	</div>
 	<!-- /Header -->
 

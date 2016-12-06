@@ -6,61 +6,23 @@
 <head>
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
+<script src="../../../../resources/js/exam/etp_Exam_MemberList.js"></script>
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
 <link href="../../../../resources/css/exam/bootstrap-theme.min.css"
 	rel="stylesheet" type="text/css" />
+<link href="../../../../resources/css/exam/etp_Exam_MemberList.css"
+	rel="stylesheet" type="text/css" />
 <link href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript">
-	$(function() {
-		$('.tr').hover(function() {
-			$(this).children().css('background', '#fce4e2');
-		},function(){
-			$(this).children().css('background', '#FFF3F3');
-		});
-	});
-</script>
-<style type="text/css">
-body {
-	font-family: '나눔고딕 !important';
-}
-
-table {
-	width: 100%;
-	margin-top : 1%;
-}
-
-tr {
-	height: 40px;
-}
-
-th {
-	text-align: center;
-	background: #fce4e2;
-}
-
-td {
-	background: #FFF3F3;
-	border-top: 1px solid #DADADA;
-	border-bottom: 1px solid #DADADA;
-	text-align: center;
-}
-
-.outerDiv {
-	height: 1050px;
-	background: white;
-}
-</style>
+<title></title>
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
 
 					<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
-						<div class="col-md-3"></div>
 						
-						<div class="col-md-6">
+						<div class="col-md-10">
 							
 <h2>JOBIXAM MEMBER LIST</h2>
 							<table class="table">
@@ -83,7 +45,7 @@ td {
 							</table>
 
 						</div>
-						<div class="col-md-3"></div>
+						<div class="col-md-2"></div>
 					</div>
 </body>
 </html>

@@ -39,19 +39,6 @@ public class Mem_LoginController {
 				model.addAttribute("autologin", mem_logindto.getAutologin());
 			}
 			return "redirect: mem_loginOK";
-
-			/*
-			 * Mem_LoginVO loginvo , @RequestParam("autologin") String autologin
-			 * , Model model) {
-			 * 
-			 * loginservice.Mem_LoginService_selelct(loginvo); if
-			 * (loginservice.Mem_LoginService_selelct(loginvo) == null) {
-			 * 
-			 * return "/main/fail"; } else { model.addAttribute("member_infor",
-			 * loginservice.Mem_LoginService_selelct(loginvo));
-			 * model.addAttribute("autologin", autologin); return "mem_login";
-			 * >>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3
-			 */
 		}
 	}
 
@@ -64,7 +51,7 @@ public class Mem_LoginController {
 	@RequestMapping("/mem_loginOK")
 	public String mem_loginOK() {
 
-		return "mem_login";
+		return "join/mem/mem_login";
 	}
 
 	@RequestMapping("/join/main/fail")
@@ -93,12 +80,6 @@ public class Mem_LoginController {
 		return "mem_login";
 	}
 
-/*	@RequestMapping("/mem_logout")
-	public String Mem_LoginController_logout(HttpServletRequest request) {
 
-		request.getSession().invalidate();
-
-		return "login";
-	}*/
 
 }

@@ -23,11 +23,10 @@
 <link rel="stylesheet"
 	href="../../../../resources/css/exam/etp_Exam_Calendar.css" />
 
-<head>
+<head></head>
 <meta charset="UTF-8">
 <title>J O B I X A M M A I N</title>
 </head>
-
 <body>
 	<%@include file="../nav.jsp"%>
 		<div class="col-sm-10 col-xs-10 col-md-10 outderDiv">
@@ -42,7 +41,8 @@
 				</c:forEach>
 				<div class="col-md-12" align="left"><h2> J O B I X A M &nbsp; C a l e n d a r </h2></div>
 			<br>
-				<div class="col-md-12" id="calendar"></div>
+				<div class="col-md-10" id="calendar"></div>
+				<div class="col-md-2"></div>
 
 		</div>
 </body>

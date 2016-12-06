@@ -23,10 +23,18 @@
                  dataType:'text',
                  data: {
                 	 etp_no: $hiddenDiv.find("#etp_no").text(),
-                	 member_no: $hiddenDiv.find("#member_no").text(),
+                	 resume_no: $hiddenDiv.find("#resume_no").text(),
+                	 mem_clip_title: 'test'
+                	 /* 
+                	  member_no: $hiddenDiv.find("#member_no").text(),
                 	 mem_clip_title: $hiddenDiv.find("#mem_clip_title").text(),
                 	 eval_memo: $hiddenDiv.find("#eval_memo").text()
-                 },
+                	 work_month: $hiddenDiv.find("#work_month").text(),
+                	 hope_income: $hiddenDiv.find("#hope_income").text(),
+                	 ed_division: $hiddenDiv.find("#ed_division").text(),
+                	 volun_field: $hiddenDiv.find("#volun_field").text(), */ 
+                	 
+                 }, 
                  success:function(result){
                     if(result == 'SUCCESS'){
                        alert("등록 되었습니다.");
@@ -41,10 +49,15 @@
 </head>
 <body>
 	<div id="hiddenDiv">
-		<span id="etp_no">1</span>
-		<span id="member_no">1</span>
-		<span id="mem_clip_title">테스트</span>
-		<span id="eval_memo">ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ개구리</span>
+		<span id="etp_no">3</span>
+		<span id="resume_no">12</span>
+		<!-- 
+		<span id="member_no">12</span>
+		<span id="eval_memo">2</span> 
+		<span id="work_month">3</span>
+		<span id="hope_income">3</span>
+		<span id="ed_division">3</span>
+		<span id="volun_field">3</span> -->
 	</div>
 	<form id="mem_clip" action="Etp_Mem_Clip_InsertForm" method="post">
 		<input type="submit" value="인재스크랩ㄱㄱ">

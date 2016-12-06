@@ -3,7 +3,10 @@
 body {
 	font-family: '나눔고딕' !important;
 }
-
+td a {
+	text-decoration: none;
+	color : black !important;
+}
 
 #etp_Exam_Table {
 	width: 100%;

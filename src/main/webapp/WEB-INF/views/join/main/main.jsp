@@ -1,151 +1,151 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>JOB IS</title>
 
-<title>Insert title here</title>
 <script src="../../../../resources/css/main/jquery-3.1.1.js"></script>
-<!-- <script src="../../../../resources/css/main/startbootstrap-agency-gh-pages/js/agency.min.js"></script> -->
-<!-- <script src= "../../../../resources/css/main/startbootstrap-agency-gh-pages/js/contact_me.js"></script> -->
 <script
-	href="../../../../resources/css/main/startbootstrap-agency-gh-pages/js/jqBootstrapValidation.js"></script>
-<!-- Theme CSS -->
+	src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+<script src="../../../../resources/css/main/js/jquery.tubular.1.0.js"></script>
+<script src="../../../../resources/css/main/js/index.js"></script>
+<<script src="../../../../resources/css/main/css/reset.css"></script>
+<script src="../../../../resources/css/main/css/screen.css"></script> 
+<!-- Bootstrap Core CSS -->
+<link href="../../../../resources/css/main/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--  -->
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<link
-	href="../../../../resources/css/main/startbootstrap-agency-gh-pages/css/agency.css"
-	rel="stylesheet">
-<link
-	href="../../../../resources/css/main/startbootstrap-agency-gh-pages/css/agency.min.css"
-	rel="stylesheet">
-
-
-<link href="../../../../resources/css/main/mbr_style.css"
-	rel="stylesheet">
-<link href="../../../../resources/css/main/mbr_tpl.css" rel="stylesheet">
-<link href="../../../../resources/css/main/mbr_common.css"
-	rel="stylesheet">
-
-<!-- Bootstrap Core CSS -->
 <link href="../../../../resources/css/main/bootstrap.min.css"
 	rel="stylesheet">
-<!-- Custom Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
-	rel='stylesheet' type='text/css'>
-
-
-<script type="text/javascript">
+	<link href="../../../../resources/css/main/bootstrap.min.css"
+	rel="stylesheet">
+	<link href="../../../../resources/css/main/mbr_common.css"
+	rel="stylesheet">
 	
-</script>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-
-<title>Agency - Start Bootstrap Theme</title>
-
-
-
+<!--  -->
 <!-- Custom Fonts -->
-
+<link href="../../../../resources/css/main/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
 	rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Kaushan+Script'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
-	rel='stylesheet' type='text/css'>
-<link
-	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
-	rel='stylesheet' type='text/css'>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- Theme CSS -->
+<link href="../../../../resources/css/main/css/grayscale.min.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Buenard:700'
+	rel='stylesheet' type='text/css'>
+	
 
 </head>
-
-<body id="page-top" class="index">
-
-	<!-- Navigation -->
-	<nav id="mainNav"
-		class="navbar navbar-default navbar-custom navbar-fixed-top">
-	<div class="container">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header page-scroll">
+<body>
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<div class="navbar-white col-md-12" style="z-index: 5000;">
+		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span> Menu <i
-					class="fa fa-bars"></i>
+				data-target=".navbar-main-collapse">
+				Menu <i class="fa fa-bars"></i>
 			</button>
-			<a class="navbar-brand page-scroll" href="#page-top">Start
-				Bootstrap</a>
+			<a class="navbar-brand page-scroll" href="#page-top"> JOB <span
+				class="light">IS</span>
+			</a>
 		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right">
+		<div
+			class="collapse navbar-collapse navbar-right navbar-main-collapse">
+			<ul class="nav navbar-nav">
 				<li class="hidden"><a href="#page-top"></a></li>
-				<li><a class="page-scroll" href="#services">Services</a></li>
-				<li><a class="page-scroll" href="#portfolio">Portfolio</a></li>
-				<li><a class="page-scroll" href="#about">About</a></li>
-				<li><a class="page-scroll" href="#team">Team</a></li>
-				<li><a class="page-scroll" href="#contact">Contact</a></li>
+				<li><a class="page-scroll" href="/join">È¸¿ø°¡ÀÔ</a></li>
+				<li><a href="" data-target="#myModal" type="button" data-toggle="modal"
+				class="page-scroll btn btn-xl" id="myBtn">·Î±×ÀÎ</a></li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse -->
 	</div>
-	<!-- /.container-fluid --> </nav>
+	</nav>
+	
 
-	<!-- Header -->
-	<header>
-	<div class="container">
-		<div class="intro-text">
-			<div class="intro-lead-in">It's Nice To Meet You</div>
-			<div class="intro-heading">Welcome To JOB-IS!</div>
-			<!-- <a href="/login" class="page-scroll btn btn-xl">LOGIN</a> -->
-			<a href="" data-target="#myModal" type="button" data-toggle="modal"
+	<div id="mov" >
+		<header class="intro">
+		<div id="wrapper">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1 class="brand-heading">
+			
+					<br><br><br>It's Nice To Meet You
+				</h1>
+				<p class="intro-text">
+					Welcome To JOB-IS!
+				</p>
+				<a href="#myModal" data-target="#myModal" type="button" data-toggle="modal"
 				class="page-scroll btn btn-xl" id="myBtn">Log in</a>
-
-			<div>${sessionScope.etp_infor.etp_id }ë‹˜ì–´ì„œì˜¤ì„¸ìš”
-				${sessionScope.member_infor.member_id }ë‹˜ ì–´ì„œì˜¤ì„¸ìš”</div>
-
-
-
+			<!-- 	<a href="#about" class="btn btn-circle page-scroll">
+				</a> -->
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+		</header>
+	</div>
+	
+	<div id="wrapper" class="col-lg-12"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<section id="about" class="content-section text-center">
+	<div class="row">
+		<div class="col-lg-12" id="back">
+			<br><br>
+			<h3 id="text1">ÇÑ´«¿¡ º¸´Â</h3>
+			<h2 id="text2">ÀâÀÌÁî ¼­ºñ½º °¡ÀÌµå</h2>
+			<h4>ÀâÀÌÁî´Â Å¬¶óÀÌ¾ğÆ®¿Í ±â¾÷ÀÌ ÇÔ²²ÇÏ´Â Ãë¾÷ Æ÷Å» ÀÔ´Ï´Ù.</h4>
+			<br> <br> <img src="../../../../resources/css/main/img/main_img.png" width=auto
+				height="200"> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br><br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br>
+			<img src="../../../../resources/css/main/img/estimateBg.png" width="400px"
+				height=auto> 
+		</div>
+		<div class="col-lg-12" id="footer_foot">
+			<div class="container" id="footer_con_div">
+			<a id="footer_con">È¸»ç¼Ò°³</a>
+			<a id="footer_con">ÀÌ¿ë¹æ¹ı</a>
+			<a id="footer_con">ÀâÀÌÁî</a>
+			<a id="footer_con">ÀÌ¿ë¾à°ü</a>
+			<a id="footer_con">FAQ</a>
+			<a id="footer_con">°³ÀÎÁ¤º¸Ãë±Ş¹æÄ§</a>
+			</div>
+			<hr id="hr_line">
+			<div class="container" id="footer_con_div">
+			<a id="footer_con_detail">(ÁÖ) ÀâÀÌÁî </a><br>
+			<a id="footer_con_detail">´ëÇ¥ÀÌ»ç : ÇÑ¹«¿µ</a><br>
+			<a id="footer_con_detail">CFO : ±è¹ÎÁ¤ ¹Ú¼¼·É ¹ÚÁØ±Ô ¹ÚÂùÇÏ Á¤Çö¿ì ÃÖÇü¹¬  </a><br>
+			<a id="footer_con_detail">»ç¾÷ÀÚµî·Ï¹øÈ£ : 111-1111-1111</a><br>
+			<a id="footer_con_detail">ÁÖ¼Ò : ¼­¿ïÆ¯º°½Ã ±İÃµ±¸ °¡»êµ¿ 371-28</a>
+			</div>
 		</div>
 	</div>
-	</header>
 
-	<!-- Modal -->
+	</section> -->
+	<!--modal  -->
+	
 	<div class="modal fade" id="myModal" aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-40size " role="document">
-			<div class="modal-content">
+			<div class="modal-content" style="z-index: 1">
 				<!-- header -->
 				<div class="modal-header">
-					<!-- ë‹«ê¸°(x) ë²„íŠ¼ -->
-					<button type="button" class="close" data-dismiss="modal">Ã—</button>
+					<!-- ´İ±â(x) ¹öÆ° -->
+					<button type="button" class="close" data-dismiss="modal">¡¿</button>
 					<!-- header title -->
-					<h4 class="modal-title">ë¡œê·¸ì¸</h4>
+					<h4 class="modal-title">·Î±×ÀÎ</h4>
 				</div>
 				<!-- body -->
 				<div class="col-md-3"></div>
@@ -154,61 +154,59 @@
 					<div class="col-md-12">
 						<ul class="row nav-pills">
 							<li class="active"><a href="#person" data-toggle="tab"
-								style="font-size: 20px">ê°œì¸íšŒì›</a></li>
+								style="font-size: 20px">°³ÀÎÈ¸¿ø</a></li>
 							<li><a href="#coper" data-toggle="tab"
-								style="font-size: 20px">ê¸°ì—…íšŒì›</a></li>
+								style="font-size: 20px">±â¾÷È¸¿ø</a></li>
 						</ul>
 
 						<div class="tab-content">
 							<div class="tab-pane active" id="person">
 								<form action="/mem_login" method="post" id="mem_login">
 									<div class="row">
-										<input type="text" name="member_id" placeholder="ì•„ì´ë””"
+										<input type="text" name="member_id" placeholder="¾ÆÀÌµğ"
 											class="form-control" required="required"
 											style="width: 200px; height: 30px; float: left"> <input
-											type="submit" value="ë¡œê·¸ì¸" class="col-md-3 btn btn-info"
+											type="submit" value="·Î±×ÀÎ" class="col-md-3 btn btn-info"
 											style="font-size: 17px; float: right; height: 60px; padding: 0">
 
 										<input type="password" class="form-control" name="member_pwd"
-											placeholder="ë¹„ë°€ë²ˆí˜¸" required="required"
+											placeholder="ºñ¹Ğ¹øÈ£" required="required"
 											style="width: 200px; height: 30px; float: left;">
 
 									</div>
 									<div class="row">
 										<a class="col-md-4" type="button" href="/join"
-											style="font-size: 17px; padding: 0">íšŒì›ê°€ì…</a>&nbsp;&nbsp;&nbsp; <input
+											style="font-size: 17px; padding: 0">È¸¿ø°¡ÀÔ</a>&nbsp;&nbsp;&nbsp; <input
 											type="checkbox" value="auto" name="autologin"
 											class="auto col-md-1" style="border-radius: 5px;"> <a
-											class="col-md-6" style="font-size: 17px; padding: 0">ìë™ë¡œê·¸ì¸</A>
+											class="col-md-6" style="font-size: 17px; padding: 0">ÀÚµ¿·Î±×ÀÎ</A>
 
 									</div>
-
-
 
 								</form>
 							</div>
 
 							<div class="row tab-pane" id="coper">
 								<form action="/etp_login" method="post">
-									<input type="text" name="etp_id" placeholder="ê¸°ì—…ì•„ì´ë””"
+									<input type="text" name="etp_id" placeholder="±â¾÷¾ÆÀÌµğ"
 										required="required"
 										style="width: 200px; height: 30px; float: left"
-										class="form-control"> <input type="submit" value="ë¡œê·¸ì¸"
+										class="form-control"> <input type="submit" value="·Î±×ÀÎ"
 										class="col-md-3 btn btn-info"
 										style="font-size: 17px; float: right; height: 60px; padding: 0">
 
-									<input type="password" name="etp_pass" placeholder="ë¹„ë°€ë²ˆí˜¸"
+									<input type="password" name="etp_pass" placeholder="ºñ¹Ğ¹øÈ£"
 										class="form-control"
 										style="width: 200px; height: 30px; float: left;">
 
 									<div class="row">
 										<a class="col-md-4" type="button" href="/join"
-											style="font-size: 17px; padding: 0">íšŒì›ê°€ì…</a>
+											style="font-size: 17px; padding: 0">È¸¿ø°¡ÀÔ</a>
 											 <input
 											type="checkbox" value="auto" name="autologin"
 											class="auto  col-md-1"
 											style="border-radius: 5px;"><a
-											class="col-md-6" style="font-size: 17px; padding: 0">ìë™ë¡œê·¸ì¸</a>
+											class="col-md-6" style="font-size: 17px; padding: 0">ÀÚµ¿·Î±×ÀÎ</a>
 
 
 									</div>
@@ -224,13 +222,19 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- 
-</head>
-<body>
-<div>
-<a href="/login">sadsad</a>
-</div>
+	
+	
 </body>
-</html> -->
+
+
+<script type="text/javascript">
+
+var waring = function(event){
+	event.preventDefault();
+	alert(${sessionScope.member_infor.member_id} +"´Ô ·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù");
+	location.href="/mem_logout"
+	
+}
+
+</script>
+</html>

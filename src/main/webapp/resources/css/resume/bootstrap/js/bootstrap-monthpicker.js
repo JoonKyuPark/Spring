@@ -88,7 +88,7 @@
                         ' <span></span> ',
                         '<i class="mp-year-next glyphicon glyphicon-circle-arrow-right"></i>',
                     '</div>',
-                    '<div class="mp-content">',
+                    '<div class="mp-content col-md-12">',
                         '<ul></ul>',
                     '</div>',
                 '</div>'
@@ -99,7 +99,7 @@
             this.$content = this.$dialog.find('.mp-content ul');
             this.$dialog.insertAfter(this.$el);
             $.each(months, function(i, m) {
-                html.push('<li data-month="' + i + '"' +
+                html.push('<li class="col-md-4" data-month="' + i + '"' +
                     (i === that.month ? ' class="active"' : '') + '>',
                         m,
                     '</li>');

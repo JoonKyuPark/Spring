@@ -19,38 +19,20 @@
 	href="../../../../resources/css/exam/bootstrap-theme.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="../../../../resources/css/exam/etp_Quesiton_List.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../../../resources/css/exam/etp_Quesiton_List.css" />
 <link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2/xeicon.min.css">
 <link rel="stylesheet"
 	href="../../../../resources/css/recruit/mem/sweetalert.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Q U E S T I O N L I S T</title>
-<style type="text/css">
-table {
-	table-layout: fixed !important;
-}
-
-.question_content {
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-td {
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-th {
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-</style>
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
 
 	<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
-		<div class="col-md-12 questionListForm">
+		<div class="col-md-10 questionListForm">
 			<h2>Q U E S T I O N &nbsp; L I S T</h2>
 			<br>
 			<div class="col-md-12">
@@ -80,6 +62,7 @@ th {
 					</button></a>
 			</div>
 		</div>
+		<div class="col-md-2"></div>
 	</div>
 </body>
 </html>

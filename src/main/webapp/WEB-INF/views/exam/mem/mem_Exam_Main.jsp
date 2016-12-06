@@ -41,7 +41,8 @@
 								class="exam_ddate">
 						</c:forEach>
 						<div class="col-md-12" align="left"><h2> J O B I X A M &nbsp; C a l e n d a r </h2></div><br>
-						<div class="col-md-12" id="calendar"></div>
+						<div class="col-md-10" id="calendar"></div>
+						<div class="col-md-2"></div>
 					</div>
 
 </body>

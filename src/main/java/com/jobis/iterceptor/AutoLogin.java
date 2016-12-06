@@ -81,7 +81,7 @@ public class AutoLogin extends HandlerInterceptorAdapter {
 			response.sendRedirect("/etp_login");
 		} else if (vo2 != null) {
 
-			response.sendRedirect("mem_login");
+			response.sendRedirect("/mem_login");
 		}
 
 		return true;

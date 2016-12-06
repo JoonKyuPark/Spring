@@ -88,7 +88,14 @@ function date_check() {
 			closeOnConfirm : false
 		});
 		return;
-	}
-	;
-	$('#exam_registForm').submit();
+	}else
+	swal({
+		title : " ",
+		text : '시험이 등록되었습니다.',
+		type:'success',
+		confirmButtonText:'확인',
+		closeOnConfirm : false
+	},function(){
+		$('#exam_registForm').submit();
+	});
 };

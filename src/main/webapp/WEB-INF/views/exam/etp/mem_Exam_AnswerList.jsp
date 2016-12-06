@@ -7,133 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="../../../../resources/js/exam/jquery-3.1.1.js"></script>
 <script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
+<script src="../../../../resources/js/exam/mem_Exam_AnswerList.js"></script>
 <script src="../../../../resources/js/exam/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="../../../../resources/css/recruit/mem/sweetalert.css">
+<link rel="stylesheet"
+	href="../../../../resources/css/exam/mem_Exam_AnswerList.css">
 <link href="../../../../resources/css/exam/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
-<title>Insert title here</title>
-<script>
-	window.onload = function() {
-		
-		
-		$('.answer_info').click(function() {
-			if ($(this).parent().next().attr('style') == 'display: none;') {
-				$(this).parent().next().show(500);
-			} else {
-				$(this).parent().next().hide();
-			}
-
-		});
-
-		$('.correctBtn').click(
-				function() {
-					var ans_no = $(this).val();
-					var btn = $(this)
-					$.ajax({
-						type : 'GET',
-						datatype : 'text',
-						url : 'etp_Member_toCorrect?ans_no=' + ans_no,
-						success : function(data) {
-
-							btn.parent().parent().prev().find('label').empty();
-
-							btn.parent().parent().prev().append(
-									'<label>정답 여부 : 정답</label>');
-							swal({
-								title : " ",
-								text : '정답처리 되었습니다.',
-								type:'success',
-								confirmButtonText:'확인',
-								closeOnConfirm : false
-							});
-						}
-					});
-				});
-		$('.incorrectBtn').click(
-				function() {
-					var ans_no = $(this).val();
-					var btn = $(this)
-					$.ajax({
-						type : 'GET',
-						datatype : 'text',
-						url : 'etp_Member_toIncorrect?ans_no=' + ans_no,
-						success : function(data) {
-							btn.parent().parent().prev().find('label').empty();
-
-							btn.parent().parent().prev().append(
-									'<label>정답 여부 : 오답</label>');
-							swal({
-								title : " ",
-								text : '오답처리 되었습니다.',
-								type:'error',
-								confirmButtonText:'확인',
-								closeOnConfirm : false
-							});
-						}
-					});
-				});
-	}
-</script>
-<style type="text/css">
-body {
-	font-family: '나눔고딕 !important';
-}
-
-table {
-	width: 100%;
-
-	margin-top : 1%;
-
-}
-
-.td {
-	padding: 0px;
-	background : #FFF3F3;
-
-}
-th{
-	background : #fce4e2;
-	
-}
-textarea {
-	width: 100%;
-}
-
-.question_answer {
-	border: 3px solid #DADADA !important;
-	border-radius: 10px;
-	padding: 3%;
-}
-.btn-info{
-	border : 2px solid  #f6b9b3!important;
-	background: #f6b9b3 !important;
-}
-.btn_info:HOVER{
-	border : 2px solid  #f6b9b3!important;
-	background : #fce4e2 !important;
-}
-.answer_info {
-	border-bottom: 3px solid #DADADA !important;;
-	padding-top: 1%;
-	padding-bottom: 1%;
-}
-
-.btn_th {
-	border-bottom: 3px solid #DADADA !important;
-}
-.outerDiv{
-	height : 1050px;
-	background : white;
-}
-</style>
+<title></title>
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
 
 					<div class="col-md-10 col-sm-10 col-xs-10 outerDiv">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
+
+						<div class="col-md-10">
 							<h2>회원 정답 목록</h2>
 							<table class="table table-hover">
 								<c:forEach var="i" items="${mem_answer }">
@@ -162,11 +51,7 @@ textarea {
 								</c:forEach>
 							</table>
 						</div>
-						<div class="col-md-3"></div>
+						<div class="col-md-2"></div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

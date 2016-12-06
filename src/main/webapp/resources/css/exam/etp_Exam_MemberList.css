@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+body {
+   font-family: '나눔고딕 !important';
+}
+
+table {
+   width: 100%;
+   margin-top : 1%;
+}
+
+tr {
+   height: 40px;
+}
+
+th {
+   text-align: center;
+   background: #fce4e2;
+}
+td a {
+	text-decoration: none;
+	color : black !important;
+}
+td {
+   background: #FFF3F3;
+   border-top: 1px solid #DADADA;
+   border-bottom: 1px solid #DADADA;
+   text-align: center;
+}
+
+.outerDiv {
+   height: 1050px;
+   background: white;
+}

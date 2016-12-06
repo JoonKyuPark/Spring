@@ -36,8 +36,16 @@ public class Mem_Resume_allDTO {
 	private String responibility_field;
 	private String retire_reasion;
 	
+	private String career_check;
 	
-	
+
+	public String getCareer_check() {
+		return career_check;
+	}
+
+	public void setCareer_check(String career_check) {
+		this.career_check = career_check;
+	}
 
 	
 	public Mem_Resume_allDTO(){}

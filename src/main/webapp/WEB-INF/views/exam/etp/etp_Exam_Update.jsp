@@ -40,9 +40,8 @@
 </head>
 <body>
 	<%@include file="../nav.jsp"%>
-
 					<div class="col-sm-10 col-xs-10 col-md-10outerDiv">
-						<div class="inputExamForm col-md-12">
+						<div class="inputExamForm col-md-10">
 							<h2>M O D I F Y</h2>
 <br>
 							<form action="etp_Exam_Update" id="exam_updateForm" method="post"
@@ -52,7 +51,7 @@
 									name="exam_no" value="${etp_ExamVO.exam_no }"> <input
 									type="hidden" id="exam_show" value="${etp_ExamVO.exam_show }">
 
-								<div class="col-md-12">
+								<div class="col-md-12" style = "margin-bottom : 1%">
 									<div class="col-md-12">
 										<label><i class="xi-align-justify"></i>시험 이름</label>
 									</div>
@@ -63,7 +62,7 @@
 									</div>
 								</div>
 
-								<div class="col-md-12">
+								<div class="col-md-12" style = "margin-bottom : 1%">
 									<div class="col-md-12">
 										<label><i class="xi-align-justify"></i>시험 기간</label>
 									</div>
@@ -96,29 +95,14 @@
 
 								</div>
 
-								<div class="col-md-12">
-									<div class="col-md-12">
-										<label><i class="xi-align-justify"></i>응시인원</label>
-									</div>
-
-									<div class="col-md-4">
-										<input type="text" class="examNumberForm form-control "
-											placeholder="명" name="exam_number"
-											value="${etp_ExamVO.exam_number }"
-											onkeydown="return showKeyCode(event)" id="exam_number">
-									</div>
-
-									<div class="col-md-8"></div>
-								</div>
-
-								<div class="col-md-12">
+								<div class="col-md-12" style = "margin-bottom : 1%">
 									<div class="col-md-12">
 										<label><i class="xi-align-justify"></i>시험과목</label>
 									</div>
 									<div id="selectField" class="col-md-12"></div>
 								</div>
 
-								<div class="col-md-12 showDiv">
+								<div class="col-md-12 showDiv" >
 									<div class="col-md-4">
 										<nobr>
 											<input type="radio" id="show" name="exam_show" value="show">&nbsp;
@@ -136,8 +120,8 @@
 								<div class="col-md-12 btnDiv">
 									<div class="col-md-5"></div>
 									<div class="col-md-1">
-										<input type="button" class="btn btn-info" value="등 록"
-											onclick="date_check()">
+										<button type="button" class="btn btn-info"
+											onclick="date_check()">수 정</button>
 									</div>
 									<div class="col-md-1">
 										<a href="etp_Exam_Main"><input type="button"
@@ -147,10 +131,8 @@
 								</div>
 							</form>
 						</div>
+						<div class="col-md-2"></div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 </body>
 </html>

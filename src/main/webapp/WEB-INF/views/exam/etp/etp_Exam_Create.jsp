@@ -14,10 +14,6 @@
 <script type="text/javascript"
 	src="../../../../resources/js/exam/jquery-3.1.1.min.js" charset="UTF-8"></script>
 <script src="../../../../resources/js/recruit/mem/sweetalert.min.js"></script>
-<script type="text/javascript"
-	src="../../../../resources/js/exam/vendor.js"></script>
-<script type="text/javascript"
-	src="../../../../resources/js/exam/app.js"></script>
 
 <script type="text/javascript"
 	src="../../../../resources/js/exam/bootstrap.js"></script>
@@ -64,13 +60,13 @@
 <body id="Etp_Exam_Reg">
 	<%@include file="../nav.jsp"%>
 					<div class="col-sm-10 col-xs-10 col-md-10 outerDiv">
-							<div class="inputExamForm col-md-12">
+							<div class="inputExamForm col-md-10">
 								<h2>R E G I S T R A T I O N</h2>
 								<br>
 								<form role="form" action="etp_Exam_Create" id="exam_registForm"
 									method="post">
 
-									<div class="col-md-12">
+									<div class="col-md-12" style = "margin-bottom : 1%">
 										<div class="col-md-12">
 											<label><i class="xi-align-justify"></i>시험 이름</label>
 										</div>
@@ -81,9 +77,7 @@
 										</div>
 									</div>
 
-									<br> <br>
-
-									<div class="col-md-12">
+									<div class="col-md-12" style = "margin-bottom : 1%">
 										<div class="col-md-12">
 											<label><i class="xi-align-justify"></i>시험 기간</label>
 										</div>
@@ -115,30 +109,13 @@
 
 									</div>
 
-									<br> <br>
-									<div class="col-md-12">
-										<div class="col-md-12">
-											<label><i class="xi-align-justify"></i>응시인원</label>
-										</div>
-
-										<div class="col-md-4">
-											<input type="text" class="examNumberForm form-control"
-												name="exam_number" id="exam_number"
-												onkeydown="return showKeyCode(event)" placeholder="명">
-										</div>
-
-										<div class="col-md-8"></div>
-									</div>
-
-									<br> <br>
-
-									<div class="col-md-12">
+									<div class="col-md-12" style = "margin-bottom : 1%">
 										<div class="col-md-12">
 											<label><i class="xi-align-justify"></i>시험과목</label>
 										</div>
-										
+											<div class="col-md-4">
 											<select name="exam_field" id="exam_field"
-												class="selectpicker col-md-4">
+												class="form-control">
 												<option selected="selected">선택</option>
 												<option value="Korean">문학</option>
 												<option value="English">영어</option>
@@ -147,7 +124,7 @@
 												<option value="History">역사</option>
 												<option value="IT">IT</option>
 											</select>
-										
+										</div>
 									</div>
 
 
@@ -165,6 +142,7 @@
 									</div>
 								</form>
 							</div>
+							<div class="col-md-2"></div>
 						</div>
 </body>
 </html>

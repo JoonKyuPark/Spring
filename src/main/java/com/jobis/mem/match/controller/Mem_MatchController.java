@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jobis.etp.recruit.domain.Etp_RecruitVO;
 import com.jobis.mem.login.domain.Mem_LoginVO;
@@ -20,8 +21,9 @@ public class Mem_MatchController {
 	@Inject
 	private Mem_MatchService Mem_MatchService;
 	
+	@ResponseBody
 	@RequestMapping("/mem_matching")
-	public String mem_matching(Model model , HttpSession session)
+	public 	List<Etp_RecruitVO>  mem_matching(Model model , HttpSession session)
 	{
 
 		
@@ -29,12 +31,23 @@ public class Mem_MatchController {
 	
 		if(Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor"))!= null){
 			model.addAttribute("matchinglist",Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor")) );
-			List<Etp_RecruitVO> f= (List<Etp_RecruitVO>)Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor"));
-			/*System.out.println(f.get(0).getMax_pay());*/
+			List<Etp_RecruitVO> list= (List<Etp_RecruitVO>)Mem_MatchService.mem_matching((Mem_LoginVO)session.getAttribute("member_infor"));
+
+		return list;
 		}else{
 		
 		}
-		return "/join/main/mem_matching";
+		return null;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
