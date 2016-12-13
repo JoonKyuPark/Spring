@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+body{
+	font-family : '나눔고딕' !important;
+}
+
+
+.examNumberForm {
+	text-align: right;
+}
+
+#selectPicker {
+	border: 1px solid #E7EDEE;
+	border-radius: 5px;
+	height: 35px;
+	width:
+}
+.btn-info{
+	background : #60d588 !important;
+	border : 2px solid #60d588 !important;
+}
+.btn-info:hover{
+	background : #60d588 !important;
+	border : 2px solid #60d588 !important;
+}
+.outerDiv {
+	background: white;
+	height: 2000px;
+}
+
+.btnDiv {
+	margin-top: 3%;
+}
+
+.showDiv {
+	margin-top: 1%;
+}

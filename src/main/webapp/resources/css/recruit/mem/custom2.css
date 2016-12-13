@@ -1,0 +1,18 @@
+<<<<<<< HEAD
+@font-face{
+  font-family:'NanumBarunGothic';
+  src:url("../fonts/NanumBarunGothic.eot");
+  src:local("☺"),url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+body { font-family: "Helvetica Neue", Helvetica, Arial,"NanumBarunGothic",  sans-serif; }
+=======
+@font-face {
+	font-family: 'NanumBarunGothic';
+	src: url("../fonts/NanumBarunGothic.eot");
+	src: local("☺"), url("../fonts/NanumBarunGothic.woff") format("woff");
+}
+
+body {
+}
+>>>>>>> refs/remotes/HanMuYoung/ParkSeRyoung3

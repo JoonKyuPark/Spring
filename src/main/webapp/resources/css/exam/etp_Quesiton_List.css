@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+body{
+	font-family : '나눔고딕' !important;
+}
+td a {
+	text-decoration: none;
+	color : black !important;
+}
+#etp_Question_Table {
+	width: 100%;
+	table-layout : fixed !important;
+}
+
+#etp_Question_Table th {
+	text-align: center;
+	background : #ffecdf;
+}
+
+#etp_Question_Table td {
+	text-align: center;
+	background : #FFF3EB;
+}
+
+#etp_Question_Table tr {
+	height: 40px;
+}
+
+.outerDiv {
+	background: white;
+	height: 2000px;
+}
+.questionListForm{
+}
+
+.btn-info{
+	background : #fecda9 !important;
+	border : 0 !important;
+}
+.btn-info:hover{
+	background : #fecda9 !important;
+	border : 0 !important;
+}

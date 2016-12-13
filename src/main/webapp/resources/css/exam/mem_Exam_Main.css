@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.outerDiv {
+	background: white;
+	height: 2000px;
+}
+body{
+	font-family : '나눔고딕' !important;
+}
+#calendar {
+	margin-top : 2%;
+}
