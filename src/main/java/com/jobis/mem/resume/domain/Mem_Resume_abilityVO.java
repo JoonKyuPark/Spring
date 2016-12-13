@@ -84,8 +84,5 @@ public class Mem_Resume_abilityVO {
 	public void setEd_division(int ed_division) {
 		this.ed_division = ed_division;
 	}
-
-	
-
 	
 }

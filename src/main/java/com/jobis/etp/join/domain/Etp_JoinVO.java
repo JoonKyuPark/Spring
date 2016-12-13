@@ -24,7 +24,6 @@ public class Etp_JoinVO {
 	private String etp_pass;
 	private String etp_tel;
 	private String etp_email;
-
 	private String etp_kind;
 	private String etp_registration_num;
 	private String delegator_name;

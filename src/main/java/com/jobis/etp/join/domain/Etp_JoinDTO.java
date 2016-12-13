@@ -10,8 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Etp_JoinDTO {
 	
-	public Etp_JoinDTO() {}
 	
+	
+	
+	public Etp_JoinDTO() {
+		super();
+	}
 	private int etp_no;
 	private String etp_name;    //가입자명
 	private String etp_id;
@@ -146,6 +150,24 @@ public class Etp_JoinDTO {
 	}
 	public void setEtp_image(String etp_image) {
 		this.etp_image = etp_image;
+	}
+	
+	
+	
+	public void pass(){ //암호화
+		System.out.println("22222");
+		String pass= this.etp_pass;
+		System.out.println("입력비밀번호"+pass);
+		String c = "";
+		int key=(int)Math.random()*10+1;
+		for (int i = 0; i < pass.length(); i++) {
+			pass.substring(i);
+			System.out.println((int) pass.substring(i, i + 1).charAt(0));
+			c += (int) pass.substring(i, i + 1).charAt(0) + key + ",";
+		}
+		c+=key;
+		System.out.println(c);
+		this.etp_pass= c;
 	}
 	
 	

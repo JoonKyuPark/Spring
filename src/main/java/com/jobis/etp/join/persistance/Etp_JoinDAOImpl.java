@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.domain.Etp_JoinVO;
+import com.jobis.etp.join.domain.Etp_JoinDTO;
 
 
 
@@ -27,9 +28,15 @@ public class Etp_JoinDAOImpl implements Etp_JoinDAO{
 	
 
 	@Override
+
+/*	public void etp_JoinDAO_create(Etp_joinDTO joindto) {
+ sqlsession.insert(namespace+".etp_create", joindto);
+ * */
+
 	public void etp_JoinDAO_create(Etp_JoinDTO dto) {
-		
+
 		sqlsession.insert(namespace+".etp_create", dto);
+
 		
 	}
 	

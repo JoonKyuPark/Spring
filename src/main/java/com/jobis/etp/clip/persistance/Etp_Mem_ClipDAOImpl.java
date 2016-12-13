@@ -17,7 +17,7 @@ public class Etp_Mem_ClipDAOImpl implements Etp_Mem_ClipDAO {
 	@Inject
 	private SqlSession sqlSession;
 
-	private static final String namespace = "org.spring.project.mappers.Mem_Clip_Mapper";
+	private static final String namespace = "org.spring.project.mappers.Etp_Clip_Mapper";
 
 	@Override
 	public void insert(Etp_Mem_ClipDTO dto) {

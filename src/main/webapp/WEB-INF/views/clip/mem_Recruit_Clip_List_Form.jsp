@@ -42,10 +42,14 @@
 
 					});
 		}
+		
+		 function button1_click(no) {
+			 window.open('/receive/mem_Join_Receive_Create_Form?rno='+no,'name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
+		 }
 	</script>
 </head>
 <body>
-
+<%@include file="../receive/mem_Join_Receive_nav.jsp"%>
 	<div class="row">
 		<div class="col-sm-12 col-xs-12">
 			<div class="card">
@@ -80,8 +84,7 @@
 											<a
 												href="Member_Recruit_Detail.jsp?id=${recruit_clip_List[i].recruit_no}">${recruit_List[i].recruit_title}</a>
 										</h4>
-									<td align="center"><input type="button" id="button1" 
-									onclick="button1_click(${recruit_clip_List[i].recruit_no})" value="지원하기" /></td>
+									<td align="center"><input id="button1" type="button" onclick="button1_click(${recruit_clip_List[i].recruit_no})" value="지원하기" /></td>
 								</tr>
 
 							</c:forEach>

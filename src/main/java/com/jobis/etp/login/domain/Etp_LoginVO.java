@@ -141,5 +141,22 @@ public class Etp_LoginVO {
 		this.clip_number = clip_number;
 		this.etp_image = etp_image;
 	}
+	
+	public void pass(){  //복호화
+		String c = this.etp_pass;
+		int key2= Integer.parseInt((c.substring(c.length()-1)));
+		String[] r = c.split(",");
+		String pass2 = "";
+		
+		for (int k = 0; k < r.length-1; k++) {
+			int y = Integer.parseInt(r[k]);
+			pass2 += Character.toString((char) (y - key2));
+
+			System.out.println(pass2);
+
+		}
+		this.etp_pass=pass2;
+		
+	}
 
 }

@@ -5,6 +5,25 @@
   
 <mapper namespace="org.spring.project.mappers.Mem_Exam_Mapper">
 
+	<select parameterType="int" resultType="Etp_ExamVO" id="mem_Exam_List"> select e.exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show from exam_infor e, join_receive j where e.exam_no = j.exam_no and (select member_no from resume where resume_no=j.resume_no) = #{member_no} and exam_show = 'show' and j.exam_count = 0 </select>
+
+<update parameterType="Mem_CountVO" id="mem_Exam_Count"> update join_receive j set exam_count=1 where (select member_no from resume r where resume_no = j.resume_no) = #{member_no} and exam_no=#{exam_no} </update>
+
+
+-<select parameterType="int" resultType="Etp_ExamVO" id="all_Exam_List">
+select e.exam_no, exam_sdate, exam_ddate, exam_name, exam_number, exam_field, etp_no, exam_show from exam_infor e, join_receive j 
+<if test="value != null">where e.exam_no = j.exam_no and (select member_no from resume where resume_no=j.resume_no)= ${value}</if>
+
+</select>
+
+<select parameterType="Mem_QuestionVO" resultType="Etp_QuestionVO" id="mem_Question_List"> select * from exam_question where exam_no = #{exam_no} and exam_question_no = #{exam_question_no} </select>
+
+<select parameterType="Mem_QuestionVO" resultType="int" id="mem_Quesiton_Max"> select max(exam_question_no) from exam_question where exam_no = #{exam_no} </select>
+
+<insert parameterType="Mem_AnswerVO" id="mem_Answer_Create"> insert into answer(ans_no, question_answer, question_no, member_no, correct_answer) values(seq_answer.nextval, #{question_answer}, #{question_no}, #{member_no}, #{correct_answer}) </insert>
+
+<select parameterType="int" resultType="Etp_QuestionVO" id="select_Exam_Answer"> select * from exam_question where question_no = #{question_no} </select>
+	
 </mapper>  
 
  

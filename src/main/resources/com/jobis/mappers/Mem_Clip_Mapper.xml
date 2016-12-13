@@ -5,14 +5,23 @@
 
 <mapper namespace="org.spring.project.mappers.Mem_Clip_Mapper">
 
-	<insert id="insertMemClip" parameterType="Etp_Mem_ClipVO">
-		insert into mem_clip(mem_clip_no, etp_no, member_no, mem_clip_title, eval_memo, mem_clip_date)
-		VALUES(seq_mem_clip.nextval, #{etp_no}, #{member_no}, #{mem_clip_title}, #{eval_memo}, sysdate)
+
+<insert parameterType="Mem_ClipVO" id="mem_clip_create"> insert into recruit_clip( recruit_clip_no, recruit_clip_date, recruit_no, member_no ) values( recruit_clip_seq.nextval, SYSDATE, #{recruit_no}, #{member_no} ) </insert>
+
+<select id="mem_Clip_List" resultType="Mem_ClipVO"> select * from recruit_clip where member_no=#{member_no} </select>
+
+<select id="mem_Clip_Count" resultType="int"> select count(*) from recruit_clip where recruit_no=#{recruit_no} </select>
+
+<!-- 
+	<insert id="insertMemClip" parameterType="Etp_Mem_ClipDTO">
+		insert into mem_clip(mem_clip_no, etp_no, resume_no, mem_clip_title, mem_clip_date)
+		VALUES(seq_mem_clip.nextval, #{etp_no}, #{resume_no}, #{mem_clip_title}, sysdate)
 	</insert>
 
-	<select id="mem_clip_list" resultType="Etp_Mem_ClipVO">
-		select *
-		from mem_clip
+	<select id="mem_clip_list" resultType="Etp_Mem_ClipDTO">
+		select c.mem_clip_no,c.etp_no,c.mem_clip_title,c.eval_memo,c.mem_clip_date,i.member_img 
+		from member_infor i, mem_clip c
+		where i.resume_no = c.resume_no
 	</select>
 	
 	<select id="mem_resume_read" resultType="Mem_Resume_ClipDTO" parameterType="int">
@@ -28,6 +37,13 @@
 		update mem_clip set eval_memo =#{eval_memo} 
 		where mem_clip_no = #{mem_clip_no}
 	</update>	
+
+	<insert id="alarm_insert" parameterType="AlarmDTO">
+		insert into notice_center(notice_no,notice_type,notice_name,notice_date,notice_time,notice_check,member_no,mem_submit_no,exam_question_no,smart_match_no) 
+		values(#{notice_no},#{notice_type},#{notice_name},sysdate,#{notice_time},#{notice_check},#{member_no},#{mem_submit_no},#{exam_question_no},#{smart_match_no})
+	</insert> -->
+
+
 
 	<!-- <insert id="mem_clip_create" parameterType="Mem_ClipVO">
 		insert into

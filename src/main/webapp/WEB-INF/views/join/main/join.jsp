@@ -14,65 +14,24 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link href="../../../../resources/css/main/mbr_common.css"
+	rel="stylesheet">
+<!-- <link href="../../../../resources/css/main/mbr_tpl.css" rel="stylesheet">
+	<link href="../../../../resources/css/main/mbr_style.css" rel="stylesheet"> -->
 
-<style type="text/css">
+<!-- <style type="text/css">
 /* 탭 메뉴*/
-#header .snb {
-	margin-top: 40px;
-	position: relative;
-}
-/*#header .snb li span,*/
-#header .snb>li {
-	float: left;
-	width: 50%;
-	height: 55px;
-	box-sizing: border-box;
-	color: #666;
-	font-size: 18px;
-	font-weight: normal;
-	letter-spacing: -0.5px;
-	text-align: center;
-	font-family: 'Malgun Gothic', '맑은고딕', '돋움', Dotum, sans-serif;
-}
 
-#header .snb>li.person {
-	background-color: #f2f3f5;
-	border-top: 1px solid #cecece;
-	border-right: transparent;
-	border-bottom: 2px solid #3399ff;
-	border-left: 1px solid #cecece;
 }
-
-#header .snb>li.corp {
-	background-color: #f2f3f5;
-	border-top: 1px solid #cecece;
-	border-right: 1px solid #cecece;
-	border-bottom: 2px solid #3399ff;
-	border-left: transparent;
-}
-
-#header .snb>li.on {
-	font-size: 20px;
-}
-
-#header .snb>li>a {
-	overflow: hidden;
-	display: block;
-	height: 100%;
-	background: none;
-	white-space: nowrap;
-	text-indent: 0;
-	color: #666;
-	box-sizing: border-box;
-	padding-top: 12px;
-}
-</style>
+</style> -->
+<!------- JQUERY -------->
 <!------- JQUERY -------->
 
 <script type="text/javascript">
 	window.onload = function() {
 
 		$("#mem_idCheck").on("keyup", function() {
+			
 			$("#mem_check").attr("checked", false);
 		});
 		$("#etp_idCheck").on("keyup", function() {
@@ -90,13 +49,14 @@
 
 	};
 
-	var check = function() {
+	var check = function(event) {
+		event.preventDefault();
 		if (document.getElementById("agree").checked) {
 			if (document.getElementById("agree2").checked) {
 				if (document.getElementById("mem_check").checked) {
-					document.getElementById("member_join").submit
+					document.getElementById("member_join").submit();
 				} else if (document.getElementById("etp_check").checked)
-					document.getElementById("etp_join").submit
+					document.getElementById("etp_join").submit();
 				else {
 					alert("아이디 중복체크를 해주세요")
 				}
@@ -130,7 +90,7 @@
 			alert(result)
 			if (result == "0") {
 				alert("사용할수 있는 아이디 입니다")
-				$("#etp_check").attr("checked", tr0.ue);
+				$("#etp_check").attr("checked", true);
 			} else {
 				alert("사용할 수 없는 아이디입니다")
 				$("#etp_check").attr("checked", false);
@@ -153,7 +113,7 @@
 		</form>
 	</div>
 
-	<div name="main_menu" class="container">
+	<div  class="container">
 		<ul class="nav nav-pills">
 			<li><a href="../main/mainDisplay.jsp">홈</a></li>
 			<li><a href="../main/update.jsp">마이페이지</a></li>
@@ -168,25 +128,26 @@
 	<br>
 	<br>
 	<br>
-	<div class="container" id="header">
-		<ul class="snb nav nav-tabs ">
-			<li class="active person " id="member"><a href="#person"
-				data-toggle="tab"">개인회원</a></li>
+	<div class="row" id="header">
+		<div class="col-md-2"></div>
+		<ul class="snb nav nav-tabs col-md-8">
+			<li class="active person" id="member"><a href="#person"
+				data-toggle="tab">개인회원</a></li>
 			<li class="" id="etp"><a href="#coper" data-toggle="tab"
 				id="etp">기업회원</a></li>
 		</ul>
 	</div>
 
-	</div>
 	<br>
 	<br>
-
-	<div align="center">회원 약관</div>
+<form role="form">
+	<div align="center" style="font-size: 25px" class="title">회원 약관</div><br>
 	<div>
-		<div class="container">
-			<textarea rows="20" cols="50" class="col-md-12" readonly="readonly"
+		<div class="row"  style="display: block;">
+			<textarea rows="20" cols="30" class=" col-md-offset-3 col-md-6 form-controll" readonly="readonly"id="text1"
 				disabled="disabled">
-	제 1 조 (목적)
+        
+   제 1 조 (목적)
 본 약관은 잡코리아 유한회사 (이하 "회사")가 운영하는 "서비스"를 이용함에 있어 "회사"와 회원간의 이용 조건 및 제반 절차, 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 한다.
 제 2 조 (용어의 정의)
 이 약관에서 사용하는 용어의 정의는 아래와 같다.
@@ -377,17 +338,31 @@
 ② 전항의 노력에도 불구하고, 동 분쟁에 관한 소송은 "회사"의 주소지 관할법원으로 한다.
 부칙
 - 이 약관은 2015년 7월 31일부터 시행한다. 다만, 제19조 제6항은 정보통신망 이용촉진 및 정보보호 등에 관한 법률 시행령에 따라 2015년 8월 18일부터 시행한다.
-	</textarea>
+   </textarea>
 		</div>
 	</div>
-	<div class="container">
-		위 약관에 동의 합니다(필수)<input type="checkbox" id="agree"> <br> <br>
-		<div class="container">
-			<div align="center">개인정보 약관</div>
-
-			<textarea rows="20" cols="50" class="col-md-12" readonly="readonly"
-				disabled="disabled" class="row">
-1. 개인정보의 수집 및 이용목적
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-2">
+			위 약관에 동의 합니다(필수)<input type="checkbox" id="agree">
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	</form>
+	
+	
+	
+	
+	<form role="form">
+	<div align="center" style="font-size: 25px" class="title">개인정보 약관</div><br>
+	<div>
+		<div class="row"  style="display: block;">
+			<textarea rows="20" cols="30" class=" col-md-offset-3 col-md-6 form-controll" id="text2" readonly="readonly"
+				disabled="disabled">
+	1. 개인정보의 수집 및 이용목적
 
 회원의 취업과 인재채용 활동을 매개하는 온라인 리크루팅 사이트인 잡코리아, 알바몬, HR파트너스, 데브잡, 캠퍼스몬, 잡부산(이하 "사이트")은 효과적인 취업지원 · 인재채용 · 경력개발에 적합한 서비스를 제공하기 위하여 개인정보를 수집하고 있으며 수집된 정보를 아래와 같이 이용하고 있습니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.
 1) 회원관리 
@@ -404,11 +379,11 @@
 2. 수집하는 개인정보 항목 및 수집방법
 
 "사이트"에서는 별도의 회원가입 절차 없이 특정 유료 서비스를 제외한 대부분의 컨텐츠에 자유롭게 접근할 수 있으며, 회원제 서비스를 이용하시려면 필수항목을 입력하여야 하며 선택항목을 입력하지 않더라도 서비스 이용에 제한을 두지 않습니다.
-가. 수집하는 개인정보의 항목 1) 회원가입 시 수집하는 항목 필수항목: 이름, 아이디, 비밀번호, 휴대폰번호, e-메일, 생년월일(알바몬), 성별(알바몬)
+가. 수집하는 개인정보의 항목 1) 회원가입 시 수집하는 항목 필수항목: 이름, 아이디, 비밀번호, 휴대폰번호, E-메일, 생년월일(알바몬), 성별(알바몬)
 선택항목: 이메일 수신 설정, SMS/MMS 수신 설정, 가입경로(알바몬)
 페이스북 등 외부 서비스와의 연동을 통해 이용자가 설정한 계정 정보
 
-2) 이력서 등록 시 수집하는 항목 필수 항목: 이름, 연락처(전화번호/휴대폰/e-메일), 우편번호(알바몬), 주소(알바몬), 학력사항, 근무형태(알바몬), 희망근무지(알바몬), 희망근무일시(알바몬), 자기소개서(알바몬), 생년월일, 성별
+2) 이력서 등록 시 수집하는 항목 필수 항목: 이름, 연락처(전화번호/휴대폰/E-메일), 우편번호(알바몬), 주소(알바몬), 학력사항, 근무형태(알바몬), 희망근무지(알바몬), 희망근무일시(알바몬), 자기소개서(알바몬), 생년월일, 성별
 선택 항목: 사진, 홈페이지, 우편번호, 주소, 고용형태, 희망연봉, 희망근무지, 지원분야(업직종, 키워드), 자기소개서, 희망급여, 근무가능일(알바몬), 경력사항, 취업우대사항(보훈대상, 취업보호대상, 장애여부, 병역사항, 고용지원금대상, 사회활동, 수상내역, 교육이수내용, 자격증, OA능력, 컴퓨터 능력, 해외연수, 어학시험, 외국어 구사능력, 나의 성향, 각오한마디, 포트폴리오, IT/디자인능력(알바몬), 장점/강점(알바몬), 하고싶은 말(알바몬)
 
 3) 유료 정보 이용 시 수집하는 항목
@@ -418,7 +393,7 @@
 
 4) 모바일 서비스 이용 시 수집되는 항목 - 모바일 서비스의 특성상 단말기 모델 정보가 수집될 수 있으나, 이는 개인을 식별할 수 없는 형태입니다.
 5) 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다. 
-- IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록, 광고 ID 
+- IP ADDRESS, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록, 광고 ID 
 
 나. 개인정보 수집방법
 -홈페이지, 서비스 이용, 이벤트 응모, 팩스, 우편, 전화, 고객센터 문의하기 
@@ -436,142 +411,155 @@
 ⑤ 웹사이트 방문기록(로그인 기록, 접속기록): 3개월
 2) 보유기간을 미리 공지하고 그 보유기간이 경과하지 아니한 경우와 개별적으로 동의를 받은 경우에는 약정한 기간 동안 보유합니다.
 3) 개인정보보호를 위하여 이용자가 1년 동안 "사이트"를 이용하지 않은 경우, "아이디"를 "휴면계정"로 분리하여 해당 계정의 이용을 중지할 수 있습니다. 이 경우 "회사"는 "휴면계정 처리 예정일"로부터 30일 이전에 해당사실을 전자메일, 서면, SMS 중 하나의 방법으로 사전통지하며 이용자가 직접 본인확인을 거쳐, 다시 "사이트" 이용 의사표시를 한 경우에는 "사이트" 이용이 가능합니다.
-</textarea>
-
+	   </textarea>
 		</div>
-		개인정보 약관에 동의 합니다(필수)<input type="checkbox" id="agree2">
-
 	</div>
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-2">
+			위 약관에 동의 합니다(필수)<input type="checkbox" id="agree2">
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	</form>
+	
+	
+	
+
 	<br>
 	<br>
 	<div class="tab-content">
 		<div class="tab-pane active" id="person">
-			<form action="join/mem" id="member" method="post">
+			<form action="join/mem" id="member_join" method="post"  	>
 
 				<input type="hidden" name="id" value="1">
-				<div class="container">
-					<div class="col-md-2">이름</div>
-					<div class="col-md-3">
-						<input type="text" name="member_name" required="required"
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1">이름</label>
+					<div class="col-md-1">
+						<input type="text" class=" form-control" name="member_name" required="required"
 							onkeyup="this.value=this.value.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]+/,'')">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">아이디</div>
-
-					<div class="col-md-2">
+				
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1" >아이디</label>
+					<div class="col-md-1  ">
 						<input id="mem_idCheck" type="text" name="member_id"
-							required="required"^[a-zA-Z]*$ 	>
+							required="required"^[a-zA-Z]*$   class="form-control">
 					</div>
 					<div class="col-md-1">
-						<input type="button" value="중복체크" onclick="id_check()">
-						 <input type="checkbox" id="mem_check" > 
+						<input type="button" value="중복체크" class= "btn btn-warning"onclick="id_check()" > 
 					</div>
+</div>
+			
 
 
 
-				</div>
-
-				<div class="container">
-					<div class="col-md-2">비밀번호</div>
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1" >비밀번호</label>
 					<div class="col-md-3">
-						<input type="password" name="member_pwd" required="required">
+						<input type="password" name="member_pwd" required="required" class="form-control">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">이메일</div>
+				
+				<div class="row form-group">
+					<label class="col-md-offset-3 col-md-1 " align="right">이메일</label>
 					<div class="col-md-3">
-						<input type="email" name="member_email" required="required">
+						<input type="email" name="member_email" required="required" class="form-control">
 					</div>
-				</div>
-				<div class="container">
-					<div class="col-md-2">휴대폰번호</div>
+				 </div>
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1 " align="right" >전화번호</label>
 					<div class="col-md-1">
-						<select name="member_telephone">
+						<select name="member_telephone" class="form-control">
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
 						</select>
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required" name="tel2"
+						<input  name="member_telephone" required="required" name="tel2"
 							style="ime-mode: disabled;"
-							onkeyup="this.value=this.value.replace(/\D/,'')">
+							onkeyup="this.value=this.value.replace(/\D/,'')" class="form-control">
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required" name="tel3"
+						<input name="member_telephone" required="required" name="tel3"
 							style="ime-mode: disabled;"
-							onkeyup="this.value=this.value.replace(/\D/,'')">
+							onkeyup="this.value=this.value.replace(/\D/,'')" class="form-control">
 					</div>
 				</div>
 				<br>
-				<div class="container">
-					<button class="col-md-1" onclick="check()">회원가입</button>
-					<input type="reset" value="다시쓰기" class="col-md-1">
+				<div class="row" >
+				<div class="col-md-4" ></div>
+				<div style="display: block;" class="col-md-1">
+					<button class=" form-control" onclick="check(event)" style="background-color: #F5DEB3">회원가입</button></div>
+					<div class="col-md-1 button" >
+					<input type="reset" value="다시쓰기" class="col-md-1  form-control"	style="background-color: #F5DEB3" ></div>
 				</div>
 			</form>
+				<input type="checkbox" id="mem_check" class="button mem_check" >
 		</div>
+
+
 
 
 		<!-- 기업 -->
 		<div class="tab-pane" id="coper">
-			<form action="join/etp" id="etp" method="post">
+			<form action="mypage/etp/join/etp" id="etp_join" method="post">
 				<input type="hidden" name="id" value="2">
-				<div class="container">
-					<div class="col-md-2">가입자명</div>
-					<div class="col-md-3">
-						<input type="text" name="etp_name" required="required"
-							onkeyup="this.value=this.value.replace(/[^\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F]+/,'')">
-					</div>
-				</div>
-				<div class="container">
-					<div class="col-md-2">아이디</div>
-					<div class="col-md-2">
+			
+			
+				
+			
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1" >아이디</label>
+					<div class="col-md-1">
 						<input type="text" name="etp_id" required="required"
-							id="etp_idCheck">
+							id="etp_idCheck" class="form-control " >
 					</div>
 					<div class="col-md-1">
-						<input type="button" value="중복체크" onclick="id_check2()">
-						<input type="checkbox" id="etp_check" >
+						<input type="button" value="중복체크" onclick="id_check2()"class="btn btn-warning"> 
 
 					</div>
-
 				</div>
-				<div class="container">
-					<div class="col-md-2">비밀번호</div>
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1">비밀번호</label>
 					<div class="col-md-3">
-						<input type="password" name="etp_pass" required="required">
+						<input type="password" name="etp_pass" required="required" class="form-control">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">이메일</div>
+				<div class="row">
+					<label class=" col-md-offset-3 col-md-1">이메일</label>
 					<div class="col-md-3">
-						<input type="email" name="etp_email" required="required">
+						<input type="email" name="etp_email" required="required" class="form-control">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">회사전화번호</div>
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1">회사전화번호</label>
 					<div class="col-md-1">
-						<select name="member_telephone">
+						<select name="etp_tel" class="form-control">
 							<option>02</option>
 							<option>031</option>
 							<option>054</option>
 						</select>
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required"
+						<input name="etp_tel" required="required"
 							onkeyup="this.value=this.value.replace(/\D/,'')"
-							style="ime-mode: disabled;">
+							style="ime-mode: disabled;" class=" form-control">
 					</div>
 					<div class="col-md-1">
-						<input type="member_telephone" required="required"
+						<input name="etp_tel" required="required"
 							onkeyup="this.value=this.value.replace(/\D/,'')"
-							style="ime-mode: disabled;">
+							style="ime-mode: disabled;" class="form-control">
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="col-md-2">기업형태</div>
+				<div class="row">
+					<label class="col-md-offset-3 col-md-1">기업형태</label>
 					<div class="col-md-3">
 						<select class="form-control" name="etp_kind" id="etp_kind">
 							<option value="중소기업">중소기업(300명이하)</option>
@@ -581,32 +569,40 @@
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="col-md-2">사업자등록번호</div>
+				<div class="row">
+					<div class=" col-md-offset-3 col-md-1">사업자등록번호</div>
 					<div class="col-md-3">
-						<input type="text" name="etp_registration_num" required="required">
+						<input type="text" name="etp_registration_num" required="required"  class="form-control">
 					</div>
 				</div>
 
-				<div class="container">
-					<div class="col-md-2">대표자명</div>
+				<div class="row">
+					<div class="col-md-offset-3 col-md-1">대표자명</div>
 					<div class="col-md-3">
-						<input type="text" name="delegator_name" required="required">
+						<input type="text" name="delegator_name" required="required" class="form-control">
 					</div>
 				</div>
-				<div class="container">
-					<div class="col-md-2">회사명</div>
+				<div class="row">
+					<div class="col-md-offset-3 col-md-1">회사명</div>
 					<div class="col-md-3">
-						<input type="text" name="etp_name" required="required">
+						<input type="text" name="etp_name" required="required" class="form-control" >
 					</div>
 				</div>
 				<br>
-				<div class="container">
-					<button class="col-md-1" onclick="check()">회원가입</button>
-					<input type="reset" value="다시쓰기" class="col-md-1">
+				<div class="row">
+
+				
+				<div class="col-md-4"></div>
+				<div style="display: block;" class="col-md-1">
+				<button class="col-md-1 form-control button" onclick="check(event)" style="background-color: #F5DEB3">회원가입</button>
 				</div>
-		</div>
+					<div class="col-md-1 button" >
+					<input type="reset" value="다시쓰기" class="col-md-1 form-control button"  style="background-color: #F5DEB3">
+					</div>
+				</div>
 		</form>
+		<input type="checkbox" id="etp_check">
+	</div>
 	</div>
 </body>
 </html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.jobis.etp.exam.persistance.Etp_ExamDAOImpl;
 import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.domain.Etp_JoinVO;
+import com.jobis.etp.join.domain.Etp_JoinDTO;
 import com.jobis.etp.join.persistance.Etp_JoinDAOImpl;
 
 
@@ -18,8 +19,13 @@ public class Etp_JoinServiceImpl  implements Etp_JoinService {
 	private Etp_JoinDAOImpl joinDao;
 
 	@Override
+
+	/*public void Etp_joinService_create(Etp_joinDTO joindto) {
+		joinDao.etp_JoinDAO_create(joindto);*/
+
 	public void Etp_joinService_create(Etp_JoinDTO dto) {
 		joinDao.etp_JoinDAO_create(dto);
+
 		
 	}
 

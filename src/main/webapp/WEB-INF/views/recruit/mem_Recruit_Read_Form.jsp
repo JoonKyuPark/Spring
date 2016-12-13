@@ -1,4 +1,3 @@
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,50 +9,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>부트스트랩</title>
 <link rel="stylesheet" type="text/css" media="all"
-	href="../../../css/recruit/mem/daterangepicker.css" />
-<link rel="import"
-  href="../polymer/polymer.html">
-<link rel="import" 
-  href="../iron-icon/iron-icon.html">
+	href="../../../resources/css/recruit/mem/daterangepicker.css" />
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="stylesheet"
-	href="../../../css/recruit/mem/sweetalert.css">
-<link href="../../../css/recruit/mem/bootstrap.min.css"
+	href="../../../resources/css/recruit/mem/sweetalert.css">
+<link href="../../../resources/css/recruit/mem/bootstrap.min.css"
 	rel="stylesheet">
-<link href="../../../css/recruit/mem/kfonts2.css"
+<link href="../../../resources/css/recruit/mem/kfonts2.css"
 	rel="stylesheet">
 <link rel="stylesheet" type="text/css"
-	href="../../../css/recruit/mem/mem_Recruit_Read_Style.css" />
+	href="../../../resources/css/recruit/mem/mem_Recruit_Read_Style.css" />
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=7f371f73f647744ce5b5552611d68ab9&libraries=services"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="text/javascript"
-	src="../../../js/recruit/mem/jquery-2.1.3.min.js"></script>
-<script src="../../../js/recruit/mem/sweetalert.min.js"></script>
-<script src="../../../js/recruit/mem/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../../js/recruit/mem/moment.js"></script>
-<script type="text/javascript" src="../../../js/recruit/mem/daterangepicker.js"></script>
-
+	src="../../../resources/js/recruit/mem/jquery-2.1.3.min.js"></script>
+<script src="../../../resources/js/recruit/mem/sweetalert.min.js"></script>
+<script src="../../../resources/js/recruit/mem/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="../../../resources/js/recruit/mem/moment.js"></script>
+<script type="text/javascript"
+	src="../../../resources/js/recruit/mem/daterangepicker.js"></script>
+<link href="../../../resources/css/recruit/mem/grayscale.css"
+	rel="stylesheet">
+<link href="../../../resources/css/recruit/mem/grayscale.min.css"
+	rel="stylesheet">
 <script type="text/javascript">
-			$(document).ready(function() {
-				  $('.collapse.in').prev('.panel-heading').addClass('active');
-				  $('#accordion, #bs-collapse')
-				    .on('show.bs.collapse', function(a) {
-				      $(a.target).prev('.panel-heading').addClass('active');
-				    })
-				    .on('hide.bs.collapse', function(a) {
-				      $(a.target).prev('.panel-heading').removeClass('active');
-				    });
+
+		var rno ="${recruit_read.getRecruit_no()}";
+
+		$(document).ready(function() {
+			  $('.collapse.in').prev('.panel-heading').addClass('active');
+			  $('#accordion, #bs-collapse')
+			    .on('show.bs.collapse', function(a) {
+			      $(a.target).prev('.panel-heading').addClass('active');
+			    })
+			    .on('hide.bs.collapse', function(a) {
+			      $(a.target).prev('.panel-heading').removeClass('active');
+			    });
+			  
+				//스크랩 추가할때 
+				$("#button3").on("click",function(){
+					  $.ajax({
+							type:'post',
+							url:'/clip',
+							headers: { 
+							      "Content-Type": "application/json",
+							      "X-HTTP-Method-Override": "POST" },
+							dataType:'text',
+							data: JSON.stringify({recruit_no : rno}),//stringify문자열을 json으로
+							success:function(result){
+								console.log("result: " + result);
+								if(result == 'SUCCESS'){
+									alert("등록 되었습니다.");
+									$("#clip_count").text("${mem_clip_count+1}"); 
+								}
+							}	
+								
+						});
 				});
+		});
+		
 		
 		 function button1_click() {
-			 swal({   title: " ",   text: "잡이즈 기본 이력서로 온라인 지원 됩니다. ",   type: "warning",
-		 			showCancelButton: true,   confirmButtonText: "지원하기",   closeOnConfirm: false }, 
-		 				 function(){  
-		 				location.href="/receive/mem_Join_Receive_Create?rno=${recruit_read.getRecruit_no()}";
-		 				
-		 				swal("지원 성공!", "잡이즈 이력서로 온라인 지원 성공 했습니다.", "success"); 
-		 			});
+			 window.open('/receive/mem_Join_Receive_Create_Form?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
+		 }
+		 
+		 function button4_click() {
+			 window.open('/receive/mem_Join_Receive_Reserv_Create_Form?rno=${recruit_read.getRecruit_no()}','name','menubar=yes,resizable=yes,scrollbars=yes,status=yes,titlebar=yes,toolbar=yes,location=yes,width=550,height=700');
 		 }
 		 
 		 function button2_click() {
@@ -93,363 +118,361 @@
 	        	 dy + hoursRound + hr + minutesRound + min + secondsRound + sec;
 	        	 newtime = window.setTimeout("reverse_counter();", 1000);
 	       }
-	         
 		</script>
 <style>
 </style>
 </head>
 <body onLoad="reverse_counter();">
-
-	<div class="container">
-		<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+	<div class="navbar-white col-md-12" style="z-index: 5000;">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
-				data-target=".navbar-ex1-collapse">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				data-target=".navbar-main-collapse">
+				Menu <i class="fa fa-bars"></i>
 			</button>
+			<a class="navbar-brand page-scroll" href="#page-top"> JOB <span
+				class="light">IS</span>
+			</a>
 		</div>
-
-		<div class="collapse navbar-collapse navbar-ex1-collapse">
+		<div
+			class="collapse navbar-collapse navbar-right navbar-main-collapse">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#nav1" data-toggle="tab">${list1.get(0).hire_type}
-						채용정보</a></li>
-				<li><a href="#nav2" data-toggle="tab">기업정보 상세 보기</a></li>
+				<li class="hidden"><a href="#page-top"></a></li>
+				<li><a class="page-scroll" href="#about">전체 채용공고</a></li>
+				<li><a class="page-scroll" href="#download">시험</a></li>
+				<li><a class="page-scroll" href="#download">스마트매칭</a></li>
+				<li><a class="page-scroll" href="#contact">로그인</a></li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse --> </nav>
-
-		<div class="tab-content">
-			<div class="tab-pane active" id="nav1">
-				<div class="nav" id="infor">
-					<center>
-						<h3 id="recruit_title">${recruit_read.recruit_title}</h3>
-					</center>
-					<hr>
-					<br><br>
-						<div class="row">
-							<div class="col-md-5">	
-							<center>
-							<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
-								alt="..." class="img-responsive img-rounded" id="logoImg" >
-							</center>
-							</div>
-							<div class="col-md-5">	
-							<h3>${etp_read.etp_name}<br></h3>
-							<b>기업형태&nbsp;&nbsp;</b> ${etp_read.etp_kind}<br>
-							<b>기업주소&nbsp;&nbsp;</b> ${recruit_addr_2}<br>
-							<b>대표자명&nbsp;&nbsp;</b> ${etp_read.delegator_name}<br>
-							<b>매출액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${etp_read.etp_sales}<br>
-							<b>직원수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${etp_read.employee_number}<br>
-							</div>
-							<div class="col-md-2">	
-							<div id="clip"><center>${mem_clip_count}</center></div>
-							<center><button>관심 채용 등록</button></center>
-							</div>
-					</div>
-					
-					<br>
-					<br>
-					<br>
-					<br>
-					<div class="row">
-						<table class="table">
-							<tr>
-
-								<td>
-									<center>
-										<img
-											src="../../../resources/css/recruit/mem/images/career.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 경력 <br>${recruit_read.career_check}
-										${recruit_read.career_period} 년
-									</center>
-								</td>
-
-								<td><center>
-										<img
-											src="../../../resources/css/recruit/mem/images/school.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 학력<br> ${recruit_read.ac_ability_no} 이상
-									</center></td>
-								<td><center>
-										<img src="../../../resources/css/recruit/mem/images/money.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 급여<br> ${recruit_read.min_pay}원 ~
-										${recruit_read.max_pay}원
-									</center></td>
-								<td><center>
-										<img
-											src="../../../resources/css/recruit/mem/images/location.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 지역<br> ${recruit_addr_3}>${recruit_addr_4}
-									</center></td>
-								<td><center>
-										<img
-											src="../../../resources/css/recruit/mem/images/calendar.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 근무 요일 <br> ${recruit_read.recruit_day}
-									</center></td>
-								<td><center>
-										<img src="../../../resources/css/recruit/mem/images/time.png"
-											alt="..." class="img-responsive img-rounded" id="titleImg">
-										<br> 마감일<br> ${recruit_read.receive_ddate}
-									</center></td>
-							</tr>
-						</table>
-					</div>
-					<form name="counter" id="timeform" >
-						남은 시간    <input type="text" name="counter_box"  size="22" id="time">
-					</form>
-				</div>
-				<center>
-					<br>
-					<button type="button" id="button1" onclick="button1_click();"
-						class="btn btn-primary btn-lg raised">즉시 지원</button>
-					<a> </a>
-					<button type="button" class="btn btn-primary btn-lg outline">안심
-						지원 예약</button>
-					<input type="button" id="button2" onclick="button2_click();"
-						value="입사 지원 현황" /> <br>
-					<br>
-					<br>
-
-				</center>
-
-				<hr id="bold">
-
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#tab1" data-toggle="tab">채용정보</a></li>
-					<li><a href="#tab2" data-toggle="tab">접수기간/방법</a></li>
-				</ul>
-				<div class="tab-content">
-
-
-
-					<div class="tab-pane active" id="tab1">
-
-						<!-- ----------------------------------------------아코디언--------------------------------------------- -->
-						<div class="container">
-
-							<div class="panel-group" id="accordion">
-
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										<h2 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseOne"> 모집요강 </a>
-											</h4>
-									</div>
-									<div id="collapseOne" class="panel-collapse collapse in">
-										<div class="panel-body">
-											<h4>모집요강</h4>
-											<table class="table">
-												<tr>
-													<th>담당업무</th>
-													<td>${recruit_read.hire_type}</td>
-												</tr>
-												<tr>
-													<th>근무형태</th>
-													<td>${recruit_read.hire_type}</td>
-												</tr>
-												<tr>
-													<th>모집인원</th>
-													<td>${recruit_read.recruit_number}</td>
-												</tr>
-												<tr>
-													<th>급여</th>
-													<td>${recruit_read.min_pay}만원~${recruit_read.max_pay}만원</td>
-												</tr>
-												<tr>
-													<th>지원자격</th>
-													<td>${recruit_read.min_pay}</td>
-												</tr>
-											</table>
-										</div>
-									</div>
-								</div>
-
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										<h2 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseTwo"> 접수기간 및 방법 </a>
-											</h4>
-									</div>
-
-
-									<div id="collapseTwo" class="panel-collapse collapse">
-										<div class="panel-body">
-											<h4>접수기간 및 방법</h4>
-											<table class="table">
-												<tr>
-													<th>접수기간</th>
-													<td>${recruit_read.receive_sdate}~${recruit_read.receive_ddate}</td>
-														<div data-provide="calendar"></div>
-
-	<div class="container">
-		<div class="well configurator hidden">
-			<form>
-				<div class="row">
-					<div class="col-md-4">
-						<div class="form-group">
-							<label for="parentEl">parentEl</label> <input type="text"
-								class="form-control" id="parentEl" value="" placeholder="body">
-						</div>
-
-						<div class="form-group">
-							<label for="startDate">startDate</label> <input type="text"
-								class="form-control" id="startDate" value="07/01/2015">
-						</div>
-
-						<div class="form-group">
-							<label for="endDate">endDate</label> <input type="text"
-								class="form-control" id="endDate" value="07/15/2015">
-						</div>
-
-						<div class="form-group">
-							<label for="minDate">minDate</label> <input type="text"
-								class="form-control" id="minDate" value=""
-								placeholder="MM/DD/YYYY">
-						</div>
-
-						<div class="form-group">
-							<label for="maxDate">maxDate</label> <input type="text"
-								class="form-control" id="maxDate" value=""
-								placeholder="MM/DD/YYYY">
-						</div>
-
-					</div>
-					<div class="col-md-12">
-						<div class="checkbox">
-							<label> <input type="checkbox" id="locale">
-								locale (with example settings)
-							</label> <label id="rtl-wrap"> <input type="checkbox" id="rtl">
-								RTL (right-to-left)
-							</label>
-						</div>
-
-						<div class="checkbox">
-							<label> <input type="checkbox" id="alwaysShowCalendars">
-								alwaysShowCalendars
-							</label>
-						</div>
-					</div>
-
-				</div>
-			</form>
-
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<input type="text" id="config-demo" class="form-control" > 
-			</div>
-			<div class="col-md-9"></div>
-		</div>
-
 	</div>
-												</tr>
-												<tr>
-													<th>접수방법</th>
-													<td>${recruit_read.receive_way}</td>
-												</tr>
-											</table>
-											<h4>전형절차 및 제출서류</h4>
-											<table class="table">
-												<tr>
-													<th>전형절차</th>
-													<td>${recruit_read.hire_type}</td>
-												</tr>
-												<tr>
-													<th>제출서류</th>
-													<td>${recruit_read.hire_type}</td>
-												</tr>
-											</table>
+	</nav>
 
-										</div>
+	<br>
+	<br>
+	<br>
+	
+	<div class="container">
+	<div class="tab-content">
+		<div class="tab-pane active" id="nav1">
+			<div class="nav" id="infor">
+				<center>
+					<h3 id="recruit_title">${recruit_read.recruit_title}</h3>
+				</center>
+				<hr>
+				<br> <br>
+				<div class="row">
+					<div class="col-md-5">
+						<center>
+							<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
+								alt="..." class="img-responsive img-rounded" id="logoImg">
+						</center>
+					</div>
+					<div class="col-md-5">
+						<h3>${etp_read.etp_name}<br>
+						</h3>
+						<b>기업형태&nbsp;&nbsp;</b> ${etp_read.etp_kind}<br> <b>기업주소&nbsp;&nbsp;</b>
+						${recruit_addr_2}<br> <b>대표자명&nbsp;&nbsp;</b>
+						${etp_read.delegator_name}<br> <b>매출액&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+						${etp_read.etp_sales}<br> <b>직원수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+						${etp_read.employee_number}<br>
+					</div>
+					<div class="col-md-2">
+						<div id="clip">
+							<center>
+								<div id="clip_count">${mem_clip_count}</div>
+							</center>
+						</div>
+						<center>
+							<button id="button3">관심 채용 등록</button>
+						</center>
+					</div>
+				</div>
+
+				<br> <br> <br> <br>
+				<div class="row">
+					<table class="table">
+						<tr>
+
+							<td>
+								<center>
+									<img src="../../../resources/css/recruit/mem/images/career.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 경력 <br>${recruit_read.career_check}
+									${recruit_read.career_period} 년
+								</center>
+							</td>
+
+							<td><center>
+									<img src="../../../resources/css/recruit/mem/images/school.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 학력<br> ${recruit_read.ac_ability_no} 이상
+								</center></td>
+							<td><center>
+									<img src="../../../resources/css/recruit/mem/images/money.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 급여<br> ${recruit_read.min_pay}원 ~
+									${recruit_read.max_pay}원
+								</center></td>
+							<td><center>
+									<img
+										src="../../../resources/css/recruit/mem/images/location.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 지역<br> ${recruit_addr_3}>${recruit_addr_4}
+								</center></td>
+							<td><center>
+									<img
+										src="../../../resources/css/recruit/mem/images/calendar.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 근무 요일 <br> ${recruit_read.recruit_day}
+								</center></td>
+							<td><center>
+									<img src="../../../resources/css/recruit/mem/images/time.png"
+										alt="..." class="img-responsive img-rounded" id="titleImg">
+									<br> 마감일<br> ${recruit_read.receive_ddate}
+								</center></td>
+						</tr>
+					</table>
+				</div>
+				<form name="counter" id="timeform">
+					남은 시간 <input type="text" name="counter_box" size="22" id="time">
+				</form>
+			</div>
+			<center>
+				<br>
+				<button type="button" id="button1" onclick="button1_click();"
+					class="btn btn-primary btn-lg raised">즉시 지원</button>
+				<button type="button" id="button4" onclick="button4_click();"
+					class="btn btn-primary btn-lg outline">안심 지원 예약</button>
+				<input type="button" id="button2" onclick="button2_click();"
+					value="입사 지원 현황" /> <br> <br> <br>
+
+			</center>
+
+			<hr id="bold">
+
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab1" data-toggle="tab">채용정보</a></li>
+				<li><a href="#tab2" data-toggle="tab">접수기간/방법</a></li>
+			</ul>
+			<div class="tab-content">
+
+				<div class="tab-pane active" id="tab1">
+
+					<!-- ----------------------------------------------아코디언--------------------------------------------- -->
+					<div class="container">
+
+						<div class="panel-group" id="accordion">
+
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion"
+											href="#collapseOne"> 모집요강 </a>
+										</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<h4>모집요강</h4>
+										<table class="table">
+											<tr>
+												<th>담당업무</th>
+												<td>${recruit_read.hire_type}</td>
+											</tr>
+											<tr>
+												<th>근무형태</th>
+												<td>${recruit_read.hire_type}</td>
+											</tr>
+											<tr>
+												<th>모집인원</th>
+												<td>${recruit_read.recruit_number}</td>
+											</tr>
+											<tr>
+												<th>급여</th>
+												<td>${recruit_read.min_pay}만원~${recruit_read.max_pay}만원</td>
+											</tr>
+											<tr>
+												<th>지원자격</th>
+												<td>${recruit_read.min_pay}</td>
+											</tr>
+										</table>
 									</div>
+								</div>
+							</div>
+
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion"
+											href="#collapseTwo"> 접수기간 및 방법 </a>
+										</h4>
 								</div>
 
 
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										<h2 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseThree"> 근무환경 </a>
-											</h4>
-									</div>
-									<div id="collapseThree" class="panel-collapse collapse">
-										<div class="panel-body">
-											<h4>근무환경</h4>
-											<table class="table">
-												<tr>
-													<th>근무지역</th>
-													<td>${recruit_read.recruit_addr}</td>
-												</tr>
-												<tr>
-													<th>근무요일</th>
-													<td>${recruit_read.recruit_day}</td>
-												</tr>
-												<tr>
-													<th>근무부서</th>
-													<td>${recruit_read.recruit_number}</td>
-												</tr>
-												<tr>
-													<th>복리후생</th>
-													<td>${recruit_read.min_pay}만원~${recruit_read.max_pay}만원</td>
-												</tr>
-												<tr>
-													<th>기타 급여조건</th>
-													<td>${recruit_read.min_pay}</td>
-												</tr>
-											</table>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+										<h4>접수기간 및 방법</h4>
+										<table class="table">
+											<tr>
+												<th>접수기간</th>
+												<td>${recruit_read.receive_sdate}~${recruit_read.receive_ddate}</td>
+												<div data-provide="calendar"></div>
 
-										</div>
+												<div class="container">
+													<div class="well configurator hidden">
+														<form>
+															<div class="row">
+																<div class="col-md-4">
+																	<div class="form-group">
+																		<label for="parentEl">parentEl</label> <input
+																			type="text" class="form-control" id="parentEl"
+																			value="" placeholder="body">
+																	</div>
+
+																	<div class="form-group">
+																		<label for="startDate">startDate</label> <input
+																			type="text" class="form-control" id="startDate"
+																			value="07/01/2015">
+																	</div>
+
+																	<div class="form-group">
+																		<label for="endDate">endDate</label> <input
+																			type="text" class="form-control" id="endDate"
+																			value="07/15/2015">
+																	</div>
+
+																	<div class="form-group">
+																		<label for="minDate">minDate</label> <input
+																			type="text" class="form-control" id="minDate"
+																			value="" placeholder="MM/DD/YYYY">
+																	</div>
+
+																	<div class="form-group">
+																		<label for="maxDate">maxDate</label> <input
+																			type="text" class="form-control" id="maxDate"
+																			value="" placeholder="MM/DD/YYYY">
+																	</div>
+
+																</div>
+																<div class="col-md-12">
+																	<div class="checkbox">
+																		<label> <input type="checkbox" id="locale">
+																			locale (with example settings)
+																		</label> <label id="rtl-wrap"> <input type="checkbox"
+																			id="rtl"> RTL (right-to-left)
+																		</label>
+																	</div>
+
+																	<div class="checkbox">
+																		<label> <input type="checkbox"
+																			id="alwaysShowCalendars"> alwaysShowCalendars
+																		</label>
+																	</div>
+																</div>
+
+															</div>
+														</form>
+
+													</div>
+													<div class="row">
+														<div class="col-md-3">
+															<input type="text" id="config-demo" class="form-control">
+														</div>
+														<div class="col-md-9"></div>
+													</div>
+
+												</div>
+											</tr>
+											<tr>
+												<th>접수방법</th>
+												<td>${recruit_read.receive_way}</td>
+											</tr>
+										</table>
+										<h4>전형절차 및 제출서류</h4>
+										<table class="table">
+											<tr>
+												<th>전형절차</th>
+												<td>${recruit_read.hire_type}</td>
+											</tr>
+											<tr>
+												<th>제출서류</th>
+												<td>${recruit_read.hire_type}</td>
+											</tr>
+										</table>
+
 									</div>
 								</div>
+							</div>
 
-								<div class="panel panel-info">
-									<div class="panel-heading">
-										<h2 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordion"
-												href="#collapseFour"> 문의처 </a>
-											</h4>
+
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion"
+											href="#collapseThree"> 근무환경 </a>
+										</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">
+										<h4>근무환경</h4>
+										<table class="table">
+											<tr>
+												<th>근무지역</th>
+												<td>${recruit_read.recruit_addr}</td>
+											</tr>
+											<tr>
+												<th>근무요일</th>
+												<td>${recruit_read.recruit_day}</td>
+											</tr>
+											<tr>
+												<th>근무부서</th>
+												<td>${recruit_read.recruit_number}</td>
+											</tr>
+											<tr>
+												<th>복리후생</th>
+												<td>${recruit_read.min_pay}만원~${recruit_read.max_pay}만원</td>
+											</tr>
+											<tr>
+												<th>기타 급여조건</th>
+												<td>${recruit_read.min_pay}</td>
+											</tr>
+										</table>
+
 									</div>
-									<div id="collapseFour" class="panel-collapse collapse">
-										<div class="panel-body">
-											<h4>문의처</h4>
-											<table class="table">
-												<tr>
-													<th>담당자 정보</th>
-													<td>${recruit_read.hire_type}</td>
-												</tr>
-												<tr>
-													<th>전화및 FAX</th>
-													<td>${etp_read.etp_tel}</td>
-												</tr>
-												<tr>
-													<th>회사주소</th>
-													<td>${etp_read.etp_location}</td>
-												</tr>
-											</table>
+								</div>
+							</div>
 
-										</div>
+							<div class="panel panel-info">
+								<div class="panel-heading">
+									<h2 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion"
+											href="#collapseFour"> 문의처 </a>
+										</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">
+										<h4>문의처</h4>
+										<table class="table">
+											<tr>
+												<th>담당자 정보</th>
+												<td>${recruit_read.hire_type}</td>
+											</tr>
+											<tr>
+												<th>전화및 FAX</th>
+												<td>${etp_read.etp_tel}</td>
+											</tr>
+											<tr>
+												<th>회사주소</th>
+												<td>${etp_read.etp_location}</td>
+											</tr>
+										</table>
+
 									</div>
 								</div>
 							</div>
 						</div>
-
-						<!-- ----------------------------------------------아코디언--------------------------------------------- -->
-						<div id="map" style="width: 100%; height: 350px;"></div>
-						<p style="margin-top: 5px">
-							<em class="link"> <a href="javascript:void(0);"
-								onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
-									혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요. </a>
-							</em>
-						</p>
 					</div>
 
+					<!-- ----------------------------------------------아코디언--------------------------------------------- -->
 					<div class="tab-pane" id="tab2">
 						<h4>접수기간/방법</h4>
 
@@ -478,82 +501,41 @@
 					</div>
 				</div>
 			</div>
-			<div class="tab-pane" id="nav2">
+			</div>
+			</div>
+			</div>
 
-				<table class="table">
-					<tr>
-						<td><center>
-								<img src="../../../resources/css/recruit/mem/images/samsung.jpg"
-									alt="..." class="img-responsive img-rounded" id="logoImg" >
-								<br> ${etp_read.etp_name}
-								</center></td>
-						<td><center>
-								<img src="../images/people.png" alt="..."
-									class="img-responsive img-rounded" id="titleImg"> <br>
-								매출액<br> ${etp_read.etp_sales}
-							</center></td>
-						<td><center>
-								<img src="../images/people.png" alt="..."
-									class="img-responsive img-rounded" id="titleImg"> <br>
-								설립년차<br> ${etp_read.etp_sales}
-							</center></td>
-						<td><center>
-								<img src="../images/people.png" alt="..."
-									class="img-responsive img-rounded" id="titleImg"> <br>
-								사원수<br> ${etp_read.employee_number}
-							</center></td>
-						<td><center>
-								<img src="../images/people.png" alt="..."
-									class="img-responsive img-rounded" id="titleImg"> <br>
-								기업형태 <br> ${etp_read.etp_kind}
-							</center></td>
-					</tr>
-				</table>
+			<div id="map" style="width: 100%; height: 350px;"></div>
+			<p style="margin-top: 5px">
+				<em class="link"> <a href="javascript:void(0);"
+					onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+						혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요. </a>
+				</em>
+			</p>
 
-				<h4>${etp_read.etp_name}기업에입사해야하는이유</h4>
-				<hr class="one">
-				<b>관심기업으로 명 이상 찜한 선망 받는 기업<br></b> <b> ${etp_read.etp_kind}</b>
-				<hr class="one">
-				<h3>기본정보</h3>
-				<hr class="one">
-				<%-- <table class="table">
-						<th width="30">대표자명 ${etp_read.delegator_name}</th>
-						<tr height="10"></tr>
-						<th width="30">기업형태 ${etp_read.etp_kind }</th>
-						<tr height="10"></tr>
-						<th width="30">자본금 ${etp_read.delegator_name}</th>
-						<tr height="10"></tr>
-						<th width="30">당기순이익 ${etp_read.delegator_name}</th>
-						<tr height="10"></tr>
-						<th width="30">주요 사업 ${etp_read.delegator_name}</th>
-						<tr height="10"></tr>
-						<th width="30">당기순이익 ${etp_read.delegator_name}</th>
-						<tr height="10"></tr>
-						<th width="30">${etp_read.employee_number }tor_name}</th>
-						<tr height="10"></tr>
-						<th width="30"> ${etp_read.etp_sales }ployee_number }</th>
-						<tr height="10"></tr>
-						<th wi ${etp_read.etp_field }.etp_sales }</th>
-						<tr height="10"></tr>
-						<th width="30">산업(업종) ${etp_read.etp_field }</th>
-						<tr height="10"></tr>
-
-				</table> --%>
-				<hr class="one">
-				<h3>고용현황</h3>
-				<hr class="one">
-				<hr class="one">
-				<h3>근무환경</h3>
-				<hr class="one">
-				<hr class="one">
-				<h3>취업가이드</h3>
-				<hr class="one">
-				<hr class="one">
-				<h3>기업 History</h3>
-				<hr class="one">
-				<hr class="one">
 		</div>
 
+		<center>
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <img
+				src="../../../resources/css/recruit/mem/images/estimateBg.png"
+				width="400px" height=auto>
+			<div class="col-lg-12" id="footer_foot">
+				<div class="container" id="footer_con_div">
+					<a id="footer_con">회사소개</a> <a id="footer_con">이용방법</a> <a
+						id="footer_con">잡이즈</a> <a id="footer_con">이용약관</a> <a
+						id="footer_con">FAQ</a> <a id="footer_con">개인정보취급방침</a>
+				</div>
+				<hr id="hr_line">
+				<div class="container" id="footer_con_div">
+					<a id="footer_con_detail">(주) 잡이즈 </a><br> <a
+						id="footer_con_detail">대표이사 : 한무영</a><br> <a
+						id="footer_con_detail">CFO : 김민정 박세령 박준규 박찬하 정현우 최형묵 </a><br>
+					<a id="footer_con_detail">사업자등록번호 : 111-1111-1111</a><br> <a
+						id="footer_con_detail">주소 : 서울특별시 금천구 가산동 371-28</a>
+				</div>
+			</div>
+		</center>
 	</div>
 	<script type="text/javascript">
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -761,6 +743,5 @@
 	}
     
 	</script>
-
 </body>
 </html>

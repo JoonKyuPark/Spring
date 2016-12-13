@@ -5,6 +5,8 @@
   
 <mapper namespace="org.spring.project.mappers.Mem_Match_Mapper">
 
+	<select parameterType="Mem_LoginVO" id="mem_matching"> select * from recruit_infor where recruit_addr in(select recruit_addr from RECRUIT_INFOR r ,MEMBER_INFOR m, resume re where r.recruit_addr= ( select substr(member_addr,1,2) from member_infor where member_no=#{member_no})) and (select hope_income from resume r,member_infor m where m.member_no=#{member_no}) between min_pay and max_pay and ac_ability_no= (select max(ed_division) from ac_ability where resume_no = (select resume_no from member_infor where member_no=#{member_no})); </select>
+
 </mapper>  
 
  

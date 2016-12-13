@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jobis.etp.clip.domain.Etp_Mem_ClipDTO;
-import com.jobis.etp.clip.domain.Etp_Mem_ClipVO;
 import com.jobis.etp.clip.domain.Mem_Resume_ClipDTO;
 import com.jobis.etp.clip.service.Etp_Mem_ClipService;
-import com.jobis.etp.recruit.domain.Etp_RecruitVO;
 
 @Controller
 @RequestMapping("/mypage/etp/*")

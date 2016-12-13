@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.jobis.etp.join.domain.Etp_JoinVO;
 import com.jobis.mem.clip.domain.Mem_ClipVO;
 import com.jobis.mem.clip.service.Mem_ClipService;
+import com.jobis.mem.login.domain.Mem_LoginVO;
 import com.jobis.mem.recruit.domain.Mem_RecruitVO;
 import com.jobis.mem.recruit.service.Mem_RecruitService;
 
 @Controller
-@RequestMapping("/clip/*")
+@RequestMapping("/clip")
 public class Mem_ClipController {
 
 	@Inject
@@ -27,7 +32,7 @@ public class Mem_ClipController {
 	@Inject
 	public Mem_RecruitService recruit_Service;
 	
-	@RequestMapping(value="/mem_Clip_Create",  method = RequestMethod.GET)
+/*	@RequestMapping(value="/mem_Clip_Create",  method = RequestMethod.GET)
 	public String mem_Clip_Create(@RequestParam("rno") int rno)throws Exception{
 		Mem_ClipVO mem_clip=new Mem_ClipVO();
 		mem_clip.setRecruit_no(rno);
@@ -36,11 +41,33 @@ public class Mem_ClipController {
 		
 		return "redirect:/recruit/mem_Recruit_List_Form";
 		
+	}*/
+	
+	@RequestMapping(value="",  method = RequestMethod.POST)
+	public ResponseEntity<String> mem_Clip_Create(@RequestBody Mem_ClipVO vo, HttpServletRequest request)throws Exception{
+		ResponseEntity<String> entity=null;
+		try{
+			Mem_LoginVO member_infor=(Mem_LoginVO) request.getSession().getAttribute("member_infor");
+			int member_no=member_infor.getMember_no();
+			
+			Mem_ClipVO mem_clip=new Mem_ClipVO();
+			mem_clip.setRecruit_no(vo.getRecruit_no());
+			mem_clip.setMember_no(member_no);
+			service.mem_Clip_Create(mem_clip);
+			entity=new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		}catch (Exception e) {
+			e.printStackTrace();
+			entity=new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+		
 	}
 	
 	@RequestMapping(value="/mem_Recruit_Clip_List_Form",  method = RequestMethod.GET)
-	public void mem_Clip_List(Model model)throws Exception{
-		List<Mem_ClipVO> recruit_clip_List=service.mem_Clip_List(1);
+	public void mem_Clip_List(Model model, HttpServletRequest request)throws Exception{
+		Mem_LoginVO member_infor=(Mem_LoginVO) request.getSession().getAttribute("member_infor");
+		int member_no=member_infor.getMember_no();
+		List<Mem_ClipVO> recruit_clip_List=service.mem_Clip_List(member_no);
 		model.addAttribute("recruit_clip_List",recruit_clip_List);
 		
 		

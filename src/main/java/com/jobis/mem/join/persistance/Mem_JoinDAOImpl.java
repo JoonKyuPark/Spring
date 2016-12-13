@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.jobis.mem.join.domain.Mem_JoinVO;
+import com.jobis.mem.join.domain.Mem_joinDTO;
 
 
 @Repository
@@ -17,13 +18,9 @@ public class Mem_JoinDAOImpl implements Mem_JoinDAO {
 	
 	
 	@Override
-	public void mem_create(Mem_JoinVO joinvo) {
-		System.out.println(joinvo.getMember_email());
-		System.out.println(joinvo.getMember_phone());
-		System.out.println(joinvo.getMember_pwd());
-		System.out.println(joinvo.getMember_id());
+	public void mem_create(Mem_joinDTO joindto) {
 
-		sqlsession.insert(namespace+".mem_create", joinvo);
+		sqlsession.insert(namespace+".mem_create", joindto);
 	}
 	
 	@Override

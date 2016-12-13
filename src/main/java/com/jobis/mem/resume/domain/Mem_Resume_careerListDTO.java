@@ -9,7 +9,11 @@ public class Mem_Resume_careerListDTO {
 		return resumeListDTO;
 	}
 
-	public void setResumeListVO(List<Mem_Resume_careerDTO> resumeListDTO) {
+	public void setResumeListDTO(List<Mem_Resume_careerDTO> resumeListDTO) {
 		this.resumeListDTO = resumeListDTO;
 	}
+
+
+	
+	
 }

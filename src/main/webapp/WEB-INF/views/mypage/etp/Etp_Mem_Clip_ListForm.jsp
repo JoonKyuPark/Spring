@@ -65,7 +65,7 @@
 	<c:forEach items="${mem_clip_list}" var="etp_Mem_ClipDTO" varStatus="status">
 		<div class="col-md-4">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
+                    <img src="displayFile?fileName=${etp_Mem_ClipDTO.member_img}" width="133px" height="150px">
                     <div class="caption">
                         <h3>${etp_Mem_ClipDTO.mem_clip_title}</h3>
                         <p>${etp_Mem_ClipDTO.mem_clip_date}</p>

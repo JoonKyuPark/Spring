@@ -18,48 +18,40 @@ public class Etp_LogginInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 
 		Object model = modelAndView.getModelMap().get("etp_infor");
-		//String autologin = (String) modelAndView.getModelMap().get("autologin");
+		String autologin = (String) modelAndView.getModelMap().get("autologin");
 
 		if (model != null) {
 
 			Etp_LoginVO vo = (Etp_LoginVO) model;
 			request.getSession().setAttribute("etp_infor", vo);
 			System.out.println(vo.getEtp_id());
-		/*	if (autologin == null) {
-				if (request.getCookies() == null) {
-					Cookie[] cookies = request.getCookies();
-					for (int i = 0; i < cookies.length; i++) {
-						if (cookies[i].getName().equals("auto")) {
-							cookies[i].setMaxAge(0);
-						}
-					}
-
-				}
-
-			} else if (autologin.equals("auto")) {
+			if (autologin == null) {
+				System.out.println("안들어오십니까?");
+				Cookie cookie1 = new Cookie("etp_autoid", null);
+				Cookie cookie2 = new Cookie("etp_autopass", null);
+				cookie1.setPath("/");
+				cookie2.setPath("/");
+				cookie2.setMaxAge(0);
+				cookie1.setMaxAge(0);
+				response.addCookie(cookie1);
+				response.addCookie(cookie2);  //기존 기업쿠키 삭제
 				
-				 * if(request.getCookies()!=null){ Cookie[]
-				 * cookies=request.getCookies(); for(int i=0; i<cookies.length;
-				 * i++){ if(cookies[i].getName().equals("auto")){
-				 * cookies[i].setMaxAge(0); } }
-				 * 
-				 * }
-				 
+			} else {
 
-				Cookie autoid= new Cookie("autoid", vo.getEtp_id());
-				Cookie autopass= new Cookie("autopass", vo.getEtp_pass());
+				Cookie autoid = new Cookie("etp_autoid", vo.getEtp_id());
+				Cookie autopass = new Cookie("etp_autopass", vo.getEtp_pass());
+
+				System.out.println(autoid);
 				autoid.setPath("/");
 				autopass.setPath("/");
-				autoid.setMaxAge(60*60*24*7);
-				autopass.setMaxAge(60*60*24*7);
+				autoid.setMaxAge(60 * 60 * 24 * 7);
+				autopass.setMaxAge(60 * 60 * 24 * 7);
 				response.addCookie(autoid);
 				response.addCookie(autopass);
-			}*/
-
+				System.out.println("쿠키생성됨");  //새로운 기업쿠키 생성
+			}
 		}
-
 		System.out.println("postHandle");
-
 	}
 
 }
